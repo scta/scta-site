@@ -1,8 +1,8 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem "nokogiri"
 gem 'sinatra'
 gem 'rdf'
 gem 'sparql'
-gem 'sinatra/sparql'
-gem 'uri'
+gem 'linkeddata'
+

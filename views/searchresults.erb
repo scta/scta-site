@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head><title>SCTA Search</title>
+
+<style type="text/css">
+
+td.subjectterm {width: 300px; }
+td {padding: 10px; border: 1px dotted blue;}
+</style>
+
+</head>
+
+<body>
+<h1>SCTA Search Results</h1>
+<%= "<h2>All #{@category}(s) containing #{@post}</h2>" %>
+<table>
+	<tr>
+		<td>Item Id (select link for more information)</td>
+		<td>Title</td>
+	</tr>
+
+<% @result.each do |item| %>
+<tr>
+<% item.each do |subitem| 
+ %>
+
+
+	
+	<% if subitem[0].to_s == 's'  
+			url = subitem[1].to_s
+			urltransform = url.sub('http://scta.info', '') %>
+		<td class="subjectterm">
+		<%= "<a href=\"#{urltransform}\">" + url + "</a>" %>
+		</td>
+		<% elsif subitem[0].to_s == 'o'  %>
+		<td class="titleterm">
+		<%= subitem[1] %>
+		</td>
+	<% end %>
+
+<% end %>
+</tr>
+<% end %>
+</table>
+</body>
+</html>
