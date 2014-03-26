@@ -11,12 +11,17 @@ require 'sinatra/sparql'
 require 'uri'
 require 'sparql/client'
 
+require_relative 'lib/metadata'
+
+require 'pry'
+
 prefixes = "
           PREFIX owl: <http://www.w3.org/2002/07/owl#>
           PREFIX dbpedia: <http://dbpedia.org/ontology/>
           PREFIX dcterms: <http://purl.org/dc/terms/>
           PREFIX dc: <http://purl.org/dc/elements/1.1/>
           PREFIX scta-rel: <http://scta.info/relations/>
+          PREFIX scta-terms: <http://scta.info/terms/>
           PREFIX role: <http://www.loc.gov/loc.terms/relators/>
           PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
           "
@@ -43,13 +48,18 @@ end
 get '/scta' do 
  query = "#{prefixes}
 
-          SELECT ?p ?o
+          SELECT ?s ?o
           {
-          <http://scta.info/scta> ?p ?o  .
+          ?s a <http://scta.info/commentary> .
+          ?s <http://purl.org/dc/elements/1.1/title> ?o  .
           }
-          ORDER BY ?p
+          ORDER BY ?s
           " 
-  query_display_simple(query)
+        @category = 'commentary'
+        @result = rdf_query(query)
+           
+          
+          erb :subj_display
 end
 
 get '/search' do
@@ -77,7 +87,25 @@ get '/searchresults' do
           erb :searchresults
 end
 
+post '/sparqlquery' do
 
+  query = "#{params[:query]}"
+  query_display_simple(query)
+end
+
+get '/test' do
+
+  query = "#{prefixes}
+
+          SELECT ?s
+          {
+          ?s <http://purl.org/dc/terms/hasPart>  <http://scta.info/transcriptions/reims_lectio1> .
+          }
+          "
+
+
+
+end                 
 
 get '/:category' do |category| 
   
@@ -100,6 +128,7 @@ end
 
 get '/:category/:id' do |category, id|
 
+
 @category = category
 @id = id                
 @subjectid = "<http://scta.info/#{@category}/#{@id}>"
@@ -111,18 +140,22 @@ get '/:category/:id' do |category, id|
           }
           ORDER BY ?p
           " 
-   query2 = "#{prefixes}
+          
+          @result = rdf_query(query).map do |item|
+            Metadata.new(item)
+            
+          end
 
-          SELECT ?title
-          {
-          #{@subjectid} <http://purl.org/dc/elements/1.1/title> ?title .
-          }
-          " 
+          @result.sort_by(&:predicate_position)
+
+          titleresult = @result.find do |item|
+            item.predicate_with_prefix == "dc:title"
+          end
 
           
-          @result = rdf_query(query)
-           @titleresult = rdf_query(query2)
-          
+
+          @title = titleresult.object
+
           erb :obj_pred_display
   
 end
@@ -143,225 +176,6 @@ end
 
 
 
-
-
-
-
-
-=begin
-get '/items' do 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([:s, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://scta.info/item")]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/items/:itemname' do |itemname| 
-  query = "#{prefixes}
-
-        SELECT ?p ?o
-          {
-          <http://scta.info/items/#{itemname}> ?p ?o .
-          }
-          ORDER BY ?p
-          "
-      query_display_simple(query)
-
-end
-
-get '/items/:itemname/transcriptions' do |itemname| 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  p = RDF::URI.new("http://purl.org/dc/terms/isPartOf")
-  o = RDF::URI.new("http://scta.info/items/#{itemname}")
-  query = sparql.select.where([:s, p, o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/transcriptions/:itemname' do |itemname| 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([RDF::URI.new("http://scta.info/transcriptions/#{itemname}"), :p, :o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/transcriptions' do 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([:s, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://scta.info/transcription")]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/commentaries' do 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([:s, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://scta.info/commentary")]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/commentaries/:commentaryname' do |commentaryname| 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([RDF::URI.new("http://scta.info/commentaries/#{commentaryname}"), :p, :o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/commentaries/:commentaryname/items' do |commentaryname| 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  o = RDF::URI.new("http://scta.info/commentaries/#{commentaryname}")
-  p = RDF::URI.new("http://purl.org/dc/terms/isPartOf")
-  query = sparql.select.where([:s, p, o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-#needs a filter that only picks triples that are book type
-get '/commentaries/:commentaryname/books' do |commentaryname| 
-  query = "#{prefixes}
-    
-    SELECT ?s {
-      ?s dcterms:isPartOf <http://scta.info/commentaries/#{commentaryname}> .
-      ?s a <http://scta.info/book> .
-    }
-    ORDER BY ?s
-    "
-query_display_simple(query)
-end
-
-get '/commentaries/:commentaryname/books/:bookname' do |commentaryname, bookname| 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  s = RDF::URI.new("http://scta.info/books/#{bookname}")
-  query = sparql.select.where([s, :p, :o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/commentaries/:commentaryname/books/:bookname/items' do |commentaryname, bookname| 
-  query = "#{prefixes}
-
-      SELECT ?s {
-      ?s dcterms:isPartOf <http://scta.info/books/#{bookname}> .
-      ?s a <http://scta.info/item> .
-    }
-    ORDER BY ?s
-    "
-  query_display_simple(query)
-end
-
-get '/commentaries/:commentaryname/books/:bookname/distinctions' do |commentaryname, bookname| 
-  query = "#{prefixes}
-
-      SELECT ?p {
-      <http://scta.info/books/#{bookname}> dcterms:hasPart ?p .
-      ?p a <http://scta.info/distinction> .
-    }
-    ORDER BY ?p
-    "
-  query_display_simple(query)
-end
-
-get '/commentaries/:commentaryname/books/:bookname/distinctions/:distinction' do |commentaryname, bookname, distinctionname| 
-  query = "#{prefixes}
-
-      SELECT ?p ?o {
-      <http://scta.info/distinctions/#{distinctionname}> ?p ?o .
-    }
-        ORDER BY ?p
-    "
-  query_display_simple(query)
-end
-
-get '/commentaries/:commentaryname/books/:bookname/distinctions/:distinction/items' do |commentaryname, bookname, distinctionname| 
-  query = "#{prefixes}
-
-      SELECT ?s {
-      ?s dcterms:isPartOf <http://scta.info/distinctions/#{distinctionname}> .
-      ?s a <http://scta.info/item> .
-    }
-    ORDER BY ?s
-    "
-  query_display_simple(query)
-end
-
-get '/commentaries/:commentaryname/distinctions' do |commentaryname|
-  query = "#{prefixes}
-
-          SELECT ?s
-          {
-          ?s dcterms:isPartOf <http://scta.info/commentaries/#{commentaryname}> .
-          ?s a <http://scta.info/distinction> .
-          }
-          ORDER BY ?s
-          " 
-  query_display_simple(query)
-
-end
-
-get '/books' do 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([:s, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://scta.info/book")]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/books/:bookname' do |bookname|
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  s = RDF::URI.new("http://scta.info/books/#{bookname}")
-  query = sparql.select.where([s, :p, :o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/distinctions' do 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([:s, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://scta.info/distinction")]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/distinctions/:distname' do |distname|
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  s = RDF::URI.new("http://scta.info/distinctions/#{distname}")
-  query = sparql.select.where([s, :p, :o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/names/:itemname' do |itemname| 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([RDF::URI.new("http://scta.info/names/#{itemname}"), :p, :o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-get '/names' do 
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  query = sparql.select.where([:s, RDF::URI.new("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"), RDF::URI.new("http://scta.info/name")]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-end
-end
-
-#old code to be deleted
-sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
-  s = RDF::URI.new("http://scta.info/scta")
-  query = sparql.select.where([:s, :p, :o]).limit(1000)
-  query.each_solution do |solution|
-  puts solution.inspect
-=end
 
 
 

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head><title>SCTA List Display</title>
-
+<link rel="stylesheet" type="text/css" href="/stylesheets/global.css">
 <style type="text/css">
 
 td.subjectterm {width: 300px; }
-td {padding: 10px; border: 1px dotted blue;}
+td {padding: 5px; border: 1px dotted blue;}
 </style>
 
 </head>
 
 <body>
-
-
+	<%= erb :_header %>
+	<div id="body">
 <h1>Information for <%= "#{@category}" %>(s) in Archive</h1>
 <p>(select link for more information)<p>
 <table>
@@ -41,5 +41,6 @@ td {padding: 10px; border: 1px dotted blue;}
 </tr>
 <% end %>
 </table>
+</div>
 </body>
 </html>

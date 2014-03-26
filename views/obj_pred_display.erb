@@ -2,24 +2,18 @@
 <html>
 <head><title>SCTA Display</title>
 
+<link rel="stylesheet" type="text/css" href="/stylesheets/global.css">
+
 <style type="text/css">
 
 td.predicateterm {width: 300px; }
-td {padding: 10px; border: 1px dotted blue;}
+td {padding: 5px; border: 1px dotted blue;}
 </style>
-
 </head>
 
 <body>
-<%	
-	 @titleresult.each do |item| 
-	 		item.each do |subitem|
-	 			@title = subitem[1]
-	 		end
-
-		end 
-	
-	%>
+	<%= erb :_header %>
+	<div id="body">
 
 <h1>Information for <%= "#{@title}" %></h1>
 <p>(select link for more information)<p>
@@ -31,36 +25,20 @@ td {padding: 10px; border: 1px dotted blue;}
 
 <% @result.each do |item| %>
 <tr>
-<% item.each do |subitem| 
- %>
-
-
-	
-	<% if subitem[0].to_s == 'p'  %>
-		<td class="predicateterm">
-			<% url = subitem[1].to_s
-			if url.include? "http://"
-			urltransform = url.sub('http://scta.info', '') %>
-			<%= "<a href=\"#{urltransform}\">" + url + "</a>" %>
-			<% else	%>
-			<%= url %>
-			<% end	%>
-		</td>
-		<% elsif subitem[0].to_s == 'o' %>
-			<td class="objectterm">
-			<% url = subitem[1].to_s
-			if url.include? "http://"
-				urltransform = url.sub('http://scta.info', '') %>
-				<%= "<a href=\"#{urltransform}\">" + url + "</a>" %>
-			<% else	%>
-			<%= url %>
-			<% end	%>
-		    </td>
-	<% end %>
-
-<% end %>
+	<td class="predicateterm">
+		<a href="<%= item.predicate_url %>"><%= item.predicate_with_prefix 
+		%></a>
+	</td>
+	<td class="objectterm">
+		<% if item.object_is_literal? %>
+		<%= item.object %>
+		<% else %>
+		<a href='<%= item.object_url %>'><%= item.object_with_prefix %></a>
+		<% end %>
+	</td>
 </tr>
 <% end %>
 </table>
+</div>
 </body>
 </html>

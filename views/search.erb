@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head><title>SCTA Search</title></head>
-<body>
+<link rel="stylesheet" type="text/css" href="/stylesheets/global.css">
+<%= erb :_header %>
+<div id="body">
 <h1>SCTA Search</h1>
+<p>Search for a resource of the selected type whose title contains the search term(s)</p>
 <form method="get" action="/searchresults">
 	<input type="radio" name="category" value="quotation">Quotation</input></br>
 	<input type="radio" name="category" value="item">Item</input></br>
@@ -14,5 +17,26 @@
 	<input type="text" name="search" placeholder="type search text here"/>
 	<input type="submit"/>
 </form>
+<p>Or Perform custom SPARQL Query</p>
+<form method="post" action="/sparqlquery">
+	<textarea name="query" style="width: 400px; height: 200px;">PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dbpedia: <http://dbpedia.org/ontology/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX scta-rel: <http://scta.info/relations/>
+PREFIX scta-terms: <http://scta.info/terms/>
+PREFIX role: <http://www.loc.gov/loc.terms/relators/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?s ?p ?o
+WHERE {
+	?s ?p ?o
+}
+LIMIT 1000
+
+	</textarea><br/>
+	
+	<input type="submit"> 
+</div>
 </body>
 </html>

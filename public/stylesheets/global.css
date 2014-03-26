@@ -1,0 +1,18 @@
+body {margin: 0; background-color: rgb(221, 230, 236);}
+div#header {width: 100%; 
+	background-color: black; 
+	color: white; 
+	padding: 5px; 
+	padding-left:20px;
+	padding-top:5px;
+	margin: 0;
+	text-align: left;
+	}
+	div#header p {padding-left: 15px; }
+	div#header h1 {margin: 5px;}
+	
+
+	div#header a {color: white; padding: 5px;}
+	div#header a:hover {background-color: gray;}
+
+	div#body {padding-left: 20px; margin: 0;}
