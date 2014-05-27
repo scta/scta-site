@@ -26,7 +26,8 @@ class Metadata
 	end
 
 	def object_url
-		object
+		object_string = object.to_s 
+		object_string = object_string.gsub('http://scta.info', '')
 	end
 
 	def object_with_prefix
@@ -38,9 +39,11 @@ class Metadata
 	end
 
 	def predicate_url
-		#predicate = predicate.to_s.sub('http://scta.info', '') 
+		
 		# this string replace is makes the link relative rather than absolute
-		predicate 
+		predicate_string = predicate.to_s 
+		predicate_string = predicate_string.gsub('http://scta.info', '') 
+		
 		
 	end
     #get the predicate with prefix (if a prefix declared, otherwise the whole url is returned)

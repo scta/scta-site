@@ -24,6 +24,8 @@ prefixes = "
           PREFIX scta-terms: <http://scta.info/terms/>
           PREFIX role: <http://www.loc.gov/loc.terms/relators/>
           PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+          PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+          PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
           "
 
 def rdf_query(query)
@@ -43,6 +45,20 @@ end
 
 get '/' do
   erb :index
+end
+
+get '/relations/:relation' do |relation| 
+  query = "#{prefixes}
+
+          SELECT ?p ?o
+          {
+          <http://scta.info/relations/#{relation}> ?p ?o  .
+          
+          }
+          ORDER BY ?s
+          " 
+        query_display_simple(query)
+
 end
 
 get '/scta' do 
@@ -93,19 +109,6 @@ post '/sparqlquery' do
   query_display_simple(query)
 end
 
-get '/test' do
-
-  query = "#{prefixes}
-
-          SELECT ?s
-          {
-          ?s <http://purl.org/dc/terms/hasPart>  <http://scta.info/transcriptions/reims_lectio1> .
-          }
-          "
-
-
-
-end                 
 
 get '/:category' do |category| 
   
@@ -121,6 +124,7 @@ get '/:category' do |category|
   #query_display_simple(query)
         @category = category
         @result = rdf_query(query)
+
            
           
           erb :subj_display
@@ -143,10 +147,8 @@ get '/:category/:id' do |category, id|
           
           @result = rdf_query(query).map do |item|
             Metadata.new(item)
-            
-          end
-
-          @result.sort_by(&:predicate_position)
+          
+          end.sort_by(&:predicate_position) # I'm not quite sure this syntax the &:, but predicate position is a method in the metadata class
 
           titleresult = @result.find do |item|
             item.predicate_with_prefix == "dc:title"
