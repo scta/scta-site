@@ -6,8 +6,7 @@
 
 <style type="text/css">
 
-td.predicateterm {width: 300px; }
-td {padding: 5px; border: 1px dotted blue;}
+
 </style>
 </head>
 
@@ -23,17 +22,27 @@ td {padding: 5px; border: 1px dotted blue;}
 		<td>Value</td>
 	</tr>
 
-<% @result.each do |item| %>
+<% @result.each_solution do |solution|
+
+    predicate = solution[:p]
+    object = solution[:o]
+
+    predicate_hash = URLConvert(predicate)
+    if !object.literal?
+    object_hash = URLConvert(object)
+    end
+
+%>
 <tr>
 	<td class="predicateterm">
-		<a href="<%= item.predicate_url %>"><%= item.predicate_with_prefix 
-		%></a>
+		<a href="<%= predicate_hash[:url_link] %>"><span class="url_label"><%= predicate_hash[:url_label] %></span><span class="url_base"><%= predicate_hash[:url_base] %></span></a>
 	</td>
 	<td class="objectterm">
-		<% if item.object_is_literal? %>
-		<%= item.object %>
-		<% else %>
-		<a href='<%= item.object_url %>'><%= item.object_with_prefix %></a>
+        <% if object.literal? %>
+             <%= object %>
+        <% else
+            object_str = object.to_str %>
+		<a href='<%= object_hash[:url_link] %>'><span class="url_label"><%= object_hash[:url_label] %></span><span class="url_base"><%= object_hash[:url_base] %></span></a>
 		<% end %>
 	</td>
 </tr>

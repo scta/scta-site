@@ -10,10 +10,13 @@ require 'sparql'
 require 'sinatra/sparql'
 require 'uri'
 require 'sparql/client'
+require 'rdf/ntriples'
 
 require_relative 'lib/metadata'
 
 require 'pry'
+#require 'ruby-debug-ide'
+include RDF
 
 prefixes = "
           PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -42,6 +45,25 @@ def query_display_simple(query)
   end
 end
 
+def URLConvert (url)
+  url_hash = {}
+  if url.to_str.include? 'http://scta.info'
+    url_hash[:url_label] = url.parent.to_s
+    url_hash[:url_base] = url.to_str.gsub(url.parent.to_s, '')
+    url_hash[:url_link] = url.to_str.gsub('http://scta.info', '')
+
+  elsif url.qname
+    url_hash[:url_label] = url.qname[0].to_s + ":"
+    url_hash[:url_base] = url.qname[1].to_s
+    url_hash[:url_link] = url.to_str
+  else
+    url_hash[:url_label] = url.parent.to_s
+    url_hash[:url_base] = url.to_str.gsub(url.parent.to_s, '')
+    url_hash[:url_link] = url.to_str
+  end
+  return url_hash
+end
+
 
 get '/' do
   erb :index
@@ -56,10 +78,12 @@ get '/relations/:relation' do |relation|
           
           }
           ORDER BY ?s
-          " 
-        query_display_simple(query)
+          "
+          @result = rdf_query(query)
+          erb :obj_pred_display
 
 end
+
 
 get '/scta' do 
  query = "#{prefixes}
@@ -121,13 +145,11 @@ get '/:category' do |category|
           }
           ORDER BY ?s
           " 
-  #query_display_simple(query)
+
         @category = category
         @result = rdf_query(query)
 
-           
-          
-          erb :subj_display
+        erb :subj_display
 end
 
 get '/:category/:id' do |category, id|
@@ -143,20 +165,12 @@ get '/:category/:id' do |category, id|
           #{@subjectid} ?p ?o .
           }
           ORDER BY ?p
-          " 
-          
-          @result = rdf_query(query).map do |item|
-            Metadata.new(item)
-          
-          end.sort_by(&:predicate_position) # I'm not quite sure this syntax the &:, but predicate position is a method in the metadata class
+          "
 
-          titleresult = @result.find do |item|
-            item.predicate_with_prefix == "dc:title"
-          end
+          @result = rdf_query(query)
+          @count = @result.count
+          @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
 
-          
-
-          @title = titleresult.object
 
           erb :obj_pred_display
   

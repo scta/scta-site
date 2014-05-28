@@ -17,29 +17,35 @@ td {padding: 5px; border: 1px dotted blue;}
 <p>(select link for more information)<p>
 <table>
 	<tr>
+        <td>Title</td>
 		<td>Item Id (select link for more information)</td>
-		<td>Title</td>
+
 	</tr>
 
-<% @result.each do |item| %>
-<tr>
-<% item.each do |subitem| 
- %>
+  <% @result.each_solution do |solution|
 
-		<% if subitem[0].to_s == 's'  
-			url = subitem[1].to_s
-			urltransform = url.sub('http://scta.info', '') %>
-		<td class="subjectterm">
-		<%= "<a href=\"#{urltransform}\">" + url + "</a>" %>
-		</td>
-		<% elsif subitem[0].to_s == 'o'  %>
-		<td class="titleterm">
-		<%= subitem[1] %>
-		</td>
-	<% end %>
-	<% end %>
-</tr>
-<% end %>
+    subject = solution[:s]
+    title = solution[:o]
+
+
+    if !subject.literal?
+      subject_hash = URLConvert(subject)
+    end
+
+  %>
+      <tr>
+        <td><%= title %> </td>
+        <td class="subjectterm">
+          <% if subject.literal? %>
+              <%= subject %>
+          <% else
+               subject_str = subject.to_str %>
+              <a href='<%= subject_hash[:url_link] %>'><span class="url_label"><%= subject_hash[:url_label] %></span><span class="url_base"><%= subject_hash[:url_base] %></span></a>
+          <% end %>
+        </td>
+
+      </tr>
+  <% end %>
 </table>
 </div>
 </body>

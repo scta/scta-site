@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="ModuleRunConfigurationManager">
+    <configuration default="false" name="app" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <module name="scta" />
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$MODULE_DIR$/app.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <RunnerSettings RunnerId="RubyCover" />
+      <RunnerSettings RunnerId="RubyDebugRunner" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyCover" />
+      <ConfigurationWrapper RunnerId="RubyDebugRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="RVM: ruby-1.9.3-p194 [scta]" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.5.2, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="coderay (v1.1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ebnf (v0.3.5, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="equivalent-xml (v0.4.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="haml (v4.0.5, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="htmlentities (v4.3.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v1.8.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json-ld (v1.1.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="linkeddata (v1.1.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="method_source (v0.8.2, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_portile (v0.5.2, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="net-http-persistent (v2.9, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.6.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pry (v0.9.12.6, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.5.2, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v0.9.2.2, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf (v1.1.1.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-aggregate-repo (v1.1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-isomorphic (v1.1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-json (v1.1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-microdata (v1.1.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-n3 (v1.1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-rdfa (v1.1.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-rdfxml (v1.1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-trig (v1.1.2, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-trix (v1.1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-turtle (v1.1.2, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rdf-xsd (v1.1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-debug-ide (v0.4.23.beta1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sass (v3.2.14, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="slop (v3.5.0, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sparql (v1.1.2.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sparql-client (v1.1.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sxp (v0.1.5, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, RVM: ruby-1.9.3-p194 [scta]) [gem]" level="application" />
+  </component>
+</module>
+

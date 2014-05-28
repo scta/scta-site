@@ -1,8 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head><title>SCTA</title></head>
-<body>
-<h1>Sentences Commentary Text Archive</h1>
-<p><%= @test %></p>
-</body>
-</html>
+<% @result.each_solution do |solution|
+
+  scta = RDF::Vocabulary.new("http://scta.info/")
+subject = solution[:s]
+object = solution[:o]
+
+
+binding.pry
+
+
+if subject.absolute?
+    subjecttransform = subject.to_str.sub('http://scta.info', '')
+else
+  subjectransform = subject.str
+end
+
+%>
+    <table>
+      <tr>
+        <td><a href='<%= subjecttransform %>'><%= object %></a></td>
+      </tr>
+    </table>
+
+ <%
+ #binding.pry
+end
+    %>
