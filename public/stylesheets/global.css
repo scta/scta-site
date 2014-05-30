@@ -1,4 +1,4 @@
-body {margin: 0; background-color: rgb(221, 230, 236);}
+body {margin: 0; background-color: rgb(236, 223, 198);}
 div#header {width: 100%; 
 	background-color: black; 
 	color: white; 
@@ -7,6 +7,10 @@ div#header {width: 100%;
 	padding-top:5px;
 	margin: 0;
 	text-align: left;
+    moz-box-shadow: 0 0 20px 3px gray;
+    -webkit-box-shadow: 0px 0px 20px 3px gray;
+    box-shadow: 0px 0px 20px 3px gray;
+
 	}
 	div#header p {padding-left: 15px; }
 	div#header h1 {margin: 5px;}
@@ -16,6 +20,7 @@ div#header {width: 100%;
 	div#header a:hover {background-color: gray;}
 
 	div#body {padding-left: 20px; margin: 0;}
+    div#titleheader {max-width: 600px;}
 
     .url_label {color: black; padding: 3px; font-size: 14px;}
     .url_base {color: black; font-weight: bold;}
@@ -26,4 +31,10 @@ div#header {width: 100%;
 
 
 
-td {padding: 5px; border: 1px dotted blue;}
+td {padding: 5px;
+    /*border: 1px dotted blue; */
+    moz-box-shadow: 0 0 2px 1px gray;
+    -webkit-box-shadow: 0px 0px 2px 1px gray;
+    box-shadow: 0px 0px 2px 1px gray;
+    width: 300px;
+}

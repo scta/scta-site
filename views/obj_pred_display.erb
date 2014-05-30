@@ -1,53 +1,111 @@
 <!DOCTYPE html>
 <html>
-<head><title>SCTA Display</title>
+<head>
+    <title>SCTA Display</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/global.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
 
-<link rel="stylesheet" type="text/css" href="/stylesheets/global.css">
+       $("h3.dstitle").click(function(){
 
-<style type="text/css">
+           $(this).next().toggle("slow")
+           });
+    });
 
 
-</style>
+  </script>
+    <style type="text/css">
+      table.datastream {display: none;}
+      h3.dstitle {cursor: pointer}
+      h3.dstitle:hover {text-decoration: underline;}
+    </style>
 </head>
 
 <body>
 	<%= erb :_header %>
 	<div id="body">
-
-<h1>Information for <%= "#{@title}" %></h1>
+<div id="titleheader">
+<h2>Information for: <%= "#{@title}" %></h2>
 <p>(select link for more information)<p>
-<table>
-	<tr>
-		<td>Property</td>
-		<td>Value</td>
-	</tr>
+  </div>
 
-<% @result.each_solution do |solution|
+      <% def tableprint(predicate, object)
 
+           predicate_hash = URLConvert(predicate)
+           if !object.literal?
+             object_hash = URLConvert(object)
+           end
+      %>
+            <tr>
+              <td class="predicateterm">
+                <a href="<%= predicate_hash[:url_link] %>"><span class="url_label"><%= predicate_hash[:url_label] %></span><span class="url_base"><%= predicate_hash[:url_base] %></span></a>
+              </td>
+              <td class="objectterm">
+                <% if object.literal? %>
+                    <%= object %>
+                <% else
+                     object_str = object.to_str %>
+                    <a href='<%= object_hash[:url_link] %>'><span class="url_label"><%= object_hash[:url_label] %></span><span class="url_base"><%= object_hash[:url_base] %></span></a>
+                <% end %>
+              </td>
+            </tr>
+
+      <% end %>
+
+<%
+
+%>
+
+  <h3 class="dstitle">Publication Information (pubInfo datastream | <span>metadata count: <%= @pubinfo.count %></span>)</h3>
+    <table class="datastream" style="display: block;">
+
+<%
+
+    @pubinfo.each_solution do |solution|
     predicate = solution[:p]
     object = solution[:o]
-
-    predicate_hash = URLConvert(predicate)
-    if !object.literal?
-    object_hash = URLConvert(object)
+    tableprint(predicate, object)
     end
 
 %>
-<tr>
-	<td class="predicateterm">
-		<a href="<%= predicate_hash[:url_link] %>"><span class="url_label"><%= predicate_hash[:url_label] %></span><span class="url_base"><%= predicate_hash[:url_base] %></span></a>
-	</td>
-	<td class="objectterm">
-        <% if object.literal? %>
-             <%= object %>
-        <% else
-            object_str = object.to_str %>
-		<a href='<%= object_hash[:url_link] %>'><span class="url_label"><%= object_hash[:url_label] %></span><span class="url_base"><%= object_hash[:url_base] %></span></a>
-		<% end %>
-	</td>
-</tr>
-<% end %>
+    </table>
+      <h3 class="dstitle">Content Information (contentInfo datastream | <span>metadata count: <%= @contentinfo.count %></span>)</h3>
+      <table class="datastream">
+
+<%
+
+
+    @contentinfo.each_solution do |solution|
+    predicate = solution[:p]
+    object = solution[:o]
+    tableprint(predicate, object)
+    end
+%>
+    </table>
+      <h3 class="dstitle">Linking Information (linkingInfo datastream | <span>metadata count: <%= @linkinginfo.count %></span>)</h3>
+        <table class="datastream">
+
+<%
+    @linkinginfo.each_solution do |solution|
+    predicate = solution[:p]
+    object = solution[:o]
+    tableprint(predicate, object)
+    end
+%>
+
 </table>
+      <h3 class="dstitle">Uncategorized (miscInfo datastream | <span>metadata count: <%= @miscinfo.count %></span>)</h3>
+      <table class="datastream">
+        <%
+           @miscinfo.each_solution do |solution|
+             predicate = solution[:p]
+             object = solution[:o]
+             tableprint(predicate, object)
+           end
+        %>
+      </table>
+
 </div>
 </body>
 </html>

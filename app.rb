@@ -160,16 +160,28 @@ get '/:category/:id' do |category, id|
 @subjectid = "<http://scta.info/#{@category}/#{@id}>"
   query = "#{prefixes}
 
-          SELECT ?p ?o
+          SELECT ?p ?o ?ptype
           {
           #{@subjectid} ?p ?o .
+          OPTIONAL {
+              ?p rdfs:subPropertyOf ?ptype .
+              }
+
           }
           ORDER BY ?p
           "
 
           @result = rdf_query(query)
+
+
           @count = @result.count
           @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
+
+          @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/pubInfo"))
+          @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/contentInfo"))
+          @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/linkingInfo"))
+          @miscinfo = @result.dup.filter(:ptype => nil)
+
 
 
           erb :obj_pred_display

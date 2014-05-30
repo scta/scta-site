@@ -3,11 +3,13 @@ GEM
   specs:
     builder (3.2.2)
     coderay (1.1.0)
+    daemons (1.1.9)
     ebnf (0.3.5)
       rdf
       sxp
     equivalent-xml (0.4.0)
       nokogiri (>= 1.4.3)
+    eventmachine (1.0.3)
     haml (4.0.5)
       tilt
     htmlentities (4.3.1)
@@ -96,6 +98,10 @@ GEM
       net-http-persistent (>= 1.4)
       rdf (>= 1.1)
     sxp (0.1.5)
+    thin (1.6.2)
+      daemons (>= 1.0.9)
+      eventmachine (>= 1.0.0)
+      rack (>= 1.0.0)
     tilt (1.4.1)
 
 PLATFORMS
@@ -110,4 +116,5 @@ DEPENDENCIES
   sass
   sinatra
   sparql
+  thin
   tilt (~> 1.3, >= 1.3.4)
