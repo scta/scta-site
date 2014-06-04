@@ -11,12 +11,17 @@ require 'sinatra/sparql'
 require 'uri'
 require 'sparql/client'
 require 'rdf/ntriples'
+require 'cgi'
+#require 'sinatra/linkeddata' doesn't work but I need this for content negotiation
 
 require_relative 'lib/metadata'
 
 require 'pry'
 #require 'ruby-debug-ide'
 include RDF
+
+
+
 
 prefixes = "
           PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -67,6 +72,21 @@ end
 
 get '/' do
   erb :index
+end
+
+get '/practice' do
+
+@list = { RDF::URI.new("http://scta.info/item/lectio1") => "Lectio 1" , RDF::URI.new("http://scta.info/item/lectio2") => "Lectio 2" }
+
+    RDF::Graph.new do |graph|
+      @list.each do |k,v|
+        graph << [k, RDF::DC.title, v]
+
+end
+
+end
+
+
 end
 
 get '/relations/:relation' do |relation| 
@@ -148,8 +168,18 @@ get '/:category' do |category|
 
         @category = category
         @result = rdf_query(query)
-
-        erb :subj_display
+        accept_type = request.env['HTTP_ACCEPT']
+        if accept_type.include? "text/html"
+            erb :subj_display
+        else
+        RDF::Graph.new do |graph|
+          @result.each do |solution|
+            s = solution[:s]
+            o = solution[:o]
+            graph << [s, RDF::DC.title, o]
+            end
+        end
+      end
 end
 
 get '/:category/:id' do |category, id|
@@ -158,7 +188,8 @@ get '/:category/:id' do |category, id|
 @category = category
 @id = id                
 @subjectid = "<http://scta.info/#{@category}/#{@id}>"
-  query = "#{prefixes}
+
+query = "#{prefixes}
 
           SELECT ?p ?o ?ptype
           {
@@ -170,9 +201,10 @@ get '/:category/:id' do |category, id|
           }
           ORDER BY ?p
           "
-
           @result = rdf_query(query)
+          accept_type = request.env['HTTP_ACCEPT']
 
+      if accept_type.include? "text/html"
 
           @count = @result.count
           @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
@@ -182,12 +214,20 @@ get '/:category/:id' do |category, id|
           @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/linkingInfo"))
           @miscinfo = @result.dup.filter(:ptype => nil)
 
-
-
           erb :obj_pred_display
+          else
+          RDF::Graph.new do |graph|
+            @result.each do |solution|
+              s = RDF::URI("http://scta.info/#{@category}/#{@id}")
+              p = solution[:p]
+              o = solution[:o]
+              graph << [s, p, o]
+
+            end
+  end
+end
   
 end
-
 
 
 
