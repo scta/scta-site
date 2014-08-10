@@ -12,6 +12,7 @@ require 'uri'
 require 'sparql/client'
 require 'rdf/ntriples'
 require 'cgi'
+require 'equivalent-xml'
 #require 'sinatra/linkeddata' doesn't work but I need this for content negotiation
 
 require_relative 'lib/metadata'
@@ -28,8 +29,9 @@ prefixes = "
           PREFIX dbpedia: <http://dbpedia.org/ontology/>
           PREFIX dcterms: <http://purl.org/dc/terms/>
           PREFIX dc: <http://purl.org/dc/elements/1.1/>
-          PREFIX scta-rel: <http://scta.info/relations/>
-          PREFIX scta-terms: <http://scta.info/terms/>
+          PREFIX sctap: <http://scta.info/property/>
+          PREFIX sctar: <http://scta.info/resource/>
+          PREFIX sctat: <http://scta.info/text/>
           PREFIX role: <http://www.loc.gov/loc.terms/relators/>
           PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -71,55 +73,77 @@ end
 
 
 get '/' do
+  quotationquery = "#{prefixes}
+
+          SELECT count(?s) {
+            ?s a <http://scta.info/resource/quotation> .
+          }
+          "
+  quotesquery = "#{prefixes}
+
+          SELECT count(distinct ?quotes) {
+            ?s sctap:quotes ?quotes .
+          }
+          "
+  itemquery = "#{prefixes}
+
+          SELECT count(distinct ?item) {
+            ?item a <http://scta.info/resource/item> .
+          }
+          "
+  commentaryquery = "#{prefixes}
+
+          SELECT count(distinct ?com) {
+            ?com a <http://scta.info/resource/commentary> .
+          }
+          "
+  @quotationcount = rdf_query(quotationquery).first[:".1"]
+  @quotescount = rdf_query(quotesquery).first[:".1"]
+  @itemcount = rdf_query(itemquery).first[:".1"]
+  @commentarycount = rdf_query(commentaryquery).first[:".1"]
+
+
   erb :index
 end
 
 get '/practice' do
 
-@list = { RDF::URI.new("http://scta.info/item/lectio1") => "Lectio 1" , RDF::URI.new("http://scta.info/item/lectio2") => "Lectio 2" }
+  graph = RDF::Graph.load("public/pp-projectdata.rdf")
+  query = RDF::Query.new({
+                   :subject => {
+                       RDF.type  => RDF::URI("http://scta.info/resource/item"),
+                       DC11.title => :title,
+                      }
+                    })
 
-    RDF::Graph.new do |graph|
-      @list.each do |k,v|
-        graph << [k, RDF::DC.title, v]
+  query.execute(graph).each do |solution|
+    
+    puts "title=#{solution.title}"
+  end
+
 
 end
 
+get '/main' do
+  puts "text"
+  erb :main
 end
 
-
-end
-
-get '/relations/:relation' do |relation| 
+get '/scta' do
   query = "#{prefixes}
-
-          SELECT ?p ?o
-          {
-          <http://scta.info/relations/#{relation}> ?p ?o  .
-          
-          }
-          ORDER BY ?s
-          "
-          @result = rdf_query(query)
-          erb :obj_pred_display
-
-end
-
-
-get '/scta' do 
- query = "#{prefixes}
 
           SELECT ?s ?o
           {
-          ?s a <http://scta.info/commentary> .
+          ?s a <http://scta.info/resource/commentary> .
           ?s <http://purl.org/dc/elements/1.1/title> ?o  .
           }
           ORDER BY ?s
-          " 
-        @category = 'commentary'
-        @result = rdf_query(query)
-           
-          
-          erb :subj_display
+          "
+  @category = 'commentary'
+  @result = rdf_query(query)
+
+
+  erb :subj_display
 end
 
 get '/search' do
@@ -136,15 +160,15 @@ get '/searchresults' do
           SELECT ?s ?o
           {
 
-          ?s a <http://scta.info/#{@category}> .       
+          ?s a <http://scta.info/resource/#{@category}> .
           ?s <http://purl.org/dc/elements/1.1/title> ?o  .
           FILTER (REGEX(STR(?o), '#{@post}', 'i')) .
           }
           ORDER BY ?s
-          " 
+          "
   #query_display_simple(query)
-          @result = rdf_query(query)
-          erb :searchresults
+  @result = rdf_query(query)
+  erb :searchresults
 end
 
 post '/sparqlquery' do
@@ -154,13 +178,63 @@ post '/sparqlquery' do
 end
 
 
-get '/:category' do |category| 
-  
+get '/iiif/:msname/manifest' do |msname|
+  send_file "public/#{msname}.json"
+end
+
+=begin
+get '/property/:property' do |property|
+  query = "#{prefixes}
+
+          SELECT ?p ?o
+          {
+          <http://scta.info/property/#{relation}> ?p ?o  .
+          
+          }
+          ORDER BY ?s
+          "
+          @result = rdf_query(query)
+          erb :obj_pred_display
+
+end
+=end
+
+=begin
+get '/property/:property/:subprop' do |property, subprop|
+  query = "#{prefixes}
+
+          SELECT ?p ?o
+          {
+          <http://scta.info/property/#{relation}/#{subprop}> ?p ?o  .
+
+          }
+          ORDER BY ?s
+          "
+  @result = rdf_query(query)
+  erb :obj_pred_display
+
+end
+=end
+
+
+=begin
+get '/text/:cid/:category' do |cid, category|
+  #this isn't really going to work because grandhildren parts will not be identified.
   query = "#{prefixes}
 
           SELECT ?s ?o
           {
-          ?s a <http://scta.info/#{category}> .
+          ?s a <http://scta.info/resource/#{category}> .
+          ?s dc:isPartOf <http://scta.info/#{cid}/commentary>  .
+          ?s <http://purl.org/dc/elements/1.1/title> ?o  .
+          }
+          OR
+          {
+          ?s a <http://scta.info/resource/#{category}> .
+          ?s dc:hasPart ?parent .
+          ?parent dc:isPartOf <http://scta.info/#{cid}/commentary>  .
+          }
+
           ?s <http://purl.org/dc/elements/1.1/title> ?o  .
           }
           ORDER BY ?s
@@ -181,13 +255,15 @@ get '/:category' do |category|
         end
       end
 end
+=end
 
-get '/:category/:id' do |category, id|
+=begin
+get '/resource/:category/:id' do |category, id|
 
 
 @category = category
 @id = id                
-@subjectid = "<http://scta.info/#{@category}/#{@id}>"
+@subjectid = "<http://scta.info/resource/#{@category}/#{@id}>"
 
 query = "#{prefixes}
 
@@ -209,9 +285,10 @@ query = "#{prefixes}
           @count = @result.count
           @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
 
-          @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/pubInfo"))
-          @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/contentInfo"))
-          @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/linkingInfo"))
+          @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
+          @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/contentInfo"))
+          @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/linkingInfo"))
+          #@referenceinfo = @resutl.dup.filter(:ptype => RDF::URI("http://scta.info/property/referenceInfo"))
           @miscinfo = @result.dup.filter(:ptype => nil)
 
           erb :obj_pred_display
@@ -228,13 +305,166 @@ query = "#{prefixes}
 end
   
 end
+=end
+=begin
+get '/text/:cid/commentary' do |cid, commentary|
+
+
+  @commentary = commentary
+  @cid = cid
+  @subjectid = "<http://scta.info/#{prefix}/#{@cid}/commentary>"
+
+  query = "#{prefixes}
+
+          SELECT ?p ?o ?ptype
+          {
+          #{@subjectid} ?p ?o .
+          OPTIONAL {
+              ?p rdfs:subPropertyOf ?ptype .
+              }
+
+          }
+          ORDER BY ?p
+          "
+
+  @result = rdf_query(query)
+  accept_type = request.env['HTTP_ACCEPT']
+
+  if accept_type.include? "text/html"
+
+    @count = @result.count
+    @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
+
+    @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
+    @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/contentInfo"))
+    @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/linkingInfo"))
+    @miscinfo = @result.dup.filter(:ptype => nil)
+
+    erb :obj_pred_display
+  else
+    RDF::Graph.new do |graph|
+      @result.each do |solution|
+        s = RDF::URI("http://scta.info/text/#{@cid}/#{@category}/#{@id}")
+        p = solution[:p]
+        o = solution[:o]
+        graph << [s, p, o]
+
+      end
+    end
+  end
+
+
+end
+=end
 
 
 
+=begin
+
+get '/text/:cid/:category/:id' do |cid, category, id|
 
 
+  @category = category
+  @id = id
+  @cid = cid
+  @subjectid = "<http://scta.info/text/#{@cid}/#{@category}/#{@id}>"
 
+  query = "#{prefixes}
 
+          SELECT ?p ?o ?ptype
+          {
+          #{@subjectid} ?p ?o .
+          OPTIONAL {
+              ?p rdfs:subPropertyOf ?ptype .
+              }
+
+          }
+          ORDER BY ?p
+          "
+
+  @result = rdf_query(query)
+  
+  accept_type = request.env['HTTP_ACCEPT']
+
+  if accept_type.include? "text/html"
+
+    @count = @result.count
+    @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
+
+    @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
+    @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/contentInfo"))
+    #@referenceinfo = @resutl.dup.filter(:ptype => RDF::URI("http://scta.info/property/referenceInfo"))
+    @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/linkingInfo"))
+    @miscinfo = @result.dup.filter(:ptype => nil)
+
+    erb :obj_pred_display
+  else
+    RDF::Graph.new do |graph|
+      @result.each do |solution|
+        s = RDF::URI("http://scta.info/text/#{@cid}/#{@category}/#{@id}")
+        p = solution[:p]
+        o = solution[:o]
+        graph << [s, p, o]
+
+      end
+    end
+  end
+
+end
+=end
+
+get '/?:p1?/?:p2?/?:p3?/?:p4?' do ||
+
+  if params[:p4] != nil
+    @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}>"
+  elsif params[:p3] != nil
+    @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}>"
+  elsif params[:p2] != nil
+    @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}>"
+  elsif params[:p1] != nil
+    @subjectid = "<http://scta.info/#{params[:p1]}>"
+  end
+
+  query = "#{prefixes}
+
+          SELECT ?p ?o ?ptype
+          {
+          #{@subjectid} ?p ?o .
+          OPTIONAL {
+              ?p rdfs:subPropertyOf ?ptype .
+              }
+
+          }
+          ORDER BY ?p
+          "
+
+  @result = rdf_query(query)
+
+  accept_type = request.env['HTTP_ACCEPT']
+
+  if accept_type.include? "text/html"
+
+    @count = @result.count
+    @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
+
+    @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
+    @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/contentInfo"))
+    @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/linkingInfo"))
+    @miscinfo = @result.dup.filter(:ptype => nil)
+
+    erb :obj_pred_display
+  else
+    RDF::Graph.new do |graph|
+      @result.each do |solution|
+        s = RDF::URI(@subjectid)
+        p = solution[:p]
+        o = solution[:o]
+        graph << [s, p, o]
+
+      end
+    end
+  end
+end
 
 
 

@@ -2,6 +2,7 @@
 <html>
 <head><title>SCTA Search</title></head>
 <link rel="stylesheet" type="text/css" href="/stylesheets/global.css">
+<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
 <%= erb :_header %>
 <div id="body">
 <h1>SCTA Search</h1>
@@ -10,7 +11,7 @@
 	<input type="radio" name="category" value="quotation">Quotation</input></br>
 	<input type="radio" name="category" value="item">Item</input></br>
 	<input type="radio" name="category" value="commentary">Commentary</input></br>
-	<input type="radio" name="category" value="name">Name</input></br>
+	<input type="radio" name="category" value="person">Name</input></br>
 	<input type="radio" name="category" value="work">Work</input></br>
 	<input type="radio" name="category" value="book">Book</input></br>
 	<input type="radio" name="category" value="distinction">Distinction</input></br>
@@ -19,12 +20,14 @@
 </form>
 <p>Or Perform custom SPARQL Query</p>
 <form method="post" action="/sparqlquery">
-	<textarea name="query" style="width: 400px; height: 200px;">PREFIX owl: <http://www.w3.org/2002/07/owl#>
+	<textarea name="query" style="width: 400px; height: 200px;">
+      PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX dbpedia: <http://dbpedia.org/ontology/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX scta-rel: <http://scta.info/relations/>
-PREFIX scta-terms: <http://scta.info/terms/>
+PREFIX sctar: <http://scta.info/resource/>
+PREFIX sctap: <http://scta.info/property/>
+PREFIX sctat: <http://scta.info/text/>
 PREFIX role: <http://www.loc.gov/loc.terms/relators/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
