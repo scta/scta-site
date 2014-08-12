@@ -185,17 +185,27 @@ get '/searchresults' do
 
   @post = "#{params[:search]}"
   @category = "#{params[:category]}"
-  query = "#{prefixes}
+  
+    if @category == "questionTitle"
+      type = "item"
+      predicate = "<http://scta.info/property/questionTitle>"
+    else
+      type = @category
+      predicate = "<http://purl.org/dc/elements/1.1/title>"
+    end
+    
+    query = "#{prefixes}
 
           SELECT ?s ?o
           {
 
-          ?s a <http://scta.info/resource/#{@category}> .
-          ?s <http://purl.org/dc/elements/1.1/title> ?o  .
+          ?s a <http://scta.info/resource/#{type}> .
+          ?s #{predicate} ?o  .
           FILTER (REGEX(STR(?o), '#{@post}', 'i')) .
           }
           ORDER BY ?s
           "
+    
   #query_display_simple(query)
   @result = rdf_query(query)
   erb :searchresults
