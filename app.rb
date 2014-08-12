@@ -38,8 +38,14 @@ prefixes = "
           PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
           "
 
+if ENV['RACK_ENV'] == :production
+  sparqlendpoint = "http://localhost:31867//ds/query"
+else
+  sparqlendpoint = "http://localhost:3030/ds/query"
+end
+
 def rdf_query(query)
-  sparql = SPARQL::Client.new("http://localhost:3030/ds/query")
+  sparql = SPARQL::Client.new(sparqlendpoint)
   result = sparql.query(query)
   return result
 end
@@ -158,6 +164,10 @@ get '/scta' do
 
 
   erb :subj_display
+end
+
+get '/api' do 
+  erb :api
 end
 
 get '/search' do
