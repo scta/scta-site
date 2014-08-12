@@ -60,7 +60,7 @@
 
 %>
 
-  <h3 class="dstitle">Publication Information (pubInfo datastream | <span>metadata count: <%= @pubinfo.count %></span>)</h3>
+  <h3 class="dstitle"><small>Publication Information (pubInfo datastream | <span>metadata count: <%= @pubinfo.count %></span>)</small></h3>
     <table class="datastream table table-striped" style="display: block;">
 
 <%
@@ -75,7 +75,7 @@
     </table>
 
       <% if (@referenceinfo != nil) %>
-          <h3 class="dstitle">Reference Information (referenceInfo datastream | <span>metadata count: <%= @refernceinfo.count %></span>)</h3>
+          <h3 class="dstitle"><small>Reference Information (referenceInfo datastream | <span>metadata count: <%= @refernceinfo.count %></span>)</small></h3>
           <table class="datastream table table-striped">
 
             <%
@@ -89,7 +89,7 @@
           </table>
            <% end %>
       <% if (@contentinfo != nil) %>
-      <h3 class="dstitle">Content Information (contentInfo datastream | <span>metadata count: <%= @contentinfo.count %></span>)</h3>
+      <h3 class="dstitle"><small>Content Information (contentInfo datastream | <span>metadata count: <%= @contentinfo.count %></span>)</small></h3>
       <table class="datastream table table-striped">
 
 <%
@@ -102,7 +102,7 @@
 %>
     </table>
           <% end %>
-      <h3 class="dstitle">Linking Information (linkingInfo datastream | <span>metadata count: <%= @linkinginfo.count %></span>)</h3>
+      <h3 class="dstitle"><small>Linking Information (linkingInfo datastream | <span>metadata count: <%= @linkinginfo.count %></span>)</small></h3>
         <table class="datastream table table-striped">
 
 <%
@@ -114,7 +114,7 @@
 %>
 
 </table>
-      <h3 class="dstitle">Uncategorized (miscInfo datastream | <span>metadata count: <%= @miscinfo.count %></span>)</h3>
+      <h3 class="dstitle"><small>Uncategorized (miscInfo datastream | <span>metadata count: <%= @miscinfo.count %></span>)</small></h3>
       <table class="datastream table table-striped">
         <%
            @miscinfo.each_solution do |solution|

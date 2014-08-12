@@ -38,15 +38,21 @@ prefixes = "
           PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
           "
 
-if ENV['RACK_ENV'] == :production
-  sparqlendpoint = "http://localhost:31867//ds/query"
-else
-  sparqlendpoint = "http://localhost:3030/ds/query"
-end
+
+
+
 
 def rdf_query(query)
+  
+  if ENV['RACK_ENV'] == :production
+    sparqlendpoint = "http://localhost:31867/ds/query"
+  else
+    sparqlendpoint = "http://localhost:3030/ds/query"
+  end
+
   sparql = SPARQL::Client.new(sparqlendpoint)
   result = sparql.query(query)
+
   return result
 end
 

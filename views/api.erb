@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>SCTA Display</title>
@@ -14,27 +14,36 @@
 	<div id="body" style="width: 600px; float: left;">
 		<h1>The SCTA API</h1>
 		<div id="basicorganization">
-			<h2>Basic Organization</h2>
+			<h2><small>Basic Organization</small></h2>
+			<p>The SCTA schema basically divided into three main categories:</p>
+			<ul>
+				<li>scta.info/text</li>
+				<li>scta.info/resource</li>
+				<li>scta.info/property</li>
+
 		</div>
 		<div id="contentnegotiation">
-			<h2>Content Negotiation</h2>
+			<h2><small>Content Negotiation</small></h2>
 			<pre>
 			<code>
-				$ curl -iH "Accept: text/plain" http://scta.info/text/plaoulcommentary/item/lectio1
-				$ curl -iH "Accept: text/turtle" http://scta.info/text/plaoulcommentary/item/lectio1
-				$ curl -iH "Accept: application/rdf+xml" http://scta.info/text/plaoulcommentary/item/lectio1
-				$ curl -iH "Accept: application/json" http://scta.info/text/plaoulcommentary/item/lectio1
-				$ curl -iH "Accept: application/trix" http://scta.info/text/plaoulcommentary/item/lectio1
-				$ curl -iH "Accept: */*" http://scta.info/text/plaoulcommentary/item/lectio1
+$ curl -iH "Accept: text/plain" http://scta.info/text/plaoulcommentary/item/lectio1
+$ curl -iH "Accept: text/turtle" http://scta.info/text/plaoulcommentary/item/lectio1
+$ curl -iH "Accept: application/rdf+xml" http://scta.info/text/plaoulcommentary/item/lectio1
+$ curl -iH "Accept: application/json" http://scta.info/text/plaoulcommentary/item/lectio1
+$ curl -iH "Accept: application/trix" http://scta.info/text/plaoulcommentary/item/lectio1
+$ curl -iH "Accept: */*" http://scta.info/text/plaoulcommentary/item/lectio1
 			</code>
 		</pre>
 		</div>
-	<div style="float: left; width: 200px; padding: 10px; margin: 20px; border-left: 1px solid black;">
+	</div>
+	<div style="float: left; width: 200px; padding: 10px; margin: 100px 20px 20px 100px; border-left: 1px solid black;">
+		<p>Contents</p>
 		<ul>
 			<li><a href="#basicorganization">Basic organization</a></li>
 			<li><a href="#contentnegotiation">Content Negotiation</a></li>
 		</ul>
 
 	</div>
+</div>
 </body>
 </html>
