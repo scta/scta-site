@@ -7,19 +7,38 @@
 <div id="body">
 <h1>SCTA Search</h1>
 <p>Search for a resource of the selected type whose title contains the search term(s)</p>
+ <p>* For example to search a quotation used in a sentence commentary that contains the word "fides", select "quotation" and the search for "fides"</p>
 <form method="get" action="/searchresults">
-	<input type="radio" name="category" value="quotation">Quotation</input></br>
-	<input type="radio" name="category" value="item">Item</input></br>
-	<input type="radio" name="category" value="commentary">Commentary</input></br>
-	<input type="radio" name="category" value="person">Name</input></br>
-	<input type="radio" name="category" value="work">Work</input></br>
-	<input type="radio" name="category" value="book">Book</input></br>
-	<input type="radio" name="category" value="distinction">Distinction</input></br>
-	<input type="text" name="search" placeholder="type search text here"/>
+  <div class="radio">
+    <label class="radio-inline">
+        <input type="radio" id="category" name="category" value="quotation">Quotation</input>
+    </label>
+    <label class="radio-inline">
+	    <input type="radio" id="category" name="category" value="item">Item</input>
+    </label>
+    <label class="radio-inline">
+	<input type="radio" id="category" name="category" value="commentary">Commentary</input>
+    </label>
+    <label class="radio-inline">
+	<input type="radio" id="category" name="category" value="person">Name</input>
+    </label>
+    <label class="radio-inline">
+	<input type="radio" id="category" name="category" value="work">Work</input>
+    </label>
+    <label class="radio-inline">
+	<input type="radio" id="category" name="category" value="book">Book</input>
+    </label>
+    <label class="radio-inline">
+	<input type="radio" id="category" name="category" value="distinction">Distinction</input>
+    </label>
+  </div>
+  <input type="text" name="search" placeholder="type search text here"/>
+  <br/>
 	<input type="submit"/>
+
 </form>
 <p>Or Perform custom SPARQL Query</p>
-<form method="post" action="/sparqlquery">
+ <form method="post" action="/sparqlquery">
 	<textarea name="query" style="width: 400px; height: 200px;">
       PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX dbpedia: <http://dbpedia.org/ontology/>

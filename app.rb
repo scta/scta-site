@@ -97,10 +97,24 @@ get '/' do
             ?com a <http://scta.info/resource/commentary> .
           }
           "
+  namequery = "#{prefixes}
+
+          SELECT count(distinct ?name) {
+            ?name a <http://scta.info/resource/person> .
+          }
+          "
+  workquery = "#{prefixes}
+
+          SELECT count(distinct ?work) {
+            ?work a <http://scta.info/resource/work> .
+          }
+          "
   @quotationcount = rdf_query(quotationquery).first[:".1"]
   @quotescount = rdf_query(quotesquery).first[:".1"]
   @itemcount = rdf_query(itemquery).first[:".1"]
   @commentarycount = rdf_query(commentaryquery).first[:".1"]
+  @namecount = rdf_query(namequery).first[:".1"]
+  @workcount = rdf_query(workquery).first[:".1"]
 
 
   erb :index
