@@ -44,7 +44,7 @@ prefixes = "
 
 def rdf_query(query)
   
-  if ENV['RACK_ENV'] == :production
+  if ENV['RACK_ENV'] == "production"
     sparqlendpoint = "http://localhost:31867/ds/query"
   else
     sparqlendpoint = "http://localhost:3030/ds/query"
