@@ -106,7 +106,7 @@ get '/' do
   commentaryquery = "#{prefixes}
 
           SELECT count(distinct ?com) {
-            ?com a <http://scta.info/resource/commentary> .
+            ?com a <http://scta.info/resource/commentarius> .
           }
           "
   namequery = "#{prefixes}
@@ -146,6 +146,32 @@ get '/practice' do
     
     puts "title=#{solution.title}"
   end
+  end
+
+  get '/construct' do
+
+    query = "#{prefixes}
+
+    CONSTRUCT {
+      <http://scta.info/text/plaoulcommentary/commentary> sctap:quotes ?quote .
+      }
+
+    WHERE  {
+      <http://scta.info/text/plaoulcommentary/commentary> dcterms:hasPart ?p .
+      ?p sctap:quotes ?quote .
+
+      }"
+
+    @result = rdf_query(query)
+    @result_hash = []
+    @predicate = "sctap:quotes"
+    @result.each_statement do |statement|
+        @result_hash << statement.object
+
+    end
+  erb :practice
+  #binding.pry
+
 
 
 end
@@ -160,7 +186,7 @@ get '/scta' do
 
           SELECT ?s ?o
           {
-          ?s a <http://scta.info/resource/commentary> .
+          ?s a <http://scta.info/resource/commentarius> .
           ?s <http://purl.org/dc/elements/1.1/title> ?o  .
           }
           ORDER BY ?s
