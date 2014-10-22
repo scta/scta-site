@@ -244,7 +244,8 @@ post '/sparqlquery' do
 end
 
 
-get '/iiif/:msname/manifest' do |msname|
+get '/iiif/:msname/manifest.json' do |msname|
+  response['Access-Control-Allow-Origin'] = '*'
   send_file "public/#{msname}.json"
 end
 
