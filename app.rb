@@ -23,7 +23,6 @@ include RDF
 
 
 
-
 prefixes = "
           PREFIX owl: <http://www.w3.org/2002/07/owl#>
           PREFIX dbpedia: <http://dbpedia.org/ontology/>
@@ -480,6 +479,40 @@ get '/text/:cid/:category/:id' do |cid, category, id|
 end
 =end
 
+get '/list/:type' do |type|
+
+  @subjectid = "<http://scta.info/list/#{type}>"
+  query = "#{prefixes}
+
+          SELECT ?s ?o
+          {
+          ?s a <http://scta.info/resource/#{type}> .
+          ?s <http://purl.org/dc/elements/1.1/title> ?o  .
+          }
+          ORDER BY ?s
+          "
+  
+  @result = rdf_query(query)
+  
+  accept_type = request.env['HTTP_ACCEPT']
+
+  if accept_type.include? "text/html"
+    erb :subj_display
+    
+  else
+    RDF::Graph.new do |graph|
+      @result.each do |solution|
+        s = RDF::URI(@subjectid)
+        p = RDF::URI("http://scta.info/property/hasListMember")
+        o = solution[:s]
+        graph << [s, p, o]
+
+      end
+    end
+  end
+
+end
+
 get '/?:p1?/?:p2?/?:p3?/?:p4?' do ||
 
   if params[:p4] != nil
@@ -507,6 +540,10 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?' do ||
 
   @result = rdf_query(query)
 
+  if params[:p1] == 'resource'
+    @resourcetype = params[:p2]
+  end
+
   accept_type = request.env['HTTP_ACCEPT']
 
   if accept_type.include? "text/html"
@@ -514,10 +551,30 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?' do ||
     @count = @result.count
     @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
 
+
+
     @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
     @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/contentInfo"))
     @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/linkingInfo"))
     @miscinfo = @result.dup.filter(:ptype => nil)
+
+
+    @sameas = @result.dup.filter(:p => RDF::URI("http://www.w3.org/2002/07/owl#sameAs"))
+
+    if @resourcetype == 'person' && @sameas.count > 0
+      dbpediaAddress = @sameas[0][:o]
+      dbpediaGraph = RDF::Graph.load(dbpediaAddress)
+      query = RDF::Query.new({:person =>
+                                  {
+                                      RDF::URI("http://dbpedia.org/ontology/abstract") => :abstract
+                                  #RDF::URI("http://dbpedia.org/ontology/birthDate") => :birthDate
+                                  }
+                             })
+      result  = query.execute(dbpediaGraph)
+      @english_result = result.find { |solution| solution.abstract.language == :en}
+      #binding.pry
+    end
+
 
     erb :obj_pred_display
   else

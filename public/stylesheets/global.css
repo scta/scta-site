@@ -21,7 +21,7 @@
 	div#header a:hover {background-color: gray;}
 
 	div#body {padding-left: 20px; margin: 0;}
-    div#titleheader {max-width: 600px;}
+    div#titleheader {max-width: 900px;}
 
     .url_label {color: black; padding: 3px; font-size: 14px;}
     .url_base {color: black; font-weight: bold;}

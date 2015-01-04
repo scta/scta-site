@@ -30,7 +30,13 @@
 	<div id="body">
 <div id="titleheader">
 <h2>Information for: <%= "#{@title}" %></h2>
-<p>(select link for more information)<p>
+<p>(select links below for more information)<p>
+
+  <%  if @resourcetype == 'person' && @sameas.count > 0 %>
+  <p style="font-size: 12px">
+  <%= @english_result[:abstract] %>
+    (Wikipedia Abstract)</p>
+  <% end %>
   </div>
 
       <% def tableprint(predicate, object)
