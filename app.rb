@@ -251,7 +251,7 @@ get '/iiif/:msname/manifest' do |msname|
   send_file "public/#{msname}.json"
 end
 
-get '/iiif/pg-lon/list/l1r' do 
+get '/iiif/pg-lon/list/L1r' do 
   headers( "Access-Control-Allow-Origin" => "*")
   send_file "public/pg-lon-list-l1r.json"
 end
