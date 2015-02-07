@@ -253,7 +253,7 @@ end
 
 get '/iiif/pg-lon/list/L1r' do 
   headers( "Access-Control-Allow-Origin" => "*")
-  send_file "public/pg-lon-list-l1r.json"
+  send_file "public/pg-lon-list-L1r.json"
 end
 get '/iiif/pg-lon/text/test.txt' do 
   headers( "Access-Control-Allow-Origin" => "*")
