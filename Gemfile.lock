@@ -13,6 +13,9 @@ GEM
     haml (4.0.5)
       tilt
     htmlentities (4.3.2)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     json (1.8.1)
     json-ld (1.1.4)
       rdf (~> 1.1)
@@ -30,6 +33,7 @@ GEM
       rdf-turtle (>= 0.1.1)
     method_source (0.8.2)
     mini_portile (0.5.2)
+    multi_xml (0.5.5)
     net-http-persistent (2.9)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -110,6 +114,7 @@ PLATFORMS
 
 DEPENDENCIES
   equivalent-xml
+  httparty
   linkeddata (~> 0.3.0)
   nokogiri
   pry

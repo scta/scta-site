@@ -1,0 +1,15 @@
+{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@id": "http://scta.info/iiif/pg-lon/list/L1r",
+    "@type": "sc:AnnotationList",
+    "resources": [{
+        "@type": "oa:Annotation",
+        "motivation": "sc:painting",
+        "resource": {
+            "@type": "dctypes:Text",
+            "format": "text/plain",
+            "chars" : "This is the beginning of Gracilis' comentary on the Sentences"
+        },
+        "on": "http://scta.info/iiif/pg-lon/canvas/L1r"
+    }]
+}

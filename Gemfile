@@ -11,6 +11,7 @@ gem 'tilt', '>= 1.3.4', '~> 1.3'
 gem 'thin'
 gem 'sinatra-linkeddata' #problems with this dependency but this is needed for content negotiation
 gem 'equivalent-xml'
+gem 'httparty'
 
 group :development do 
 	gem 'pry'

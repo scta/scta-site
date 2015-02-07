@@ -1,4 +1,4 @@
-{"@context": "http://iiif.io/api/presentation/2/context.json", "@id": "http://scta.info/iiif/pg-lon/manifest", "@type": "sc:Manifest", "label": "British Royal MS 10 A I", "metadata": [
+{"@context": "http://iiif.io/api/presentation/2/context.json", "@id": "http://scta.info/iiif/pg-lon/manifest", "@type": "sc:Manifest", "label": "Peter Gracilis - British Royal MS 10 A I", "metadata": [
     {
         "label": "Author",
         "value": "Petrus Gracilis"
@@ -47,6 +47,12 @@
                             "width": 2000
                         },
                         "on": "http://scta.info/iiif/pg-lon/canvas/L1r"
+                    }
+                ],
+                "otherContent": [
+                    {
+                        "@id": "http://scta.info/iiif/pg-lon/list/L1r",
+                        "@type":"sc:AnnotationList"
                     }
                 ]
             },

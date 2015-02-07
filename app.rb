@@ -13,6 +13,9 @@ require 'sparql/client'
 require 'rdf/ntriples'
 require 'cgi'
 require 'equivalent-xml'
+require 'open-uri'
+require 'httparty'
+require 'json'
 #require 'sinatra/linkeddata' doesn't work but I need this for content negotiation
 
 require_relative 'lib/metadata'
@@ -248,6 +251,15 @@ get '/iiif/:msname/manifest' do |msname|
   send_file "public/#{msname}.json"
 end
 
+get '/iiif/pg-lon/list/l1r' do 
+  headers( "Access-Control-Allow-Origin" => "*")
+  send_file "public/pg-lon-list-l1r.json"
+end
+get '/iiif/pg-lon/text/test.txt' do 
+  headers( "Access-Control-Allow-Origin" => "*")
+  send_file "public/testtext.txt"
+end
+
 =begin
 get '/property/:property' do |property|
   query = "#{prefixes}
@@ -478,6 +490,16 @@ get '/text/:cid/:category/:id' do |cid, category, id|
 
 end
 =end
+get '/textsearch/:string' do |string| 
+
+@searchstring = string
+response = HTTParty.get("http://localhost:8983/solr/collection1/select?q=#{string}&rows=100&wt=json&indent=true") 
+json = JSON.parse(response.body)
+response_hash = json.to_hash
+@docs_array = response_hash["response"]["docs"]
+
+erb :textsearch
+end
 
 get '/list/:type' do |type|
 
