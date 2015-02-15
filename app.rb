@@ -251,189 +251,69 @@ get '/iiif/:msname/manifest' do |msname|
   send_file "public/#{msname}.json"
 end
 
-get '/iiif/pg-lon/list/L1r' do 
+#get '/iiif/pg-lon/list/L1r' do 
+#  headers( "Access-Control-Allow-Origin" => "*")
+#  send_file "public/pg-lon-list-L1r.json"
+#end
+get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
   headers( "Access-Control-Allow-Origin" => "*")
-  send_file "public/pg-lon-list-L1r.json"
+  content_type :json
+
+  @canvasid = "<http://scta.info/iiif/#{slug}/canvas/#{canvasid}>"
+
+  query = "#{prefixes}
+
+          SELECT ?x ?y ?w ?h ?position
+          {
+          ?zone <http://scta.info/property/isZoneOn> #{@canvasid} .
+          ?zone <http://scta.info/property/ulx> ?x .
+          ?zone <http://scta.info/property/uly> ?y .
+          ?zone <http://scta.info/property/width> ?w .
+          ?zone <http://scta.info/property/height> ?h .
+          ?zone <http://scta.info/property/position> ?position .
+          }
+          ORDER BY ?position
+          "
+
+          @results = rdf_query(query)
+=begin  
+"{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@id": "http://scta.info/iiif/pg-lon/list/L1r",
+    "@type": "sc:AnnotationList",
+    "resources": [{
+        "@type": "oa:Annotation",
+        "motivation": "sc:painting",
+        "resource": {
+            "@type": "dctypes:Text",
+            "format": "text/plain",
+            "chars" : "This is the beginning of Gracilis' comentary on the Sentences"
+        },
+        "on": "http://scta.info/iiif/pg-lon/canvas/L1r"
+    }]
+}"
+=end
+# works but need to rebuild this json array so that it is correct
+    annotationarray = []
+      @results.each do |result|
+      entryhash = {"@context" => "http://iiif.io/api/presentation/2/context.json", 
+        "@id" => "http://scta.info/iiif/#{slug}/list/#{canvasid}",
+        "@type" => "sc:AnnotationList",
+        "resources" => "#{result[:position]}",
+        "on" => "http://scta.info/iiif/#{slug}/canvas/#{canvasid}#xywh=#{result[:x]},#{result[:y]},#{result[:w]},#{result[:h]}"
+         }
+        annotationarray << entryhash
+       end
+       binding.pry
+    annotationarray.to_json
 end
+
 get '/iiif/pg-lon/text/test.txt' do 
   headers( "Access-Control-Allow-Origin" => "*")
   send_file "public/testtext.txt"
 end
 
-=begin
-get '/property/:property' do |property|
-  query = "#{prefixes}
 
-          SELECT ?p ?o
-          {
-          <http://scta.info/property/#{relation}> ?p ?o  .
-          
-          }
-          ORDER BY ?s
-          "
-          @result = rdf_query(query)
-          erb :obj_pred_display
-
-end
-=end
-
-=begin
-get '/property/:property/:subprop' do |property, subprop|
-  query = "#{prefixes}
-
-          SELECT ?p ?o
-          {
-          <http://scta.info/property/#{relation}/#{subprop}> ?p ?o  .
-
-          }
-          ORDER BY ?s
-          "
-  @result = rdf_query(query)
-  erb :obj_pred_display
-
-end
-=end
-
-
-=begin
-get '/text/:cid/:category' do |cid, category|
-  #this isn't really going to work because grandhildren parts will not be identified.
-  query = "#{prefixes}
-
-          SELECT ?s ?o
-          {
-          ?s a <http://scta.info/resource/#{category}> .
-          ?s dc:isPartOf <http://scta.info/#{cid}/commentary>  .
-          ?s <http://purl.org/dc/elements/1.1/title> ?o  .
-          }
-          OR
-          {
-          ?s a <http://scta.info/resource/#{category}> .
-          ?s dc:hasPart ?parent .
-          ?parent dc:isPartOf <http://scta.info/#{cid}/commentary>  .
-          }
-
-          ?s <http://purl.org/dc/elements/1.1/title> ?o  .
-          }
-          ORDER BY ?s
-          " 
-
-        @category = category
-        @result = rdf_query(query)
-        accept_type = request.env['HTTP_ACCEPT']
-        if accept_type.include? "text/html"
-            erb :subj_display
-        else
-        RDF::Graph.new do |graph|
-          @result.each do |solution|
-            s = solution[:s]
-            o = solution[:o]
-            graph << [s, RDF::DC.title, o]
-            end
-        end
-      end
-end
-=end
-
-=begin
-get '/resource/:category/:id' do |category, id|
-
-
-@category = category
-@id = id                
-@subjectid = "<http://scta.info/resource/#{@category}/#{@id}>"
-
-query = "#{prefixes}
-
-          SELECT ?p ?o ?ptype
-          {
-          #{@subjectid} ?p ?o .
-          OPTIONAL {
-              ?p rdfs:subPropertyOf ?ptype .
-              }
-
-          }
-          ORDER BY ?p
-          "
-          @result = rdf_query(query)
-          accept_type = request.env['HTTP_ACCEPT']
-
-      if accept_type.include? "text/html"
-
-          @count = @result.count
-          @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
-
-          @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
-          @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/contentInfo"))
-          @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/linkingInfo"))
-          #@referenceinfo = @resutl.dup.filter(:ptype => RDF::URI("http://scta.info/property/referenceInfo"))
-          @miscinfo = @result.dup.filter(:ptype => nil)
-
-          erb :obj_pred_display
-          else
-          RDF::Graph.new do |graph|
-            @result.each do |solution|
-              s = RDF::URI("http://scta.info/#{@category}/#{@id}")
-              p = solution[:p]
-              o = solution[:o]
-              graph << [s, p, o]
-
-            end
-  end
-end
-  
-end
-=end
-=begin
-get '/text/:cid/commentary' do |cid, commentary|
-
-
-  @commentary = commentary
-  @cid = cid
-  @subjectid = "<http://scta.info/#{prefix}/#{@cid}/commentary>"
-
-  query = "#{prefixes}
-
-          SELECT ?p ?o ?ptype
-          {
-          #{@subjectid} ?p ?o .
-          OPTIONAL {
-              ?p rdfs:subPropertyOf ?ptype .
-              }
-
-          }
-          ORDER BY ?p
-          "
-
-  @result = rdf_query(query)
-  accept_type = request.env['HTTP_ACCEPT']
-
-  if accept_type.include? "text/html"
-
-    @count = @result.count
-    @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
-
-    @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
-    @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/contentInfo"))
-    @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/linkingInfo"))
-    @miscinfo = @result.dup.filter(:ptype => nil)
-
-    erb :obj_pred_display
-  else
-    RDF::Graph.new do |graph|
-      @result.each do |solution|
-        s = RDF::URI("http://scta.info/text/#{@cid}/#{@category}/#{@id}")
-        p = solution[:p]
-        o = solution[:o]
-        graph << [s, p, o]
-
-      end
-    end
-  end
-
-
-end
-=end
 
 
 
@@ -532,12 +412,17 @@ get '/list/:type' do |type|
       end
     end
   end
-
 end
 
-get '/?:p1?/?:p2?/?:p3?/?:p4?' do ||
+get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
 
-  if params[:p4] != nil
+  if params[:p7] != nil
+    @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}/#{params[:p5]}/#{params[:p6]}/#{params[:p7]}>"
+  elsif params[:p6] != nil
+    @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}/#{params[:p5]}/#{params[:p6]}>"
+  elsif params[:p5] != nil
+    @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}/#{params[:p5]}>"
+  elsif params[:p4] != nil
     @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}>"
   elsif params[:p3] != nil
     @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}>"
