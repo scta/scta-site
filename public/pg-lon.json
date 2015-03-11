@@ -2706,6 +2706,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L50r"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L50r",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -2733,6 +2737,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L50v"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L50v",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -2760,6 +2768,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L51r"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L51r",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -2787,6 +2799,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L51v"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L51v",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -2814,6 +2830,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L52r"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L52r",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -2841,6 +2861,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L52v"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L52v",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {

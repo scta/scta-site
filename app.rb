@@ -263,7 +263,7 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
 
   query = "#{prefixes}
 
-          SELECT ?x ?y ?w ?h ?position
+          SELECT ?x ?y ?w ?h ?position ?plaintext
           {
           ?zone <http://scta.info/property/isZoneOn> #{@canvasid} .
           ?zone <http://scta.info/property/ulx> ?x .
@@ -271,11 +271,13 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
           ?zone <http://scta.info/property/width> ?w .
           ?zone <http://scta.info/property/height> ?h .
           ?zone <http://scta.info/property/position> ?position .
+          ?zone <http://scta.info/property/isZoneOf> ?paragraph .
+          ?paragraph <http://scta.info/property/plaintext> ?plaintext .
           }
           ORDER BY ?position
           "
 
-          @results = rdf_query(query)
+        @results = rdf_query(query)
 =begin  
 "{
     "@context": "http://iiif.io/api/presentation/2/context.json",
@@ -294,18 +296,30 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
 }"
 =end
 # works but need to rebuild this json array so that it is correct
+
     annotationarray = []
+      
       @results.each do |result|
-      entryhash = {"@context" => "http://iiif.io/api/presentation/2/context.json", 
-        "@id" => "http://scta.info/iiif/#{slug}/list/#{canvasid}",
-        "@type" => "sc:AnnotationList",
-        "resources" => "#{result[:position]}",
+      entryhash = {"@type" => "oa:Annotation",
+        "motivation" => "sc:painting",
+        "resource" => {
+            "@id" => "#{result[:plaintext]}",
+            "@type" => "dctypes:Text",
+            "format" => "text/plain",
+        },
         "on" => "http://scta.info/iiif/#{slug}/canvas/#{canvasid}#xywh=#{result[:x]},#{result[:y]},#{result[:w]},#{result[:h]}"
-         }
+      }
         annotationarray << entryhash
        end
-       binding.pry
-    annotationarray.to_json
+
+       annotationlistcontent = {"@context" => "http://iiif.io/api/presentation/2/context.json", 
+        "@id" => "http://scta.info/iiif/#{slug}/list/#{canvasid}",
+        "@type" => "sc:AnnotationList",
+        "resources" => annotationarray
+       }
+
+       
+    annotationlistcontent.to_json
 end
 
 get '/iiif/pg-lon/text/test.txt' do 
