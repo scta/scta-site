@@ -20,9 +20,9 @@
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "attribution": "British Library Stuff",
     "logo" : "http://www.mylearning.org/learning/campaign-make-an-impact-in-yorkshire/BLMARK_4%20COL_BLRED.jpg",
-    "service": "??",
+    
     "seeAlso": "http://petrusgracilis.lombardpress.org",
-    "within": "??",
+    
     "sequences": [{
         "@context": "http://iiif.io/api/presentation/2/context.json",
         "@id": "http://scta.info/iiif/pg-lon/sequence/normal",
