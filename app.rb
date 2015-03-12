@@ -304,7 +304,9 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
         "motivation" => "sc:painting",
         "resource" => {
             "@id" => "#{result[:plaintext]}",
-            "@type" => "dctypes:Text",
+            #"@type" => "dctypes:Text",
+            "@type" => "cnt:ContentAsText",
+            "chars" => "This is a test to see if text will anotate a given region"
             "format" => "text/plain",
         },
         "on" => "http://scta.info/iiif/#{slug}/canvas/#{canvasid}#xywh=#{result[:x]},#{result[:y]},#{result[:w]},#{result[:h]}"
