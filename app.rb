@@ -263,7 +263,7 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
 
   query = "#{prefixes}
 
-          SELECT ?x ?y ?w ?h ?position ?plaintext
+          SELECT ?x ?y ?w ?h ?position ?paragraph ?plaintext 
           {
           ?zone <http://scta.info/property/isZoneOn> #{@canvasid} .
           ?zone <http://scta.info/property/ulx> ?x .
@@ -300,15 +300,18 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
     annotationarray = []
       
       @results.each do |result|
+        
+        pid = result['paragraph'].to_s.split("/").last
       entryhash = {"@type" => "oa:Annotation",
+        "@id" => "http://scta.info/iiif/#{slug}/annotation/#{pid}",
         "motivation" => "sc:painting",
         "resource" => {
             "@id" => "#{result[:plaintext]}",
-            #"@type" => "dctypes:Text",
+            "@type" => "dctypes:Text",
             "@type" => "cnt:ContentAsText",
             "chars" => "This is a test to see if text will annotate a given region",
-            #"format" => "text/plain",
-            "format" => "dctypes:Text"
+            "format" => "text/plain",
+            
         },
         "on" => "http://scta.info/iiif/#{slug}/canvas/#{canvasid}#xywh=#{result[:x]},#{result[:y]},#{result[:w]},#{result[:h]}"
       }
