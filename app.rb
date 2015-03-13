@@ -302,6 +302,7 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
       @results.each do |result|
         
         pid = result['paragraph'].to_s.split("/").last
+        paragraph = result['paragraph'].to_s
       entryhash = {"@type" => "oa:Annotation",
         "@id" => "http://scta.info/iiif/#{slug}/annotation/#{pid}",
         "motivation" => "sc:painting",
@@ -309,8 +310,8 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
             "@id" => "#{result[:plaintext]}",
             "@type" => "dctypes:Text",
             "@type" => "cnt:ContentAsText",
-            "chars" => "This is a test to see if text will annotate a given region",
-            "format" => "text/plain",
+            "chars" => "This paragraph <a href='#{paragraph}'>#{paragraph}</a>. Please select to view metadata info",
+            "format" => "text/html",
             
         },
         "on" => "http://scta.info/iiif/#{slug}/canvas/#{canvasid}#xywh=#{result[:x]},#{result[:y]},#{result[:w]},#{result[:h]}"
