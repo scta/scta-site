@@ -12863,7 +12863,7 @@
         "label":"Principia I",
         "viewingHint":"top",
         "canvases": [
-          "http://scta.info/iiif/pg-lon/canvas/L1r",
+          "http://scta.info/iiif/pg-lon/canvas/L1r"
           
         ]
     },
@@ -12874,7 +12874,7 @@
         "label":"Question 2",
         "viewingHint":"top",
         "canvases": [
-          "http://scta.info/iiif/pg-lon/canvas/L11v",
+          "http://scta.info/iiif/pg-lon/canvas/L11v"
           
         ]
     },
@@ -12885,7 +12885,7 @@
         "label":"Question 3",
         "viewingHint":"top",
         "canvases": [
-          "http://scta.info/iiif/pg-lon/canvas/L15r",
+          "http://scta.info/iiif/pg-lon/canvas/L15r"
           
         ]
     }
