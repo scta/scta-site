@@ -12830,8 +12830,8 @@
         "viewingHint":"top",
         "canvases": [
           "http://scta.info/iiif/pg-lon/canvas/L1v",
-          "http://scta.info/iiif/pg-lon/canvas/L2r",
+          "http://scta.info/iiif/pg-lon/canvas/L2r"
         ]
-    },
+    }
    ]
 }
