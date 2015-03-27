@@ -12801,8 +12801,37 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L236v"
-                }]
+                }
+                ]
             }
         ]
-    }]
+    }
+    ],
+    "structures": [
+    {
+    
+    
+      "@id":"http://scta.info/iiif/pg-lon/range/r1",
+      "@type":"sc:Range",
+      "label":"Test Range 1",
+      "viewingHint":"top",
+      "canvases" : [
+          "http://scta.info/iiif/pg-lon/canvas/L1r",
+          "http://scta.info/iiif/pg-lon/canvas/L1v",
+          "http://scta.info/iiif/pg-lon/canvas/L2r",
+          "http://scta.info/iiif/pg-lon/canvas/L2v"
+      ]
+    },
+    {
+        "within": "http://scta.info/iiif/pg-lon/range/r1",
+        "@id":"http://scta.info/iiif/pg-lon/range/r1-1",
+        "@type":"sc:Range",
+        "label":"Test Range 2",
+        "viewingHint":"top",
+        "canvases": [
+          "http://scta.info/iiif/pg-lon/canvas/L1v",
+          "http://scta.info/iiif/pg-lon/canvas/L2r",
+        ]
+    },
+   ]
 }
