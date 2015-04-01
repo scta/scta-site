@@ -1,6 +1,6 @@
 {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/pg-lon/manifest",
+    "@id": "http://scta.info/iiif/pg-lon/manifest2",
     "@type": "sc:Manifest",
     "label": "Peter Gracilis - British Royal MS 10 A I",
     "metadata": [
@@ -12806,89 +12806,6 @@
             }
         ]
     }
-    ],
-    "structures": [
-    {
+    ]
     
-    
-      "@id":"http://scta.info/iiif/pg-lon/range/r1",
-      "@type":"sc:Range",
-      "label":"Test Range 1",
-      "viewingHint":"top",
-      "canvases" : [
-          "http://scta.info/iiif/pg-lon/canvas/L1r",
-          "http://scta.info/iiif/pg-lon/canvas/L1v",
-          "http://scta.info/iiif/pg-lon/canvas/L2r",
-          "http://scta.info/iiif/pg-lon/canvas/L2v",
-          "http://scta.info/iiif/pg-lon/canvas/L3r",
-          "http://scta.info/iiif/pg-lon/canvas/L3v",
-          "http://scta.info/iiif/pg-lon/canvas/L4r",
-          "http://scta.info/iiif/pg-lon/canvas/L4v",
-          "http://scta.info/iiif/pg-lon/canvas/L5r",
-          "http://scta.info/iiif/pg-lon/canvas/L5v",
-          "http://scta.info/iiif/pg-lon/canvas/L6r",
-          "http://scta.info/iiif/pg-lon/canvas/L6v",
-          "http://scta.info/iiif/pg-lon/canvas/L7r",
-          "http://scta.info/iiif/pg-lon/canvas/L7v",
-          "http://scta.info/iiif/pg-lon/canvas/L8r",
-          "http://scta.info/iiif/pg-lon/canvas/L8v",
-          "http://scta.info/iiif/pg-lon/canvas/L9r",
-          "http://scta.info/iiif/pg-lon/canvas/L9v",
-          "http://scta.info/iiif/pg-lon/canvas/L10r",
-          "http://scta.info/iiif/pg-lon/canvas/L10v",
-          "http://scta.info/iiif/pg-lon/canvas/L11r",
-          "http://scta.info/iiif/pg-lon/canvas/L11v",
-          "http://scta.info/iiif/pg-lon/canvas/L12r",
-          "http://scta.info/iiif/pg-lon/canvas/L12v",
-          "http://scta.info/iiif/pg-lon/canvas/L13r",
-          "http://scta.info/iiif/pg-lon/canvas/L13v",
-          "http://scta.info/iiif/pg-lon/canvas/L14r",
-          "http://scta.info/iiif/pg-lon/canvas/L14v",
-          "http://scta.info/iiif/pg-lon/canvas/L15r",
-          "http://scta.info/iiif/pg-lon/canvas/L15v",
-          "http://scta.info/iiif/pg-lon/canvas/L16r",
-          "http://scta.info/iiif/pg-lon/canvas/L16v",
-          "http://scta.info/iiif/pg-lon/canvas/L17r",
-          "http://scta.info/iiif/pg-lon/canvas/L17v",
-          "http://scta.info/iiif/pg-lon/canvas/L18r",
-          "http://scta.info/iiif/pg-lon/canvas/L18v",
-          "http://scta.info/iiif/pg-lon/canvas/L19r",
-          "http://scta.info/iiif/pg-lon/canvas/L19v"
-      ]
-    },
-    {
-        "within": "http://scta.info/iiif/pg-lon/range/r1",
-        "@id":"http://scta.info/iiif/pg-lon/range/r1-1",
-        "@type":"sc:Range",
-        "label":"Principia I",
-        "viewingHint":"top",
-        "canvases": [
-          "http://scta.info/iiif/pg-lon/canvas/L1r"
-          
-        ]
-    },
-    {
-        "within": "http://scta.info/iiif/pg-lon/range/r1",
-        "@id":"http://scta.info/iiif/pg-lon/range/r1-2",
-        "@type":"sc:Range",
-        "label":"Question 2",
-        "viewingHint":"top",
-        "canvases": [
-          "http://scta.info/iiif/pg-lon/canvas/L11v"
-          
-        ]
-    },
-    {
-        "within": "http://scta.info/iiif/pg-lon/range/r1",
-        "@id":"http://scta.info/iiif/pg-lon/range/r1-3",
-        "@type":"sc:Range",
-        "label":"Question 3",
-        "viewingHint":"top",
-        "canvases": [
-          "http://scta.info/iiif/pg-lon/canvas/L15r"
-          
-        ]
-    }
-    
-   ]
 }

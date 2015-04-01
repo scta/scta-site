@@ -245,16 +245,112 @@ post '/sparqlquery' do
   query_display_simple(query)
 end
 
-
 get '/iiif/:msname/manifest' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
-  send_file "public/#{msname}.json"
+  content_type :json
+  
+  
+
+  slug = msname.split("-").last
+  commentary_slug = msname.split("-").first
+ 
+  query = "#{prefixes}
+
+          SELECT ?commentary ?item ?order ?title ?witness ?canvas
+          {
+          ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
+          ?commentary <http://scta.info/property/hasItem> ?item .
+          ?item <http://scta.info/property/hasWitness> ?witness .
+          ?item <http://scta.info/property/totalOrderNumber> ?order .
+          ?item <http://purl.org/dc/elements/1.1/title> ?title .
+          ?witness <http://scta.info/property/hasSlug> '#{slug}' .
+          ?witness <http://scta.info/property/isOnCanvas> ?canvas
+          }
+          ORDER BY ?order
+          "
+
+        @results = rdf_query(query)
+  if @results.count > 0
+      all_structures = []     
+      
+      first_structure_canvases = []
+
+      @results.each do |result|
+        first_structure_canvases << result[:canvas].to_s
+      end
+
+      first_structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1",
+                      "@type" => "sc:Range",
+                      "label" => "Commentary",
+                      "viewingHint" => "top",
+                      "canvases" => first_structure_canvases.uniq
+                      } 
+      all_structures << first_structure               
+
+      items = []
+      
+      @results.each do |result|
+        items << [result[:item], result[:title]]
+      end                
+      
+      result_sets = []
+      items.uniq!
+      items.each do |item, title|
+
+        filtered_results = @results.dup.filter(:item => item.to_s)
+        result_sets << [filtered_results, title]
+      end
+      i = 1
+      result_sets.each do |set, title|
+        
+        structure_canvases = []
+        
+        set.each do |item_set|
+          structure_canvases << item_set[:canvas].to_s
+        end
+        
+        structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1-#{i}",
+                      "within" => "http://scta.info/iiif/#{msname}/range/r1",
+                      "@type" => "sc:Range",
+                      "label" => "#{title.to_s}",
+                      "viewingHint" => "top",
+                      "canvases" => structure_canvases
+                      } 
+
+        all_structures << structure
+        
+        i = i + 1
+
+      end
+      structure_object = {"structures" => all_structures}
+      #all_structures.to_json
+      #structure_object.to_json
+
+      json = File.read("public/#{msname}.json")
+      secondJsonArray = JSON.parse(json)
+      
+      newhash = secondJsonArray.merge(structure_object)
+      
+      newhash.to_json
+    else
+      send_file "public/#{msname}.json"
+    end
+
+      #File.open("public/group.json","w") do |f|
+      #f.puts JSON.pretty_generate(secondJsonArray)
+    #end
 end
 
-#get '/iiif/pg-lon/list/L1r' do 
-#  headers( "Access-Control-Allow-Origin" => "*")
-#  send_file "public/pg-lon-list-L1r.json"
-#end
+get '/iiif/:msname/manifest2' do |msname|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+
+
+  send_file "public/#{msname}.json"
+
+end
+
+
 get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
@@ -278,24 +374,7 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
           "
 
         @results = rdf_query(query)
-=begin  
-"{
-    "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/pg-lon/list/L1r",
-    "@type": "sc:AnnotationList",
-    "resources": [{
-        "@type": "oa:Annotation",
-        "motivation": "sc:painting",
-        "resource": {
-            "@type": "dctypes:Text",
-            "format": "text/plain",
-            "chars" : "This is the beginning of Gracilis' comentary on the Sentences"
-        },
-        "on": "http://scta.info/iiif/pg-lon/canvas/L1r"
-    }]
-}"
-=end
-# works but need to rebuild this json array so that it is correct
+
 
     annotationarray = []
       
@@ -335,62 +414,6 @@ get '/iiif/pg-lon/text/test.txt' do
 end
 
 
-
-
-
-=begin
-
-get '/text/:cid/:category/:id' do |cid, category, id|
-
-
-  @category = category
-  @id = id
-  @cid = cid
-  @subjectid = "<http://scta.info/text/#{@cid}/#{@category}/#{@id}>"
-
-  query = "#{prefixes}
-
-          SELECT ?p ?o ?ptype
-          {
-          #{@subjectid} ?p ?o .
-          OPTIONAL {
-              ?p rdfs:subPropertyOf ?ptype .
-              }
-
-          }
-          ORDER BY ?p
-          "
-
-  @result = rdf_query(query)
-  
-  accept_type = request.env['HTTP_ACCEPT']
-
-  if accept_type.include? "text/html"
-
-    @count = @result.count
-    @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
-
-    @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
-    @contentinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/contentInfo"))
-    #@referenceinfo = @resutl.dup.filter(:ptype => RDF::URI("http://scta.info/property/referenceInfo"))
-    @linkinginfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/linkingInfo"))
-    @miscinfo = @result.dup.filter(:ptype => nil)
-
-    erb :obj_pred_display
-  else
-    RDF::Graph.new do |graph|
-      @result.each do |solution|
-        s = RDF::URI("http://scta.info/text/#{@cid}/#{@category}/#{@id}")
-        p = solution[:p]
-        o = solution[:o]
-        graph << [s, p, o]
-
-      end
-    end
-  end
-
-end
-=end
 get '/textsearch/:string' do |string| 
 
 @searchstring = string
