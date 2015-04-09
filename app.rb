@@ -382,14 +382,15 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
         
         pid = result['paragraph'].to_s.split("/").last
         paragraph = result['paragraph'].to_s
-      entryhash = {"@type" => "oa:Annotation",
+        paragraphtext = HTTParty.get(result['plaintext'].to_s)
+        entryhash = {"@type" => "oa:Annotation",
         "@id" => "http://scta.info/iiif/#{slug}/annotation/#{pid}",
         "motivation" => "sc:painting",
         "resource" => {
             "@id" => "#{result[:plaintext]}",
             "@type" => "dctypes:Text",
             "@type" => "cnt:ContentAsText",
-            "chars" => "This paragraph <a href='#{paragraph}'>#{paragraph}</a>. Please select to view metadata info",
+            "chars" => "#{paragraphtext}</br> Metadata avaialble for this paragraph here: <a href='#{paragraph}'>#{paragraph}</a>.",
             "format" => "text/html",
             
         },
