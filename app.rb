@@ -391,7 +391,7 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
         "resource" => {
             "@id" => "#{result[:plaintext]}",
             "@type" => "dctypes:Text",
-            "@type" => "cnt:ContentAsText",
+            #"@type" => "cnt:ContentAsText",
             "chars" => "#{paragraphtext}</br> Metadata avaialble for this paragraph here: <a href='#{paragraph}'>#{paragraph}</a>.",
             "format" => "text/html",
             
@@ -492,7 +492,10 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
           ORDER BY ?p
           "
 
-  @result = rdf_query(query)
+  #@result = rdf_query(query)
+  #test using Lbp library
+  query_obj = Lbp::Query.new()
+  @result = query_obj.query(query)
 
   if params[:p1] == 'resource'
     @resourcetype = params[:p2]
