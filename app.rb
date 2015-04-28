@@ -22,6 +22,7 @@ require 'lbp'
 require_relative 'lib/queries'
 
 configure do
+  set :protection, except: [:frame_options]
   set :root, File.dirname(__FILE__)
 end
 
