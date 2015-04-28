@@ -16,13 +16,18 @@ require 'equivalent-xml'
 require 'open-uri'
 require 'httparty'
 require 'json'
+require 'lbp'
 #require 'sinatra/linkeddata' doesn't work but I need this for content negotiation
 
-require_relative 'lib/metadata'
+#/require_relative 'lib/queries'
 
-require 'pry'
+#equire 'pry'
 #require 'ruby-debug-ide'
 include RDF
+
+configure do
+  set :root, File.dirname(__FILE__)
+end
 
 
 
@@ -47,9 +52,10 @@ prefixes = "
 def rdf_query(query)
   
   if ENV['RACK_ENV'] == "production"
-    sparqlendpoint = "http://localhost:31867/ds/query"
+    sparqlendpoint = "http://sparql.scta.info/ds/query"
   else
-    sparqlendpoint = "http://localhost:3030/ds/query"
+    #sparqlendpoint = "http://localhost:3030/ds/query"
+    sparqlendpoint = "http://sparql.scta.info/ds/query"
   end
 
   sparql = SPARQL::Client.new(sparqlendpoint)
