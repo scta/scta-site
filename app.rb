@@ -5,6 +5,8 @@
 # a URI-escaped SPARQL query, for example:
 #   http://localhost:4567/?query=SELECT%20?s%20?p%20?o%20WHERE%20%7B?s%20?p%20?o%7D
 require 'sinatra'
+require 'bundler/setup'
+
 require 'rdf'
 require 'sparql'
 require 'sinatra/sparql'
@@ -17,13 +19,7 @@ require 'open-uri'
 require 'httparty'
 require 'json'
 require 'lbp'
-#require 'sinatra/linkeddata' doesn't work but I need this for content negotiation
-
-#/require_relative 'lib/queries'
-
-#equire 'pry'
-#require 'ruby-debug-ide'
-include RDF
+require_relative 'lib/queries'
 
 configure do
   set :root, File.dirname(__FILE__)
