@@ -654,6 +654,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L12r"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L12r",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -681,6 +685,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L12v"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L12v",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -708,6 +716,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L13r"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L13r",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -735,6 +747,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L13v"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L13v",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
@@ -763,6 +779,11 @@
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L14r"
                 }]
+                ,
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L14r",
+                    "@type": "sc:AnnotationList"
+                }]
             },
             {
                 "@context": "http://iiif.io/api/presentation/2/context.json",
@@ -790,6 +811,11 @@
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L14v"
                 }]
+                ,
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L14v",
+                    "@type": "sc:AnnotationList"
+                }]
             },
             {
                 "@context": "http://iiif.io/api/presentation/2/context.json",
@@ -816,6 +842,10 @@
                         "width": 2000
                     },
                     "on": "http://scta.info/iiif/pg-lon/canvas/L15r"
+                }],
+                "otherContent": [{
+                    "@id": "http://scta.info/iiif/pg-lon/list/L15r",
+                    "@type": "sc:AnnotationList"
                 }]
             },
             {
