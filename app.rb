@@ -6,7 +6,6 @@
 #   http://localhost:4567/?query=SELECT%20?s%20?p%20?o%20WHERE%20%7B?s%20?p%20?o%7D
 require 'sinatra'
 require 'bundler/setup'
-
 require 'rdf'
 require 'sparql'
 require 'sinatra/sparql'
