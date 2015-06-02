@@ -18,7 +18,9 @@ require 'open-uri'
 require 'httparty'
 require 'json'
 require 'lbp'
-require 'pry'
+if ENV['development']
+  require 'pry'
+end
 require_relative 'lib/queries'
 
 configure do
