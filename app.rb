@@ -19,6 +19,7 @@ require 'open-uri'
 require 'httparty'
 require 'json'
 require 'lbp'
+require 'pry'
 require_relative 'lib/queries'
 
 configure do
@@ -50,11 +51,12 @@ def rdf_query(query)
   
   if ENV['RACK_ENV'] == "production"
     sparqlendpoint = "http://sparql.scta.info/ds/query"
+  elsif ENV['SPARQL'] == "local"
+    sparqlendpoint = "http://localhost:3030/ds/query"
   else
-    #sparqlendpoint = "http://localhost:3030/ds/query"
     sparqlendpoint = "http://sparql.scta.info/ds/query"
   end
-
+  
   sparql = SPARQL::Client.new(sparqlendpoint)
   result = sparql.query(query)
 
@@ -494,10 +496,10 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
           "
 
   #@result = rdf_query(query)
-  #test using Lbp library
-  query_obj = Lbp::Query.new()
-  @result = query_obj.query(query)
-
+    #test using Lbp library
+    query_obj = Lbp::Query.new()
+    @result = query_obj.query(query)
+  
   if params[:p1] == 'resource'
     @resourcetype = params[:p2]
   end
