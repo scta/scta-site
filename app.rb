@@ -319,7 +319,7 @@ get '/iiif/:msname/manifest' do |msname|
                       "within" => "http://scta.info/iiif/#{msname}/range/r1",
                       "@type" => "sc:Range",
                       "label" => "#{title.to_s}",
-                      "viewingHint" => "top",
+                      #{}"viewingHint" => "top",
                       "canvases" => structure_canvases
                       } 
 
