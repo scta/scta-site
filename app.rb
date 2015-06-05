@@ -288,7 +288,7 @@ get '/iiif/:msname/manifest' do |msname|
       first_structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1",
                       "@type" => "sc:Range",
                       "label" => "Commentary",
-                      "viewingHint" => "top",
+                      #{}"viewingHint" => "top",
                       "canvases" => first_structure_canvases.uniq
                       } 
       all_structures << first_structure               
