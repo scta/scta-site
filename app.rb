@@ -18,9 +18,11 @@ require 'open-uri'
 require 'httparty'
 require 'json'
 require 'lbp'
-if ENV['development']
+#if ENV['development']
   require 'pry'
-end
+#end
+ 
+
 require_relative 'lib/queries'
 
 configure do
@@ -74,19 +76,22 @@ end
 
 def URLConvert (url)
   url_hash = {}
-  if url.to_str.include? 'http://scta.info'
+  if url.class.to_s == "RDF::Node"
+    url_hash[:url_label] = url.to_s
+    url_hash[:url_base] = url.to_s
+    url_hash[:url_link] = url.to_s
+  elsif url.to_s.include? 'http://scta.info'
     url_hash[:url_label] = url.parent.to_s
-    url_hash[:url_base] = url.to_str.gsub(url.parent.to_s, '')
-    url_hash[:url_link] = url.to_str.gsub('http://scta.info', '')
-
+    url_hash[:url_base] = url.to_s.gsub(url.parent.to_s, '')
+    url_hash[:url_link] = url.to_s.gsub('http://scta.info', '')
   elsif url.qname
     url_hash[:url_label] = url.qname[0].to_s + ":"
     url_hash[:url_base] = url.qname[1].to_s
-    url_hash[:url_link] = url.to_str
+    url_hash[:url_link] = url.to_s
   else
     url_hash[:url_label] = url.parent.to_s
-    url_hash[:url_base] = url.to_str.gsub(url.parent.to_s, '')
-    url_hash[:url_link] = url.to_str
+    url_hash[:url_base] = url.to_s.gsub(url.parent.to_s, '')
+    url_hash[:url_link] = url.to_s
   end
   return url_hash
 end
@@ -337,23 +342,13 @@ get '/iiif/:msname/manifest' do |msname|
       
       newhash = secondJsonArray.merge(structure_object)
       
-      newhash.to_json
+      JSON.pretty_generate(newhash)
+    
     else
       send_file "public/#{msname}.json"
     end
 
-      #File.open("public/group.json","w") do |f|
-      #f.puts JSON.pretty_generate(secondJsonArray)
-    #end
-end
-
-get '/iiif/:msname/manifest2' do |msname|
-  headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json
-
-
-  send_file "public/#{msname}.json"
-
+      
 end
 
 
@@ -410,14 +405,7 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
         "@type" => "sc:AnnotationList",
         "resources" => annotationarray
        }
-
-       
-    annotationlistcontent.to_json
-end
-
-get '/iiif/pg-lon/text/test.txt' do 
-  headers( "Access-Control-Allow-Origin" => "*")
-  send_file "public/testtext.txt"
+    JSON.pretty_generate(annotationlistcontent)
 end
 
 
@@ -521,7 +509,7 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
 
 
     @sameas = @result.dup.filter(:p => RDF::URI("http://www.w3.org/2002/07/owl#sameAs"))
-
+    
     if @resourcetype == 'person' && @sameas.count > 0
       dbpediaAddress = @sameas[0][:o]
       dbpediaGraph = RDF::Graph.load(dbpediaAddress)
@@ -533,11 +521,10 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
                              })
       result  = query.execute(dbpediaGraph)
       @english_result = result.find { |solution| solution.abstract.language == :en}
-      #binding.pry
     end
+  
+  erb :obj_pred_display
 
-
-    erb :obj_pred_display
   else
     RDF::Graph.new do |graph|
       @result.each do |solution|

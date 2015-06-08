@@ -32,11 +32,12 @@
 <h2>Information for: <%= "#{@title}" %></h2>
 <p>(select links below for more information)<p>
 
-  <%  if @resourcetype == 'person' && @sameas.count > 0 %>
+<%  if @resourcetype == 'person' && @sameas.count > 0 && @english_result != nil %>
   <p style="font-size: 12px">
   <%= @english_result[:abstract] %>
     (Wikipedia Abstract)</p>
-  <% end %>
+<% end %>
+
   </div>
 
       <% def tableprint(predicate, object)
@@ -54,7 +55,7 @@
                 <% if object.literal? %>
                     <%= object %>
                 <% else
-                     object_str = object.to_str %>
+                     object_str = object.to_s %>
                     <a href='<%= object_hash[:url_link] %>'><span class="url_label"><%= object_hash[:url_label] %></span><span class="url_base"><%= object_hash[:url_base] %></span></a>
                 <% end %>
               </td>
