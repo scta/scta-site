@@ -166,7 +166,7 @@
             "@id": "http://scta.info/iiif/rdm-bnf14563/manifest",
             "@type": "sc:Manifest",
             "label": "Richard de Mediavilla - Paris, Bibliotheque Nationale de France, ms. lat. 14563"
-          },
+          }
         ]
       },
       { "@id": "http://example.org/iiif/collection/halifaxcommentary",
@@ -220,7 +220,7 @@
             "@id": "http://scta.info/iiif/tda-bnf14577/manifest",
             "@type": "sc:Manifest",
             "label": "Thomas de Argentina - Paris, Bibliotheque Nationale de France, ms. lat. 14577"
-          },
+          }
         ]
       },
       { "@id": "http://example.org/iiif/collection/lombardsententia",
@@ -247,7 +247,7 @@
             "@id": "http://scta.info/iiif/go-bnf3068/manifest",
             "@type": "sc:Manifest",
             "label": "Gerald Odon - Paris, Bibliotheque Nationale de France, ms. lat. 3068"
-          },
+          }
         ]
       },
       { "@id": "http://example.org/iiif/collection/filiamagistricommentary",
@@ -258,7 +258,7 @@
             "@id": "http://scta.info/iiif/fm-bnf3423/manifest",
             "@type": "sc:Manifest",
             "label": "Filia Magistri - Paris, Bibliotheque Nationale de France, ms. lat. 3423"
-          },
+          }
         ]
       },
       { "@id": "http://example.org/iiif/collection/aureolicommentary",
@@ -269,7 +269,7 @@
             "@id": "http://scta.info/iiif/pa-bnf15363/manifest",
             "@type": "sc:Manifest",
             "label": "Peter Aureoli - Paris, Bibliotheque Nationale de France, ms. lat. 15363"
-          },
+          }
         ]
       },
       { "@id": "http://example.org/iiif/collection/anon1commentary",
@@ -291,7 +291,7 @@
             "@id": "http://scta.info/iiif/rfr-bnf15853/manifest",
             "@type": "sc:Manifest",
             "label": "Richard FitzRalph - Paris, Bibliotheque Nationale de France, ms. lat. 15853"
-          },
+          }
         ]
      }
   ]
