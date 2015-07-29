@@ -256,6 +256,12 @@ post '/sparqlquery' do
   query_display_simple(query)
 end
 
+get '/iiif/collection/scta' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json 
+  send_file "public/scta-collection.json"
+end
+
 get '/iiif/:msname/manifest' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
