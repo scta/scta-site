@@ -4,7 +4,7 @@
   "@type": "sc:Collection",
   "label": "Sentences Commentary Text Archive",
   "collections": [
-    { "@id": "http://example.org/iiif/collection/plaoulcommentary",
+    { "@id": "http://scta.info/iiif/collection/plaoulcommentary",
       "@type": "sc:Collection",
       "label": "Petrus Plaoul Commentary Collection",
       "manifests": [
@@ -30,7 +30,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/graciliscommentary",
+      { "@id": "http://scta.info/iiif/collection/graciliscommentary",
        "@type": "sc:Collection",
        "label": "Petrus Gracilis Commentary Collection",
        "manifests": [
@@ -41,7 +41,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/holcotcommentary",
+      { "@id": "http://scta.info/iiif/collection/holcotcommentary",
        "@type": "sc:Collection",
        "label": "Robert Holcot Commentary Collection",
        "manifests": [
@@ -57,7 +57,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/duranduscommentary",
+      { "@id": "http://scta.info/iiif/collection/duranduscommentary",
        "@type": "sc:Collection",
        "label": "Durandus Commentary Collection",
        "manifests": [
@@ -73,7 +73,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/scotusordinatio",
+      { "@id": "http://scta.info/iiif/collection/scotusordinatio",
        "@type": "sc:Collection",
        "label": "Scotus Ordinatio Collection",
        "manifests": [
@@ -99,7 +99,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/rothwellcommentary",
+      { "@id": "http://scta.info/iiif/collection/rothwellcommentary",
        "@type": "sc:Collection",
        "label": "Rothwell Commentary Collection",
        "manifests": [
@@ -115,7 +115,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/riminicommentary",
+      { "@id": "http://scta.info/iiif/collection/riminicommentary",
        "@type": "sc:Collection",
        "label": "Gregory of Rimini Commentary Collection",
        "manifests": [
@@ -136,7 +136,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/kilvingtoncommentary",
+      { "@id": "http://scta.info/iiif/collection/kilvingtoncommentary",
        "@type": "sc:Collection",
        "label": "Richard Kilvington Commentary Collection",
        "manifests": [
@@ -147,7 +147,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/ripacommentary",
+      { "@id": "http://scta.info/iiif/collection/ripacommentary",
        "@type": "sc:Collection",
        "label": "John of Ripa Commentary Collection",
        "manifests": [
@@ -158,7 +158,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/mediavillacommentary",
+      { "@id": "http://scta.info/iiif/collection/mediavillacommentary",
        "@type": "sc:Collection",
        "label": "Richard of Mediavilla Commentary Collection",
        "manifests": [
@@ -169,7 +169,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/halifaxcommentary",
+      { "@id": "http://scta.info/iiif/collection/halifaxcommentary",
        "@type": "sc:Collection",
        "label": "Robert Halifax Commentary Collection",
        "manifests": [
@@ -180,7 +180,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/tarantasiacommentary",
+      { "@id": "http://scta.info/iiif/collection/tarantasiacommentary",
        "@type": "sc:Collection",
        "label": "Peter of Tarantasia Commentary Collection",
        "manifests": [
@@ -201,7 +201,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/hughstchercommentary",
+      { "@id": "http://scta.info/iiif/collection/hughstchercommentary",
        "@type": "sc:Collection",
        "label": "Hugh of St. Cher Commentary Collection",
        "manifests": [
@@ -212,7 +212,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/strasbourgcommentary",
+      { "@id": "http://scta.info/iiif/collection/strasbourgcommentary",
        "@type": "sc:Collection",
        "label": "Thomas of Strasbourg Commentary Collection",
        "manifests": [
@@ -223,7 +223,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/lombardsententia",
+      { "@id": "http://scta.info/iiif/collection/lombardsententia",
        "@type": "sc:Collection",
        "label": "Peter Lombard Sententia Collection",
        "manifests": [
@@ -239,7 +239,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/odoncommentary",
+      { "@id": "http://scta.info/iiif/collection/odoncommentary",
        "@type": "sc:Collection",
        "label": "Gerald Odon Commentary Collection",
        "manifests": [
@@ -250,7 +250,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/filiamagistricommentary",
+      { "@id": "http://scta.info/iiif/collection/filiamagistricommentary",
        "@type": "sc:Collection",
        "label": "Filia Magistri Commentary Collection",
        "manifests": [
@@ -261,7 +261,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/aureolicommentary",
+      { "@id": "http://scta.info/iiif/collection/aureolicommentary",
        "@type": "sc:Collection",
        "label": "Peter Aureoli Commentary Collection",
        "manifests": [
@@ -272,7 +272,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/anon1commentary",
+      { "@id": "http://scta.info/iiif/collection/anon1commentary",
        "@type": "sc:Collection",
        "label": "Anonymous 1 Commentary Collection",
        "manifests": [
@@ -283,7 +283,7 @@
           }
         ]
       },
-      { "@id": "http://example.org/iiif/collection/fitzralphcommentary",
+      { "@id": "http://scta.info/iiif/collection/fitzralphcommentary",
        "@type": "sc:Collection",
        "label": "Anonymous 1 Commentary Collection",
        "manifests": [
