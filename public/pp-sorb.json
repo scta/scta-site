@@ -18,14 +18,12 @@
   "attribution": "BnF",
   "seeAlso": "",
   "logo": "http://upload.wikimedia.org/wikipedia/fr/thumb/8/84/Logo_BnF.svg/1280px-Logo_BnF.svg.png",
-  "service": [
-    {
+  "service": {
     "@context": "http://iiif.io/api/search/0/context.json",
     "@id": "http://exist.scta.info/exist/apps/scta/iiif/pp-sorb/search",
     "profile": "http://iiif.io/api/search/0/search",
     "label": "Search within this manifest"
-    }
-  ],
+    },
   "sequences": [{
     "@context": "http://iiif.io/api/presentation/2/context.json",
     "@id": "http://scta.info/iiif/pp-sorb/sequence/normal",
