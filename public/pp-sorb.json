@@ -24,7 +24,7 @@
     "@id": "http://exist.scta.info/exist/apps/scta/iiif/pp-sorb/search",
     "profile": "http://iiif.io/api/search/0/search",
     "label": "Search within this manifest"
-    },
+    }
   ],
   "sequences": [{
     "@context": "http://iiif.io/api/presentation/2/context.json",
