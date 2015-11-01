@@ -286,7 +286,11 @@ get '/iiif/:msname/manifest' do |msname|
           ORDER BY ?order
           "
 
-        @results = rdf_query(query)
+        #@results = rdf_query(query)
+        query_obj = Lbp::Query.new()
+        @results = query_obj.query(query)
+
+
   if @results.count > 0
       all_structures = []     
       
@@ -380,7 +384,9 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
           ORDER BY ?position
           "
 
-        @results = rdf_query(query)
+        #@results = rdf_query(query)
+        query_obj = Lbp::Query.new()
+        @results = query_obj.query(query)
 
 
     annotationarray = []
