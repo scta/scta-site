@@ -361,6 +361,10 @@ get '/iiif/:msname/manifest' do |msname|
       
 end
 
+get '/iiif/:slug/rangelist' do |slug|
+  send_file "public/#{slug}.json"
+end
+
 
 get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
   headers( "Access-Control-Allow-Origin" => "*")

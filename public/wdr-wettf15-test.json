@@ -1,0 +1,61 @@
+{
+  "supplement": {
+	"@id": "http://scta.info/iiif/wdr-wettf15/rangelist",
+	"@type": "sc:rangelist",
+	"manifests": ["http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/manifest.json"],
+	"token": "this is valid",
+	"structures": [
+    {
+      "@id": "http://scta.info/iiif/wdr-wettf15/range/r1",
+      "@type": "sc:Range",
+      "label": "Commentary",
+      "canvases": [
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json",
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_108r.json",
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_108v.json",
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_109r.json",
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_109v.json"
+      ]
+    },
+    {
+      "@id": "http://scta.info/iiif/wdr-wettf15/range/r1-1",
+      "within": "http://scta.info/iiif/wdr-wettf15/range/r1",
+      "@type": "sc:Range",
+      "label": "Librum I, Prologus",
+      "canvases": [
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json"
+      ]
+    },
+    {
+      "@id": "http://scta.info/iiif/wdr-wettf15/range/r1-2",
+      "within": "http://scta.info/iiif/wdr-wettf15/range/r1",
+      "@type": "sc:Range",
+      "label": "Librum I, Distinctio 1",
+      "canvases": [
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json",
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_108r.json"
+      ]
+    },
+    {
+      "@id": "http://scta.info/iiif/wdr-wettf15/range/r1-3",
+      "within": "http://scta.info/iiif/wdr-wettf15/range/r1",
+      "@type": "sc:Range",
+      "label": "Librum I, Distinctio 2",
+      "canvases": [
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_108r.json"
+      ]
+    },
+    {
+      "@id": "http://scta.info/iiif/wdr-wettf15/range/r1-4",
+      "within": "http://scta.info/iiif/wdr-wettf15/range/r1",
+      "@type": "sc:Range",
+      "label": "Librum I, Distinctio 3",
+      "canvases": [
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_108r.json",
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_108v.json",
+        "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_109r.json"
+      ]
+    }
+  ]
+}
+}
