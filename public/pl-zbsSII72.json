@@ -2,7 +2,7 @@
   "@context": "http://iiif.io/api/presentation/2/context.json",
   "@id": "http://scta.info/iiif/pl-zbsSII72/manifest",
   "@type": "sc:Manifest",
-  "label": "Peter Lombard - Sententia I-IV",
+  "label": "Peter Lombard - Solothurn, Zentralbibliothek, Cod. S II 72",
   "metadata": [
     {
       "label": "Author",
