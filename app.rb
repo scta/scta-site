@@ -293,6 +293,7 @@ get '/iiif/:msname/manifest' do |msname|
 
 
   if @results.count > 0
+=begin
       all_structures = []     
       
       first_structure_canvases = []
@@ -344,6 +345,10 @@ get '/iiif/:msname/manifest' do |msname|
         i = i + 1
 
       end
+=end
+      
+      all_structures = create_range(msname)
+
       structure_object = {"structures" => all_structures}
       #all_structures.to_json
       #structure_object.to_json
@@ -365,7 +370,8 @@ end
 get '/iiif/:msname/rangelist' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  create_range(msname)
+  type = "rangelist"
+  create_supplement(msname, type)
   #send_file "public/#{slug}.json"
 end
 

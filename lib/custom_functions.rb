@@ -23,24 +23,15 @@ def create_range(msname)
         query_obj = Lbp::Query.new()
         @results = query_obj.query(query)
 
-
+  all_structures = []           
   if @results.count > 0
-      all_structures = []     
+      #first_structure_canvases = []
+
+      #@results.each do |result|
+      #  first_structure_canvases << result[:canvas].to_s
+     # end
+
       
-      first_structure_canvases = []
-
-      @results.each do |result|
-        first_structure_canvases << result[:canvas].to_s
-      end
-
-
-      first_structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1",
-                      "@type" => "sc:Range",
-                      "label" => "Commentary",
-                      #{}"viewingHint" => "top",
-                      "canvases" => first_structure_canvases.uniq
-                      } 
-      all_structures << first_structure               
 
       items = []
       
@@ -55,6 +46,29 @@ def create_range(msname)
         filtered_results = @results.dup.filter(:item => item.to_s)
         result_sets << [filtered_results, title]
       end
+
+      ranges = []
+
+      r = 1
+      result_sets.each do 
+        ranges << "http://scta.info/iiif/#{msname}/range/r1-#{r}"
+        r = r + 1
+      end
+
+      first_structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1",
+                      "@type" => "sc:Range",
+                      "label" => "Commentary",
+                      "viewingHint" => "top",
+                      #{}"canvases" => first_structure_canvases.uniq
+                      "ranges" => ranges,
+                      "attribution": "Data provided by the Sentences Commentary Text Archive",
+                      "desription": "A range for Sentences Commentary #{msname}",
+                      "logo": "SCTA",
+                      "licnese": "Creative Commons"
+                    } 
+      
+      all_structures << first_structure               
+      
       i = 1
       result_sets.each do |set, title|
         
@@ -68,26 +82,42 @@ def create_range(msname)
                       "within" => "http://scta.info/iiif/#{msname}/range/r1",
                       "@type" => "sc:Range",
                       "label" => "#{title.to_s}",
-                      #{}"viewingHint" => "top",
-                      "canvases" => structure_canvases
+                      "canvases" => structure_canvases,
+                      "attribution": "Data provided by the Sentences Commentary Text Archive",
+                      "desription": "A range for Sentences Commentary #{msname}",
+                      "logo": "SCTA",
+                      "licnese": "Creative Commons"
                       } 
 
         all_structures << structure
         
         i = i + 1
+    end
+  end
+  return all_structures
+end
 
-      end
-      
-      
-      final_object = {
-		  "supplement": {
-				"@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/rangelist",
-				"@type": "sc:rangelist",
-				"manifests": ["http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/manifest.json"],
-				"structures": all_structures
-				}
-			}
+def create_supplement (msname, type)
+  slug = msname.split("-").last
+  commentary_slug = msname.split("-").first
+  
+  if type == "rangelist"
+    all_structures = create_range(msname)
+    final_object = {
+        "supplement": {
+          "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/rangelist",
+          "@type": "sc:rangelist",
+          "attribution": "Data provided by the Sentences Commentary Text Archive",
+          "desription": "A range list for Sentences Commentary #{msname}",
+          "logo": "SCTA",
+          "licnese": "Creative Commons",
+          "manifests": ["http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/manifest.json"],
+          "structures": all_structures
+          }
+        }
 
-      JSON.pretty_generate(final_object)
-	end
+        JSON.pretty_generate(final_object)
+
+   end     
+
 end
