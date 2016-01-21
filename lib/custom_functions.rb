@@ -114,7 +114,7 @@ def create_supplement (msname, type)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
   if results[0] != nil
-    manifest = [:manifestOfficial].to_s
+    manifest = results[0][:manifestOfficial].to_s
   else
     manifest = "http://scta.info/iiif/#{msname}/manifest"
   end
