@@ -100,7 +100,25 @@ end
 def create_supplement (msname, type)
   slug = msname.split("-").last
   commentary_slug = msname.split("-").first
-  
+
+  query = "
+          SELECT ?manifestOfficial
+          {
+          ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
+          ?commentary <http://scta.info/property/hasWitness> ?commentary_witness .
+          ?commentary_witness <http://scta.info/property/hasSlug> '#{slug}' .
+          ?commentary_witness <http://scta.info/property/manifestOfficial> ?manifestOfficial .
+          }
+          "
+  #@results = rdf_query(query)
+  query_obj = Lbp::Query.new()
+  results = query_obj.query(query)
+  if results[0] != nil
+    manifest = [:manifestOfficial].to_s
+  else
+    manifest = "http://scta.info/iiif/#{msname}/manifest"
+  end
+ 
   if type == "rangelist"
     all_structures = create_range(msname)
     final_object = {
@@ -111,13 +129,39 @@ def create_supplement (msname, type)
           "desription": "A range list for Sentences Commentary #{msname}",
           "logo": "SCTA",
           "licnese": "Creative Commons",
-          "manifests": ["http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/manifest.json"],
+          "manifests": [manifest],
           "structures": all_structures
           }
         }
 
-        JSON.pretty_generate(final_object)
 
-   end     
+  elsif type == "searchwithin"
+    service = create_searchwithin(msname)
+    final_object = {
+      "supplement": {
+          "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/searchwithin",
+          "@type": "sc:searchWithin",
+          "attribution": "Data provided by the Sentences Commentary Text Archive",
+          "desription": "A search within service for Sentences Commentary #{msname}",
+          "logo": "SCTA",
+          "licnese": "Creative Commons",
+          "manifests": [manifest],
+          "service": service
+          }
+        }
+  end     
+      JSON.pretty_generate(final_object)
 
+end
+
+def create_searchwithin (msname)
+  slug = msname.split("-").last
+  commentary_slug = msname.split("-").first
+  service = {
+          "@context": "http://iiif.io/api/search/0/context.json",
+          "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{commentary_slug}-#{slug}/search",
+          "profile": "http://iiif.io/api/search/0/search",
+          "label": "Search within this manifest"
+          }
+  return service
 end

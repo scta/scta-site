@@ -23,7 +23,7 @@
     "@id": "http://exist.scta.info/exist/apps/scta/iiif/wdr-wettf15/search",
     "profile": "http://iiif.io/api/search/0/search",
     "label": "Search within this manifest"
-    },
+  },
   "sequences": [{
     "@context": "http://iiif.io/api/presentation/2/context.json",
     "@id": "http://scta.info/iiif/wdr-wettf15/sequence/normal",

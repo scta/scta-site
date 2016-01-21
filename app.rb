@@ -378,24 +378,8 @@ end
 get '/iiif/:msname/searchwithin' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  slug = msname.split("-").last
-  commentary_slug = msname.split("-").first
-  
-  final_object = {
-      "supplement": {
-        "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/rangelist",
-        "@type": "sc:searchWithin",
-        "manifests": ["http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/manifest.json"],
-        "service": {
-          "@context": "http://iiif.io/api/search/0/context.json",
-          "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{commentary_slug}-#{slug}/search",
-          "profile": "http://iiif.io/api/search/0/search",
-          "label": "Search within this manifest"
-          }
-        }
-      }
-
-  JSON.pretty_generate(final_object)
+  type = "searchwithin"
+  create_supplement(msname, type)
 end
 
 
