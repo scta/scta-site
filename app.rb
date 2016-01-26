@@ -146,9 +146,10 @@ get '/' do
   erb :index
 end
 
-get '/logo.png'
+get '/logo.png' do
   send_file "public/sctalogo.png"
 end
+
 get '/practice' do
 
   graph = RDF::Graph.load("public/pp-projectdata.rdf")
