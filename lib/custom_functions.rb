@@ -63,7 +63,7 @@ def create_range(msname)
                       "ranges" => ranges,
                       "attribution": "Data provided by the Sentences Commentary Text Archive",
                       "desription": "A range for Sentences Commentary #{msname}",
-                      "logo": "SCTA",
+                      "logo": "http://scta.info/logo.png",
                       "licnese": "Creative Commons"
                     } 
       
@@ -85,7 +85,7 @@ def create_range(msname)
                       "canvases" => structure_canvases,
                       "attribution": "Data provided by the Sentences Commentary Text Archive",
                       "desription": "A range for Sentences Commentary #{msname}",
-                      "logo": "SCTA",
+                      "logo": "http://scta.info/logo.png",
                       "licnese": "Creative Commons"
                       } 
 
@@ -127,7 +127,7 @@ def create_supplement (msname, type)
           "@type": "sc:rangelist",
           "attribution": "Data provided by the Sentences Commentary Text Archive",
           "desription": "A range list for Sentences Commentary #{msname}",
-          "logo": "SCTA",
+          "logo": "http://scta.info/logo.png",
           "licnese": "Creative Commons",
           "manifests": [manifest],
           "structures": all_structures
@@ -143,7 +143,7 @@ def create_supplement (msname, type)
           "@type": "sc:searchWithin",
           "attribution": "Data provided by the Sentences Commentary Text Archive",
           "desription": "A search within service for Sentences Commentary #{msname}",
-          "logo": "SCTA",
+          "logo": "http://scta.info/logo.png",
           "licnese": "Creative Commons",
           "manifests": [manifest],
           "service": service
