@@ -62,9 +62,9 @@ def create_range(msname)
                       #{}"canvases" => first_structure_canvases.uniq
                       "ranges" => ranges,
                       "attribution": "Data provided by the Sentences Commentary Text Archive",
-                      "desription": "A range for Sentences Commentary #{msname}",
+                      "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
-                      "license": "Creative Commons"
+                      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                     } 
       
       all_structures << first_structure               
@@ -84,9 +84,9 @@ def create_range(msname)
                       "label" => "#{title.to_s}",
                       "canvases" => structure_canvases,
                       "attribution": "Data provided by the Sentences Commentary Text Archive",
-                      "desription": "A range for Sentences Commentary #{msname}",
+                      "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
-                      "license": "Creative Commons"
+                      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                       } 
 
         all_structures << structure
@@ -126,9 +126,9 @@ def create_supplement (msname, type)
           "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/rangelist",
           "@type": "sc:rangelist",
           "attribution": "Data provided by the Sentences Commentary Text Archive",
-          "desription": "A range list for Sentences Commentary #{msname}",
+          "description": "A range list for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
-          "licese": "Creative Commons",
+          "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "manifests": [manifest],
           "structures": all_structures
           }
@@ -142,9 +142,9 @@ def create_supplement (msname, type)
           "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/searchwithin",
           "@type": "sc:searchWithin",
           "attribution": "Data provided by the Sentences Commentary Text Archive",
-          "desription": "A search within service for Sentences Commentary #{msname}",
+          "description": "A search within service for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
-          "license": "Creative Commons",
+          "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "manifests": [manifest],
           "service": service
           }
