@@ -64,7 +64,7 @@ def create_range(msname)
                       "attribution": "Data provided by the Sentences Commentary Text Archive",
                       "desription": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
-                      "licnese": "Creative Commons"
+                      "license": "Creative Commons"
                     } 
       
       all_structures << first_structure               
@@ -86,7 +86,7 @@ def create_range(msname)
                       "attribution": "Data provided by the Sentences Commentary Text Archive",
                       "desription": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
-                      "licnese": "Creative Commons"
+                      "license": "Creative Commons"
                       } 
 
         all_structures << structure
@@ -128,7 +128,7 @@ def create_supplement (msname, type)
           "attribution": "Data provided by the Sentences Commentary Text Archive",
           "desription": "A range list for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
-          "licnese": "Creative Commons",
+          "licese": "Creative Commons",
           "manifests": [manifest],
           "structures": all_structures
           }
@@ -144,7 +144,7 @@ def create_supplement (msname, type)
           "attribution": "Data provided by the Sentences Commentary Text Archive",
           "desription": "A search within service for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
-          "licnese": "Creative Commons",
+          "license": "Creative Commons",
           "manifests": [manifest],
           "service": service
           }
