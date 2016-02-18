@@ -236,6 +236,11 @@
             "@id": "http://scta.info/iiif/pl-penn1147/manifest",
             "@type": "sc:Manifest",
             "label": "Peter Lombard - Philadelphia, University of Pennsylvania, ms. codex 1147"
+          },
+          {
+            "@id": "http://scta.info/iiif/pl-zbsSII72/manifest",
+            "@type": "sc:Manifest",
+            "label": "Peter Lombard - Solothurn, Zentralbibliothek, Cod. S II 72"
           }
         ]
       },
@@ -272,6 +277,17 @@
           }
         ]
       },
+      { "@id": "http://scta.info/iiif/collection/aquinasscriptum",
+       "@type": "sc:Collection",
+       "label": "Thomas Aquinas Commentary Collection",
+       "manifests": [
+          {
+            "@id": "http://scta.info/iiif/ta-harv245/manifest",
+            "@type": "sc:Manifest",
+            "label": "Thomas Aquinas - Cambridge, MA, Harvard University, Houghton Library, MS Lat 245"
+          }
+        ]
+      },
       { "@id": "http://scta.info/iiif/collection/anon1commentary",
        "@type": "sc:Collection",
        "label": "Anonymous 1 Commentary Collection",
@@ -282,17 +298,7 @@
             "label": "Anonymous 1 - Philadelphia, University of Pennsylvania, ms. codex 727"
           }
         ]
-      },
-      { "@id": "http://scta.info/iiif/collection/fitzralphcommentary",
-       "@type": "sc:Collection",
-       "label": "Anonymous 1 Commentary Collection",
-       "manifests": [
-          {
-            "@id": "http://scta.info/iiif/rfr-bnf15853/manifest",
-            "@type": "sc:Manifest",
-            "label": "Richard FitzRalph - Paris, Bibliotheque Nationale de France, ms. lat. 15853"
-          }
-        ]
-     }
+      }
+     
   ]
 }
