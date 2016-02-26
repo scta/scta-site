@@ -59,7 +59,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R1r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R1r",
+          "@id": "http://scta.info/iiif/pp-reims/list/1r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -90,7 +90,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R1v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R1v",
+          "@id": "http://scta.info/iiif/pp-reims/list/1v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -121,7 +121,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R2r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R2r",
+          "@id": "http://scta.info/iiif/pp-reims/list/2r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -152,7 +152,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R2v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R2v",
+          "@id": "http://scta.info/iiif/pp-reims/list/2v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -183,7 +183,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R3r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R3r",
+          "@id": "http://scta.info/iiif/pp-reims/list/3r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -214,7 +214,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R3v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R3v",
+          "@id": "http://scta.info/iiif/pp-reims/list/3v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -245,7 +245,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R4r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R4r",
+          "@id": "http://scta.info/iiif/pp-reims/list/4r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -276,7 +276,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R4v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R4v",
+          "@id": "http://scta.info/iiif/pp-reims/list/4v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -307,7 +307,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R5r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R5r",
+          "@id": "http://scta.info/iiif/pp-reims/list/5r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -338,7 +338,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R5v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R5v",
+          "@id": "http://scta.info/iiif/pp-reims/list/5v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -369,7 +369,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R6r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R6r",
+          "@id": "http://scta.info/iiif/pp-reims/list/6r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -400,7 +400,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R6v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R6v",
+          "@id": "http://scta.info/iiif/pp-reims/list/6v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -431,7 +431,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R7r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R7r",
+          "@id": "http://scta.info/iiif/pp-reims/list/7r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -462,7 +462,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R7v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R7v",
+          "@id": "http://scta.info/iiif/pp-reims/list/7v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -493,7 +493,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R8r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R8r",
+          "@id": "http://scta.info/iiif/pp-reims/list/8r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -524,7 +524,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R8v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R8v",
+          "@id": "http://scta.info/iiif/pp-reims/list/8v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -555,7 +555,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R9r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R9r",
+          "@id": "http://scta.info/iiif/pp-reims/list/9r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -586,7 +586,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R9v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R9v",
+          "@id": "http://scta.info/iiif/pp-reims/list/9v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -617,7 +617,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R10r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R10r",
+          "@id": "http://scta.info/iiif/pp-reims/list/10r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -648,7 +648,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R10v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R10v",
+          "@id": "http://scta.info/iiif/pp-reims/list/10v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -679,7 +679,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R11r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R11r",
+          "@id": "http://scta.info/iiif/pp-reims/list/11r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -710,7 +710,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R11v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R11v",
+          "@id": "http://scta.info/iiif/pp-reims/list/11v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -741,7 +741,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R12r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R12r",
+          "@id": "http://scta.info/iiif/pp-reims/list/12r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -772,7 +772,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R12v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R12v",
+          "@id": "http://scta.info/iiif/pp-reims/list/12v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -803,7 +803,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R13r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R13r",
+          "@id": "http://scta.info/iiif/pp-reims/list/13r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -834,7 +834,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R13v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R13v",
+          "@id": "http://scta.info/iiif/pp-reims/list/13v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -865,7 +865,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R14r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R14r",
+          "@id": "http://scta.info/iiif/pp-reims/list/14r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -896,7 +896,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R14v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R14v",
+          "@id": "http://scta.info/iiif/pp-reims/list/14v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -927,7 +927,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R15r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R15r",
+          "@id": "http://scta.info/iiif/pp-reims/list/15r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -958,7 +958,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R15v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R15v",
+          "@id": "http://scta.info/iiif/pp-reims/list/15v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -989,7 +989,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R16r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R16r",
+          "@id": "http://scta.info/iiif/pp-reims/list/16r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1020,7 +1020,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R16v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R16v",
+          "@id": "http://scta.info/iiif/pp-reims/list/16v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1051,7 +1051,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R17r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R17r",
+          "@id": "http://scta.info/iiif/pp-reims/list/17r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1082,7 +1082,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R17v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R17v",
+          "@id": "http://scta.info/iiif/pp-reims/list/17v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1113,7 +1113,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R18r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R18r",
+          "@id": "http://scta.info/iiif/pp-reims/list/18r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1144,7 +1144,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R18v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R18v",
+          "@id": "http://scta.info/iiif/pp-reims/list/18v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1175,7 +1175,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R19r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R19r",
+          "@id": "http://scta.info/iiif/pp-reims/list/19r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1206,7 +1206,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R19v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R19v",
+          "@id": "http://scta.info/iiif/pp-reims/list/19v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1237,7 +1237,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R20r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R20r",
+          "@id": "http://scta.info/iiif/pp-reims/list/20r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1268,7 +1268,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R20v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R20v",
+          "@id": "http://scta.info/iiif/pp-reims/list/20v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1299,7 +1299,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R21r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R21r",
+          "@id": "http://scta.info/iiif/pp-reims/list/21r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1330,7 +1330,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R21v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R21v",
+          "@id": "http://scta.info/iiif/pp-reims/list/21v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1361,7 +1361,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R22r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R22r",
+          "@id": "http://scta.info/iiif/pp-reims/list/22r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1392,7 +1392,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R22v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R22v",
+          "@id": "http://scta.info/iiif/pp-reims/list/22v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1423,7 +1423,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R23r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R23r",
+          "@id": "http://scta.info/iiif/pp-reims/list/23r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1454,7 +1454,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R23v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R23v",
+          "@id": "http://scta.info/iiif/pp-reims/list/23v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1485,7 +1485,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R24r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R24r",
+          "@id": "http://scta.info/iiif/pp-reims/list/24r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1516,7 +1516,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R24v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R24v",
+          "@id": "http://scta.info/iiif/pp-reims/list/24v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1547,7 +1547,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R25r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R25r",
+          "@id": "http://scta.info/iiif/pp-reims/list/25r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1578,7 +1578,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R25v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R25v",
+          "@id": "http://scta.info/iiif/pp-reims/list/25v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1609,7 +1609,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R26r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R26r",
+          "@id": "http://scta.info/iiif/pp-reims/list/26r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1640,7 +1640,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R26v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R26v",
+          "@id": "http://scta.info/iiif/pp-reims/list/26v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1671,7 +1671,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R27r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R27r",
+          "@id": "http://scta.info/iiif/pp-reims/list/27r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1702,7 +1702,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R27v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R27v",
+          "@id": "http://scta.info/iiif/pp-reims/list/27v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1733,7 +1733,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R28r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R28r",
+          "@id": "http://scta.info/iiif/pp-reims/list/28r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1764,7 +1764,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R28v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R28v",
+          "@id": "http://scta.info/iiif/pp-reims/list/28v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1795,7 +1795,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R29r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R29r",
+          "@id": "http://scta.info/iiif/pp-reims/list/29r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1826,7 +1826,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R29v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R29v",
+          "@id": "http://scta.info/iiif/pp-reims/list/29v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1857,7 +1857,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R30r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R30r",
+          "@id": "http://scta.info/iiif/pp-reims/list/30r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1888,7 +1888,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R30v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R30v",
+          "@id": "http://scta.info/iiif/pp-reims/list/30v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1919,7 +1919,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R31r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R31r",
+          "@id": "http://scta.info/iiif/pp-reims/list/31r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1950,7 +1950,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R31v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R31v",
+          "@id": "http://scta.info/iiif/pp-reims/list/31v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -1981,7 +1981,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R32r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R32r",
+          "@id": "http://scta.info/iiif/pp-reims/list/32r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2012,7 +2012,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R32v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R32v",
+          "@id": "http://scta.info/iiif/pp-reims/list/32v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2043,7 +2043,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R33r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R33r",
+          "@id": "http://scta.info/iiif/pp-reims/list/33r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2074,7 +2074,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R33v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R33v",
+          "@id": "http://scta.info/iiif/pp-reims/list/33v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2105,7 +2105,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R34r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R34r",
+          "@id": "http://scta.info/iiif/pp-reims/list/34r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2136,7 +2136,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R34v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R34v",
+          "@id": "http://scta.info/iiif/pp-reims/list/34v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2167,7 +2167,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R35r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R35r",
+          "@id": "http://scta.info/iiif/pp-reims/list/35r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2198,7 +2198,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R35v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R35v",
+          "@id": "http://scta.info/iiif/pp-reims/list/35v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2229,7 +2229,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R36r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R36r",
+          "@id": "http://scta.info/iiif/pp-reims/list/36r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2260,7 +2260,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R36v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R36v",
+          "@id": "http://scta.info/iiif/pp-reims/list/36v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2291,7 +2291,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R37r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R37r",
+          "@id": "http://scta.info/iiif/pp-reims/list/37r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2322,7 +2322,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R37v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R37v",
+          "@id": "http://scta.info/iiif/pp-reims/list/37v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2353,7 +2353,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R38r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R38r",
+          "@id": "http://scta.info/iiif/pp-reims/list/38r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2384,7 +2384,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R38v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R38v",
+          "@id": "http://scta.info/iiif/pp-reims/list/38v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2415,7 +2415,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R39r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R39r",
+          "@id": "http://scta.info/iiif/pp-reims/list/39r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2446,7 +2446,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R39v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R39v",
+          "@id": "http://scta.info/iiif/pp-reims/list/39v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2477,7 +2477,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R40r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R40r",
+          "@id": "http://scta.info/iiif/pp-reims/list/40r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2508,7 +2508,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R40v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R40v",
+          "@id": "http://scta.info/iiif/pp-reims/list/40v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2539,7 +2539,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R41r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R41r",
+          "@id": "http://scta.info/iiif/pp-reims/list/41r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2570,7 +2570,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R41v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R41v",
+          "@id": "http://scta.info/iiif/pp-reims/list/41v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2601,7 +2601,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R42r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R42r",
+          "@id": "http://scta.info/iiif/pp-reims/list/42r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2632,7 +2632,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R42v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R42v",
+          "@id": "http://scta.info/iiif/pp-reims/list/42v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2663,7 +2663,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R43r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R43r",
+          "@id": "http://scta.info/iiif/pp-reims/list/43r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2694,7 +2694,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R43v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R43v",
+          "@id": "http://scta.info/iiif/pp-reims/list/43v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2725,7 +2725,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R44r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R44r",
+          "@id": "http://scta.info/iiif/pp-reims/list/44r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2756,7 +2756,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R44v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R44v",
+          "@id": "http://scta.info/iiif/pp-reims/list/44v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2787,7 +2787,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R45r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R45r",
+          "@id": "http://scta.info/iiif/pp-reims/list/45r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2818,7 +2818,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R45v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R45v",
+          "@id": "http://scta.info/iiif/pp-reims/list/45v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2849,7 +2849,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R46r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R46r",
+          "@id": "http://scta.info/iiif/pp-reims/list/46r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2880,7 +2880,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R46v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R46v",
+          "@id": "http://scta.info/iiif/pp-reims/list/46v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2911,7 +2911,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R47r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R47r",
+          "@id": "http://scta.info/iiif/pp-reims/list/47r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2942,7 +2942,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R47v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R47v",
+          "@id": "http://scta.info/iiif/pp-reims/list/47v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -2973,7 +2973,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R48r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R48r",
+          "@id": "http://scta.info/iiif/pp-reims/list/48r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3004,7 +3004,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R48v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R48v",
+          "@id": "http://scta.info/iiif/pp-reims/list/48v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3035,7 +3035,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R49r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R49r",
+          "@id": "http://scta.info/iiif/pp-reims/list/49r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3066,7 +3066,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R49v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R49v",
+          "@id": "http://scta.info/iiif/pp-reims/list/49v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3097,7 +3097,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R50r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R50r",
+          "@id": "http://scta.info/iiif/pp-reims/list/50r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3128,7 +3128,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R50v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R50v",
+          "@id": "http://scta.info/iiif/pp-reims/list/50v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3159,7 +3159,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R51r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R51r",
+          "@id": "http://scta.info/iiif/pp-reims/list/51r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3190,7 +3190,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R51v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R51v",
+          "@id": "http://scta.info/iiif/pp-reims/list/51v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3221,7 +3221,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R52r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R52r",
+          "@id": "http://scta.info/iiif/pp-reims/list/52r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3252,7 +3252,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R52v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R52v",
+          "@id": "http://scta.info/iiif/pp-reims/list/52v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3283,7 +3283,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R53r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R53r",
+          "@id": "http://scta.info/iiif/pp-reims/list/53r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3314,7 +3314,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R53v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R53v",
+          "@id": "http://scta.info/iiif/pp-reims/list/53v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3345,7 +3345,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R54r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R54r",
+          "@id": "http://scta.info/iiif/pp-reims/list/54r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3376,7 +3376,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R54v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R54v",
+          "@id": "http://scta.info/iiif/pp-reims/list/54v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3407,7 +3407,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R55r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R55r",
+          "@id": "http://scta.info/iiif/pp-reims/list/55r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3438,7 +3438,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R55v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R55v",
+          "@id": "http://scta.info/iiif/pp-reims/list/55v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3469,7 +3469,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R56r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R56r",
+          "@id": "http://scta.info/iiif/pp-reims/list/56r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3500,7 +3500,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R56v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R56v",
+          "@id": "http://scta.info/iiif/pp-reims/list/56v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3531,7 +3531,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R57r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R57r",
+          "@id": "http://scta.info/iiif/pp-reims/list/57r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3562,7 +3562,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R57v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R57v",
+          "@id": "http://scta.info/iiif/pp-reims/list/57v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3593,7 +3593,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R58r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R58r",
+          "@id": "http://scta.info/iiif/pp-reims/list/58r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3624,7 +3624,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R58v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R58v",
+          "@id": "http://scta.info/iiif/pp-reims/list/58v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3655,7 +3655,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R59r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R59r",
+          "@id": "http://scta.info/iiif/pp-reims/list/59r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3686,7 +3686,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R59v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R59v",
+          "@id": "http://scta.info/iiif/pp-reims/list/59v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3717,7 +3717,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R60r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R60r",
+          "@id": "http://scta.info/iiif/pp-reims/list/60r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3748,7 +3748,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R60v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R60v",
+          "@id": "http://scta.info/iiif/pp-reims/list/60v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3779,7 +3779,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R61r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R61r",
+          "@id": "http://scta.info/iiif/pp-reims/list/61r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3810,7 +3810,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R61v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R61v",
+          "@id": "http://scta.info/iiif/pp-reims/list/61v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3841,7 +3841,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R62r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R62r",
+          "@id": "http://scta.info/iiif/pp-reims/list/62r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3872,7 +3872,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R62v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R62v",
+          "@id": "http://scta.info/iiif/pp-reims/list/62v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3903,7 +3903,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R63r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R63r",
+          "@id": "http://scta.info/iiif/pp-reims/list/63r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3934,7 +3934,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R63v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R63v",
+          "@id": "http://scta.info/iiif/pp-reims/list/63v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3965,7 +3965,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R64r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R64r",
+          "@id": "http://scta.info/iiif/pp-reims/list/64r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -3996,7 +3996,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R64v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R64v",
+          "@id": "http://scta.info/iiif/pp-reims/list/64v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4027,7 +4027,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R65r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R65r",
+          "@id": "http://scta.info/iiif/pp-reims/list/65r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4058,7 +4058,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R65v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R65v",
+          "@id": "http://scta.info/iiif/pp-reims/list/65v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4089,7 +4089,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R66r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R66r",
+          "@id": "http://scta.info/iiif/pp-reims/list/66r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4120,7 +4120,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R66v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R66v",
+          "@id": "http://scta.info/iiif/pp-reims/list/66v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4151,7 +4151,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R67r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R67r",
+          "@id": "http://scta.info/iiif/pp-reims/list/67r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4182,7 +4182,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R67v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R67v",
+          "@id": "http://scta.info/iiif/pp-reims/list/67v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4213,7 +4213,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R68r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R68r",
+          "@id": "http://scta.info/iiif/pp-reims/list/68r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4244,7 +4244,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R68v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R68v",
+          "@id": "http://scta.info/iiif/pp-reims/list/68v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4275,7 +4275,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R69r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R69r",
+          "@id": "http://scta.info/iiif/pp-reims/list/69r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4306,7 +4306,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R69v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R69v",
+          "@id": "http://scta.info/iiif/pp-reims/list/69v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4337,7 +4337,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R70r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R70r",
+          "@id": "http://scta.info/iiif/pp-reims/list/70r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4368,7 +4368,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R70v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R70v",
+          "@id": "http://scta.info/iiif/pp-reims/list/70v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4399,7 +4399,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R71r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R71r",
+          "@id": "http://scta.info/iiif/pp-reims/list/71r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4430,7 +4430,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R71v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R71v",
+          "@id": "http://scta.info/iiif/pp-reims/list/71v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4461,7 +4461,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R72r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R72r",
+          "@id": "http://scta.info/iiif/pp-reims/list/72r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4492,7 +4492,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R72v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R72v",
+          "@id": "http://scta.info/iiif/pp-reims/list/72v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4523,7 +4523,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R73r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R73r",
+          "@id": "http://scta.info/iiif/pp-reims/list/73r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4554,7 +4554,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R73v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R73v",
+          "@id": "http://scta.info/iiif/pp-reims/list/73v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4585,7 +4585,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R74r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R74r",
+          "@id": "http://scta.info/iiif/pp-reims/list/74r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4616,7 +4616,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R74v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R74v",
+          "@id": "http://scta.info/iiif/pp-reims/list/74v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4647,7 +4647,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R75r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R75r",
+          "@id": "http://scta.info/iiif/pp-reims/list/75r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4678,7 +4678,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R75v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R75v",
+          "@id": "http://scta.info/iiif/pp-reims/list/75v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4709,7 +4709,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R76r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R76r",
+          "@id": "http://scta.info/iiif/pp-reims/list/76r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4740,7 +4740,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R76v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R76v",
+          "@id": "http://scta.info/iiif/pp-reims/list/76v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4771,7 +4771,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R77r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R77r",
+          "@id": "http://scta.info/iiif/pp-reims/list/77r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4802,7 +4802,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R77v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R77v",
+          "@id": "http://scta.info/iiif/pp-reims/list/77v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4833,7 +4833,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R78r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R78r",
+          "@id": "http://scta.info/iiif/pp-reims/list/78r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4864,7 +4864,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R78v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R78v",
+          "@id": "http://scta.info/iiif/pp-reims/list/78v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4895,7 +4895,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R79r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R79r",
+          "@id": "http://scta.info/iiif/pp-reims/list/79r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4926,7 +4926,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R79v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R79v",
+          "@id": "http://scta.info/iiif/pp-reims/list/79v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4957,7 +4957,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R80r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R80r",
+          "@id": "http://scta.info/iiif/pp-reims/list/80r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -4988,7 +4988,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R80v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R80v",
+          "@id": "http://scta.info/iiif/pp-reims/list/80v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5019,7 +5019,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R81r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R81r",
+          "@id": "http://scta.info/iiif/pp-reims/list/81r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5050,7 +5050,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R81v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R81v",
+          "@id": "http://scta.info/iiif/pp-reims/list/81v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5081,7 +5081,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R82r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R82r",
+          "@id": "http://scta.info/iiif/pp-reims/list/82r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5112,7 +5112,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R82v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R82v",
+          "@id": "http://scta.info/iiif/pp-reims/list/82v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5143,7 +5143,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R83r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R83r",
+          "@id": "http://scta.info/iiif/pp-reims/list/83r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5174,7 +5174,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R83v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R83v",
+          "@id": "http://scta.info/iiif/pp-reims/list/83v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5205,7 +5205,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R84r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R84r",
+          "@id": "http://scta.info/iiif/pp-reims/list/84r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5236,7 +5236,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R84v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R84v",
+          "@id": "http://scta.info/iiif/pp-reims/list/84v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5267,7 +5267,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R85r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R85r",
+          "@id": "http://scta.info/iiif/pp-reims/list/85r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5298,7 +5298,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R85v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R85v",
+          "@id": "http://scta.info/iiif/pp-reims/list/85v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5329,7 +5329,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R86r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R86r",
+          "@id": "http://scta.info/iiif/pp-reims/list/86r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5360,7 +5360,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R86v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R86v",
+          "@id": "http://scta.info/iiif/pp-reims/list/86v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5391,7 +5391,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R87r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R87r",
+          "@id": "http://scta.info/iiif/pp-reims/list/87r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5422,7 +5422,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R87v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R87v",
+          "@id": "http://scta.info/iiif/pp-reims/list/87v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5453,7 +5453,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R88r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R88r",
+          "@id": "http://scta.info/iiif/pp-reims/list/88r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5484,7 +5484,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R88v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R88v",
+          "@id": "http://scta.info/iiif/pp-reims/list/88v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5515,7 +5515,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R89r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R89r",
+          "@id": "http://scta.info/iiif/pp-reims/list/89r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5546,7 +5546,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R89v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R89v",
+          "@id": "http://scta.info/iiif/pp-reims/list/89v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5577,7 +5577,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R90r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R90r",
+          "@id": "http://scta.info/iiif/pp-reims/list/90r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5608,7 +5608,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R90v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R90v",
+          "@id": "http://scta.info/iiif/pp-reims/list/90v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5639,7 +5639,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R91r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R91r",
+          "@id": "http://scta.info/iiif/pp-reims/list/91r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5670,7 +5670,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R91v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R91v",
+          "@id": "http://scta.info/iiif/pp-reims/list/91v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5701,7 +5701,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R92r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R92r",
+          "@id": "http://scta.info/iiif/pp-reims/list/92r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5732,7 +5732,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R92v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R92v",
+          "@id": "http://scta.info/iiif/pp-reims/list/92v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5763,7 +5763,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R93r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R93r",
+          "@id": "http://scta.info/iiif/pp-reims/list/93r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5794,7 +5794,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R93v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R93v",
+          "@id": "http://scta.info/iiif/pp-reims/list/93v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5825,7 +5825,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R94r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R94r",
+          "@id": "http://scta.info/iiif/pp-reims/list/94r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5856,7 +5856,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R94v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R94v",
+          "@id": "http://scta.info/iiif/pp-reims/list/94v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5887,7 +5887,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R95r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R95r",
+          "@id": "http://scta.info/iiif/pp-reims/list/95r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5918,7 +5918,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R95v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R95v",
+          "@id": "http://scta.info/iiif/pp-reims/list/95v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5949,7 +5949,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R96r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R96r",
+          "@id": "http://scta.info/iiif/pp-reims/list/96r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -5980,7 +5980,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R96v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R96v",
+          "@id": "http://scta.info/iiif/pp-reims/list/96v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6011,7 +6011,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R97r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R97r",
+          "@id": "http://scta.info/iiif/pp-reims/list/97r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6042,7 +6042,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R97v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R97v",
+          "@id": "http://scta.info/iiif/pp-reims/list/97v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6073,7 +6073,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R98r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R98r",
+          "@id": "http://scta.info/iiif/pp-reims/list/98r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6104,7 +6104,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R98v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R98v",
+          "@id": "http://scta.info/iiif/pp-reims/list/98v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6135,7 +6135,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R99r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R99r",
+          "@id": "http://scta.info/iiif/pp-reims/list/99r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6166,7 +6166,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R99v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R99v",
+          "@id": "http://scta.info/iiif/pp-reims/list/99v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6197,7 +6197,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R100r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R100r",
+          "@id": "http://scta.info/iiif/pp-reims/list/100r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6228,7 +6228,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R100v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R100v",
+          "@id": "http://scta.info/iiif/pp-reims/list/100v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6259,7 +6259,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R101r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R101r",
+          "@id": "http://scta.info/iiif/pp-reims/list/101r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6290,7 +6290,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R101v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R101v",
+          "@id": "http://scta.info/iiif/pp-reims/list/101v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6321,7 +6321,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R102r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R102r",
+          "@id": "http://scta.info/iiif/pp-reims/list/102r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6352,7 +6352,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R102v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R102v",
+          "@id": "http://scta.info/iiif/pp-reims/list/102v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6383,7 +6383,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R103r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R103r",
+          "@id": "http://scta.info/iiif/pp-reims/list/103r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6414,7 +6414,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R103v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R103v",
+          "@id": "http://scta.info/iiif/pp-reims/list/103v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6445,7 +6445,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R104r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R104r",
+          "@id": "http://scta.info/iiif/pp-reims/list/104r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6476,7 +6476,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R104v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R104v",
+          "@id": "http://scta.info/iiif/pp-reims/list/104v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6507,7 +6507,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R105r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R105r",
+          "@id": "http://scta.info/iiif/pp-reims/list/105r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6538,7 +6538,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R105v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R105v",
+          "@id": "http://scta.info/iiif/pp-reims/list/105v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6569,7 +6569,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R106r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R106r",
+          "@id": "http://scta.info/iiif/pp-reims/list/106r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6600,7 +6600,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R106v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R106v",
+          "@id": "http://scta.info/iiif/pp-reims/list/106v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6631,7 +6631,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R107r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R107r",
+          "@id": "http://scta.info/iiif/pp-reims/list/107r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6662,7 +6662,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R107v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R107v",
+          "@id": "http://scta.info/iiif/pp-reims/list/107v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6693,7 +6693,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R108r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R108r",
+          "@id": "http://scta.info/iiif/pp-reims/list/108r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6724,7 +6724,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R108v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R108v",
+          "@id": "http://scta.info/iiif/pp-reims/list/108v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6755,7 +6755,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R109r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R109r",
+          "@id": "http://scta.info/iiif/pp-reims/list/109r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6786,7 +6786,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R109v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R109v",
+          "@id": "http://scta.info/iiif/pp-reims/list/109v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6817,7 +6817,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R110r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R110r",
+          "@id": "http://scta.info/iiif/pp-reims/list/110r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6848,7 +6848,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R110v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R110v",
+          "@id": "http://scta.info/iiif/pp-reims/list/110v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6879,7 +6879,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R111r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R111r",
+          "@id": "http://scta.info/iiif/pp-reims/list/111r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6910,7 +6910,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R111v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R111v",
+          "@id": "http://scta.info/iiif/pp-reims/list/111v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6941,7 +6941,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R112r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R112r",
+          "@id": "http://scta.info/iiif/pp-reims/list/112r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -6972,7 +6972,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R112v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R112v",
+          "@id": "http://scta.info/iiif/pp-reims/list/112v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7003,7 +7003,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R113r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R113r",
+          "@id": "http://scta.info/iiif/pp-reims/list/113r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7034,7 +7034,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R113v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R113v",
+          "@id": "http://scta.info/iiif/pp-reims/list/113v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7065,7 +7065,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R114r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R114r",
+          "@id": "http://scta.info/iiif/pp-reims/list/114r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7096,7 +7096,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R114v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R114v",
+          "@id": "http://scta.info/iiif/pp-reims/list/114v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7127,7 +7127,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R115r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R115r",
+          "@id": "http://scta.info/iiif/pp-reims/list/115r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7158,7 +7158,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R115v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R115v",
+          "@id": "http://scta.info/iiif/pp-reims/list/115v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7189,7 +7189,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R116r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R116r",
+          "@id": "http://scta.info/iiif/pp-reims/list/116r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7220,7 +7220,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R116v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R116v",
+          "@id": "http://scta.info/iiif/pp-reims/list/116v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7251,7 +7251,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R117r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R117r",
+          "@id": "http://scta.info/iiif/pp-reims/list/117r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7282,7 +7282,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R117v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R117v",
+          "@id": "http://scta.info/iiif/pp-reims/list/117v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7313,7 +7313,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R118r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R118r",
+          "@id": "http://scta.info/iiif/pp-reims/list/118r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7344,7 +7344,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R118v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R118v",
+          "@id": "http://scta.info/iiif/pp-reims/list/118v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7375,7 +7375,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R119r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R119r",
+          "@id": "http://scta.info/iiif/pp-reims/list/119r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7406,7 +7406,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R119v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R119v",
+          "@id": "http://scta.info/iiif/pp-reims/list/119v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7437,7 +7437,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R120r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R120r",
+          "@id": "http://scta.info/iiif/pp-reims/list/120r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7468,7 +7468,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R120v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R120v",
+          "@id": "http://scta.info/iiif/pp-reims/list/120v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7499,7 +7499,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R121r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R121r",
+          "@id": "http://scta.info/iiif/pp-reims/list/121r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7530,7 +7530,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R121v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R121v",
+          "@id": "http://scta.info/iiif/pp-reims/list/121v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7561,7 +7561,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R122r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R122r",
+          "@id": "http://scta.info/iiif/pp-reims/list/122r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7592,7 +7592,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R122v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R122v",
+          "@id": "http://scta.info/iiif/pp-reims/list/122v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7623,7 +7623,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R123r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R123r",
+          "@id": "http://scta.info/iiif/pp-reims/list/123r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7654,7 +7654,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R123v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R123v",
+          "@id": "http://scta.info/iiif/pp-reims/list/123v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7685,7 +7685,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R124r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R124r",
+          "@id": "http://scta.info/iiif/pp-reims/list/124r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7716,7 +7716,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R124v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R124v",
+          "@id": "http://scta.info/iiif/pp-reims/list/124v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7747,7 +7747,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R125r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R125r",
+          "@id": "http://scta.info/iiif/pp-reims/list/125r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7778,7 +7778,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R125v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R125v",
+          "@id": "http://scta.info/iiif/pp-reims/list/125v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7809,7 +7809,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R126r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R126r",
+          "@id": "http://scta.info/iiif/pp-reims/list/126r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7840,7 +7840,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R126v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R126v",
+          "@id": "http://scta.info/iiif/pp-reims/list/126v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7871,7 +7871,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R127r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R127r",
+          "@id": "http://scta.info/iiif/pp-reims/list/127r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7902,7 +7902,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R127v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R127v",
+          "@id": "http://scta.info/iiif/pp-reims/list/127v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7933,7 +7933,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R128r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R128r",
+          "@id": "http://scta.info/iiif/pp-reims/list/128r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7964,7 +7964,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R128v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R128v",
+          "@id": "http://scta.info/iiif/pp-reims/list/128v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -7995,7 +7995,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R129r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R129r",
+          "@id": "http://scta.info/iiif/pp-reims/list/129r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8026,7 +8026,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R129v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R129v",
+          "@id": "http://scta.info/iiif/pp-reims/list/129v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8057,7 +8057,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R130r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R130r",
+          "@id": "http://scta.info/iiif/pp-reims/list/130r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8088,7 +8088,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R130v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R130v",
+          "@id": "http://scta.info/iiif/pp-reims/list/130v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8119,7 +8119,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R131r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R131r",
+          "@id": "http://scta.info/iiif/pp-reims/list/131r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8150,7 +8150,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R131v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R131v",
+          "@id": "http://scta.info/iiif/pp-reims/list/131v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8181,7 +8181,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R132r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R132r",
+          "@id": "http://scta.info/iiif/pp-reims/list/132r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8212,7 +8212,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R132v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R132v",
+          "@id": "http://scta.info/iiif/pp-reims/list/132v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8243,7 +8243,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R133r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R133r",
+          "@id": "http://scta.info/iiif/pp-reims/list/133r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8274,7 +8274,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R133v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R133v",
+          "@id": "http://scta.info/iiif/pp-reims/list/133v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8305,7 +8305,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R134r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R134r",
+          "@id": "http://scta.info/iiif/pp-reims/list/134r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8336,7 +8336,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R134v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R134v",
+          "@id": "http://scta.info/iiif/pp-reims/list/134v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8367,7 +8367,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R135r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R135r",
+          "@id": "http://scta.info/iiif/pp-reims/list/135r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8398,7 +8398,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R135v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R135v",
+          "@id": "http://scta.info/iiif/pp-reims/list/135v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8429,7 +8429,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R136r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R136r",
+          "@id": "http://scta.info/iiif/pp-reims/list/136r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8460,7 +8460,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R136v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R136v",
+          "@id": "http://scta.info/iiif/pp-reims/list/136v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8491,7 +8491,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R137r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R137r",
+          "@id": "http://scta.info/iiif/pp-reims/list/137r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8522,7 +8522,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R137v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R137v",
+          "@id": "http://scta.info/iiif/pp-reims/list/137v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8553,7 +8553,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R138r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R138r",
+          "@id": "http://scta.info/iiif/pp-reims/list/138r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8584,7 +8584,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R138v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R138v",
+          "@id": "http://scta.info/iiif/pp-reims/list/138v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8615,7 +8615,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R139r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R139r",
+          "@id": "http://scta.info/iiif/pp-reims/list/139r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8646,7 +8646,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R139v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R139v",
+          "@id": "http://scta.info/iiif/pp-reims/list/139v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8677,7 +8677,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R140r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R140r",
+          "@id": "http://scta.info/iiif/pp-reims/list/140r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8708,7 +8708,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R140v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R140v",
+          "@id": "http://scta.info/iiif/pp-reims/list/140v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8739,7 +8739,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R141r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R141r",
+          "@id": "http://scta.info/iiif/pp-reims/list/141r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8770,7 +8770,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R141v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R141v",
+          "@id": "http://scta.info/iiif/pp-reims/list/141v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8801,7 +8801,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R142r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R142r",
+          "@id": "http://scta.info/iiif/pp-reims/list/142r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8832,7 +8832,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R142v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R142v",
+          "@id": "http://scta.info/iiif/pp-reims/list/142v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8863,7 +8863,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R143r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R143r",
+          "@id": "http://scta.info/iiif/pp-reims/list/143r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8894,7 +8894,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R143v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R143v",
+          "@id": "http://scta.info/iiif/pp-reims/list/143v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8925,7 +8925,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R144r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R144r",
+          "@id": "http://scta.info/iiif/pp-reims/list/144r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8956,7 +8956,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R144v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R144v",
+          "@id": "http://scta.info/iiif/pp-reims/list/144v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -8987,7 +8987,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R145r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R145r",
+          "@id": "http://scta.info/iiif/pp-reims/list/145r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9018,7 +9018,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R145v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R145v",
+          "@id": "http://scta.info/iiif/pp-reims/list/145v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9049,7 +9049,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R146r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R146r",
+          "@id": "http://scta.info/iiif/pp-reims/list/146r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9080,7 +9080,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R146v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R146v",
+          "@id": "http://scta.info/iiif/pp-reims/list/146v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9111,7 +9111,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R147r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R147r",
+          "@id": "http://scta.info/iiif/pp-reims/list/147r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9142,7 +9142,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R147v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R147v",
+          "@id": "http://scta.info/iiif/pp-reims/list/147v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9173,7 +9173,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R148r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R148r",
+          "@id": "http://scta.info/iiif/pp-reims/list/148r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9204,7 +9204,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R148v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R148v",
+          "@id": "http://scta.info/iiif/pp-reims/list/148v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9235,7 +9235,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R149r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R149r",
+          "@id": "http://scta.info/iiif/pp-reims/list/149r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9266,7 +9266,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R149v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R149v",
+          "@id": "http://scta.info/iiif/pp-reims/list/149v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9297,7 +9297,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R150r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R150r",
+          "@id": "http://scta.info/iiif/pp-reims/list/150r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9328,7 +9328,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R150v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R150v",
+          "@id": "http://scta.info/iiif/pp-reims/list/150v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9359,7 +9359,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R151r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R151r",
+          "@id": "http://scta.info/iiif/pp-reims/list/151r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9390,7 +9390,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R151v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R151v",
+          "@id": "http://scta.info/iiif/pp-reims/list/151v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9421,7 +9421,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R152r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R152r",
+          "@id": "http://scta.info/iiif/pp-reims/list/152r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9452,7 +9452,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R152v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R152v",
+          "@id": "http://scta.info/iiif/pp-reims/list/152v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9483,7 +9483,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R153r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R153r",
+          "@id": "http://scta.info/iiif/pp-reims/list/153r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9514,7 +9514,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R153v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R153v",
+          "@id": "http://scta.info/iiif/pp-reims/list/153v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9545,7 +9545,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R154r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R154r",
+          "@id": "http://scta.info/iiif/pp-reims/list/154r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9576,7 +9576,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R154v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R154v",
+          "@id": "http://scta.info/iiif/pp-reims/list/154v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9607,7 +9607,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R155r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R155r",
+          "@id": "http://scta.info/iiif/pp-reims/list/155r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9638,7 +9638,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R155v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R155v",
+          "@id": "http://scta.info/iiif/pp-reims/list/155v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9669,7 +9669,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R156r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R156r",
+          "@id": "http://scta.info/iiif/pp-reims/list/156r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9700,7 +9700,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R156v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R156v",
+          "@id": "http://scta.info/iiif/pp-reims/list/156v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9731,7 +9731,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R157r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R157r",
+          "@id": "http://scta.info/iiif/pp-reims/list/157r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9762,7 +9762,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R157v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R157v",
+          "@id": "http://scta.info/iiif/pp-reims/list/157v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9793,7 +9793,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R158r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R158r",
+          "@id": "http://scta.info/iiif/pp-reims/list/158r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9824,7 +9824,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R158v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R158v",
+          "@id": "http://scta.info/iiif/pp-reims/list/158v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9855,7 +9855,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R159r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R159r",
+          "@id": "http://scta.info/iiif/pp-reims/list/159r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9886,7 +9886,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R159v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R159v",
+          "@id": "http://scta.info/iiif/pp-reims/list/159v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9917,7 +9917,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R160r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R160r",
+          "@id": "http://scta.info/iiif/pp-reims/list/160r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9948,7 +9948,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R160v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R160v",
+          "@id": "http://scta.info/iiif/pp-reims/list/160v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -9979,7 +9979,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R161r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R161r",
+          "@id": "http://scta.info/iiif/pp-reims/list/161r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10010,7 +10010,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R161v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R161v",
+          "@id": "http://scta.info/iiif/pp-reims/list/161v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10041,7 +10041,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R162r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R162r",
+          "@id": "http://scta.info/iiif/pp-reims/list/162r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10072,7 +10072,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R162v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R162v",
+          "@id": "http://scta.info/iiif/pp-reims/list/162v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10103,7 +10103,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R163r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R163r",
+          "@id": "http://scta.info/iiif/pp-reims/list/163r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10134,7 +10134,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R163v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R163v",
+          "@id": "http://scta.info/iiif/pp-reims/list/163v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10165,7 +10165,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R164r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R164r",
+          "@id": "http://scta.info/iiif/pp-reims/list/164r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10196,7 +10196,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R164v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R164v",
+          "@id": "http://scta.info/iiif/pp-reims/list/164v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10227,7 +10227,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R165r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R165r",
+          "@id": "http://scta.info/iiif/pp-reims/list/165r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10258,7 +10258,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R165v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R165v",
+          "@id": "http://scta.info/iiif/pp-reims/list/165v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10289,7 +10289,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R166r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R166r",
+          "@id": "http://scta.info/iiif/pp-reims/list/166r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10320,7 +10320,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R166v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R166v",
+          "@id": "http://scta.info/iiif/pp-reims/list/166v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10351,7 +10351,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R167r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R167r",
+          "@id": "http://scta.info/iiif/pp-reims/list/167r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10382,7 +10382,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R167v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R167v",
+          "@id": "http://scta.info/iiif/pp-reims/list/167v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10413,7 +10413,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R168r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R168r",
+          "@id": "http://scta.info/iiif/pp-reims/list/168r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10444,7 +10444,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R168v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R168v",
+          "@id": "http://scta.info/iiif/pp-reims/list/168v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10475,7 +10475,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R169r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R169r",
+          "@id": "http://scta.info/iiif/pp-reims/list/169r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10506,7 +10506,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R169v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R169v",
+          "@id": "http://scta.info/iiif/pp-reims/list/169v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10537,7 +10537,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R170r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R170r",
+          "@id": "http://scta.info/iiif/pp-reims/list/170r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10568,7 +10568,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R170v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R170v",
+          "@id": "http://scta.info/iiif/pp-reims/list/170v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10599,7 +10599,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R171r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R171r",
+          "@id": "http://scta.info/iiif/pp-reims/list/171r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10630,7 +10630,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R171v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R171v",
+          "@id": "http://scta.info/iiif/pp-reims/list/171v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10661,7 +10661,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R172r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R172r",
+          "@id": "http://scta.info/iiif/pp-reims/list/172r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10692,7 +10692,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R172v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R172v",
+          "@id": "http://scta.info/iiif/pp-reims/list/172v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10723,7 +10723,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R173r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R173r",
+          "@id": "http://scta.info/iiif/pp-reims/list/173r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10754,7 +10754,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R173v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R173v",
+          "@id": "http://scta.info/iiif/pp-reims/list/173v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10785,7 +10785,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R174r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R174r",
+          "@id": "http://scta.info/iiif/pp-reims/list/174r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10816,7 +10816,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R174v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R174v",
+          "@id": "http://scta.info/iiif/pp-reims/list/174v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10847,7 +10847,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R175r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R175r",
+          "@id": "http://scta.info/iiif/pp-reims/list/175r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10878,7 +10878,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R175v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R175v",
+          "@id": "http://scta.info/iiif/pp-reims/list/175v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10909,7 +10909,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R176r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R176r",
+          "@id": "http://scta.info/iiif/pp-reims/list/176r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10940,7 +10940,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R176v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R176v",
+          "@id": "http://scta.info/iiif/pp-reims/list/176v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -10971,7 +10971,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R177r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R177r",
+          "@id": "http://scta.info/iiif/pp-reims/list/177r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11002,7 +11002,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R177v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R177v",
+          "@id": "http://scta.info/iiif/pp-reims/list/177v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11033,7 +11033,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R178r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R178r",
+          "@id": "http://scta.info/iiif/pp-reims/list/178r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11064,7 +11064,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R178v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R178v",
+          "@id": "http://scta.info/iiif/pp-reims/list/178v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11095,7 +11095,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R179r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R179r",
+          "@id": "http://scta.info/iiif/pp-reims/list/179r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11126,7 +11126,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R179v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R179v",
+          "@id": "http://scta.info/iiif/pp-reims/list/179v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11157,7 +11157,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R180r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R180r",
+          "@id": "http://scta.info/iiif/pp-reims/list/180r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11188,7 +11188,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R180v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R180v",
+          "@id": "http://scta.info/iiif/pp-reims/list/180v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11219,7 +11219,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R181r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R181r",
+          "@id": "http://scta.info/iiif/pp-reims/list/181r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11250,7 +11250,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R181v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R181v",
+          "@id": "http://scta.info/iiif/pp-reims/list/181v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11281,7 +11281,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R182r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R182r",
+          "@id": "http://scta.info/iiif/pp-reims/list/182r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11312,7 +11312,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R182v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R182v",
+          "@id": "http://scta.info/iiif/pp-reims/list/182v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11343,7 +11343,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R183r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R183r",
+          "@id": "http://scta.info/iiif/pp-reims/list/183r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11374,7 +11374,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R183v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R183v",
+          "@id": "http://scta.info/iiif/pp-reims/list/183v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11405,7 +11405,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R184r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R184r",
+          "@id": "http://scta.info/iiif/pp-reims/list/184r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11436,7 +11436,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R184v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R184v",
+          "@id": "http://scta.info/iiif/pp-reims/list/184v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11467,7 +11467,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R185r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R185r",
+          "@id": "http://scta.info/iiif/pp-reims/list/185r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11498,7 +11498,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R185v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R185v",
+          "@id": "http://scta.info/iiif/pp-reims/list/185v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11529,7 +11529,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R186r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R186r",
+          "@id": "http://scta.info/iiif/pp-reims/list/186r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11560,7 +11560,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R186v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R186v",
+          "@id": "http://scta.info/iiif/pp-reims/list/186v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11591,7 +11591,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R187r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R187r",
+          "@id": "http://scta.info/iiif/pp-reims/list/187r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11622,7 +11622,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R187v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R187v",
+          "@id": "http://scta.info/iiif/pp-reims/list/187v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11653,7 +11653,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R188r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R188r",
+          "@id": "http://scta.info/iiif/pp-reims/list/188r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11684,7 +11684,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R188v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R188v",
+          "@id": "http://scta.info/iiif/pp-reims/list/188v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11715,7 +11715,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R189r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R189r",
+          "@id": "http://scta.info/iiif/pp-reims/list/189r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11746,7 +11746,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R189v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R189v",
+          "@id": "http://scta.info/iiif/pp-reims/list/189v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11777,7 +11777,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R190r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R190r",
+          "@id": "http://scta.info/iiif/pp-reims/list/190r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11808,7 +11808,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R190v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R190v",
+          "@id": "http://scta.info/iiif/pp-reims/list/190v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11839,7 +11839,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R191r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R191r",
+          "@id": "http://scta.info/iiif/pp-reims/list/191r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11870,7 +11870,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R191v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R191v",
+          "@id": "http://scta.info/iiif/pp-reims/list/191v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11901,7 +11901,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R192r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R192r",
+          "@id": "http://scta.info/iiif/pp-reims/list/192r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11932,7 +11932,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R192v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R192v",
+          "@id": "http://scta.info/iiif/pp-reims/list/192v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11963,7 +11963,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R193r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R193r",
+          "@id": "http://scta.info/iiif/pp-reims/list/193r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -11994,7 +11994,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R193v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R193v",
+          "@id": "http://scta.info/iiif/pp-reims/list/193v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12025,7 +12025,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R194r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R194r",
+          "@id": "http://scta.info/iiif/pp-reims/list/194r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12056,7 +12056,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R194v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R194v",
+          "@id": "http://scta.info/iiif/pp-reims/list/194v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12087,7 +12087,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R195r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R195r",
+          "@id": "http://scta.info/iiif/pp-reims/list/195r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12118,7 +12118,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R195v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R195v",
+          "@id": "http://scta.info/iiif/pp-reims/list/195v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12149,7 +12149,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R196r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R196r",
+          "@id": "http://scta.info/iiif/pp-reims/list/196r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12180,7 +12180,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R196v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R196v",
+          "@id": "http://scta.info/iiif/pp-reims/list/196v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12211,7 +12211,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R197r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R197r",
+          "@id": "http://scta.info/iiif/pp-reims/list/197r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12242,7 +12242,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R197v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R197v",
+          "@id": "http://scta.info/iiif/pp-reims/list/197v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12273,7 +12273,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R198r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R198r",
+          "@id": "http://scta.info/iiif/pp-reims/list/198r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12304,7 +12304,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R198v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R198v",
+          "@id": "http://scta.info/iiif/pp-reims/list/198v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12335,7 +12335,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R199r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R199r",
+          "@id": "http://scta.info/iiif/pp-reims/list/199r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12366,7 +12366,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R199v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R199v",
+          "@id": "http://scta.info/iiif/pp-reims/list/199v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12397,7 +12397,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R200r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R200r",
+          "@id": "http://scta.info/iiif/pp-reims/list/200r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12428,7 +12428,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R200v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R200v",
+          "@id": "http://scta.info/iiif/pp-reims/list/200v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12459,7 +12459,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R201r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R201r",
+          "@id": "http://scta.info/iiif/pp-reims/list/201r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12490,7 +12490,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R201v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R201v",
+          "@id": "http://scta.info/iiif/pp-reims/list/201v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12521,7 +12521,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R202r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R202r",
+          "@id": "http://scta.info/iiif/pp-reims/list/202r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12552,7 +12552,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R202v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R202v",
+          "@id": "http://scta.info/iiif/pp-reims/list/202v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12583,7 +12583,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R203r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R203r",
+          "@id": "http://scta.info/iiif/pp-reims/list/203r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12614,7 +12614,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R203v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R203v",
+          "@id": "http://scta.info/iiif/pp-reims/list/203v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12645,7 +12645,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R204r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R204r",
+          "@id": "http://scta.info/iiif/pp-reims/list/204r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12676,7 +12676,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R204v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R204v",
+          "@id": "http://scta.info/iiif/pp-reims/list/204v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12707,7 +12707,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R205r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R205r",
+          "@id": "http://scta.info/iiif/pp-reims/list/205r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12738,7 +12738,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R205v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R205v",
+          "@id": "http://scta.info/iiif/pp-reims/list/205v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12769,7 +12769,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R206r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R206r",
+          "@id": "http://scta.info/iiif/pp-reims/list/206r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12800,7 +12800,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R206v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R206v",
+          "@id": "http://scta.info/iiif/pp-reims/list/206v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12831,7 +12831,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R207r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R207r",
+          "@id": "http://scta.info/iiif/pp-reims/list/207r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12862,7 +12862,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R207v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R207v",
+          "@id": "http://scta.info/iiif/pp-reims/list/207v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12893,7 +12893,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R208r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R208r",
+          "@id": "http://scta.info/iiif/pp-reims/list/208r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12924,7 +12924,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R208v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R208v",
+          "@id": "http://scta.info/iiif/pp-reims/list/208v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12955,7 +12955,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R209r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R209r",
+          "@id": "http://scta.info/iiif/pp-reims/list/209r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -12986,7 +12986,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R209v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R209v",
+          "@id": "http://scta.info/iiif/pp-reims/list/209v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13017,7 +13017,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R210r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R210r",
+          "@id": "http://scta.info/iiif/pp-reims/list/210r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13048,7 +13048,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R210v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R210v",
+          "@id": "http://scta.info/iiif/pp-reims/list/210v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13079,7 +13079,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R211r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R211r",
+          "@id": "http://scta.info/iiif/pp-reims/list/211r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13110,7 +13110,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R211v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R211v",
+          "@id": "http://scta.info/iiif/pp-reims/list/211v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13141,7 +13141,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R212r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R212r",
+          "@id": "http://scta.info/iiif/pp-reims/list/212r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13172,7 +13172,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R212v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R212v",
+          "@id": "http://scta.info/iiif/pp-reims/list/212v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13203,7 +13203,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R213r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R213r",
+          "@id": "http://scta.info/iiif/pp-reims/list/213r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13234,7 +13234,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R213v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R213v",
+          "@id": "http://scta.info/iiif/pp-reims/list/213v",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13265,7 +13265,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R214r"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R214r",
+          "@id": "http://scta.info/iiif/pp-reims/list/214r",
           "@type": "sc:AnnotationList"
         }]
       },
@@ -13296,7 +13296,7 @@
           "on": "http://scta.info/iiif/pp-reims/canvas/R214v"
         }],
         "otherContent": [{
-          "@id": "http://scta.info/iiif/pp-reims/list/R214v",
+          "@id": "http://scta.info/iiif/pp-reims/list/214v",
           "@type": "sc:AnnotationList"
         }]
       }

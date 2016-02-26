@@ -149,7 +149,24 @@ def create_supplement (msname, type)
           "service": service
           }
         }
+
+  elsif type == "layerTranscription"
+    transcription_layer = "http://scta.info/iiif/#{msname}/layer/transcription"
+    final_object = {
+      "supplement": {
+          "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/searchwithin",
+          "@type": "sc:layer",
+          "attribution": "Data provided by the Sentences Commentary Text Archive",
+          "description": "Layers published by the Sentences Commentary #{msname}",
+          "logo": "http://scta.info/logo.png",
+          "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "manifests": [manifest],
+          "layer": transcription_layer
+          }
+        }
+                
   end     
+
       JSON.pretty_generate(final_object)
 
 end
@@ -164,4 +181,46 @@ def create_searchwithin (msname)
           "label": "Search within this manifest"
           }
   return service
+end
+
+def create_transcriptionlayer (msname)
+  slug = msname.split("-").last
+  commentary_slug = msname.split("-").first
+  lists = []
+
+  query = "
+          SELECT ?commentary ?item ?order ?title ?witness ?folio ?annolist
+          {
+          ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
+          ?commentary <http://scta.info/property/hasItem> ?item .
+          ?item <http://scta.info/property/hasWitness> ?witness .
+          ?item <http://scta.info/property/totalOrderNumber> ?order .
+          ?item <http://purl.org/dc/elements/1.1/title> ?title .
+          ?witness <http://scta.info/property/hasSlug> '#{slug}' .
+          ?witness <http://scta.info/property/hasFolioSide> ?folio . 
+          ?folio <http://scta.info/property/hasAnnotationList> ?annolist . 
+
+          }
+          ORDER BY ?order
+          "
+
+        #@results = rdf_query(query)
+        query_obj = Lbp::Query.new()
+        results = query_obj.query(query)
+
+  lists = results.map {|result| result[:annolist].to_s }
+  lists.uniq!
+  
+  layer = {"@context": "http://iiif.io/api/presentation/2/context.json",
+    "@id": "http://scta.info/iiif/layer/transcription",
+    "@type": "sc:Layer",
+    "label": "Diplomatic Transcription",
+    "attribution": "Data provided by the Sentences Commentary Text Archive",
+    "description": "Transcription layer published by the Sentences Commentary #{msname}",
+    "logo": "http://scta.info/logo.png",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "otherContent": lists
+
+  }
+  return JSON.pretty_generate(layer)
 end

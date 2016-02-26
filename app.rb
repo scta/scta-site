@@ -29,6 +29,9 @@ require_relative 'lib/custom_functions'
 configure do
   set :protection, except: [:frame_options]
   set :root, File.dirname(__FILE__)
+
+  # this added in attempt to "forbidden" response when clicking on links 
+  set :protection, :except => :ip_spoofing
 end
 
 
@@ -198,7 +201,7 @@ get '/main' do
   puts "text"
   erb :main
 end
-
+=begin
 get '/scta' do
   query = "#{prefixes}
 
@@ -215,6 +218,7 @@ get '/scta' do
 
   erb :subj_display
 end
+=end
 
 get '/api' do 
   erb :api
@@ -386,18 +390,29 @@ get '/iiif/:msname/searchwithin' do |msname|
   create_supplement(msname, type)
 end
 
+get '/iiif/:msname/supplement/layer/transcription' do |msname|
+headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "layerTranscription"
+  create_supplement(msname, type)
+end
 
-get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
+get '/iiif/:msname/layer/transcription' do |msname|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  create_transcriptionlayer(msname)
+end
+
+get '/iiif/:slug/list/:folioid' do |slug, folioid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
 
-  @canvasid = "<http://scta.info/iiif/#{slug}/canvas/#{canvasid}>"
+  foliordfid = "<http://scta.info/resource/material/#{slug}/#{folioid}>"
 
-  query = "#{prefixes}
-
-          SELECT ?x ?y ?w ?h ?position ?paragraph ?plaintext 
+  query = "SELECT ?x ?y ?w ?h ?position ?paragraph ?plaintext ?canvasid
           {
-          ?zone <http://scta.info/property/isZoneOn> #{@canvasid} .
+          ?zone <http://scta.info/property/hasFolioSide> #{foliordfid} .
+          ?zone <http://scta.info/property/isZoneOn> ?canvasid .
           ?zone <http://scta.info/property/ulx> ?x .
           ?zone <http://scta.info/property/uly> ?y .
           ?zone <http://scta.info/property/width> ?w .
@@ -406,12 +421,14 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
           ?zone <http://scta.info/property/isZoneOf> ?paragraph .
           ?paragraph <http://scta.info/property/plaintext> ?plaintext .
           }
-          ORDER BY ?position
+          ORDER BY ?position 
           "
 
         #@results = rdf_query(query)
         query_obj = Lbp::Query.new()
         @results = query_obj.query(query)
+
+        
 
 
     annotationarray = []
@@ -429,17 +446,21 @@ get '/iiif/:slug/list/:canvasid' do |slug, canvasid|
             "@type" => "dctypes:Text",
             #"@type" => "cnt:ContentAsText",
             "chars" => "#{paragraphtext}</br> Metadata avaialble for this paragraph here: <a href='#{paragraph}'>#{paragraph}</a>.",
-            "format" => "text/html",
-            
+            "format" => "text/html"
         },
-        "on" => "http://scta.info/iiif/#{slug}/canvas/#{canvasid}#xywh=#{result[:x]},#{result[:y]},#{result[:w]},#{result[:h]}"
+        "on" => "#{result[:canvasid]}#xywh=#{result[:x]},#{result[:y]},#{result[:w]},#{result[:h]}"
       }
         annotationarray << entryhash
        end
 
        annotationlistcontent = {"@context" => "http://iiif.io/api/presentation/2/context.json", 
-        "@id" => "http://scta.info/iiif/#{slug}/list/#{canvasid}",
+        "@id" => "http://scta.info/iiif/#{slug}/list/#{folioid}",
         "@type" => "sc:AnnotationList",
+        "within" => {
+          "@id" => "http://scta.info/iiif/pp-sorb/layer/transcription",
+          "@type" => "sc:Layer",
+          "label" => "Diplomatic Transcription"
+        },
         "resources" => annotationarray
        }
     JSON.pretty_generate(annotationlistcontent)
