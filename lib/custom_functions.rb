@@ -189,7 +189,7 @@ def create_transcriptionlayer (msname)
   lists = []
 
   query = "
-          SELECT ?commentary ?item ?order ?title ?witness ?folio ?annolist
+          SELECT ?commentary ?item ?order ?title ?witness ?folio ?annolist ?canvasid
           {
           ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
           ?commentary <http://scta.info/property/hasItem> ?item .
@@ -198,6 +198,7 @@ def create_transcriptionlayer (msname)
           ?item <http://purl.org/dc/elements/1.1/title> ?title .
           ?witness <http://scta.info/property/hasSlug> '#{slug}' .
           ?witness <http://scta.info/property/hasFolioSide> ?folio . 
+          ?witness <http://scta.info/property/isOnCanvas> ?canvasid .
           ?folio <http://scta.info/property/hasAnnotationList> ?annolist . 
 
           }
@@ -208,7 +209,7 @@ def create_transcriptionlayer (msname)
         query_obj = Lbp::Query.new()
         results = query_obj.query(query)
 
-  lists = results.map {|result| result[:annolist].to_s }
+  lists = results.map {|result| {"@id": result[:annolist].to_s, on: result[:canvasid].to_s} }
   lists.uniq!
   
   layer = {"@context": "http://iiif.io/api/presentation/2/context.json",
