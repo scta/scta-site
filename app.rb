@@ -32,6 +32,7 @@ configure do
 
   # this added in attempt to "forbidden" response when clicking on links 
   set :protection, :except => :ip_spoofing
+  set :protection, :except => :json
 end
 
 

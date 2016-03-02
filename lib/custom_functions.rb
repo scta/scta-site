@@ -198,7 +198,7 @@ def create_transcriptionlayer (msname)
           ?item <http://purl.org/dc/elements/1.1/title> ?title .
           ?witness <http://scta.info/property/hasSlug> '#{slug}' .
           ?witness <http://scta.info/property/hasFolioSide> ?folio . 
-          ?witness <http://scta.info/property/isOnCanvas> ?canvasid .
+          ?folio <http://scta.info/property/isOnCanvas> ?canvasid .
           ?folio <http://scta.info/property/hasAnnotationList> ?annolist . 
 
           }
@@ -208,7 +208,7 @@ def create_transcriptionlayer (msname)
         #@results = rdf_query(query)
         query_obj = Lbp::Query.new()
         results = query_obj.query(query)
-
+  
   lists = results.map {|result| {"@id": result[:annolist].to_s, on: result[:canvasid].to_s} }
   lists.uniq!
   
