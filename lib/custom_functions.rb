@@ -130,6 +130,8 @@ def create_supplement (msname, type)
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "within": [manifest],
+          "viewingHint": "http://iiif.io/api/services/webmention/discard",
+          # should structures be changed to "ranges"
           "structures": all_structures
           }
         }
@@ -145,7 +147,8 @@ def create_supplement (msname, type)
           "description": "A search within service for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "manifests": [manifest],
+          "within": [manifest],
+          "viewingHint": "http://iiif.io/api/services/webmention/discard",
           "service": service
           }
         }
@@ -160,7 +163,8 @@ def create_supplement (msname, type)
           "description": "Layers published by the Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "manifests": [manifest],
+          "within": [manifest],
+          "viewingHint": "http://iiif.io/api/services/webmention/discard",
           "layer": transcription_layer
           }
         }
