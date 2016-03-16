@@ -129,7 +129,7 @@ def create_supplement (msname, type)
           "description": "A range list for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "manifests": [manifest],
+          "within": [manifest],
           "structures": all_structures
           }
         }
