@@ -159,7 +159,7 @@ def create_supplement (msname, type)
     final_object = {
           "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/supplement/layer/transcription",
           "@type": "sc:supplement",
-          "profile": "http://iiif.io/api/0.1/supplement/service",
+          "profile": "http://iiif.io/api/0.1/supplement/layer",
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
           
