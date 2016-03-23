@@ -168,9 +168,7 @@ def create_supplement (msname, type)
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "layer": transcription_layer
-          }
-        }
-                
+          }     
   end     
 
       JSON.pretty_generate(final_object)
