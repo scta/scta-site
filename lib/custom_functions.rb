@@ -120,51 +120,53 @@ def create_supplement (msname, type)
   end
  
   if type == "rangelist"
-    all_structures = create_range(msname)
-    final_object = {
-        "supplement": {
+    all_ranges = create_range(msname)
+    final_object = 
+        {
           "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/rangelist",
-          "@type": "sc:rangelist",
+          "@type": "sc:supplement",
+          "profile": "http://iiif.io/api/0.1/supplement/ranges",
+          "within": [manifest],
+          "viewingHint": "http://iiif.io/api/services/webmention/discard",
+
           "attribution": "Data provided by the Sentences Commentary Text Archive",
           "description": "A range list for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "within": [manifest],
-          "viewingHint": "http://iiif.io/api/services/webmention/discard",
           # should structures be changed to "ranges"
-          "structures": all_structures
-          }
+          "ranges": all_ranges
         }
 
 
   elsif type == "searchwithin"
     service = create_searchwithin(msname)
     final_object = {
-      "supplement": {
           "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/searchwithin",
-          "@type": "sc:searchWithin",
+          "@type": "sc:supplement",
+          "profile": "http://iiif.io/api/0.1/supplement/service",
+          "within": [manifest],
+          "viewingHint": "http://iiif.io/api/services/webmention/discard",
+
           "attribution": "Data provided by the Sentences Commentary Text Archive",
           "description": "A search within service for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "within": [manifest],
-          "viewingHint": "http://iiif.io/api/services/webmention/discard",
           "service": service
-          }
         }
 
   elsif type == "layerTranscription"
     transcription_layer = "http://scta.info/iiif/#{msname}/layer/transcription"
     final_object = {
-      "supplement": {
-          "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/searchwithin",
-          "@type": "sc:layer",
+          "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/supplement/layer/transcription",
+          "@type": "sc:supplement",
+          "profile": "http://iiif.io/api/0.1/supplement/service",
+          "within": [manifest],
+          "viewingHint": "http://iiif.io/api/services/webmention/discard",
+          
           "attribution": "Data provided by the Sentences Commentary Text Archive",
           "description": "Layers published by the Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "within": [manifest],
-          "viewingHint": "http://iiif.io/api/services/webmention/discard",
           "layer": transcription_layer
           }
         }
@@ -213,7 +215,7 @@ def create_transcriptionlayer (msname)
         query_obj = Lbp::Query.new()
         results = query_obj.query(query)
   
-  lists = results.map {|result| {"@id": result[:annolist].to_s, on: result[:canvasid].to_s} }
+  lists = results.map {|result| {"@id": result[:annolist].to_s, "sc:forCanvas": result[:canvasid].to_s} }
   lists.uniq!
   
   layer = {"@context": "http://iiif.io/api/presentation/2/context.json",
