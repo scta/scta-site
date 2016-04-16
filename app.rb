@@ -356,7 +356,7 @@ get '/iiif/:msname/manifest' do |msname|
       end
 =end
       
-      all_structures = create_range(msname)
+      all_structures = create_range2(msname)
 
       structure_object = {"structures" => all_structures}
       #all_structures.to_json
@@ -383,8 +383,23 @@ get '/iiif/:msname/rangelist' do |msname|
   create_supplement(msname, type)
   #send_file "public/#{slug}.json"
 end
+## this route should replace the above
+get '/iiif/:msname/supplement/ranges/toc' do |msname|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "rangelist"
+  create_supplement(msname, type)
+  #send_file "public/#{slug}.json"
+end
 
 get '/iiif/:msname/searchwithin' do |msname|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "searchwithin"
+  create_supplement(msname, type)
+end
+## this route should replace the above
+get '/iiif/:msname/supplement/service/searchwithin' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "searchwithin"
