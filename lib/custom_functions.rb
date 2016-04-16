@@ -1,6 +1,6 @@
 require 'lbp'
 require 'json'
-require 'pry'
+#require 'pry'
 
 def create_range2(msname)
   slug = msname.split("-").last
