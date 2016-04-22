@@ -425,7 +425,7 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
 
   foliordfid = "<http://scta.info/resource/material/#{slug}/#{folioid}>"
 
-  query = "SELECT ?x ?y ?w ?h ?position ?paragraph ?plaintext ?canvasid
+  query = "SELECT ?x ?y ?w ?h ?position ?paragraph ?plaintext ?canvasid ?pnumber
           {
           ?zone <http://scta.info/property/hasFolioSide> #{foliordfid} .
           ?zone <http://scta.info/property/isZoneOn> ?canvasid .
@@ -435,9 +435,11 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
           ?zone <http://scta.info/property/height> ?h .
           ?zone <http://scta.info/property/position> ?position .
           ?zone <http://scta.info/property/isZoneOf> ?paragraph .
+          ?paragraph <http://scta.info/property/isParagraphTranscriptionOf> ?paragraphExemplar .
+          ?paragraphExemplar <http://scta.info/property/paragraphNumber> ?pnumber .
           ?paragraph <http://scta.info/property/plaintext> ?plaintext .
           }
-          ORDER BY ?position 
+          ORDER BY ?pnumber ?position
           "
 
         #@results = rdf_query(query)
