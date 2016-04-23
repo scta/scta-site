@@ -1,0 +1,12 @@
+{
+  "@id": "http://scta.info/iiif/wdr-wettf15/supplement/layer/comments",
+  "@type": "sc:supplement",
+  "profile": "http://iiif.io/api/0.1/supplement/layer",
+  "within": ["http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/manifest.json"],
+  "viewingHint": "http://iiif.io/api/services/webmention/discard",
+  "attribution": "Data provided by the Sentences Commentary Text Archive",
+  "description": "Layers published by the Sentences Commentary wdr-wettf15",
+  "logo": "http://scta.info/logo.png",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "layer": "http://scta.info/iiif/wdr-wettf15/layer/comments"
+}

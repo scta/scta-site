@@ -1,0 +1,14 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://scta.info/iiif/layer/translation",
+  "@type": "sc:Layer",
+  "label": "Comments",
+  "attribution": "Data provided by the Sentences Commentary Text Archive",
+  "description": "Translation layer published by the Sentences Commentary wdr-wettf15",
+  "logo": "http://scta.info/logo.png",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "otherContent": [{
+    "@id": "http://scta.info/iiif/wdr-wettf15/list/translation/107v",
+    "sc:forCanvas": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json"
+  }]
+}

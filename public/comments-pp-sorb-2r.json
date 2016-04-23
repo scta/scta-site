@@ -15,7 +15,7 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-cpspfs",
         "@type": "dctypes:Text",
-        "chars": "test comments for paragraph 1",
+        "chars": "<p>test comments for paragraph 1</p>",
         "format": "text/html"
       },
       "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=199,274,650,325"
@@ -27,7 +27,7 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-eipdlt",
         "@type": "dctypes:Text",
-        "chars": "test comments for paragraph 2",
+        "chars": "<p>test comments for paragraph 2</p>",
         "format": "text/html"
       },
       "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=199,562,650,629"
@@ -39,7 +39,7 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-shoatd",
         "@type": "dctypes:Text",
-        "chars": "test comments for paragraph 3",
+        "chars": "<p>test comments for paragraph 3</p>",
         "format": "text/html"
       },
       "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=196,1123,650,897"
@@ -51,7 +51,7 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-shoatd",
         "@type": "dctypes:Text",
-        "chars": "test comments for paragraph 4",
+        "chars": "<p>test comments for paragraph 4</p>",
         "format": "text/html"
       },
       "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=849,313,650,151"
@@ -63,7 +63,7 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-usaafe",
         "@type": "dctypes:Text",
-        "chars": "test comments for paragraph 5",
+        "chars": "<p>test comments for paragraph 5</p>",
         "format": "text/html"
       },
       "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=836,398,650,1223"
@@ -75,7 +75,7 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-uaqriv",
         "@type": "dctypes:Text",
-        "chars": "test comments for paragraph 6",
+        "chars": "<p>test comments for paragraph 6</p>",
         "format": "text/html"
       },
       "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=827,1555,650,481"

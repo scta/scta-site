@@ -419,11 +419,29 @@ get '/iiif/:msname/supplement/layer/translation' do |msname|
   content_type :json
   type = "layertranslation"
   #create_supplement(msname, type)
-  send_file "public/translation-#{slug}-layer.json"
+  send_file "public/supplement/translation-#{slug}-layer.json"
 end
 
 #hard coding this for testing
 get '/iiif/:msname/supplement/layer/comments' do |msname|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "layerComments"
+  #create_supplement(msname, type)
+  send_file "public/supplement-comments-#{slug}-layer.json"
+end
+
+#hard coding this for testing
+get '/iiif/:msname/layer/translation' do |msname|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "layertranslation"
+  #create_supplement(msname, type)
+  send_file "public/translation-#{slug}-layer.json"
+end
+
+#hard coding this for testing
+get '/iiif/:msname/layer/comments' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "layerComments"

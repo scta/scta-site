@@ -1,0 +1,192 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://scta.info/iiif/wdr-wettf15/list/translation/107v",
+  "@type": "sc:AnnotationList",
+  "within": {
+    "@id": "http://scta.info/iiif/pp-sorb/layer/translation",
+    "@type": "sc:Layer",
+    "label": "Translation"
+  },
+  "resources": [
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-qqsirr",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-qqsirr",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=1012,4472,1660,573"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1prol-qutvrs",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1prol/translation/wettf15/paragraph/wdrl1prol-qutvrs",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=1012,904,1660,880"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-qqsirr",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-qqsirr",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,516,1768,540"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-uusuba",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-uusuba",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,886,1768,1345"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1prol-usuade",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1prol/translation/wettf15/paragraph/wdrl1prol-usuade",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=1012,1686,1660,459"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-uduqnu",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-uduqnu",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,2168,1768,419"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1prol-qssise",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1prol/translation/wettf15/paragraph/wdrl1prol-qssise",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=1012,2054,1660,770"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-uavnah",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-uavnah",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,2527,1768,490"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1prol-utsesp",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1prol/translation/wettf15/paragraph/wdrl1prol-utsesp",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=1012,2739,1660,770"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1prol-usssne",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1prol/translation/wettf15/paragraph/wdrl1prol-usssne",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=1012,3437,1660,531"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-qsfifc",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-qsfifc",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,2965,1768,999"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1prol-uhsail",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1prol/translation/wettf15/paragraph/wdrl1prol-uhsail",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=3908,1070,-1236,3504"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-usdbef",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-usdbef",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,3893,1768,533"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-uuaeci",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-uuaeci",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,4351,1768,431"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/wdr-wettf15/annotation/wdrl1d1-qcfsqd",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-qcfsqd",
+        "@type": "dctypes:Text",
+        "chars": "<p>translation place holder</p>",
+        "format": "text/html"
+      },
+      "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,4704,1768,291"
+    }
+  ]
+}
