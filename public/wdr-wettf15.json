@@ -59,6 +59,14 @@
         "otherContent": [{
           "@id": "http://scta.info/iiif/wdr-wettf15/list/107v",
           "@type": "sc:AnnotationList"
+        },
+        {
+          "@id": "http://scta.info/iiif/wdr-wettf15/list/translation/107v",
+          "@type": "sc:AnnotationList"
+        },
+        {
+          "@id": "http://scta.info/iiif/wdr-wettf15/list/comments/107v",
+          "@type": "sc:AnnotationList"
         }]
       },
       {
