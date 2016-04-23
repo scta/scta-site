@@ -2,7 +2,7 @@
   "@context": "http://iiif.io/api/presentation/2/context.json",
   "@id": "http://scta.info/iiif/layer/translation",
   "@type": "sc:Layer",
-  "label": "Comments",
+  "label": "Translation",
   "attribution": "Data provided by the Sentences Commentary Text Archive",
   "description": "Translation layer published by the Sentences Commentary wdr-wettf15",
   "logo": "http://scta.info/logo.png",
