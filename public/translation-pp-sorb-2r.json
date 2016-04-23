@@ -1,0 +1,84 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://scta.info/iiif/pp-sorb/list/translation/2r",
+  "@type": "sc:AnnotationList",
+  "within": {
+    "@id": "http://scta.info/iiif/pp-sorb/layer/translation",
+    "@type": "sc:Layer",
+    "label": "Translation"
+  },
+  "resources": [
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/pp-sorb/annotation/translation/l1-cpspfs",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-cpspfs",
+        "@type": "dctypes:Text",
+        "chars": "test translation for paragraph 1",
+        "format": "text/html"
+      },
+      "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=199,274,650,325"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/pp-sorb/annotation/translation/l1-eipdlt",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-eipdlt",
+        "@type": "dctypes:Text",
+        "chars": "test translation for paragraph 2",
+        "format": "text/html"
+      },
+      "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=199,562,650,629"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/pp-sorb/annotation/translation/l1-shoatd",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-shoatd",
+        "@type": "dctypes:Text",
+        "chars": "test translation for paragraph 3",
+        "format": "text/html"
+      },
+      "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=196,1123,650,897"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/pp-sorb/annotation/translation/l1-shoatd",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-shoatd",
+        "@type": "dctypes:Text",
+        "chars": "test translation for paragraph 4",
+        "format": "text/html"
+      },
+      "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=849,313,650,151"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/pp-sorb/annotation/translation/l1-usaafe",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-usaafe",
+        "@type": "dctypes:Text",
+        "chars": "test translation for paragraph 5",
+        "format": "text/html"
+      },
+      "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=836,398,650,1223"
+    },
+    {
+      "@type": "oa:Annotation",
+      "@id": "http://scta.info/iiif/pp-sorb/annotation/translation/l1-uaqriv",
+      "motivation": "sc:painting",
+      "resource": {
+        "@id": "http://text.scta.info/plaintext/plaoulcommentary/lectio1/transcription/sorb/paragraph/l1-uaqriv",
+        "@type": "dctypes:Text",
+        "chars": "test translation for paragraph 6",
+        "format": "text/html"
+      },
+      "on": "http://scta.info/iiif/pp-sorb/canvas/S2r#xywh=827,1555,650,481"
+    }
+  ]
+}

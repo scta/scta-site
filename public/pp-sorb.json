@@ -61,6 +61,14 @@
         "otherContent": [{
           "@id": "http://scta.info/iiif/pp-sorb/list/2r",
           "@type": "sc:AnnotationList"
+        },
+        {
+          "@id": "http://scta.info/iiif/pp-sorb/list/translation/2r",
+          "@type": "sc:AnnotationList"
+        },
+        {
+          "@id": "http://scta.info/iiif/pp-sorb/list/comments/2r",
+          "@type": "sc:AnnotationList"
         }]
       },
       {

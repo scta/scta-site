@@ -413,11 +413,42 @@ headers( "Access-Control-Allow-Origin" => "*")
   create_supplement(msname, type)
 end
 
+#hard coding this for testing
+get '/iiif/:msname/supplement/layer/translation' do |msname|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "layertranslation"
+  #create_supplement(msname, type)
+  send_file "public/translation-#{slug}-layer.json"
+end
+
+#hard coding this for testing
+get '/iiif/:msname/supplement/layer/comments' do |msname|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "layerComments"
+  #create_supplement(msname, type)
+  send_file "public/comments-#{slug}-layer.json"
+end
+
 get '/iiif/:msname/layer/transcription' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   create_transcriptionlayer(msname)
 end
+
+# hard coding these now for test
+get '/iiif/:slug/list/translation/:folioid' do |slug, folioid|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json 
+  send_file "public/translation-#{slug}-#{folioid}.json"
+end
+get '/iiif/:slug/list/comments/:folioid' do |slug, folioid|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json 
+  send_file "public/comments-#{slug}-#{folioid}.json"
+end
+# end of hard coding for testing
 
 get '/iiif/:slug/list/:folioid' do |slug, folioid|
   headers( "Access-Control-Allow-Origin" => "*")
