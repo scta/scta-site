@@ -236,14 +236,21 @@ get '/searchresults' do
   @category = "#{params[:category]}"
   
     if @category == "questionTitle"
-      type = "item"
+      #type = "item"
       predicate = "<http://scta.info/property/questionTitle>"
+      query = "#{prefixes}
+
+          SELECT ?s ?o
+          {
+          ?s #{predicate} ?o  .
+          FILTER (REGEX(STR(?o), '#{@post}', 'i')) .
+          }
+          ORDER BY ?s
+          "
     else
       type = @category
       predicate = "<http://purl.org/dc/elements/1.1/title>"
-    end
-    
-    query = "#{prefixes}
+      query = "#{prefixes}
 
           SELECT ?s ?o
           {
@@ -254,6 +261,7 @@ get '/searchresults' do
           }
           ORDER BY ?s
           "
+    end
     
   #query_display_simple(query)
   @result = rdf_query(query)
