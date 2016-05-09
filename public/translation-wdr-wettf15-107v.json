@@ -15,7 +15,12 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-qqsirr",
         "@type": "dctypes:Text",
-        "chars": "<p>translation place holder</p>",
+        "chars": "<p>It is asked what does it mean to use something according to the thing and to what power does the act belong. 
+        Response. 'To use' according to Augustine in his writings is that which in a use comes to refer to the obtaining 
+        of that by which it will be done. And thus I understand the proper meaning in theology. 
+        Again Augustine in his writings [says], 'to use' is to take something in the faculty of the one willing, 
+        and this is a larger meaning and also the act of the will which moves into the end which is the same as the good, 
+        but nevertheless includes the rule of reason.</p>",
         "format": "text/html"
       },
       "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=1012,4472,1660,573"
@@ -27,7 +32,13 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1prol/translation/wettf15/paragraph/wdrl1prol-qutvrs",
         "@type": "dctypes:Text",
-        "chars": "<p>translation place holder</p>",
+        "chars": "<p>Whether a creature alone should be used and whether every creature or the defect of a creature namely evil. 
+        Response. as instruments [and] powers should be used, as habits by which we are ruled, so only the good habits. 
+        As an act by which we move, so also only the good things and not the vices, as the object so all things which refer to the end, 
+        and therefore God should not be used; but all creatures because everything in the faculty of the will 
+        in any mode are able to taken up either for operating as in our good works, 
+        or for tolerating as in the evils of our proper penalty and the guilt of others, or rejecting 
+        as the proper guilt, or in approving, as in the goods of others.</p>",
         "format": "text/html"
       },
       "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=1012,904,1660,880"
@@ -39,7 +50,9 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-qqsirr",
         "@type": "dctypes:Text",
-        "chars": "<p>translation place holder</p>",
+        "chars": "<p>Whether God uses something. Response. Yes according to Augustine in his writings. 
+        But he does not refer to an end outside himself just as happens in our use. Whence there is 
+        no motion in him, but only in us when he uses us.</p>",
         "format": "text/html"
       },
       "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,516,1768,540"
