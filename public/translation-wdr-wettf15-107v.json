@@ -39,9 +39,7 @@
       "resource": {
         "@id": "http://text.scta.info/plaintext/rothwellcommentary/wdr-l1d1/translation/wettf15/paragraph/wdrl1d1-qqsirr",
         "@type": "dctypes:Text",
-        "chars": "<p>Whether God uses something. Response. Yes according to Augustine in his writings. 
-        But he does not refer to an end outside himself just as happens in our use. Whence there is 
-        no motion in him, but only in us when he uses us.</p>",
+        "chars": "<p>Whether God uses something. Response. Yes according to Augustine in his writings. But he does not refer to an end outside himself just as happens in our use. Whence there is no motion in him, but only in us when he uses us.</p>",
         "format": "text/html"
       },
       "on": "http://www.e-codices.unifr.ch/metadata/iiif/kba-WettF0015/canvas/kba-WettF0015_107v.json#xywh=2648,516,1768,540"
