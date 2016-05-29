@@ -287,7 +287,7 @@ get '/iiif/collection/scta' do
   content_type :json 
   send_file "public/scta-collection.json"
 end
-get '/iiif/collection/:commentaryid' do
+get '/iiif/:commentaryid/collection' do
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json 
 
