@@ -15,7 +15,7 @@ gem 'equivalent-xml'
 gem 'httparty'
 gem 'puma'
 
-gem 'lbp', :git => "https://jeffreycwitt@bitbucket.org/jeffreycwitt/lbp.rb.git", :branch => "sparql-only"
+gem 'lbp', :git => "https://bitbucket.org/jeffreycwitt/lbp.rb.git", :branch => "develop"
 
 group :development do 
 	gem 'pry'

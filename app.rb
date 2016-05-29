@@ -55,25 +55,27 @@ prefixes = "
 
 
 
-def rdf_query(query)
+# def rdf_query(query)
   
-  if ENV['RACK_ENV'] == "production"
-    sparqlendpoint = "http://sparql.scta.info/ds/query"
-  elsif ENV['SPARQL'] == "local"
-    sparqlendpoint = "http://localhost:3030/ds/query"
-  else
-    sparqlendpoint = "http://sparql.scta.info/ds/query"
-  end
+#   if ENV['RACK_ENV'] == "production"
+#     sparqlendpoint = "http://sparql.scta.info/ds/query"
+#   elsif ENV['SPARQL'] == "local"
+#     sparqlendpoint = "http://localhost:3030/ds/query"
+#   else
+#     sparqlendpoint = "http://sparql.scta.info/ds/query"
+#   end
   
-  sparql = SPARQL::Client.new(sparqlendpoint)
-  result = sparql.query(query)
+#   sparql = SPARQL::Client.new(sparqlendpoint)
+#   result = sparql.query(query)
 
-  return result
-end
+#   return result
+# end
 
 
 def query_display_simple(query)
-  result = rdf_query(query)
+  query_obj = Lbp::Query.new()
+  result = query_obj.query(query)
+  #result = rdf_query(query)
   result.each_solution do |solution|
   puts solution.inspect
   end
@@ -118,13 +120,13 @@ get '/' do
   itemquery = "#{prefixes}
 
           SELECT count(distinct ?item) {
-            ?item a <http://scta.info/resource/item> .
+            ?item <http://scta.info/property/structureType> <http://scta.info/resource/structureItem> .
           }
           "
   commentaryquery = "#{prefixes}
 
           SELECT count(distinct ?com) {
-            ?com a <http://scta.info/resource/commentarius> .
+            ?com <http://scta.info/property/expressionType> <http://scta.info/resource/commentary> .
           }
           "
   namequery = "#{prefixes}
@@ -139,12 +141,18 @@ get '/' do
             ?work a <http://scta.info/resource/work> .
           }
           "
-  @quotationcount = rdf_query(quotationquery).first[:".1"]
-  @quotescount = rdf_query(quotesquery).first[:".1"]
-  @itemcount = rdf_query(itemquery).first[:".1"]
-  @commentarycount = rdf_query(commentaryquery).first[:".1"]
-  @namecount = rdf_query(namequery).first[:".1"]
-  @workcount = rdf_query(workquery).first[:".1"]
+  totalquery = "SELECT (count(*) as ?count) WHERE {
+                       ?s ?p ?o .
+                     }"        
+  rdf_query = Lbp::Query.new()
+  @quotationcount = rdf_query.query(quotationquery).first[:".1"]
+  @quotescount = rdf_query.query(quotesquery).first[:".1"]
+  @itemcount = rdf_query.query(itemquery).first[:".1"]
+  @commentarycount = rdf_query.query(commentaryquery).first[:".1"]
+  @namecount = rdf_query.query(namequery).first[:".1"]
+  @workcount = rdf_query.query(workquery).first[:".1"]
+  @totalcount = rdf_query.query(totalquery).first[:count].to_i
+  
 
 
   erb :index
@@ -153,7 +161,7 @@ end
 get '/logo.png' do
   send_file "public/sctalogo.png"
 end
-
+=begin
 get '/practice' do
 
   graph = RDF::Graph.load("public/pp-projectdata.rdf")
@@ -279,6 +287,19 @@ get '/iiif/collection/scta' do
   content_type :json 
   send_file "public/scta-collection.json"
 end
+get '/iiif/collection/:commentaryid' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json 
+
+  # TODO; not the ideal way to do this
+  # Data base should have manifest url for all manifestations
+  # collection can then be built from manifesetations
+  file = File.read("public/scta-collection.json")
+  json = JSON.parse(file)
+  newcollection = json["collections"].find {|collection| collection["@id"]=="http://scta.info/iiif/collection/#{params[:commentaryid]}"}
+  JSON.pretty_generate(newcollection)
+  
+end
 
 get '/iiif/:msname/manifest' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
@@ -288,14 +309,15 @@ get '/iiif/:msname/manifest' do |msname|
 
   slug = msname.split("-").last
   commentary_slug = msname.split("-").first
- 
+ ## TODO this should be replaced by the create range function used in the 
+ ## range supplement creation
   query = "#{prefixes}
 
           SELECT ?commentary ?item ?order ?title ?witness ?canvas
           {
           ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
-          ?commentary <http://scta.info/property/hasItem> ?item .
-          ?item <http://scta.info/property/hasWitness> ?witness .
+          ?commentary <http://scta.info/property/hasStructureItem> ?item .
+          ?item <http://scta.info/property/hasManifestation> ?witness .
           ?item <http://scta.info/property/totalOrderNumber> ?order .
           ?item <http://purl.org/dc/elements/1.1/title> ?title .
           ?witness <http://scta.info/property/hasSlug> '#{slug}' .

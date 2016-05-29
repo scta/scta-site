@@ -12,8 +12,8 @@ def create_range2(msname)
           ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
           ?commentary <http://purl.org/dc/terms/hasPart> ?topdivision .
           ?topdivision <http://purl.org/dc/elements/1.1/title> ?topdivision_title .
-          ?topdivision <http://scta.info/property/hasItem> ?item .
-          ?item <http://scta.info/property/hasWitness> ?witness .
+          ?topdivision <http://scta.info/property/hasStructureItem> ?item .
+          ?item <http://scta.info/property/hasManifestation> ?witness .
           ?item <http://scta.info/property/totalOrderNumber> ?order .
           ?item <http://purl.org/dc/elements/1.1/title> ?title .
           ?witness <http://scta.info/property/hasSlug> '#{slug}' .
@@ -179,8 +179,8 @@ def create_range(msname)
   				SELECT ?commentary ?item ?order ?title ?witness ?canvas
           {
           ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
-          ?commentary <http://scta.info/property/hasItem> ?item .
-          ?item <http://scta.info/property/hasWitness> ?witness .
+          ?commentary <http://scta.info/property/hasStructureItem> ?item .
+          ?item <http://scta.info/property/hasManifestation> ?witness .
           ?item <http://scta.info/property/totalOrderNumber> ?order .
           ?item <http://purl.org/dc/elements/1.1/title> ?title .
           ?witness <http://scta.info/property/hasSlug> '#{slug}' .
@@ -274,7 +274,7 @@ def create_supplement (msname, type)
           SELECT ?manifestOfficial
           {
           ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
-          ?commentary <http://scta.info/property/hasWitness> ?commentary_witness .
+          ?commentary <http://scta.info/property/hasManifestation> ?commentary_witness .
           ?commentary_witness <http://scta.info/property/hasSlug> '#{slug}' .
           ?commentary_witness <http://scta.info/property/manifestOfficial> ?manifestOfficial .
           }
@@ -366,8 +366,8 @@ def create_transcriptionlayer (msname)
           SELECT ?commentary ?item ?order ?title ?witness ?folio ?annolist ?canvasid
           {
           ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
-          ?commentary <http://scta.info/property/hasItem> ?item .
-          ?item <http://scta.info/property/hasWitness> ?witness .
+          ?commentary <http://scta.info/property/hasStructureItem> ?item .
+          ?item <http://scta.info/property/hasManifestation> ?witness .
           ?item <http://scta.info/property/totalOrderNumber> ?order .
           ?item <http://purl.org/dc/elements/1.1/title> ?title .
           ?witness <http://scta.info/property/hasSlug> '#{slug}' .
