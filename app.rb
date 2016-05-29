@@ -514,8 +514,9 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
           ?zone <http://scta.info/property/height> ?h .
           ?zone <http://scta.info/property/position> ?position .
           ?zone <http://scta.info/property/isZoneOf> ?paragraph .
-          ?paragraph <http://scta.info/property/isParagraphTranscriptionOf> ?paragraphExemplar .
-          ?paragraphExemplar <http://scta.info/property/paragraphNumber> ?pnumber .
+          ?paragraph <http://scta.info/property/isTranscriptionOf> ?paragraphManifestation .
+          ?paragraphManifestation <http://scta.info/property/isManifestationOf> ?paragraphExpression .
+          ?paragraphExpression <http://scta.info/property/paragraphNumber> ?pnumber .
           ?paragraph <http://scta.info/property/plaintext> ?plaintext .
           }
           ORDER BY ?pnumber ?position
