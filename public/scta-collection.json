@@ -112,6 +112,11 @@
             "@id": "http://scta.info/iiif/wdr-wettf15/manifest",
             "@type": "sc:Manifest",
             "label": "William de Rothwell - Aarau, Aargauer Kantonsbibliothek, MsWettF 15"
+          },
+          {
+            "@id": "http://scta.info/iiif/wdr-gks1363/manifest",
+            "@type": "sc:Manifest",
+            "label": "William de Rothwell - Copenhagen, Danish Royal Library, GKS 1363"
           }
         ]
       },
