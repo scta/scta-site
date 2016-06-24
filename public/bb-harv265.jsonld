@@ -9,9 +9,9 @@
   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
   "logo": "http://upload.wikimedia.org/wikipedia/en/thumb/3/3a/Harvard_Wreath_Logo_1.svg/1051px-Harvard_Wreath_Logo_1.svg.png",
   "service": {
-    "@context": "http://iiif.io/api/search/0/context.json",
+    "@context": "http://iiif.io/api/search/1/context.json",
     "@id": "http://exist.scta.info/exist/apps/scta/iiif/bb-harv265/search",
-    "profile": "http://iiif.io/api/search/0/search",
+    "profile": "http://iiif.io/api/search/1/search",
     "label": "Search within this manifest"
   },
   "sequences": [{

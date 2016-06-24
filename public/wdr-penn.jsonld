@@ -19,9 +19,9 @@
   "seeAlso": "http://hdl.library.upenn.edu/1017/d/medren/2487473",
   "logo": "https://s3.amazonaws.com/globaljobs.org/jobs/logos/000/002/920/original/university-of-pennsylvania-logo.jpg",
   "service": {
-    "@context": "http://iiif.io/api/search/0/context.json",
+    "@context": "http://iiif.io/api/search/1/context.json",
     "@id": "http://exist.scta.info/exist/apps/scta/iiif/wdr-penn/search",
-    "profile": "http://iiif.io/api/search/0/search",
+    "profile": "http://iiif.io/api/search/1/search",
     "label": "Search within this manifest"
     },
   "sequences": [{

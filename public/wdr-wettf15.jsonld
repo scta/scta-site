@@ -19,9 +19,9 @@
   "seeAlso": "http://www.e-codices.unifr.ch/en/list/one/kba/WettF0015",
   "logo": "http://e-codices.textandbytes.com/img/logo.png",
   "service": {
-    "@context": "http://iiif.io/api/search/0/context.json",
+    "@context": "http://iiif.io/api/search/1/context.json",
     "@id": "http://exist.scta.info/exist/apps/scta/iiif/wdr-wettf15/search",
-    "profile": "http://iiif.io/api/search/0/search",
+    "profile": "http://iiif.io/api/search/1/search",
     "label": "Search within this manifest"
   },
   "sequences": [{

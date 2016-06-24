@@ -1,0 +1,1680 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://scta.info/iiif/phsl-avignon311/manifest",
+  "@type": "sc:Manifest",
+  "label": "Petrus Hispanus - Avignon, Musee Calvet, cod. 311 (Anc. 186 Suppl.)",
+  "metadata": [
+    {
+      "label": "Author",
+      "value": "Petrus Hispanus"
+    },
+    {
+      "label": "Published",
+      "value": [{"@language": "la"}]
+    }
+  ],
+  "description": "Witness to Petrus Hispanus' Summulae Logicales",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "attribution": "",
+  "seeAlso": "",
+  "logo": "http://www.musee-calvet.org/shyrkaCMSBaseTheme/images/logo-calvet.jpg",
+  "service": {
+    "@context": "http://iiif.io/api/search/1/context.json",
+    "@id": "http://exist.scta.info/exist/apps/scta/iiif/phsl-avignon311/search",
+    "profile": "http://iiif.io/api/search/1/search",
+    "label": "Search within this manifest"
+    },
+  "sequences": [{
+    "@context": "http://iiif.io/api/presentation/2/context.json",
+    "@id": "http://scta.info/iiif/phsl-avignon311/sequence/normal",
+    "@type": "sc:Sequence",
+    "label": "Current page order",
+    "viewingDirection": "left-to-right",
+    "viewingHint": "paged",
+    "canvases": [
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/2",
+        "@type": "sc:Canvas",
+        "label": "folio 2",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/2-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/2",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0006",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/2"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/2",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/3",
+        "@type": "sc:Canvas",
+        "label": "folio 3",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/3-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/3",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0007",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/3"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/3",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/4",
+        "@type": "sc:Canvas",
+        "label": "folio 4",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/4-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/4",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0008",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/4"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/4",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/5",
+        "@type": "sc:Canvas",
+        "label": "folio 5",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/5-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/5",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0009",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/5"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/5",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/6",
+        "@type": "sc:Canvas",
+        "label": "folio 6",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/6-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/6",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0010",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/6"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/6",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/7",
+        "@type": "sc:Canvas",
+        "label": "folio 7",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/7-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/7",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0011",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/7"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/7",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/8",
+        "@type": "sc:Canvas",
+        "label": "folio 8",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/8-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/8",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0012",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/8"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/8",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/9",
+        "@type": "sc:Canvas",
+        "label": "folio 9",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/9-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/9",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0013",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/9"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/9",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/10",
+        "@type": "sc:Canvas",
+        "label": "folio 10",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/10-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/10",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0014",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/10"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/10",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/11",
+        "@type": "sc:Canvas",
+        "label": "folio 11",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/11-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/11",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0015",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/11"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/11",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/12",
+        "@type": "sc:Canvas",
+        "label": "folio 12",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/12-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/12",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0016",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/12"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/12",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/13",
+        "@type": "sc:Canvas",
+        "label": "folio 13",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/13-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/13",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0017",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/13"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/13",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/14",
+        "@type": "sc:Canvas",
+        "label": "folio 14",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/14-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/14",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0018",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/14"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/14",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/15",
+        "@type": "sc:Canvas",
+        "label": "folio 15",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/15-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/15",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0019",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/15"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/15",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/16",
+        "@type": "sc:Canvas",
+        "label": "folio 16",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/16-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/16",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0020",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/16"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/16",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/17",
+        "@type": "sc:Canvas",
+        "label": "folio 17",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/17-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/17",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0021",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/17"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/17",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/18",
+        "@type": "sc:Canvas",
+        "label": "folio 18",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/18-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/18",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0022",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/18"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/18",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/19",
+        "@type": "sc:Canvas",
+        "label": "folio 19",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/19-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/19",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0023",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/19"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/19",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/20",
+        "@type": "sc:Canvas",
+        "label": "folio 20",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/20-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/20",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0024",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/20"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/20",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/21",
+        "@type": "sc:Canvas",
+        "label": "folio 21",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/21-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/21",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0025",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/21"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/21",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/22",
+        "@type": "sc:Canvas",
+        "label": "folio 22",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/22-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/22",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0026",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/22"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/22",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/23",
+        "@type": "sc:Canvas",
+        "label": "folio 23",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/23-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/23",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0027",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/23"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/23",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/24",
+        "@type": "sc:Canvas",
+        "label": "folio 24",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/24-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/24",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0028",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/24"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/24",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/25",
+        "@type": "sc:Canvas",
+        "label": "folio 25",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/25-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/25",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0029",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/25"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/25",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/26",
+        "@type": "sc:Canvas",
+        "label": "folio 26",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/26-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/26",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0030",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/26"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/26",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/27",
+        "@type": "sc:Canvas",
+        "label": "folio 27",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/27-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/27",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0031",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/27"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/27",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/28",
+        "@type": "sc:Canvas",
+        "label": "folio 28",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/28-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/28",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0032",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/28"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/28",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/29",
+        "@type": "sc:Canvas",
+        "label": "folio 29",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/29-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/29",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0033",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/29"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/29",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/30",
+        "@type": "sc:Canvas",
+        "label": "folio 30",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/30-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/30",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0034",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/30"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/30",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/31",
+        "@type": "sc:Canvas",
+        "label": "folio 31",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/31-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/31",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0035",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/31"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/31",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/32",
+        "@type": "sc:Canvas",
+        "label": "folio 32",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/32-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/32",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0036",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/32"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/32",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/33",
+        "@type": "sc:Canvas",
+        "label": "folio 33",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/33-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/33",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0037",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/33"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/33",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/34",
+        "@type": "sc:Canvas",
+        "label": "folio 34",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/34-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/34",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0038",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/34"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/34",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/35",
+        "@type": "sc:Canvas",
+        "label": "folio 35",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/35-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/35",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0039",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/35"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/35",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/36",
+        "@type": "sc:Canvas",
+        "label": "folio 36",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/36-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/36",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0040",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/36"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/36",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/37",
+        "@type": "sc:Canvas",
+        "label": "folio 37",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/37-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/37",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0041",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/37"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/37",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/38",
+        "@type": "sc:Canvas",
+        "label": "folio 38",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/38-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/38",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0042",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/38"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/38",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/39",
+        "@type": "sc:Canvas",
+        "label": "folio 39",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/39-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/39",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0043",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/39"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/39",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/40",
+        "@type": "sc:Canvas",
+        "label": "folio 40",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/40-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/40",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0044",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/40"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/40",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/41",
+        "@type": "sc:Canvas",
+        "label": "folio 41",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/41-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/41",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0045",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/41"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/41",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/42",
+        "@type": "sc:Canvas",
+        "label": "folio 42",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/42-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/42",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0046",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/42"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/42",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/43",
+        "@type": "sc:Canvas",
+        "label": "folio 43",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/43-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/43",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0047",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/43"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/43",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/44",
+        "@type": "sc:Canvas",
+        "label": "folio 44",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/44-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/44",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0048",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/44"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/44",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/45",
+        "@type": "sc:Canvas",
+        "label": "folio 45",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/45-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/45",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0049",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/45"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/45",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/46",
+        "@type": "sc:Canvas",
+        "label": "folio 46",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/46-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/46",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0050",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/46"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/46",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/47",
+        "@type": "sc:Canvas",
+        "label": "folio 47",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/47-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/47",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0051",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/47"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/47",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/48",
+        "@type": "sc:Canvas",
+        "label": "folio 48",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/48-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/48",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0052",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/48"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/48",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/49",
+        "@type": "sc:Canvas",
+        "label": "folio 49",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/49-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/49",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0053",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/49"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/49",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/50",
+        "@type": "sc:Canvas",
+        "label": "folio 50",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/50-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/50",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0054",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/50"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/50",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/51",
+        "@type": "sc:Canvas",
+        "label": "folio 51",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/51-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/51",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0055",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/51"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/51",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/52",
+        "@type": "sc:Canvas",
+        "label": "folio 52",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/52-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/52",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0056",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/52"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/52",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/53",
+        "@type": "sc:Canvas",
+        "label": "folio 53",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/53-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/53",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0057",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/53"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/53",
+          "@type": "sc:AnnotationList"
+        }]
+      },
+      {
+        "@context": "http://iiif.io/api/presentation/2/context.json",
+        "@id": "http://scta.info/iiif/phsl-avignon311/canvas/54",
+        "@type": "sc:Canvas",
+        "label": "folio 54",
+        "height": 3569,
+        "width": 5444,
+        "images": [{
+          "@context": "http://iiif.io/api/presentation/2/context.json",
+          "@id": "http://scta.info/iiif/phsl-avignon311/annotation/54-image",
+          "@type": "oa:Annotation",
+          "motivation": "sc:painting",
+          "resource": {
+            "@id": "http://scta.info/iiif/phsl-avignon311/res/54",
+            "@type": "dctypes:Image",
+            "format": "image/jpeg",
+            "service": {
+              "@context": "http://iiif.io/api/image/2/context.json",
+              "@id": "http://loris2.scta.info/phsl-avignon311/B840076101_ms_000311_0058",
+              "profile": "http://iiif.io/api/image/1/level2.json"
+            },
+            "height": 3569,
+            "width": 5444
+          },
+          "on": "http://scta.info/iiif/phsl-avignon311/canvas/54"
+        }],
+        "otherContent": [{
+          "@id": "http://scta.info/iiif/phsl-avignon311/list/54",
+          "@type": "sc:AnnotationList"
+        }]
+      }
+    ]
+  }]
+}

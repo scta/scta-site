@@ -285,7 +285,7 @@ end
 get '/iiif/collection/scta' do
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json 
-  send_file "public/scta-collection.json"
+  send_file "public/scta-collection.jsonld"
 end
 get '/iiif/:commentaryid/collection' do
   headers( "Access-Control-Allow-Origin" => "*")
@@ -294,7 +294,7 @@ get '/iiif/:commentaryid/collection' do
   # TODO; not the ideal way to do this
   # Data base should have manifest url for all manifestations
   # collection can then be built from manifesetations
-  file = File.read("public/scta-collection.json")
+  file = File.read("public/scta-collection.jsonld")
   json = JSON.parse(file)
   newcollection = json["collections"].find {|collection| collection["@id"]=="http://scta.info/iiif/collection/#{params[:commentaryid]}"}
   JSON.pretty_generate(newcollection)
@@ -392,7 +392,7 @@ get '/iiif/:msname/manifest' do |msname|
       #all_structures.to_json
       #structure_object.to_json
 
-      json = File.read("public/#{msname}.json")
+      json = File.read("public/#{msname}.jsonld")
       secondJsonArray = JSON.parse(json)
       
       newhash = secondJsonArray.merge(structure_object)
@@ -400,7 +400,7 @@ get '/iiif/:msname/manifest' do |msname|
       JSON.pretty_generate(newhash)
     
     else
-      send_file "public/#{msname}.json"
+      send_file "public/#{msname}.jsonld"
     end
 
       
@@ -411,7 +411,7 @@ get '/iiif/:msname/rangelist' do |msname|
   content_type :json
   type = "rangelist"
   create_supplement(msname, type)
-  #send_file "public/#{slug}.json"
+  #send_file "public/#{slug}.jsonld"
 end
 ## this route should replace the above
 get '/iiif/:msname/supplement/ranges/toc' do |msname|
@@ -419,7 +419,7 @@ get '/iiif/:msname/supplement/ranges/toc' do |msname|
   content_type :json
   type = "rangelist"
   create_supplement(msname, type)
-  #send_file "public/#{slug}.json"
+  #send_file "public/#{slug}.jsonld"
 end
 
 get '/iiif/:msname/searchwithin' do |msname|
@@ -449,7 +449,7 @@ get '/iiif/:msname/supplement/layer/translation' do |msname|
   content_type :json
   type = "layerTranslation"
   #create_supplement(msname, type)
-  send_file "public/supplement-translation-#{msname}-layer.json"
+  send_file "public/supplement-translation-#{msname}-layer.jsonld"
 end
 
 #hard coding this for testing
@@ -458,7 +458,7 @@ get '/iiif/:msname/supplement/layer/comments' do |msname|
   content_type :json
   type = "layerComments"
   #create_supplement(msname, type)
-  send_file "public/supplement-comments-#{msname}-layer.json"
+  send_file "public/supplement-comments-#{msname}-layer.jsonld"
 end
 
 #hard coding this for testing
@@ -467,7 +467,7 @@ get '/iiif/:msname/layer/translation' do |msname|
   content_type :json
   type = "layerTranslation"
   #create_supplement(msname, type)
-  send_file "public/translation-#{msname}-layer.json"
+  send_file "public/translation-#{msname}-layer.jsonld"
 end
 
 #hard coding this for testing
@@ -476,7 +476,7 @@ get '/iiif/:msname/layer/comments' do |msname|
   content_type :json
   type = "layerComments"
   #create_supplement(msname, type)
-  send_file "public/comments-#{msname}-layer.json"
+  send_file "public/comments-#{msname}-layer.jsonld"
 end
 
 get '/iiif/:msname/layer/transcription' do |msname|
@@ -489,12 +489,12 @@ end
 get '/iiif/:slug/list/translation/:folioid' do |slug, folioid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json 
-  send_file "public/translation-#{slug}-#{folioid}.json"
+  send_file "public/translation-#{slug}-#{folioid}.jsonld"
 end
 get '/iiif/:slug/list/comments/:folioid' do |slug, folioid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json 
-  send_file "public/comments-#{slug}-#{folioid}.json"
+  send_file "public/comments-#{slug}-#{folioid}.jsonld"
 end
 # end of hard coding for testing
 
@@ -551,7 +551,7 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
         annotationarray << entryhash
        end
 
-       annotationlistcontent = {"@context" => "http://iiif.io/api/presentation/2/context.json", 
+       annotationlistcontent = {"@context" => "http://iiif.io/api/presentation/2/context.jsonld", 
         "@id" => "http://scta.info/iiif/#{slug}/list/#{folioid}",
         "@type" => "sc:AnnotationList",
         "within" => {

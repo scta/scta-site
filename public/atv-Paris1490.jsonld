@@ -19,9 +19,9 @@
   "seeAlso": "http://gallica.bnf.fr/ark:/12148/bpt6k588949/",
   "logo": "http://upload.wikimedia.org/wikipedia/fr/thumb/8/84/Logo_BnF.svg/1280px-Logo_BnF.svg.png",
   "service": {
-    "@context": "http://iiif.io/api/search/0/context.json",
+    "@context": "http://iiif.io/api/search/1/context.json",
     "@id": "http://exist.scta.info/exist/apps/scta/iiif/atv-Paris1490/search",
-    "profile": "http://iiif.io/api/search/0/search",
+    "profile": "http://iiif.io/api/search/1/search",
     "label": "Search within this manifest"
     },
   "sequences": [{

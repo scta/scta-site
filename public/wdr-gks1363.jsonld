@@ -19,9 +19,9 @@
   "seeAlso": "",
   "logo": "https://upload.wikimedia.org/wikipedia/en/4/40/Danish_Royal_Library_Logo1.jpg",
   "service": {
-    "@context": "http://iiif.io/api/search/0/context.json",
+    "@context": "http://iiif.io/api/search/1/context.json",
     "@id": "http://exist.scta.info/exist/apps/scta/iiif/wdr-gks1363/search",
-    "profile": "http://iiif.io/api/search/0/search",
+    "profile": "http://iiif.io/api/search/1/search",
     "label": "Search within this manifest"
     },
   "sequences": [{
