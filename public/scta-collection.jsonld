@@ -246,6 +246,11 @@
             "@id": "http://scta.info/iiif/pl-zbsSII72/manifest",
             "@type": "sc:Manifest",
             "label": "Peter Lombard - Solothurn, Zentralbibliothek, Cod. S II 72"
+          },
+          {
+            "@id": "http://scta.info/iiif/pl-hopkins/manifest",
+            "@type": "sc:Manifest",
+            "label": "Peter Lombard - Baltimore, Johns Hopkins"
           }
         ]
       },
