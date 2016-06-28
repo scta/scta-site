@@ -308,7 +308,54 @@
             "label": "Anonymous 1 - Philadelphia, University of Pennsylvania, ms. codex 727"
           }
         ]
-      }
-     
+      },
+      { "@id": "http://scta.info/iiif/collection/hispanusdeanima",
+       "@type": "sc:Collection",
+       "label": "Petrus Hispanus - Sententia cum quaestionibus libri De anima I-II Collection",
+       "manifests": [
+          {
+            "@id": "http://scta.info/iiif/263-venz253/manifest",
+            "@type": "sc:Manifest",
+            "label": "Petrus Hispanus - Venice, Biblioteca Marciana, Cod. lat. Z 253"
+          },
+          {
+            "@id": "http://scta.info/iiif/263-kra726/manifest",
+            "@type": "sc:Manifest",
+            "label": "Petrus Hispanus - Kraków, Biblioteka Jagiellońska, ms. 726"
+          }
+        ]
+      },
+      { "@id": "http://scta.info/iiif/collection/hispanussummulaelogicales",
+       "@type": "sc:Collection",
+       "label": "Petrus Hispanus - Tractatus / Summulae logicales",
+       "manifests": [
+          {
+            "@id": "http://scta.info/iiif/phsl-avignon311/manifest",
+            "@type": "sc:Manifest",
+            "label": "Petrus Hispanus - Avignon, Musee Calvet, cod. 311 (Anc. 186 Suppl.)"
+          }
+        ]
+     },
+     { "@id": "http://scta.info/iiif/collection/PetrusHispanus",
+       "@type": "sc:Collection",
+       "label": "Petrus Hispanus",
+       "manifests": [
+          {
+            "@id": "http://scta.info/iiif/phsl-avignon311/manifest",
+            "@type": "sc:Manifest",
+            "label": "Petrus Hispanus - Avignon, Musee Calvet, cod. 311 (Anc. 186 Suppl.)"
+          },
+          {
+            "@id": "http://scta.info/iiif/263-venz253/manifest",
+            "@type": "sc:Manifest",
+            "label": "Petrus Hispanus - Venice, Biblioteca Marciana, Cod. lat. Z 253"
+          },
+          {
+            "@id": "http://scta.info/iiif/263-kra726/manifest",
+            "@type": "sc:Manifest",
+            "label": "Petrus Hispanus - Kraków, Biblioteka Jagiellońska, ms. 726"
+          }
+       ]
+     }     
   ]
 }
