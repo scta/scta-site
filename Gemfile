@@ -15,7 +15,7 @@ gem 'equivalent-xml'
 gem 'httparty'
 gem 'puma'
 
-gem 'lbp', :git => "https://bitbucket.org/jeffreycwitt/lbp.rb.git", :branch => "develop"
+gem 'lbp', :git => "https://github.com/lombardpress/lbp.rb.git", :branch => "develop"
 
 group :development do 
 	gem 'pry'
