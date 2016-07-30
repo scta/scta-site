@@ -7,16 +7,16 @@
 <body>
 <%= erb :_header %>
 <div id="body" style="width: 600px; float: left;">
-	<h2>What is the Sentences Commentary Text Archive?</h2>
-<p>The <em>Sentences Commentary Text Archive</em> is a metadata archive automatically extracted from transcriptions and questions lists of medieval
-  <em>Sentences</em> commentaries. There are three primary aims guiding the construction, architecture, and semantic ontology of this archive.</p>
+	<h2>What is the Scholastic Commentaries and Texts Archive?</h2>
+<p>The <em>Scholastic Commentaries and Texts Archive</em> is a metadata archive automatically extracted from transcriptions and questions lists of medieval
+  <em>Sentences</em> commentaries and other scholastic texts. There are three primary aims guiding the construction, architecture, and semantic ontology of this archive.</p>
 
   <p>The publication data stream: The first aim is provide interested scholars with publication metadata to quickly assess which parts of any given
-  commentary have been edited, which parts are in progress, and which parts have not been started. It further aims to provide information about
+  commentary or text have been edited, which parts are in progress, and which parts have not been started. It further aims to provide information about
     whether a text has been encoded in the TEI XML standard, when it was first published,
     how many subsequent editions exist, and whether or not editors are looking for collaborators or reviewers.</p>
 
-  <p>The content data stream: The second aim is to provide metadata about the content of the commentaries themselves. This metadata
+  <p>The content data stream: The second aim is to provide metadata about the content of the commentaries and texts themselves. This metadata
     provides information about many authors or works have been mentioned, referenced, or quoted. It will also provide metadata about
     the use of key phrases or topics used in any given section. The use of this metadata combined with other data streams
     will allow for robust searches and queries. For example, a user could query every article that discusses "faith" and quotes
@@ -26,7 +26,7 @@
     The linking data stream in particular will provide references to various places that the text can be found, including HTML output, plain text (useful for large scale text indexing)
   the [bitbucket.org] development repository, and any institutional repositories where the raw XML text has been deposited for long term preservation.</p>
 
-  <p>In this way, the archive aims to support the continued work on <em>Sentences</em> commentary transcriptions in a way that paves the way for
+  <p>In this way, the archive aims to support the continued work on Scholastic commentary and text transcriptions in a way that paves the way for
     future unforeseen possibilities. This is perhaps most visible in the promise of large scale corpus analysis or topic modeling. But there
     are many other possibilities including close readings of similar parts or sections across commentaries, visualizations of networked relationships between authors,
     and analysis of the changing structures of the commentaries themselves.</p>
@@ -35,7 +35,7 @@
 <div style="float: left; width: 200px; padding: 10px; margin: 20px; border-left: 1px solid black;">
   <h3>Archive Stats</h3>
   <p><%= @totalcount %> toal assertions indexed.</p>
-  <p><%= @commentarycount %> commentaries indexed. </p>
+  <p><%= @commentarycount %> texts indexed. </p>
   <p><%= @itemcount %> file "items" indexed. </p>
   <p><%= @quotationcount %> quotations indexed. </p>
   <p><%= @namecount %> mentioned names indexed. </p>

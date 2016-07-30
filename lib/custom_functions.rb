@@ -94,7 +94,7 @@ def create_range2(msname)
                       "label" => "Commentary",
                       "viewingHint" => "top",
                       "ranges" => topdivision_ranges,
-                      "attribution": "Data provided by the Sentences Commentary Text Archive",
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
@@ -132,7 +132,7 @@ def create_range2(msname)
                       "ranges" => ranges2,
                       # mirador has bug if this canvases are also listed 
                       #"canvases" => division_canvases,
-                      "attribution": "Data provided by the Sentences Commentary Text Archive",
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
@@ -156,7 +156,7 @@ def create_range2(msname)
                       "@type" => "sc:Range",
                       "label" => title,
                       "canvases" => structure_canvases,
-                      "attribution": "Data provided by the Sentences Commentary Text Archive",
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
@@ -230,7 +230,7 @@ def create_range(msname)
                       "viewingHint" => "top",
                       #{}"canvases" => first_structure_canvases.uniq
                       "ranges" => ranges,
-                      "attribution": "Data provided by the Sentences Commentary Text Archive",
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
@@ -252,7 +252,7 @@ def create_range(msname)
                       "@type" => "sc:Range",
                       "label" => "#{title.to_s}",
                       "canvases" => structure_canvases,
-                      "attribution": "Data provided by the Sentences Commentary Text Archive",
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
@@ -298,7 +298,7 @@ def create_supplement (msname, type)
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
 
-          "attribution": "Data provided by the Sentences Commentary Text Archive",
+          "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
           "description": "A range list for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -316,7 +316,7 @@ def create_supplement (msname, type)
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
 
-          "attribution": "Data provided by the Sentences Commentary Text Archive",
+          "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
           "description": "A search within service for Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -332,7 +332,7 @@ def create_supplement (msname, type)
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
           
-          "attribution": "Data provided by the Sentences Commentary Text Archive",
+          "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
           "description": "Layers published by the Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -390,7 +390,7 @@ def create_transcriptionlayer (msname)
     "@id": "http://scta.info/iiif/layer/transcription",
     "@type": "sc:Layer",
     "label": "Diplomatic Transcription",
-    "attribution": "Data provided by the Sentences Commentary Text Archive",
+    "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
     "description": "Transcription layer published by the Sentences Commentary #{msname}",
     "logo": "http://scta.info/logo.png",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
