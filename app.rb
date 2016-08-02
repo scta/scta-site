@@ -271,8 +271,9 @@ get '/searchresults' do
           "
     end
     
-  #query_display_simple(query)
-  @result = rdf_query(query)
+  query_obj = Lbp::Query.new()
+  @result = query_obj.query(query)
+  
   erb :searchresults
 end
 
