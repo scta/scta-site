@@ -18,10 +18,12 @@ require 'open-uri'
 require 'httparty'
 require 'json'
 require 'lbp'
+
+
 if ENV['development']
   require 'pry'
 end
- 
+
 
 require_relative 'lib/queries'
 require_relative 'lib/custom_functions'
@@ -30,7 +32,7 @@ configure do
   set :protection, except: [:frame_options]
   set :root, File.dirname(__FILE__)
 
-  # this added in attempt to "forbidden" response when clicking on links 
+  # this added in attempt to "forbidden" response when clicking on links
   set :protection, :except => :ip_spoofing
   set :protection, :except => :json
 end
@@ -56,7 +58,7 @@ prefixes = "
 
 
 # def rdf_query(query)
-  
+
 #   if ENV['RACK_ENV'] == "production"
 #     sparqlendpoint = "http://sparql.scta.info/ds/query"
 #   elsif ENV['SPARQL'] == "local"
@@ -64,7 +66,7 @@ prefixes = "
 #   else
 #     sparqlendpoint = "http://sparql.scta.info/ds/query"
 #   end
-  
+
 #   sparql = SPARQL::Client.new(sparqlendpoint)
 #   result = sparql.query(query)
 
@@ -143,7 +145,7 @@ get '/' do
           "
   totalquery = "SELECT (count(*) as ?count) WHERE {
                        ?s ?p ?o .
-                     }"        
+                     }"
   rdf_query = Lbp::Query.new()
   @quotationcount = rdf_query.query(quotationquery).first[:".1"]
   @quotescount = rdf_query.query(quotesquery).first[:".1"]
@@ -152,7 +154,7 @@ get '/' do
   @namecount = rdf_query.query(namequery).first[:".1"]
   @workcount = rdf_query.query(workquery).first[:".1"]
   @totalcount = rdf_query.query(totalquery).first[:count].to_i
-  
+
 
 
   erb :index
@@ -173,7 +175,7 @@ get '/practice' do
                     })
 
   query.execute(graph).each do |solution|
-    
+
     puts "title=#{solution.title}"
   end
   end
@@ -229,7 +231,7 @@ get '/scta' do
 end
 =end
 
-get '/api' do 
+get '/api' do
   erb :api
 end
 
@@ -242,7 +244,7 @@ get '/searchresults' do
 
   @post = "#{params[:search]}"
   @category = "#{params[:category]}"
-  
+
     if @category == "questionTitle"
       #type = "item"
       predicate = "<http://scta.info/property/questionTitle>"
@@ -270,10 +272,10 @@ get '/searchresults' do
           ORDER BY ?s
           "
     end
-    
+
   query_obj = Lbp::Query.new()
   @result = query_obj.query(query)
-  
+
   erb :searchresults
 end
 
@@ -285,12 +287,12 @@ end
 
 get '/iiif/collection/scta' do
   headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json 
+  content_type :json
   send_file "public/scta-collection.jsonld"
 end
 get '/iiif/:commentaryid/collection' do
   headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json 
+  content_type :json
 
   # TODO; not the ideal way to do this
   # Data base should have manifest url for all manifestations
@@ -299,18 +301,18 @@ get '/iiif/:commentaryid/collection' do
   json = JSON.parse(file)
   newcollection = json["collections"].find {|collection| collection["@id"]=="http://scta.info/iiif/collection/#{params[:commentaryid]}"}
   JSON.pretty_generate(newcollection)
-  
+
 end
 
 get '/iiif/:msname/manifest' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  
-  
+
+
 
   slug = msname.split("-").last
   commentary_slug = msname.split("-").first
- ## TODO this should be replaced by the create range function used in the 
+ ## TODO this should be replaced by the create range function used in the
  ## range supplement creation
   query = "#{prefixes}
 
@@ -334,8 +336,8 @@ get '/iiif/:msname/manifest' do |msname|
 
   if @results.count > 0
 =begin
-      all_structures = []     
-      
+      all_structures = []
+
       first_structure_canvases = []
 
       @results.each do |result|
@@ -347,15 +349,15 @@ get '/iiif/:msname/manifest' do |msname|
                       "label" => "Commentary",
                       #{}"viewingHint" => "top",
                       "canvases" => first_structure_canvases.uniq
-                      } 
-      all_structures << first_structure               
+                      }
+      all_structures << first_structure
 
       items = []
-      
+
       @results.each do |result|
         items << [result[:item], result[:title]]
-      end                
-      
+      end
+
       result_sets = []
       items.uniq!
       items.each do |item, title|
@@ -365,28 +367,28 @@ get '/iiif/:msname/manifest' do |msname|
       end
       i = 1
       result_sets.each do |set, title|
-        
+
         structure_canvases = []
-        
+
         set.each do |item_set|
           structure_canvases << item_set[:canvas].to_s
         end
-        
+
         structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1-#{i}",
                       "within" => "http://scta.info/iiif/#{msname}/range/r1",
                       "@type" => "sc:Range",
                       "label" => "#{title.to_s}",
                       #{}"viewingHint" => "top",
                       "canvases" => structure_canvases
-                      } 
+                      }
 
         all_structures << structure
-        
+
         i = i + 1
 
       end
 =end
-      
+
       all_structures = create_range2(msname)
 
       structure_object = {"structures" => all_structures}
@@ -395,16 +397,16 @@ get '/iiif/:msname/manifest' do |msname|
 
       json = File.read("public/#{msname}.jsonld")
       secondJsonArray = JSON.parse(json)
-      
+
       newhash = secondJsonArray.merge(structure_object)
-      
+
       JSON.pretty_generate(newhash)
-    
+
     else
       send_file "public/#{msname}.jsonld"
     end
 
-      
+
 end
 
 get '/iiif/:msname/rangelist' do |msname|
@@ -489,12 +491,12 @@ end
 # hard coding these now for test
 get '/iiif/:slug/list/translation/:folioid' do |slug, folioid|
   headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json 
+  content_type :json
   send_file "public/translation-#{slug}-#{folioid}.jsonld"
 end
 get '/iiif/:slug/list/comments/:folioid' do |slug, folioid|
   headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json 
+  content_type :json
   send_file "public/comments-#{slug}-#{folioid}.jsonld"
 end
 # end of hard coding for testing
@@ -527,13 +529,13 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
         query_obj = Lbp::Query.new()
         @results = query_obj.query(query)
 
-        
+
 
 
     annotationarray = []
-      
+
       @results.each do |result|
-        
+
         pid = result['paragraph'].to_s.split("/").last
         paragraph = result['paragraph'].to_s
         paragraphtext = HTTParty.get(result['plaintext'].to_s)
@@ -552,7 +554,7 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
         annotationarray << entryhash
        end
 
-       annotationlistcontent = {"@context" => "http://iiif.io/api/presentation/2/context.jsonld", 
+       annotationlistcontent = {"@context" => "http://iiif.io/api/presentation/2/context.jsonld",
         "@id" => "http://scta.info/iiif/#{slug}/list/#{folioid}",
         "@type" => "sc:AnnotationList",
         "within" => {
@@ -566,10 +568,10 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
 end
 
 
-get '/textsearch/:string' do |string| 
+get '/textsearch/:string' do |string|
 
 @searchstring = string
-response = HTTParty.get("http://localhost:8983/solr/collection1/select?q=#{string}&rows=100&wt=json&indent=true") 
+response = HTTParty.get("http://localhost:8983/solr/collection1/select?q=#{string}&rows=100&wt=json&indent=true")
 json = JSON.parse(response.body)
 response_hash = json.to_hash
 @docs_array = response_hash["response"]["docs"]
@@ -589,14 +591,14 @@ get '/list/:type' do |type|
           }
           ORDER BY ?s
           "
-  
+
   @result = rdf_query(query)
-  
+
   accept_type = request.env['HTTP_ACCEPT']
 
   if accept_type.include? "text/html"
     erb :subj_display
-    
+
   else
     RDF::Graph.new do |graph|
       @result.each do |solution|
@@ -645,9 +647,9 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
     #test using Lbp library
     query_obj = Lbp::Query.new()
     @result = query_obj.query(query)
-  
+
   if params[:p1] == 'resource'
-    @resourcetype = params[:p2]
+    @resourcetype = @result.dup.filter(:p => RDF::URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).first[:o].to_s.split("/").last
   end
 
   accept_type = request.env['HTTP_ACCEPT']
@@ -666,7 +668,7 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
 
 
     @sameas = @result.dup.filter(:p => RDF::URI("http://www.w3.org/2002/07/owl#sameAs"))
-    
+
     if @resourcetype == 'person' && @sameas.count > 0
       dbpediaAddress = @sameas[0][:o]
       dbpediaGraph = RDF::Graph.load(dbpediaAddress)
@@ -676,10 +678,11 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
                                   #RDF::URI("http://dbpedia.org/ontology/birthDate") => :birthDate
                                   }
                              })
+
       result  = query.execute(dbpediaGraph)
       @english_result = result.find { |solution| solution.abstract.language == :en}
     end
-  
+
   erb :obj_pred_display
 
   else
@@ -694,19 +697,3 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
