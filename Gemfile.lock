@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/lombardpress/lbp.rb.git
-  revision: f09f667a6df6f35559c33a25556b21885028d230
+  revision: 6eaefffee06a919651cecd8d0b81b62fcc0fa61e
   branch: develop
   specs:
     lbp (0.0.2)

@@ -536,7 +536,7 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
 
       @results.each do |result|
 
-        pid = result['paragraph'].to_s.split("/").last
+        pid = result['paragraph'].to_s.split("/resource/").last
         paragraph = result['paragraph'].to_s
         paragraphtext = HTTParty.get(result['plaintext'].to_s)
         entryhash = {"@type" => "oa:Annotation",
