@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/lombardpress/lbp.rb.git
-  revision: 6eaefffee06a919651cecd8d0b81b62fcc0fa61e
+  revision: 9a8ddad881dbc10e708d874fbe49c93809f465d4
   branch: develop
   specs:
-    lbp (0.0.2)
+    lbp (0.1.1)
       nokogiri
       rdf
       rdf-rdfxml
@@ -55,13 +55,15 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     net-http-persistent (2.9.4)
     netrc (0.11.0)
-    nokogiri (1.6.7.1)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
+    pkg-config (1.1.7)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -89,7 +91,7 @@ GEM
       rdf-xsd (~> 1.1)
     rdf-n3 (1.99.0)
       rdf (~> 1.99)
-    rdf-rdfa (1.99.0)
+    rdf-rdfa (1.99.1)
       haml (~> 4.0)
       htmlentities (~> 4.3)
       rdf (~> 1.99)
@@ -128,7 +130,7 @@ GEM
       rack-linkeddata (~> 0.3.0)
       sinatra (>= 1.0)
     slop (3.6.0)
-    sparql (1.99.0)
+    sparql (1.99.1)
       builder (~> 3.2)
       ebnf (~> 1.0)
       rdf (~> 1.99)
@@ -170,5 +172,8 @@ DEPENDENCIES
   thin
   tilt (~> 1.4.1)
 
+RUBY VERSION
+   ruby 2.2.2p95
+
 BUNDLED WITH
-   1.11.2
+   1.12.5

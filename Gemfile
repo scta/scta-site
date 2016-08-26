@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.2.1"
+ruby "2.2.2"
 
 gem "nokogiri"
 gem 'sinatra'
@@ -17,8 +17,8 @@ gem 'puma'
 
 gem 'lbp', :git => "https://github.com/lombardpress/lbp.rb.git", :branch => "develop"
 
-group :development do 
+group :development do
 	gem 'pry'
   gem 'ruby-debug-ide'
   gem 'thin'
-end	
+end
