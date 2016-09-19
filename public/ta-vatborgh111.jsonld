@@ -11832,20 +11832,5 @@
     ],
     "viewingDirection": "left-to-right",
     "viewingHint": "paged"
-  }],
-  "structures": [
-    {
-      "@id": "http://digi.vatlib.it/iiif/MSS_Borgh.111/range/r0",
-      "@type": "sc:Range",
-      "label": "",
-      "ranges": ["http://digi.vatlib.it/iiif/MSS_Borgh.111/range/r0-0"]
-    },
-    {
-      "@id": "http://digi.vatlib.it/iiif/MSS_Borgh.111/range/r0-0",
-      "@type": "sc:Range",
-      "label": "Borgh.111",
-      "within": "http://digi.vatlib.it/iiif/MSS_Borgh.111/range/r0",
-      "canvases": ["http://digi.vatlib.it/iiif/MSS_Borgh.111/canvas/p0001"]
-    }
-  ]
+  }]
 }

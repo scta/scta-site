@@ -210,7 +210,7 @@
             "label": "Peter of Tarantasia - Paris, Bibliotheque Nationale de France, ms. lat. 17483"
           },
           {
-            "@id": "http://scta.info/iiif/ta-vatborgh326/manifest",
+            "@id": "http://scta.info/iiif/pdt-vatborgh326/manifest",
             "@type": "sc:Manifest",
             "label": "Peter of Tarantasia - Vatican City, Vatican Library, Borgh 326"
           }
@@ -263,31 +263,31 @@
             "label": "Peter Lombard - Baltimore, Johns Hopkins"
           },
           {
-            "@id": "http://scta.info/iiif/jdso-vatlat680/manifest",
+            "@id": "http://scta.info/iiif/pl-vatlat680/manifest",
             "@type": "sc:Manifest",
             "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 680"
           },
           {
-            "@id": "http://scta.info/iiif/jdso-vatlat681/manifest",
+            "@id": "http://scta.info/iiif/pl-vatlat681/manifest",
             "@type": "sc:Manifest",
             "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 681"
           },
           {
-            "@id": "http://scta.info/iiif/jdso-vatlat682/manifest",
+            "@id": "http://scta.info/iiif/pl-vatlat682/manifest",
             "@type": "sc:Manifest",
             "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 682"
           },
           {
-            "@id": "http://scta.info/iiif/jdso-vatlat683/manifest",
+            "@id": "http://scta.info/iiif/pl-vatlat683/manifest",
             "@type": "sc:Manifest",
             "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 683"
           },
 	        {
-	          "@id": "http://scta.info/iiif/jdso-vatlat684/manifest",
+	          "@id": "http://scta.info/iiif/pl-vatlat684/manifest",
 	          "@type": "sc:Manifest",
 	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 684"
 	        }
-        ]
+	      ]
       },
       { "@id": "http://scta.info/iiif/collection/odoncommentary",
        "@type": "sc:Collection",
