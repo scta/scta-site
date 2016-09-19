@@ -96,6 +96,11 @@
             "@id": "http://scta.info/iiif/jdso-bnf14564/manifest",
             "@type": "sc:Manifest",
             "label": "John Duns Scotus - Ordinatio - Paris, Bibliotheque Nationale de France, ms. lat. 14564"
+          },
+          {
+            "@id": "http://scta.info/iiif/jdso-vaturblat118/manifest",
+            "@type": "sc:Manifest",
+            "label": "John Duns Scotus - Ordinatio - Vatican City, Vatican, Urb. lat 118"
           }
         ]
       },
@@ -203,6 +208,11 @@
             "@id": "http://scta.info/iiif/pdt-bnf17483/manifest",
             "@type": "sc:Manifest",
             "label": "Peter of Tarantasia - Paris, Bibliotheque Nationale de France, ms. lat. 17483"
+          },
+          {
+            "@id": "http://scta.info/iiif/ta-vatborgh326/manifest",
+            "@type": "sc:Manifest",
+            "label": "Peter of Tarantasia - Vatican City, Vatican Library, Borgh 326"
           }
         ]
       },
@@ -251,7 +261,32 @@
             "@id": "http://scta.info/iiif/pl-hopkins/manifest",
             "@type": "sc:Manifest",
             "label": "Peter Lombard - Baltimore, Johns Hopkins"
-          }
+          },
+          {
+            "@id": "http://scta.info/iiif/jdso-vatlat680/manifest",
+            "@type": "sc:Manifest",
+            "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 680"
+          },
+          {
+            "@id": "http://scta.info/iiif/jdso-vatlat681/manifest",
+            "@type": "sc:Manifest",
+            "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 681"
+          },
+          {
+            "@id": "http://scta.info/iiif/jdso-vatlat682/manifest",
+            "@type": "sc:Manifest",
+            "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 682"
+          },
+          {
+            "@id": "http://scta.info/iiif/jdso-vatlat683/manifest",
+            "@type": "sc:Manifest",
+            "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 683"
+          },
+	        {
+	          "@id": "http://scta.info/iiif/jdso-vatlat684/manifest",
+	          "@type": "sc:Manifest",
+	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 684"
+	        }
         ]
       },
       { "@id": "http://scta.info/iiif/collection/odoncommentary",
@@ -295,6 +330,11 @@
             "@id": "http://scta.info/iiif/ta-harv245/manifest",
             "@type": "sc:Manifest",
             "label": "Thomas Aquinas - Cambridge, MA, Harvard University, Houghton Library, MS Lat 245"
+          },
+          {
+            "@id": "http://scta.info/iiif/ta-vatborgh111/manifest",
+            "@type": "sc:Manifest",
+            "label": "Thomas Aquinas - Vatican City, Vatican, Borgh 111"
           }
         ]
       },
