@@ -286,6 +286,36 @@
 	          "@id": "http://scta.info/iiif/pl-vatlat684/manifest",
 	          "@type": "sc:Manifest",
 	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 684"
+	        },
+	        {
+	          "@id": "http://scta.info/iiif/pl-vatlat685/manifest",
+	          "@type": "sc:Manifest",
+	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 685"
+	        },
+	        {
+	          "@id": "http://scta.info/iiif/pl-vatlat687/manifest",
+	          "@type": "sc:Manifest",
+	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 687"
+	        },
+	        {
+	          "@id": "http://scta.info/iiif/pl-vatlat688/manifest",
+	          "@type": "sc:Manifest",
+	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 688"
+	        },
+	        {
+	          "@id": "http://scta.info/iiif/pl-vatlat689/manifest",
+	          "@type": "sc:Manifest",
+	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 689"
+	        },
+	        {
+	          "@id": "http://scta.info/iiif/pl-vatlat690/manifest",
+	          "@type": "sc:Manifest",
+	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 690"
+	        },
+	        {
+	          "@id": "http://scta.info/iiif/pl-vatlat693/manifest",
+	          "@type": "sc:Manifest",
+	          "label": "Peter Lombard - Vatican City, Vatican Library, Vat.lat. 693"
 	        }
 	      ]
       },

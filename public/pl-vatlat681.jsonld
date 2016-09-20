@@ -1,6 +1,6 @@
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
-  "@id": "http://scta.info/iiif/jdso-vatlat681/manifest",
+  "@id": "http://scta.info/iiif/pl-vatlat681/manifest",
   "@type": "sc:Manifest",
   "metadata": [
 		{
