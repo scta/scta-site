@@ -2,10 +2,20 @@ require 'lbp'
 require 'json'
 #require 'pry'
 
+require_relative 'lib/ranges'
+
 def create_range2(msname)
   slug = msname.split("-").last
   commentary_slug = msname.split("-").first
 
+
+# TODO need to different range creating functions -- one for a manifest for a codex and one for a manifest for
+# an expression in that codex.
+# if a manifest for the codex is requested, ranges should be created for all expressions within the codex
+# as follows: change query to look for any expression with a manifestation that is in part of the specified codex
+# then create range for each expression
+# if manifest for an expression is given, then only a range for that expression should be made.
+# urls could look like the following: http://scta.info/iiif/codex/bnf135/manifest or http://scta.info/iiif/plaoulcommentary/bnf135/manifest
   query = "
           SELECT ?commentary ?topdivision ?topdivision_title ?item ?order ?title ?witness ?canvas
           {
@@ -26,11 +36,11 @@ def create_range2(msname)
   query_obj = Lbp::Query.new()
   @results = query_obj.query(query)
 
-  all_structures = []           
-  
+  all_structures = []
+
   if @results.count > 0
-      
-    # top divisions creates an array for all top level divisions in commentary 
+
+    # top divisions creates an array for all top level divisions in commentary
     # usually these divisions are book 1, book 2, book3, book 4
     topdivisions = []
     # the results of the query are parsed creating a new array called top divisions
@@ -44,38 +54,38 @@ def create_range2(msname)
 
     # an array is made for all the items that will display
     items = []
-    
+
     # the items array is a list of item resources, each entry in the list
-    # includes the item id, the item title and the top division to which it belongs  
+    # includes the item id, the item title and the top division to which it belongs
     @results.each do |result|
       items << [result[:item], result[:title], result[:topdivision], result[:topdivision_title]]
-    end                
-    
-    ## a new array called result sets is built to get 
-    # the full set of information for each item (including associated canvases) 
+    end
+
+    ## a new array called result sets is built to get
+    # the full set of information for each item (including associated canvases)
     # associated with topdivision id and top division title
     result_sets = []
     items.uniq!
-      
+
     items.each do |item, title, topdivision, topdivision_title|
       filtered_results = @results.dup.filter(:item => item.to_s)
       result_sets << [filtered_results, title, topdivision.to_s, topdivision_title]
     end
-      
+
     #create ranges array for each topdivision and item ranges associated within each topdivision
     topdivision_ranges = []
     item_ranges = []
 
     r = 1
-    
+
     topdivisions.each do |topdivisionid, topdivision_title|
-      
+
       topdivision_ranges << "http://scta.info/iiif/#{msname}/range/r1-#{r}"
 
       next_r = 1
       result_sets.each do |result, title, item_topdivisionid, topdivision_title|
         if item_topdivisionid == topdivisionid
-          item_ranges << {topdivision_rangeid: "http://scta.info/iiif/#{msname}/range/r1-#{r}", 
+          item_ranges << {topdivision_rangeid: "http://scta.info/iiif/#{msname}/range/r1-#{r}",
                           item_rangeid: "http://scta.info/iiif/#{msname}/range/r1-#{r}-#{next_r}",
                           set: result,
                           title: title.to_s,
@@ -98,26 +108,26 @@ def create_range2(msname)
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
-                    } 
+                    }
 
     #add wrapper structure to total range array
-    all_structures << first_structure 
+    all_structures << first_structure
 
-    # begin loop to create topdivision structures  
+    # begin loop to create topdivision structures
     r = 1
-    
+
     topdivisions.each do |id, title|
-        
-        ranges2 = item_ranges.map do |object| 
-          
-          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{msname}/range/r1-#{r}" 
+
+        ranges2 = item_ranges.map do |object|
+
+          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{msname}/range/r1-#{r}"
              object[:item_rangeid]
           end
         end
 
         division_canvases =[]
         item_ranges.each do |object|
-          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{msname}/range/r1-#{r}" 
+          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{msname}/range/r1-#{r}"
             object[:set].each do |item_set|
               division_canvases << item_set[:canvas].to_s
             end
@@ -130,26 +140,26 @@ def create_range2(msname)
                       "@type" => "sc:Range",
                       "label" => title,
                       "ranges" => ranges2,
-                      # mirador has bug if this canvases are also listed 
+                      # mirador has bug if this canvases are also listed
                       #"canvases" => division_canvases,
                       "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
-                    } 
-        all_structures << structure            
-        r = r + 1            
+                    }
+        all_structures << structure
+        r = r + 1
       end
-      
+
       ## begin loop to create all item level structures
       item_ranges.each do |object|
-        
+
         structure_canvases = []
-        
+
         object[:set].each do |item_set|
           structure_canvases << item_set[:canvas].to_s
         end
-        
+
         title = object[:title].to_s.split("#{object[:topdivision_title]}, ").last
         structure = {"@id" => object[:item_rangeid],
                       "within" => object[:topdivision_rangeid],
@@ -160,11 +170,11 @@ def create_range2(msname)
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
-                      } 
+                      }
 
         all_structures << structure
-        
-        
+
+
     end
   end
   return all_structures
@@ -194,7 +204,7 @@ def create_range(msname)
         query_obj = Lbp::Query.new()
         @results = query_obj.query(query)
 
-  all_structures = []           
+  all_structures = []
   if @results.count > 0
       #first_structure_canvases = []
 
@@ -203,11 +213,11 @@ def create_range(msname)
      # end
 
       items = []
-      
+
       @results.each do |result|
         items << [result[:item], result[:title]]
-      end                
-      
+      end
+
       result_sets = []
       items.uniq!
       items.each do |item, title|
@@ -219,7 +229,7 @@ def create_range(msname)
       ranges = []
 
       r = 1
-      result_sets.each do 
+      result_sets.each do
         ranges << "http://scta.info/iiif/#{msname}/range/r1-#{r}"
         r = r + 1
       end
@@ -234,19 +244,19 @@ def create_range(msname)
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
-                    } 
-      
-      all_structures << first_structure               
-      
+                    }
+
+      all_structures << first_structure
+
       i = 1
       result_sets.each do |set, title|
-        
+
         structure_canvases = []
-        
+
         set.each do |item_set|
           structure_canvases << item_set[:canvas].to_s
         end
-        
+
         structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1-#{i}",
                       "within" => "http://scta.info/iiif/#{msname}/range/r1",
                       "@type" => "sc:Range",
@@ -256,10 +266,10 @@ def create_range(msname)
                       "description": "A range for Sentences Commentary #{msname}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
-                      } 
+                      }
 
         all_structures << structure
-        
+
         i = i + 1
     end
   end
@@ -287,10 +297,10 @@ def create_supplement (msname, type)
   else
     manifest = "http://scta.info/iiif/#{msname}/manifest"
   end
- 
+
   if type == "rangelist"
     all_ranges = create_range2(msname)
-    final_object = 
+    final_object =
         {
           "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/rangelist",
           "@type": "sc:supplement",
@@ -331,14 +341,14 @@ def create_supplement (msname, type)
           "profile": "http://iiif.io/api/0.1/supplement/layer",
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
-          
+
           "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
           "description": "Layers published by the Sentences Commentary #{msname}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "layer": transcription_layer
-          }     
-  end     
+          }
+  end
 
       JSON.pretty_generate(final_object)
 
@@ -361,7 +371,7 @@ def create_transcriptionlayer (msname)
   commentary_slug = msname.split("-").first
   lists = []
 
-
+#hasSurface was changed from hasFolioSide
   query = "
           SELECT ?commentary ?item ?order ?title ?witness ?folio ?annolist ?canvasid
           {
@@ -371,9 +381,9 @@ def create_transcriptionlayer (msname)
           ?item <http://scta.info/property/totalOrderNumber> ?order .
           ?item <http://purl.org/dc/elements/1.1/title> ?title .
           ?witness <http://scta.info/property/hasSlug> '#{slug}' .
-          ?witness <http://scta.info/property/hasFolioSide> ?folio . 
+          ?witness <http://scta.info/property/hasSurface> ?folio .
           ?folio <http://scta.info/property/isOnCanvas> ?canvasid .
-          ?folio <http://scta.info/property/hasAnnotationList> ?annolist . 
+          ?folio <http://scta.info/property/hasAnnotationList> ?annolist .
 
           }
           ORDER BY ?order
@@ -382,10 +392,10 @@ def create_transcriptionlayer (msname)
         #@results = rdf_query(query)
         query_obj = Lbp::Query.new()
         results = query_obj.query(query)
-  
+
   lists = results.map {|result| {"@id": result[:annolist].to_s, "sc:forCanvas": result[:canvasid].to_s} }
   lists.uniq!
-  
+
   layer = {"@context": "http://iiif.io/api/presentation/2/context.json",
     "@id": "http://scta.info/iiif/layer/transcription",
     "@type": "sc:Layer",

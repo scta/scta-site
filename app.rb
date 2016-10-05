@@ -27,6 +27,7 @@ end
 
 require_relative 'lib/queries'
 require_relative 'lib/custom_functions'
+require_relative 'lib/ranges'
 
 configure do
   set :protection, except: [:frame_options]
@@ -504,12 +505,13 @@ end
 get '/iiif/:slug/list/:folioid' do |slug, folioid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
+  codexid = slug.split('-').last
+  foliordfid = "<http://scta.info/resource/#{codexid}/#{folioid}>"
 
-  foliordfid = "<http://scta.info/resource/material/#{slug}/#{folioid}>"
-
+#Surface was changed from hasFolioSide
   query = "SELECT ?x ?y ?w ?h ?position ?paragraph ?plaintext ?canvasid ?pnumber
           {
-          ?zone <http://scta.info/property/hasFolioSide> #{foliordfid} .
+          ?zone <http://scta.info/property/hasSurface> #{foliordfid} .
           ?zone <http://scta.info/property/isZoneOn> ?canvasid .
           ?zone <http://scta.info/property/ulx> ?x .
           ?zone <http://scta.info/property/uly> ?y .
@@ -528,6 +530,7 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
         #@results = rdf_query(query)
         query_obj = Lbp::Query.new()
         @results = query_obj.query(query)
+
 
 
 
