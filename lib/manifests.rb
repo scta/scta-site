@@ -1,13 +1,24 @@
 
 
-def create_manifest()
+def create_manifest(shortid)
   query = "
-  SELECT ?surface ?surface_title ?isurface ?canvas
+  SELECT ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
   {
-    <http://scta.info/resource/quaracchi1924> <http://scta.info/property/hasSurface> ?surface .
+    <http://scta.info/resource/#{shortid}> <http://scta.info/property/hasSurface> ?surface .
     ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas .
+    ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
+    ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
+    ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
+    ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
+    ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
+    ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
+    ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
+    ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
+    ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
+    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+    ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
   }
   "
   #@results = rdf_query(query)
@@ -17,36 +28,29 @@ def create_manifest()
   canvases = []
   number = 1
   results.each do |result|
-    #temp
-    if number < 10
-      image_number = "00#{number}"
-    elsif number < 100
-      image_number = "0#{number}"
-    elsif number < 1000
-      image_number = "#{number}"
-    end
-    #temp
+
+
     canvas = {
-      "@id": "#{result[:canvas]}",
+      "@id": result[:canvas],
       "@type": "sc:Canvas",
-      "label": "#{result[:surface_title]}",
-      "height": 6496,
-      "width": 4872,
+      "label": result[:surface_title],
+      "height": result[:canvas_height],
+      "width": result[:canvas_width],
       "images": [
-        {"@id": "http://scta.info/resource/quaracchi1924/canvas/#{number}/image/#{number}",
+        {"@id": result[:anno],
           "@type": "oa:Annotation",
           "motivation": "sc:painting",
-          "on": "#{result[:canvas]}",
+          "on": result[:canvas],
           "resource": {
-            "@id": "http://scta.info/resource/quaracchi1924/canvas/#{number}/res/#{image_number}.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "height": 6496,
-            "width": 4872,
+            "@id": result[:resource],
+            "@type": result[:image_type],
+            "format": result[:image_format],
+            "height": result[:image_height],
+            "width": result[:image_height],
             "service": {
               "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://loris2.scta.info/quaracchi1924/#{image_number}.jpg",
-              "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+              "@id": result[:image_service],
+              "profile": result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
             }
           }
         }
@@ -60,100 +64,110 @@ def create_manifest()
 
   manifest = {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/quaracchi1924/manifest",
+    "@id": "http://scta.info/iiif/#{shortid}/manifest",
     "@type": "sc:Manifest",
-    "label": "Manifest Label",
-    "metadata": [
-      {
-        "label": "Author",
-        "value": "Alexander de Hales"
-      },
-      {
-        "label": "Published",
-        "value": [
-          {
-            "@language": "la"
-          }
-        ]
-      }
-    ],
+    "label": "#{shortid}",
     "description": "Manifest Description",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "attribution": "e-codices - Virtual Manuscript Library of Switzerland",
-    "seeAlso": "see also link",
-    "logo": "http://e-codices.textandbytes.com/img/logo.png",
     "service": {
       "@context": "http://iiif.io/api/search/1/context.json",
-      "@id": "http://exist.scta.info/exist/apps/scta/iiif/wdr-wettf15/search",
+      "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{shortid}/search",
       "profile": "http://iiif.io/api/search/1/search",
       "label": "Search within this manifest"
     },
     "sequences": [
       {
         "@context": "http://iiif.io/api/presentation/2/context.json",
-        "@id": "http://scta.info/iiif/wdr-wettf15/sequence/normal",
+        "@id": "http://scta.info/iiif/#{shortid}/sequence/normal",
         "@type": "sc:Sequence",
         "label": "Current page order",
         "viewingDirection": "left-to-right",
         "viewingHint": "paged",
         "canvases": canvases
       }
-    ],
-    "structures": create_range3("quaracchi1924", "summahalensis")
+    ]
   }
 
   JSON.pretty_generate(manifest)
 
 
 end
-def create_expression_manifest(expressionid, manifestationid)
+def create_expression_manifest(manifestationid)
   query = "
-  SELECT ?surface ?surface_title ?isurface ?canvas
+  SELECT ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
   {
-    <http://scta.info/resource/#{expressionid}/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
+    <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
     ?item <http://scta.info/property/hasSurface> ?surface .
     ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas .
+    ?canvas <http://www.w3.org/2000/01/rdf-schema#label> ?canvas_label .
+    ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
+    ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
+    ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
+    ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
+    ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
+    ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
+    ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
+    ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
+    ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
+    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+    ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
   }
   "
+
+  temp_query = "
+  SELECT ?surface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
+  {
+    <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
+
+    ?item <http://scta.info/property/isOnCanvas> ?canvas .
+    ?canvas <http://www.w3.org/2000/01/rdf-schema#label> ?canvas_label .
+    ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
+    ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
+    ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
+    ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
+    ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
+    ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
+    ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
+    ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
+    ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
+    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+    OPTIONAL {
+    ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
+    }
+
+
+  }"
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
 
   canvases = []
-  number = 1
+  results.uniq!
   results.each do |result|
-    #temp
-    if number < 10
-      image_number = "00#{number}"
-    elsif number < 100
-      image_number = "0#{number}"
-    elsif number < 1000
-      image_number = "#{number}"
-    end
-    #temp
+    image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
     canvas = {
       "@id": "#{result[:canvas]}",
       "@type": "sc:Canvas",
-      "label": "#{result[:surface_title]}",
-      "height": 6496,
-      "width": 4872,
+      "label": result[:canvas_label],
+      "height": result[:canvas_height],
+      "width": result[:canvas_width],
       "images": [
-        {"@id": "http://scta.info/resource/quaracchi1924/canvas/#{number}/image/#{number}",
+        {"@id": result[:anno],
           "@type": "oa:Annotation",
           "motivation": "sc:painting",
           "on": "#{result[:canvas]}",
           "resource": {
-            "@id": "http://scta.info/resource/quaracchi1924/canvas/#{number}/res/#{image_number}.jpg",
-            "@type": "dctypes:Image",
-            "format": "image/jpeg",
-            "height": 6496,
-            "width": 4872,
+            "@id": result[:resource],
+            "@type": result[:image_type],
+            "format": result[:image_format],
+            "height": result[:image_height],
+            "width": result[:image_width],
             "service": {
               "@context": "http://iiif.io/api/image/2/context.json",
-              "@id": "http://loris2.scta.info/quaracchi1924/#{image_number}.jpg",
-              "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+              "@id": result[:image_service],
+              "profile": image_profile
             }
           }
         }
@@ -162,43 +176,27 @@ def create_expression_manifest(expressionid, manifestationid)
 
 
     canvases << canvas
-    number = number + 1
+
   end
 
   manifest = {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/quaracchi1924/manifest",
+    "@id": "http://scta.info/iiif/#{manifestationid}/manifest",
     "@type": "sc:Manifest",
-    "label": "Manifest Label",
-    "metadata": [
-      {
-        "label": "Author",
-        "value": "Alexander de Hales"
-      },
-      {
-        "label": "Published",
-        "value": [
-          {
-            "@language": "la"
-          }
-        ]
-      }
-    ],
+    "label": manifestationid,
+
     "description": "Manifest Description",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "attribution": "e-codices - Virtual Manuscript Library of Switzerland",
-    "seeAlso": "see also link",
-    "logo": "http://e-codices.textandbytes.com/img/logo.png",
     "service": {
       "@context": "http://iiif.io/api/search/1/context.json",
-      "@id": "http://exist.scta.info/exist/apps/scta/iiif/wdr-wettf15/search",
+      "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{manifestationid}/search",
       "profile": "http://iiif.io/api/search/1/search",
       "label": "Search within this manifest"
     },
     "sequences": [
       {
         "@context": "http://iiif.io/api/presentation/2/context.json",
-        "@id": "http://scta.info/iiif/wdr-wettf15/sequence/normal",
+        "@id": "http://scta.info/iiif/#{manifestationid}/sequence/normal",
         "@type": "sc:Sequence",
         "label": "Current page order",
         "viewingDirection": "left-to-right",
@@ -206,7 +204,7 @@ def create_expression_manifest(expressionid, manifestationid)
         "canvases": canvases
       }
     ],
-    "structures": create_range3("quaracchi1924", "summahalensis")
+    "structures": create_range3(manifestationid)
   }
 
   JSON.pretty_generate(manifest)

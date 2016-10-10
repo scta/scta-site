@@ -1,6 +1,7 @@
-def create_range3(msname, expressionid)
+def create_range3(manifestationid)
   #slug = msname.split("-").last
   #commentary_slug = msname.split("-").first
+  msname = manifestationid.split("/").last
 
 
 # TODO need to different range creating functions -- one for a manifest for a codex and one for a manifest for
@@ -13,7 +14,7 @@ def create_range3(msname, expressionid)
   query = "
           SELECT ?commentary ?topdivision ?topdivision_title ?item ?order ?title ?witness ?canvas
           {
-          ?commentary <http://scta.info/property/hasManifestation> <http://scta.info/resource/#{expressionid}/#{msname}> .
+          ?commentary <http://scta.info/property/hasManifestation> <http://scta.info/resource/#{manifestationid}> .
           ?commentary <http://purl.org/dc/terms/hasPart> ?topdivision .
           ?topdivision <http://purl.org/dc/elements/1.1/title> ?topdivision_title .
           ?topdivision <http://scta.info/property/hasStructureItem> ?item .

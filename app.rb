@@ -308,12 +308,13 @@ end
 get '/iiif/:codex/manifest2' do |codex|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  create_manifest
+  create_manifest(codex)
 end
 get '/iiif/:expressionid/:codex/manifest3' do |expressionid, codex|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  create_expression_manifest(expressionid, codex)
+  manifestation_shortid = "#{expressionid}/#{codex}"
+  create_expression_manifest(manifestation_shortid)
 end
 get '/iiif/:msname/manifest' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
