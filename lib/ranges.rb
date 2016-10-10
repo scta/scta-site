@@ -1,4 +1,7 @@
-def create_range3(codexid, expression)
+def create_range3(msname, expressionid)
+  #slug = msname.split("-").last
+  #commentary_slug = msname.split("-").first
+
 
 # TODO need to different range creating functions -- one for a manifest for a codex and one for a manifest for
 # an expression in that codex.
@@ -8,32 +11,20 @@ def create_range3(codexid, expression)
 # if manifest for an expression is given, then only a range for that expression should be made.
 # urls could look like the following: http://scta.info/iiif/codex/bnf135/manifest or http://scta.info/iiif/plaoulcommentary/bnf135/manifest
   query = "
-  SELECT ?expression ?part ?part_title ?part_level ?part_structure ?child_part ?parent_part ?witness ?order ?surface ?canvas
-                 {
-                 ?expression <http://scta.info/property/hasManifestation> <http://scta.info/resource/summahalensis/quaracchi1924> .
-                ?part <http://scta.info/property/isPartOfTopLevelExpression> ?expression .
-                 ?part <http://purl.org/dc/elements/1.1/title> ?part_title .
-                 ?part <http://scta.info/property/level> ?part_level .
-                 ?part <http://scta.info/property/structureType> ?part_structure .
-                   OPTIONAL{
-                   ?part <http://scta.info/property/structureType> <http://scta.info/resource/structureCollection> .
-                   #?part <http://purl.org/dc/terms/hasPart> ?child_part .
-                   ?part <http://purl.org/dc/terms/isPartOf> ?parent_part .
-                   }
-               OPTIONAL{
-               ?part <http://scta.info/property/structureType> <http://scta.info/resource/structureItem> .
-                   ?part <http://purl.org/dc/terms/isPartOf> ?parent_part .
-                   ?part <http://scta.info/property/hasManifestation> ?witness .
-           ?witness <http://scta.info/property/hasSlug> 'quaracchi1924' .
-                   ?part <http://scta.info/property/totalOrderNumber> ?order .
-
-                   ?witness <http://scta.info/property/hasSurface> ?surface .
-                   ?surface <http://scta.info/property/hasISurface> ?isurface .
-                   ?isurface <http://scta.info/property/hasCanvas> ?canvas .
-                 }
-               }
-               ORDER BY ?order
-               "
+          SELECT ?commentary ?topdivision ?topdivision_title ?item ?order ?title ?witness ?canvas
+          {
+          ?commentary <http://scta.info/property/hasManifestation> <http://scta.info/resource/#{expressionid}/#{msname}> .
+          ?commentary <http://purl.org/dc/terms/hasPart> ?topdivision .
+          ?topdivision <http://purl.org/dc/elements/1.1/title> ?topdivision_title .
+          ?topdivision <http://scta.info/property/hasStructureItem> ?item .
+          ?item <http://scta.info/property/hasManifestation> ?witness .
+          ?item <http://scta.info/property/totalOrderNumber> ?order .
+          ?item <http://purl.org/dc/elements/1.1/title> ?title .
+          ?witness <http://scta.info/property/hasSlug> '#{msname}' .
+          ?witness <http://scta.info/property/isOnCanvas> ?canvas
+          }
+          ORDER BY ?order
+          "
 
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
@@ -49,21 +40,14 @@ def create_range3(codexid, expression)
     # the results of the query are parsed creating a new array called top divisions
     # that contains a a list of divisions that include the division id and the division title
     @results.each do |result|
-      if result["level"] = 1
-        topdivisions << [result[:part].to_s, result[:part_title]]
-      end
-    end
-    #the resulting array is then reduced to unique values only.
-    topdivisions.uniq!
-    secondlevel = []
-    @results.each do |result|
-      if result["level"] = 2
-        secondlevel << [result[:part].to_s, result[:part_title]]
-      end
+      topdivisions << [result[:topdivision].to_s, result[:topdivision_title]]
     end
 
     #the resulting array is then reduced to unique values only.
     topdivisions.uniq!
+
+    # an array is made for all the items that will display
+    items = []
 
     # the items array is a list of item resources, each entry in the list
     # includes the item id, the item title and the top division to which it belongs
@@ -93,7 +77,6 @@ def create_range3(codexid, expression)
       topdivision_ranges << "http://scta.info/iiif/#{msname}/range/r1-#{r}"
 
       next_r = 1
-      #TODO: looop through here and final all entries that have a parent_part id that matches the current top division id
       result_sets.each do |result, title, item_topdivisionid, topdivision_title|
         if item_topdivisionid == topdivisionid
           item_ranges << {topdivision_rangeid: "http://scta.info/iiif/#{msname}/range/r1-#{r}",

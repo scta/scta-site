@@ -2,7 +2,7 @@ require 'lbp'
 require 'json'
 #require 'pry'
 
-require_relative 'lib/ranges'
+require_relative 'ranges'
 
 def create_range2(msname)
   slug = msname.split("-").last
@@ -19,7 +19,7 @@ def create_range2(msname)
   query = "
           SELECT ?commentary ?topdivision ?topdivision_title ?item ?order ?title ?witness ?canvas
           {
-          ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
+          ?commentary <http://scta.info/property/hasManifestation> '#{commentary_slug}' .
           ?commentary <http://purl.org/dc/terms/hasPart> ?topdivision .
           ?topdivision <http://purl.org/dc/elements/1.1/title> ?topdivision_title .
           ?topdivision <http://scta.info/property/hasStructureItem> ?item .

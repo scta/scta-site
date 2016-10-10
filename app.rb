@@ -20,14 +20,15 @@ require 'json'
 require 'lbp'
 
 
-if ENV['development']
+#if ENV['development']
   require 'pry'
-end
+#end
 
 
 require_relative 'lib/queries'
 require_relative 'lib/custom_functions'
 require_relative 'lib/ranges'
+require_relative 'lib/manifests'
 
 configure do
   set :protection, except: [:frame_options]
@@ -304,7 +305,11 @@ get '/iiif/:commentaryid/collection' do
   JSON.pretty_generate(newcollection)
 
 end
-
+get '/iiif/:codex/manifest2' do |codex|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  create_manifest
+end
 get '/iiif/:msname/manifest' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
