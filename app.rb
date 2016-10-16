@@ -29,6 +29,7 @@ require_relative 'lib/queries'
 require_relative 'lib/custom_functions'
 require_relative 'lib/ranges'
 require_relative 'lib/manifests'
+require_relative 'lib/collections'
 
 configure do
   set :protection, except: [:frame_options]
@@ -38,8 +39,6 @@ configure do
   set :protection, :except => :ip_spoofing
   set :protection, :except => :json
 end
-
-
 
 prefixes = "
           PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -54,27 +53,6 @@ prefixes = "
           PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
           PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
           "
-
-
-
-
-
-# def rdf_query(query)
-
-#   if ENV['RACK_ENV'] == "production"
-#     sparqlendpoint = "http://sparql.scta.info/ds/query"
-#   elsif ENV['SPARQL'] == "local"
-#     sparqlendpoint = "http://localhost:3030/ds/query"
-#   else
-#     sparqlendpoint = "http://sparql.scta.info/ds/query"
-#   end
-
-#   sparql = SPARQL::Client.new(sparqlendpoint)
-#   result = sparql.query(query)
-
-#   return result
-# end
-
 
 def query_display_simple(query)
   query_obj = Lbp::Query.new()
@@ -107,7 +85,7 @@ def URLConvert (url)
   return url_hash
 end
 
-
+# root route
 get '/' do
   quotationquery = "#{prefixes}
 
@@ -156,94 +134,24 @@ get '/' do
   @namecount = rdf_query.query(namequery).first[:".1"]
   @workcount = rdf_query.query(workquery).first[:".1"]
   @totalcount = rdf_query.query(totalquery).first[:count].to_i
-
-
-
   erb :index
 end
 
 get '/logo.png' do
   send_file "public/sctalogo.png"
 end
-=begin
-get '/practice' do
 
-  graph = RDF::Graph.load("public/pp-projectdata.rdf")
-  query = RDF::Query.new({
-                   :subject => {
-                       RDF.type  => RDF::URI("http://scta.info/resource/item"),
-                       DC11.title => :title,
-                      }
-                    })
-
-  query.execute(graph).each do |solution|
-
-    puts "title=#{solution.title}"
-  end
-  end
-
-  get '/construct' do
-
-    query = "#{prefixes}
-
-    CONSTRUCT {
-      <http://scta.info/text/plaoulcommentary/commentary> sctap:quotes ?quote .
-      }
-
-    WHERE  {
-      <http://scta.info/text/plaoulcommentary/commentary> dcterms:hasPart ?p .
-      ?p sctap:quotes ?quote .
-
-      }"
-
-    @result = rdf_query(query)
-    @result_hash = []
-    @predicate = "sctap:quotes"
-    @result.each_statement do |statement|
-        @result_hash << statement.object
-
-    end
-  erb :practice
-  #binding.pry
-
-
-
-end
-
-get '/main' do
-  puts "text"
-  erb :main
-end
-=begin
-get '/scta' do
-  query = "#{prefixes}
-
-          SELECT ?s ?o
-          {
-          ?s a <http://scta.info/resource/commentarius> .
-          ?s <http://purl.org/dc/elements/1.1/title> ?o  .
-          }
-          ORDER BY ?s
-          "
-  @category = 'commentary'
-  @result = rdf_query(query)
-
-
-  erb :subj_display
-end
-=end
-
+# documentation route
 get '/api' do
   erb :api
 end
-
+# search route
 get '/search' do
   erb :search
 end
 
+# search results route
 get '/searchresults' do
-
-
   @post = "#{params[:search]}"
   @category = "#{params[:category]}"
 
@@ -292,7 +200,8 @@ get '/iiif/collection/scta' do
   content_type :json
   send_file "public/scta-collection.jsonld"
 end
-get '/iiif/:commentaryid/collection' do
+## Depreciated; should be replaced by collection route
+get '/iiif/:commentaryid/collection_old' do
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
 
@@ -305,199 +214,149 @@ get '/iiif/:commentaryid/collection' do
   JSON.pretty_generate(newcollection)
 
 end
-get '/iiif/:codex/manifest2' do |codex|
+
+get '/iiif/:expressionid/collection' do |expressionid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
+  create_collection(expressionid)
+end
+get '/iiif/codex/:codex/manifest' do |codex|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+
   create_manifest(codex)
 end
-get '/iiif/:expressionid/:codex/manifest3' do |expressionid, codex|
+get '/iiif/:expressionid/:codex/manifest' do |expressionid, codex|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   manifestation_shortid = "#{expressionid}/#{codex}"
   create_expression_manifest(manifestation_shortid)
 end
+# depreciated by above two routes; could be kept as a back up static or cache route
 get '/iiif/:msname/manifest' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
 
-
-
   slug = msname.split("-").last
   commentary_slug = msname.split("-").first
- ## TODO this should be replaced by the create range function used in the
- ## range supplement creation
-  query = "#{prefixes}
+  #msname is of the format "pp-sorb" pg-long
+  send_file "public/#{msname}.jsonld"
 
-          SELECT ?commentary ?item ?order ?title ?witness ?canvas
-          {
-          ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
-          ?commentary <http://scta.info/property/hasStructureItem> ?item .
-          ?item <http://scta.info/property/hasManifestation> ?witness .
-          ?item <http://scta.info/property/totalOrderNumber> ?order .
-          ?item <http://purl.org/dc/elements/1.1/title> ?title .
-          ?witness <http://scta.info/property/hasSlug> '#{slug}' .
-          ?witness <http://scta.info/property/isOnCanvas> ?canvas
-          }
-          ORDER BY ?order
-          "
-
-        #@results = rdf_query(query)
-        query_obj = Lbp::Query.new()
-        @results = query_obj.query(query)
-
-
-  if @results.count > 0
 =begin
-      all_structures = []
+query = "#{prefixes}
 
-      first_structure_canvases = []
+        SELECT ?commentary ?item ?order ?title ?witness ?canvas
+        {
+        ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
+        ?commentary <http://scta.info/property/hasStructureItem> ?item .
+        ?item <http://scta.info/property/hasManifestation> ?witness .
+        ?item <http://scta.info/property/totalOrderNumber> ?order .
+        ?item <http://purl.org/dc/elements/1.1/title> ?title .
+        ?witness <http://scta.info/property/hasSlug> '#{slug}' .
+        ?witness <http://scta.info/property/isOnCanvas> ?canvas
+        }
+        ORDER BY ?order
+        "
 
-      @results.each do |result|
-        first_structure_canvases << result[:canvas].to_s
-      end
+      #@results = rdf_query(query)
+      query_obj = Lbp::Query.new()
+      @results = query_obj.query(query)
 
-      first_structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1",
-                      "@type" => "sc:Range",
-                      "label" => "Commentary",
-                      #{}"viewingHint" => "top",
-                      "canvases" => first_structure_canvases.uniq
-                      }
-      all_structures << first_structure
 
-      items = []
+if @results.count > 0
+    all_structures = create_range2(msname)
 
-      @results.each do |result|
-        items << [result[:item], result[:title]]
-      end
+    structure_object = {"structures" => all_structures}
+    #all_structures.to_json
+    #structure_object.to_json
 
-      result_sets = []
-      items.uniq!
-      items.each do |item, title|
+    json = File.read("public/#{msname}.jsonld")
+    secondJsonArray = JSON.parse(json)
 
-        filtered_results = @results.dup.filter(:item => item.to_s)
-        result_sets << [filtered_results, title]
-      end
-      i = 1
-      result_sets.each do |set, title|
+    newhash = secondJsonArray.merge(structure_object)
 
-        structure_canvases = []
+    JSON.pretty_generate(newhash)
 
-        set.each do |item_set|
-          structure_canvases << item_set[:canvas].to_s
-        end
-
-        structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1-#{i}",
-                      "within" => "http://scta.info/iiif/#{msname}/range/r1",
-                      "@type" => "sc:Range",
-                      "label" => "#{title.to_s}",
-                      #{}"viewingHint" => "top",
-                      "canvases" => structure_canvases
-                      }
-
-        all_structures << structure
-
-        i = i + 1
-
-      end
+  else
 =end
-
-      all_structures = create_range2(msname)
-
-      structure_object = {"structures" => all_structures}
-      #all_structures.to_json
-      #structure_object.to_json
-
-      json = File.read("public/#{msname}.jsonld")
-      secondJsonArray = JSON.parse(json)
-
-      newhash = secondJsonArray.merge(structure_object)
-
-      JSON.pretty_generate(newhash)
-
-    else
-      send_file "public/#{msname}.jsonld"
-    end
-
-
 end
 
-get '/iiif/:msname/rangelist' do |msname|
+### SUPPLEMENT ROUTES ###
+
+get '/iiif/:expressionpart/:manifestationpart/supplement/ranges/toc' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
   type = "rangelist"
-  create_supplement(msname, type)
-  #send_file "public/#{slug}.jsonld"
-end
-## this route should replace the above
-get '/iiif/:msname/supplement/ranges/toc' do |msname|
-  headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json
-  type = "rangelist"
-  create_supplement(msname, type)
-  #send_file "public/#{slug}.jsonld"
+  create_supplement(manifestationid, type)
 end
 
-get '/iiif/:msname/searchwithin' do |msname|
+get '/iiif/:expressionpart/:manifestationpart/service/searchwithin' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "searchwithin"
-  create_supplement(msname, type)
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_supplement(manifestationid, type)
 end
 ## this route should replace the above
-get '/iiif/:msname/supplement/service/searchwithin' do |msname|
+get '/iiif/:expressionpart/:manifestationpart/supplement/service/searchwithin' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "searchwithin"
-  create_supplement(msname, type)
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_supplement(manifestationid, type)
 end
 
-get '/iiif/:msname/supplement/layer/transcription' do |msname|
+get '/iiif/:expressionpart/:manifestationpart/supplement/layer/transcription' do |expressionpart, manifestationpart|
 headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "layerTranscription"
-  create_supplement(msname, type)
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_supplement(manifestationid, type)
 end
 
 #hard coding this for testing
-get '/iiif/:msname/supplement/layer/translation' do |msname|
+get '/iiif/:expressionpart/:manifestationpart/supplement/layer/translation' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "layerTranslation"
-  #create_supplement(msname, type)
-  send_file "public/supplement-translation-#{msname}-layer.jsonld"
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_supplement(manifestationid, type)
+
 end
 
 #hard coding this for testing
-get '/iiif/:msname/supplement/layer/comments' do |msname|
+get '/iiif/:expressionpart/:manifestationpart/supplement/layer/comments' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "layerComments"
-  #create_supplement(msname, type)
-  send_file "public/supplement-comments-#{msname}-layer.jsonld"
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_supplement(manifestationid, type)
 end
 
 #hard coding this for testing
-get '/iiif/:msname/layer/translation' do |msname|
+get '/iiif/:expressionpart/:manifestationpart/layer/translation' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "layerTranslation"
-  #create_supplement(msname, type)
-  send_file "public/translation-#{msname}-layer.jsonld"
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_supplement(manifestationid, type)
 end
 
 #hard coding this for testing
-get '/iiif/:msname/layer/comments' do |msname|
+get '/iiif/::expressionpart/:manifestationpart/layer/comments' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   type = "layerComments"
-  #create_supplement(msname, type)
-  send_file "public/comments-#{msname}-layer.jsonld"
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_supplement(manifestationid, type)
 end
 
-get '/iiif/:msname/layer/transcription' do |msname|
+get '/iiif/:expressionpart/:manifestationpart/layer/transcription' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  create_transcriptionlayer(msname)
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_transcriptionlayer(manifestationid)
 end
 
 # hard coding these now for test
@@ -513,17 +372,18 @@ get '/iiif/:slug/list/comments/:folioid' do |slug, folioid|
 end
 # end of hard coding for testing
 
-get '/iiif/:slug/list/:folioid' do |slug, folioid|
+get '/iiif/:expressionpart/:manifestationpart/list/transcription/:folioid' do |expressionpart, manifestationpart, folioid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  codexid = slug.split('-').last
-  foliordfid = "<http://scta.info/resource/#{codexid}/#{folioid}>"
+  foliordfid = "<http://scta.info/resource/#{manifestationpart}/#{folioid}>"
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
 
 #Surface was changed from hasFolioSide
   query = "SELECT ?x ?y ?w ?h ?position ?paragraph ?plaintext ?canvasid ?pnumber
           {
           ?zone <http://scta.info/property/hasSurface> #{foliordfid} .
-          ?zone <http://scta.info/property/isZoneOn> ?canvasid .
+          #{foliordfid} <http://scta.info/property/hasISurface> ?isurface .
+          ?isurface <http://scta.info/property/hasCanvas> ?canvasid .
           ?zone <http://scta.info/property/ulx> ?x .
           ?zone <http://scta.info/property/uly> ?y .
           ?zone <http://scta.info/property/width> ?w .
@@ -543,9 +403,6 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
         @results = query_obj.query(query)
 
 
-
-
-
     annotationarray = []
 
       @results.each do |result|
@@ -555,7 +412,7 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
         paragraph = result['paragraph'].to_s
         paragraphtext = HTTParty.get(result['plaintext'].to_s)
         entryhash = {"@type" => "oa:Annotation",
-        "@id" => "http://scta.info/iiif/#{slug}/annotation/#{pid}/#{position}",
+        "@id" => "http://scta.info/iiif/#{manifestationid}/annotation/#{pid}/#{position}",
         "motivation" => "sc:painting",
         "resource" => {
             "@id" => "#{result[:plaintext]}",
@@ -570,10 +427,10 @@ get '/iiif/:slug/list/:folioid' do |slug, folioid|
        end
 
        annotationlistcontent = {"@context" => "http://iiif.io/api/presentation/2/context.jsonld",
-        "@id" => "http://scta.info/iiif/#{slug}/list/#{folioid}",
+        "@id" => "http://scta.info/iiif/#{manifestationid}/list/#{folioid}",
         "@type" => "sc:AnnotationList",
         "within" => {
-          "@id" => "http://scta.info/iiif/pp-sorb/layer/transcription",
+          "@id" => "http://scta.info/iiif/#{manifestationid}/layer/transcription",
           "@type" => "sc:Layer",
           "label" => "Diplomatic Transcription"
         },

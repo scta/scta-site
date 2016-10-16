@@ -1,31 +1,24 @@
-def create_range3(manifestationid)
-  #slug = msname.split("-").last
-  #commentary_slug = msname.split("-").first
+def create_range(manifestationid)
+
   msname = manifestationid.split("/").last
-
-
-# TODO need to different range creating functions -- one for a manifest for a codex and one for a manifest for
-# an expression in that codex.
-# if a manifest for the codex is requested, ranges should be created for all expressions within the codex
-# as follows: change query to look for any expression with a manifestation that is in part of the specified codex
-# then create range for each expression
-# if manifest for an expression is given, then only a range for that expression should be made.
-# urls could look like the following: http://scta.info/iiif/codex/bnf135/manifest or http://scta.info/iiif/plaoulcommentary/bnf135/manifest
   query = "
-          SELECT ?commentary ?topdivision ?topdivision_title ?item ?order ?title ?witness ?canvas
-          {
-          ?commentary <http://scta.info/property/hasManifestation> <http://scta.info/resource/#{manifestationid}> .
-          ?commentary <http://purl.org/dc/terms/hasPart> ?topdivision .
-          ?topdivision <http://purl.org/dc/elements/1.1/title> ?topdivision_title .
-          ?topdivision <http://scta.info/property/hasStructureItem> ?item .
-          ?item <http://scta.info/property/hasManifestation> ?witness .
-          ?item <http://scta.info/property/totalOrderNumber> ?order .
-          ?item <http://purl.org/dc/elements/1.1/title> ?title .
-          ?witness <http://scta.info/property/hasSlug> '#{msname}' .
-          ?witness <http://scta.info/property/isOnCanvas> ?canvas
-          }
-          ORDER BY ?order
-          "
+  SELECT ?wrapper_title ?topdivision ?topdivision_title ?item ?item_expression ?order ?title ?witness ?canvas
+  {
+    <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isManifestationOf> ?wrapper_expression.
+    ?wrapper_expression <http://purl.org/dc/elements/1.1/title> ?wrapper_title .
+    <http://scta.info/resource/#{manifestationid}> <http://purl.org/dc/terms/hasPart> ?topdivision .
+    ?topdivision <http://scta.info/property/isManifestationOf> ?topdivision_expression .
+    ?topdivision_expression <http://purl.org/dc/elements/1.1/title> ?topdivision_title .
+    ?topdivision <http://scta.info/property/hasStructureItem> ?item .
+    ?item <http://scta.info/property/isManifestationOf> ?item_expression .
+    ?item_expression <http://scta.info/property/totalOrderNumber> ?order .
+    ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
+    ?item <http://scta.info/property/hasSurface> ?surface .
+    ?surface <http://scta.info/property/hasISurface> ?isurface .
+    ?isurface <http://scta.info/property/hasCanvas> ?canvas
+  }
+  ORDER BY ?order
+  "
 
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
@@ -75,13 +68,13 @@ def create_range3(manifestationid)
 
     topdivisions.each do |topdivisionid, topdivision_title|
 
-      topdivision_ranges << "http://scta.info/iiif/#{msname}/range/r1-#{r}"
+      topdivision_ranges << "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
 
       next_r = 1
       result_sets.each do |result, title, item_topdivisionid, topdivision_title|
         if item_topdivisionid == topdivisionid
-          item_ranges << {topdivision_rangeid: "http://scta.info/iiif/#{msname}/range/r1-#{r}",
-                          item_rangeid: "http://scta.info/iiif/#{msname}/range/r1-#{r}-#{next_r}",
+          item_ranges << {topdivision_rangeid: "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
+                          item_rangeid: "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}-#{next_r}",
                           set: result,
                           title: title.to_s,
                           topdivision_title: topdivision_title
@@ -94,13 +87,13 @@ def create_range3(manifestationid)
 
 
 
-    first_structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1",
+    first_structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/r1",
                       "@type" => "sc:Range",
-                      "label" => "Commentary",
+                      "label" => @results[0][:wrapper_title].to_s,
                       "viewingHint" => "top",
                       "ranges" => topdivision_ranges,
                       "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-                      "description": "A range for Sentences Commentary #{msname}",
+                      "description": "A range for Sentences Commentary #{manifestationid}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                     }
@@ -115,14 +108,14 @@ def create_range3(manifestationid)
 
         ranges2 = item_ranges.map do |object|
 
-          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{msname}/range/r1-#{r}"
+          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
              object[:item_rangeid]
           end
         end
 
         division_canvases =[]
         item_ranges.each do |object|
-          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{msname}/range/r1-#{r}"
+          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
             object[:set].each do |item_set|
               division_canvases << item_set[:canvas].to_s
             end
@@ -130,15 +123,15 @@ def create_range3(manifestationid)
         end
         division_canvases.uniq!
         ranges2.compact!
-        structure = {"@id" => "http://scta.info/iiif/#{msname}/range/r1-#{r}",
-                      "within" => "http://scta.info/iiif/#{msname}/range/r1",
+        structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
+                      "within" => "http://scta.info/iiif/#{manifestationid}/range/r1",
                       "@type" => "sc:Range",
                       "label" => title,
                       "ranges" => ranges2,
                       # mirador has bug if this canvases are also listed
                       #"canvases" => division_canvases,
                       "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-                      "description": "A range for Sentences Commentary #{msname}",
+                      "description": "A range for Sentences Commentary #{manifestationid}",
                       "logo": "http://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                     }

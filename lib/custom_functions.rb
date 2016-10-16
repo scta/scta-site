@@ -4,6 +4,7 @@ require 'json'
 
 require_relative 'ranges'
 
+=begin
 def create_range2(msname)
   slug = msname.split("-").last
   commentary_slug = msname.split("-").first
@@ -275,41 +276,38 @@ def create_range(msname)
   end
   return all_structures
 end
+=end
 
-def create_supplement (msname, type)
-  slug = msname.split("-").last
-  commentary_slug = msname.split("-").first
+#above can be deleted
+
+def create_supplement (manifestationid, type)
 
   query = "
           SELECT ?manifestOfficial
           {
-          ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
-          ?commentary <http://scta.info/property/hasManifestation> ?commentary_witness .
-          ?commentary_witness <http://scta.info/property/hasSlug> '#{slug}' .
-          ?commentary_witness <http://scta.info/property/manifestOfficial> ?manifestOfficial .
+          <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/manifestOfficial> ?manifestOfficial .
           }
           "
-  #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
   if results[0] != nil
     manifest = results[0][:manifestOfficial].to_s
   else
-    manifest = "http://scta.info/iiif/#{msname}/manifest"
+    manifest = "http://scta.info/iiif/#{manifestationid}/manifest"
   end
 
   if type == "rangelist"
-    all_ranges = create_range2(msname)
+    all_ranges = create_range(manifestationid)
     final_object =
         {
-          "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/rangelist",
+          "@id": "http://scta.info/iiif/#{manifestationid}/supplement/ranges/toc",
           "@type": "sc:supplement",
           "profile": "http://iiif.io/api/0.1/supplement/ranges",
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
 
           "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-          "description": "A range list for Sentences Commentary #{msname}",
+          "description": "A range list for Sentences Commentary #{manifestationid}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           # should structures be changed to "ranges"
@@ -318,32 +316,31 @@ def create_supplement (msname, type)
 
 
   elsif type == "searchwithin"
-    service = create_searchwithin(msname)
+    service = create_searchwithin(manifestationid)
     final_object = {
-          "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/searchwithin",
+          "@id": "http://scta.info/iiif/#{manifestationid}/supplement/search/searchwithin",
           "@type": "sc:supplement",
           "profile": "http://iiif.io/api/0.1/supplement/service",
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
-
           "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-          "description": "A search within service for Sentences Commentary #{msname}",
+          "description": "A search within service for Sentences Commentary #{manifestationid}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "service": service
         }
 
   elsif type == "layerTranscription"
-    transcription_layer = "http://scta.info/iiif/#{msname}/layer/transcription"
+    transcription_layer = "http://scta.info/iiif/#{manifestationid}/layer/transcription"
     final_object = {
-          "@id": "http://scta.info/iiif/#{commentary_slug}-#{slug}/supplement/layer/transcription",
+          "@id": "http://scta.info/iiif/#{manifestationid}/supplement/layer/transcription",
           "@type": "sc:supplement",
           "profile": "http://iiif.io/api/0.1/supplement/layer",
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
 
           "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-          "description": "Layers published by the Sentences Commentary #{msname}",
+          "description": "Layers published by the Sentences Commentary #{manifestationid}",
           "logo": "http://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "layer": transcription_layer
@@ -354,54 +351,50 @@ def create_supplement (msname, type)
 
 end
 
-def create_searchwithin (msname)
-  slug = msname.split("-").last
-  commentary_slug = msname.split("-").first
+def create_searchwithin (manifestationid)
+  #slug = msname.split("-").last
+  #commentary_slug = msname.split("-").first
   service = {
           "@context": "http://iiif.io/api/search/0/context.json",
-          "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{commentary_slug}-#{slug}/search",
+          "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{manifestationid}/search",
           "profile": "http://iiif.io/api/search/0/search",
           "label": "Search within this manifest"
           }
   return service
 end
 
-def create_transcriptionlayer (msname)
-  slug = msname.split("-").last
-  commentary_slug = msname.split("-").first
+def create_transcriptionlayer (manifestationid)
+
   lists = []
-
-#hasSurface was changed from hasFolioSide
   query = "
-          SELECT ?commentary ?item ?order ?title ?witness ?folio ?annolist ?canvasid
+          SELECT ?canvas ?surface_title ?order
           {
-          ?commentary <http://scta.info/property/slug> '#{commentary_slug}' .
-          ?commentary <http://scta.info/property/hasStructureItem> ?item .
-          ?item <http://scta.info/property/hasManifestation> ?witness .
-          ?item <http://scta.info/property/totalOrderNumber> ?order .
-          ?item <http://purl.org/dc/elements/1.1/title> ?title .
-          ?witness <http://scta.info/property/hasSlug> '#{slug}' .
-          ?witness <http://scta.info/property/hasSurface> ?folio .
-          ?folio <http://scta.info/property/isOnCanvas> ?canvasid .
-          ?folio <http://scta.info/property/hasAnnotationList> ?annolist .
-
-          }
+          <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
+          ?item <http://scta.info/property/isManifestationOf> ?item_expression .
+          ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
+          ?item <http://scta.info/property/hasSurface> ?surface .
+          ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
+          ?surface <http://scta.info/property/order> ?order .
+          ?surface <http://scta.info/property/hasISurface> ?isurface .
+          ?isurface <http://scta.info/property/hasCanvas> ?canvas .
+        }
           ORDER BY ?order
           "
 
         #@results = rdf_query(query)
         query_obj = Lbp::Query.new()
         results = query_obj.query(query)
-
-  lists = results.map {|result| {"@id": result[:annolist].to_s, "sc:forCanvas": result[:canvasid].to_s} }
-  lists.uniq!
+        #consturcting annotation list id like this is precarious
+        annotationlistid =
+        lists = results.map {|result| {"@id": "http://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}", "sc:forCanvas": result[:canvas].to_s} }
+        lists.uniq!
 
   layer = {"@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/layer/transcription",
+    "@id": "http://scta.info/iiif/#{manifestationid}/layer/transcription",
     "@type": "sc:Layer",
     "label": "Diplomatic Transcription",
     "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-    "description": "Transcription layer published by the Sentences Commentary #{msname}",
+    "description": "Transcription layer published by the Sentences Commentary #{manifestationid}",
     "logo": "http://scta.info/logo.png",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "otherContent": lists

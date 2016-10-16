@@ -7,6 +7,7 @@ def create_manifest(shortid)
     <http://scta.info/resource/#{shortid}> <http://scta.info/property/hasSurface> ?surface .
     ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
+    ?surface <http://scta.info/property/order> ?order .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas .
     ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
     ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
@@ -20,6 +21,7 @@ def create_manifest(shortid)
     ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
     ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
   }
+  ORDER BY ?order
   "
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
@@ -55,6 +57,12 @@ def create_manifest(shortid)
           }
         }
       ],
+      "otherContent": [
+        {
+          "@id": "http://localhost:8080/exist/apps/scta-app/folio-annotation-list2.xq?surface_id=#{result[:surface].to_s}",
+          "@type": "sc:AnnotationList"
+        }
+      ]
     }
 
 
@@ -100,6 +108,7 @@ def create_expression_manifest(manifestationid)
     ?item <http://scta.info/property/hasSurface> ?surface .
     ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
+    ?surface <http://scta.info/property/order> ?order .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas .
     ?canvas <http://www.w3.org/2000/01/rdf-schema#label> ?canvas_label .
     ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
@@ -112,33 +121,18 @@ def create_expression_manifest(manifestationid)
     ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
     ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
     ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
-    ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
+    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+    OPTIONAL{
+      ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
+    }
+    OPTIONAL{
+      ?image_service <http://purl.org/dc/terms/conformsTo> ?image_service_profile .
+    }
   }
+  ORDER BY ?order
   "
 
-  temp_query = "
-  SELECT ?surface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
-  {
-    <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
 
-    ?item <http://scta.info/property/isOnCanvas> ?canvas .
-    ?canvas <http://www.w3.org/2000/01/rdf-schema#label> ?canvas_label .
-    ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
-    ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
-    ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
-    ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
-    ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
-    ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
-    ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
-    ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
-    ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
-    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
-    OPTIONAL {
-    ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
-    }
-
-
-  }"
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
@@ -147,6 +141,11 @@ def create_expression_manifest(manifestationid)
   results.uniq!
   results.each do |result|
     image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
+    #temporary solution to deal with older context for gallica images
+    # not a long term solution
+    context = if result[:canvas].to_s.include? "gallica.bnf.fr" then "http://iiif.io/api/image/1/context.json" else "http://iiif.io/api/image/2/context.json" end
+    ### end temporary measure.
+
     canvas = {
       "@id": "#{result[:canvas]}",
       "@type": "sc:Canvas",
@@ -165,15 +164,20 @@ def create_expression_manifest(manifestationid)
             "height": result[:image_height],
             "width": result[:image_width],
             "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
+              "@context": context,
               "@id": result[:image_service],
               "profile": image_profile
             }
           }
         }
       ],
+      "otherContent": [
+        {
+          "@id": "http://localhost:8080/exist/apps/scta-app/folio-annotation-list2.xq?surface_id=#{result[:surface].to_s}",
+          "@type": "sc:AnnotationList"
+        }
+      ]
     }
-
 
     canvases << canvas
 
@@ -204,7 +208,7 @@ def create_expression_manifest(manifestationid)
         "canvases": canvases
       }
     ],
-    "structures": create_range3(manifestationid)
+    "structures": create_range(manifestationid)
   }
 
   JSON.pretty_generate(manifest)
