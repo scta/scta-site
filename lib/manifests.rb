@@ -59,7 +59,7 @@ def create_manifest(shortid)
       ],
       "otherContent": [
         {
-          "@id": "http://localhost:8080/exist/apps/scta-app/folio-annotation-list2.xq?surface_id=#{result[:surface].to_s}",
+          "@id": "http://scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
           "@type": "sc:AnnotationList"
         }
       ]

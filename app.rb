@@ -439,18 +439,6 @@ get '/iiif/:expressionpart/:manifestationpart/list/transcription/:folioid' do |e
     JSON.pretty_generate(annotationlistcontent)
 end
 
-
-get '/textsearch/:string' do |string|
-
-@searchstring = string
-response = HTTParty.get("http://localhost:8983/solr/collection1/select?q=#{string}&rows=100&wt=json&indent=true")
-json = JSON.parse(response.body)
-response_hash = json.to_hash
-@docs_array = response_hash["response"]["docs"]
-
-erb :textsearch
-end
-
 get '/list/:type' do |type|
 
   @subjectid = "<http://scta.info/list/#{type}>"
