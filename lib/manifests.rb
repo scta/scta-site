@@ -79,7 +79,7 @@ def create_manifest(shortid)
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "service": {
       "@context": "http://iiif.io/api/search/1/context.json",
-      "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{shortid}/search",
+      "@id": "http://exist.scta.info/exist/apps/scta-app/iiif/#{shortid}/search",
       "profile": "http://iiif.io/api/search/1/search",
       "label": "Search within this manifest"
     },
@@ -173,7 +173,7 @@ def create_expression_manifest(manifestationid)
       ],
       "otherContent": [
         {
-          "@id": "http://localhost:8080/exist/apps/scta-app/folio-annotation-list2.xq?surface_id=#{result[:surface].to_s}",
+          "@id": "http://localhost:8080/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
           "@type": "sc:AnnotationList"
         }
       ]
@@ -193,7 +193,7 @@ def create_expression_manifest(manifestationid)
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "service": {
       "@context": "http://iiif.io/api/search/1/context.json",
-      "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{manifestationid}/search",
+      "@id": "http://exist.scta.info/exist/apps/scta-app/iiif/#{manifestationid}/search",
       "profile": "http://iiif.io/api/search/1/search",
       "label": "Search within this manifest"
     },
