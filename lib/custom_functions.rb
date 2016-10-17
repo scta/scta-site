@@ -356,7 +356,7 @@ def create_searchwithin (manifestationid)
   #commentary_slug = msname.split("-").first
   service = {
           "@context": "http://iiif.io/api/search/0/context.json",
-          "@id": "http://exist.scta.info/exist/apps/scta/iiif/#{manifestationid}/search",
+          "@id": "http://exist.scta.info/exist/apps/scta-app/iiif/#{manifestationid}/search",
           "profile": "http://iiif.io/api/search/0/search",
           "label": "Search within this manifest"
           }
