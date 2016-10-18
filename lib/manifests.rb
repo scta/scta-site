@@ -173,7 +173,8 @@ def create_expression_manifest(manifestationid)
       ],
       "otherContent": [
         {
-          "@id": "http://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
+          #"@id": "http://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
+          "@id": "http://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}",
           "@type": "sc:AnnotationList"
         }
       ]
