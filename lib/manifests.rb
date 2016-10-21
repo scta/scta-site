@@ -72,7 +72,7 @@ def create_manifest(shortid)
 
   manifest = {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/#{shortid}/manifest",
+    "@id": "http://scta.info/iiif/codex/#{shortid}/manifest",
     "@type": "sc:Manifest",
     "label": "#{shortid}",
     "description": "Manifest Description",
@@ -86,7 +86,7 @@ def create_manifest(shortid)
     "sequences": [
       {
         "@context": "http://iiif.io/api/presentation/2/context.json",
-        "@id": "http://scta.info/iiif/#{shortid}/sequence/normal",
+        "@id": "http://scta.info/iiif/codex/#{shortid}/sequence/normal",
         "@type": "sc:Sequence",
         "label": "Current page order",
         "viewingDirection": "left-to-right",
