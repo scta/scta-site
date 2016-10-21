@@ -19,7 +19,12 @@ def create_manifest(shortid)
     ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
     ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
     ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
-    ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
+    OPTIONAL{
+      ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
+    }
+    OPTIONAL{
+      ?image_service <http://purl.org/dc/terms/conformsTo> ?image_service_profile .
+    }
   }
   ORDER BY ?order
   "
@@ -31,6 +36,11 @@ def create_manifest(shortid)
   number = 1
   results.each do |result|
 
+    image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
+    #temporary solution to deal with older context for gallica images
+    # not a long term solution
+    context = if result[:canvas].to_s.include? "gallica.bnf.fr" then "http://iiif.io/api/image/1/context.json" else "http://iiif.io/api/image/2/context.json" end
+    ### end temporary measure.
 
     canvas = {
       "@id": result[:canvas],
@@ -50,9 +60,9 @@ def create_manifest(shortid)
             "height": result[:image_height],
             "width": result[:image_height],
             "service": {
-              "@context": "http://iiif.io/api/image/2/context.json",
+              "@context": context,
               "@id": result[:image_service],
-              "profile": result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
+              "profile": image_profile
             }
           }
         }
