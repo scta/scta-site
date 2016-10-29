@@ -226,12 +226,18 @@ get '/iiif/codex/:codex/manifest' do |codex|
 
   create_manifest(codex)
 end
+get '/iiif/custom/:shortid/manifest' do |shortid|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  create_custom_manifest(shortid)
+end
 get '/iiif/:expressionid/:codex/manifest' do |expressionid, codex|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
   manifestation_shortid = "#{expressionid}/#{codex}"
   create_expression_manifest(manifestation_shortid)
 end
+
 # depreciated by above two routes; could be kept as a back up static or cache route
 get '/iiif/:msname/manifest' do |msname|
   headers( "Access-Control-Allow-Origin" => "*")
