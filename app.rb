@@ -20,9 +20,9 @@ require 'json'
 require 'lbp'
 
 
-if ENV['development']
+#if ENV['development']
   require 'pry'
-end
+#end
 
 
 require_relative 'lib/queries'
@@ -291,6 +291,15 @@ if @results.count > 0
   else
 =end
 end
+
+#range test
+get '/iiif/testrange/:expressionpart/:manifestationpart' do |expressionpart, manifestationpart|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_range2(manifestationid)
+end
+
 
 ### SUPPLEMENT ROUTES ###
 

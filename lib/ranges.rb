@@ -167,3 +167,139 @@ def create_range(manifestationid)
   end
   return all_structures
 end
+def create_range2(manifestationid)
+  query = "
+  SELECT ?expression ?expression_title ?level ?part ?part_title ?part_order ?part_level ?canvas ?part_child ?part_parent ?part_order
+  {
+    <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isManifestationOf> ?expression .
+    ?expression <http://purl.org/dc/elements/1.1/title> ?expression_title .
+  	?expression <http://scta.info/property/level> ?level .
+  	?part <http://scta.info/property/isPartOfTopLevelExpression> ?expression .
+    ?part <http://scta.info/property/totalOrderNumber> ?part_order .
+    ?part <http://scta.info/property/structureType> ?structureType .
+    ?part <http://purl.org/dc/elements/1.1/title> ?part_title .
+    FILTER (?structureType = <http://scta.info/resource/structureCollection> || ?structureType =  <http://scta.info/resource/structureItem>)
+      ?part <http://scta.info/property/level> ?part_level .
+    OPTIONAL{
+	     ?part <http://purl.org/dc/terms/isPartOf> ?part_parent .
+	    }
+    OPTIONAL{
+      ?part <http://purl.org/dc/terms/hasPart> ?part_child .
+    }
+    OPTIONAL{
+      ?part <http://scta.info/property/hasManifestation> ?part_manifestation .
+      ?part_manifestation <http://scta.info/property/isPartOfTopLevelManifestation> <http://scta.info/resource/#{manifestationid}> .
+      ?part_manifestation <http://scta.info/property/hasSurface> ?surface .
+      ?surface <http://scta.info/property/hasISurface> ?isurface .
+      ?isurface <http://scta.info/property/hasCanvas> ?canvas
+    }
+  }
+ ORDER BY ?part_order"
+
+  #@results = rdf_query(query)
+  query_obj = Lbp::Query.new()
+  @results = query_obj.query(query)
+
+  levels = @results.map do |result|
+    result[:part_level].to_s
+  end
+  levels.uniq!
+  structures = []
+
+  parts = @results.map do |result|
+    result[:part].to_s
+
+  end
+  parts.uniq!
+
+  groups = []
+  parts.each do |part|
+    part_children = []
+    canvases = []
+    part_parent = ""
+    part_level = ""
+    part_title = ""
+    @results.each do |result|
+      if result[:part].to_s == part
+        part_children << result[:part_child].to_s
+        canvases << result[:canvas].to_s
+        part_parent = result[:part_parent].to_s
+        part_level = result[:part_level].to_s
+        part_title = result[:part_title].to_s
+      end
+
+
+    end
+    group = {partid: part,
+            children: part_children,
+            canvases: canvases.uniq,
+            parent: part_parent,
+            level: part_level,
+            part_title: part_title}
+  groups << group
+
+
+  end
+  structures = []
+
+  groups.each do |group|
+    
+      if group[:children][0] != ""
+        rangeid = group[:partid].split('/').last
+        parent_rangeid = group[:parent].split('/').last
+        children_ranges = group[:children].map do |child|
+          child_short_id = child.to_s.split('/').last
+          "http://scta.info/iiif/#{manifestationid}/range/#{child_short_id}"
+        end
+        structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
+                    "within" => "http://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
+                    "@type" => "sc:Range",
+                    "label" => group[:part_title],
+                    "ranges" => children_ranges,
+                    "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                    "description": "A range for Sentences Commentary #{manifestationid}",
+                    "logo": "http://scta.info/logo.png",
+                    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                  }
+                  structures << structure
+      else
+        rangeid = group[:partid].split('/').last
+        parent_rangeid = group[:parent].split('/').last
+        structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
+                    "within" => "http://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
+                    "@type" => "sc:Range",
+                    "label" => group[:part_title],
+                    "canvases" => group[:canvases],
+                    "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                    "description": "A range for Sentences Commentary #{manifestationid}",
+                    "logo": "http://scta.info/logo.png",
+                    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                  }
+                  structures << structure
+
+      end
+
+
+
+  end
+topdivision_ranges = []
+   groups.map do |group|
+    if group[:level] == "2"
+      topdivision_ranges << "http://scta.info/iiif/#{manifestationid}/range/#{group[:partid].to_s.split('/').last}"
+    end
+  end
+  top_structure =
+   {"@id" => "http://scta.info/iiif/#{manifestationid}/range/#{@results[0][:expression].to_s.split('/').last}",
+                    "@type" => "sc:Range",
+                    "label" => @results[0][:expression_title],
+                    "viewingHint" => "top",
+                    "ranges" => topdivision_ranges,
+                    "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                    "description": "A range for Sentences Commentary #{manifestationid}",
+                    "logo": "http://scta.info/logo.png",
+                    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                  }
+  structures << top_structure
+  #JSON.pretty_generate(structures)
+
+end
