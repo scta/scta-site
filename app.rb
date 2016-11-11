@@ -20,9 +20,9 @@ require 'json'
 require 'lbp'
 
 
-#if ENV['development']
+if ENV['development']
   require 'pry'
-#end
+end
 
 
 require_relative 'lib/queries'
