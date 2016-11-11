@@ -237,7 +237,7 @@ def create_expression_manifest(manifestationid)
         "canvases": canvases
       }
     ],
-    "structures": create_range2(manifestationid)
+    "structures": create_range(manifestationid)
   }
 
   JSON.pretty_generate(manifest)
