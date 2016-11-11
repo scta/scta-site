@@ -169,7 +169,7 @@ def create_range(manifestationid)
 end
 def create_range2(manifestationid)
   query = "
-  SELECT ?expression ?expression_title ?level ?part ?part_title ?part_order ?part_level ?canvas ?part_child ?part_parent ?part_order
+  SELECT ?expression ?expression_title ?level ?part ?part_title ?part_order ?part_level ?canvas ?part_child ?part_child_order ?part_parent ?part_order
   {
     <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isManifestationOf> ?expression .
     ?expression <http://purl.org/dc/elements/1.1/title> ?expression_title .
@@ -185,6 +185,7 @@ def create_range2(manifestationid)
 	    }
     OPTIONAL{
       ?part <http://purl.org/dc/terms/hasPart> ?part_child .
+      ?part_child <http://scta.info/property/totalOrderNumber> ?part_child_order .
     }
     OPTIONAL{
       ?part <http://scta.info/property/hasManifestation> ?part_manifestation .
@@ -194,7 +195,7 @@ def create_range2(manifestationid)
       ?isurface <http://scta.info/property/hasCanvas> ?canvas
     }
   }
- ORDER BY ?part_order"
+ ORDER BY ?part_order ?part_child_order"
 
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
@@ -219,38 +220,44 @@ def create_range2(manifestationid)
     part_parent = ""
     part_level = ""
     part_title = ""
+    part_order = ""
     @results.each do |result|
       if result[:part].to_s == part
-        part_children << result[:part_child].to_s
+        part_children << {part_child: result[:part_child].to_s, part_child_order: result[:part_child_order]}
         canvases << result[:canvas].to_s
         part_parent = result[:part_parent].to_s
         part_level = result[:part_level].to_s
         part_title = result[:part_title].to_s
+        part_order = result[:part_order].to_s
       end
-
-
     end
+
     group = {partid: part,
             children: part_children,
             canvases: canvases.uniq,
             parent: part_parent,
             level: part_level,
-            part_title: part_title}
+            part_title: part_title,
+            part_order: part_order
+          }
   groups << group
 
-
   end
+
   structures = []
 
   groups.each do |group|
-    
-      if group[:children][0] != ""
+
+      if group[:children][0][:part_child] != ""
         rangeid = group[:partid].split('/').last
         parent_rangeid = group[:parent].split('/').last
+        group[:children].sort! { |a,b| a[:part_child_order] <=> b[:part_child_order]}
         children_ranges = group[:children].map do |child|
-          child_short_id = child.to_s.split('/').last
+          child_short_id = child[:part_child].to_s.split('/').last
           "http://scta.info/iiif/#{manifestationid}/range/#{child_short_id}"
         end
+
+
         structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
                     "within" => "http://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
                     "@type" => "sc:Range",
