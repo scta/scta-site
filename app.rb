@@ -137,6 +137,11 @@ get '/' do
   erb :index
 end
 
+
+get '/images/:filename' do |filename|
+  headers( "Access-Control-Allow-Origin" => "*")
+  send_file "public/#{filename}"
+end
 get '/logo.png' do
   send_file "public/sctalogo.png"
 end
