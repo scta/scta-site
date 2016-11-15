@@ -25,14 +25,24 @@ def create_manifest(shortid)
     ?isurface <http://scta.info/property/hasCanvas> ?canvas .
     ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
     ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
+    OPTIONAL{
     ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
+    }
+    OPTIONAL{
+    ?canvas <http://www.shared-canvas.org/ns/hasImageAnnotations> ?bn .
+    }
     ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
     ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
     ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
     ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
     ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
     ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
-    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+    OPTIONAL{
+      ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+    }
+    OPTIONAL{
+      ?resource <http://www.shared-canvas.org/ns/hasRelatedService> ?image_service .
+    }
     OPTIONAL{
       ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
     }
@@ -57,7 +67,13 @@ def create_manifest(shortid)
     image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
     #temporary solution to deal with older context for gallica images
     # not a long term solution
-    context = if result[:canvas].to_s.include? "gallica.bnf.fr" then "http://iiif.io/api/image/1/context.json" else "http://iiif.io/api/image/2/context.json" end
+    context = if result[:canvas].to_s.include? "gallica.bnf.fr"
+          "http://iiif.io/api/image/1/context.json"
+        elsif result[:canvas].to_s.include? "iiif.lib.harvard.edu"
+          "http://iiif.io/api/image/1/context.json"
+        else
+          "http://iiif.io/api/image/2/context.json"
+      end
     ### end temporary measure.
 
     canvas = {
@@ -129,36 +145,74 @@ def create_manifest(shortid)
 
 end
 def create_expression_manifest(manifestationid)
-  query = "
-  SELECT ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
-  {
-    <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
-    ?item <http://scta.info/property/hasSurface> ?surface .
-    ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
-    ?surface <http://scta.info/property/hasISurface> ?isurface .
-    ?surface <http://scta.info/property/order> ?order .
-    ?isurface <http://scta.info/property/hasCanvas> ?canvas .
-    ?canvas <http://www.w3.org/2000/01/rdf-schema#label> ?canvas_label .
-    ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
-    ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
-    ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
-    ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
-    ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
-    ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
-    ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
-    ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
-    ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
-    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
-    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
-    OPTIONAL{
-      ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
-    }
-    OPTIONAL{
-      ?image_service <http://purl.org/dc/terms/conformsTo> ?image_service_profile .
-    }
-  }
-  ORDER BY ?order
-  "
+  # query = "
+  # SELECT ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
+  # {
+  #   <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
+  #   ?item <http://scta.info/property/hasSurface> ?surface .
+  #   ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
+  #   ?surface <http://scta.info/property/hasISurface> ?isurface .
+  #   ?surface <http://scta.info/property/order> ?order .
+  #   ?isurface <http://scta.info/property/hasCanvas> ?canvas .
+  #   ?canvas <http://www.w3.org/2000/01/rdf-schema#label> ?canvas_label .
+  #   ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
+  #   ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
+  #   ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
+  #   ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
+  #   ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
+  #   ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
+  #   ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
+  #   ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
+  #   ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
+  #   ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+  #   OPTIONAL{
+  #     ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
+  #   }
+  #   OPTIONAL{
+  #     ?image_service <http://purl.org/dc/terms/conformsTo> ?image_service_profile .
+  #   }
+  # }
+  # ORDER BY ?order
+  # "
+
+query =
+"SELECT ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
+ {
+   <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
+   ?item <http://scta.info/property/hasSurface> ?surface .
+   ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
+   ?surface <http://scta.info/property/hasISurface> ?isurface .
+   ?surface <http://scta.info/property/order> ?order .
+   ?isurface <http://scta.info/property/hasCanvas> ?canvas .
+   ?canvas <http://www.w3.org/2000/01/rdf-schema#label> ?canvas_label .
+   ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
+   ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
+   OPTIONAL{
+   ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
+   }
+   OPTIONAL{
+   ?canvas <http://www.shared-canvas.org/ns/hasImageAnnotations> ?bn .
+   }
+   ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
+   ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
+   ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
+   ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
+   ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
+   ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
+   OPTIONAL{
+     ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+   }
+   OPTIONAL{
+     ?resource <http://www.shared-canvas.org/ns/hasRelatedService> ?image_service .
+   }
+   OPTIONAL{
+     ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
+   }
+   OPTIONAL{
+     ?image_service <http://purl.org/dc/terms/conformsTo> ?image_service_profile .
+   }
+ }
+ ORDER BY ?order"
 
 
   #@results = rdf_query(query)
@@ -171,7 +225,13 @@ def create_expression_manifest(manifestationid)
     image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
     #temporary solution to deal with older context for gallica images
     # not a long term solution
-    context = if result[:canvas].to_s.include? "gallica.bnf.fr" then "http://iiif.io/api/image/1/context.json" else "http://iiif.io/api/image/2/context.json" end
+    context = if result[:canvas].to_s.include? "gallica.bnf.fr"
+          "http://iiif.io/api/image/1/context.json"
+        elsif result[:canvas].to_s.include? "iiif.lib.harvard.edu"
+          "http://iiif.io/api/image/1/context.json"
+        else
+          "http://iiif.io/api/image/2/context.json"
+      end
     ### end temporary measure.
 
     canvas = {
@@ -261,15 +321,24 @@ def create_custom_manifest(shortid)
     ?canvas <http://www.w3.org/2000/01/rdf-schema#label> ?canvas_label .
     ?canvas <http://www.w3.org/2003/12/exif/ns#width> ?canvas_width .
     ?canvas <http://www.w3.org/2003/12/exif/ns#height> ?canvas_height .
+    OPTIONAL{
     ?canvas <http://iiif.io/api/presentation/2#hasImageAnnotations> ?bn .
+    }
+    OPTIONAL{
+    ?canvas <http://www.shared-canvas.org/ns/hasImageAnnotations> ?bn .
+    }
     ?bn <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> ?anno .
     ?anno <http://www.w3.org/ns/oa#hasBody> ?resource .
     ?resource <http://www.w3.org/2003/12/exif/ns#height> ?image_height .
     ?resource <http://www.w3.org/2003/12/exif/ns#width> ?image_width .
     ?resource <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?image_type .
     ?resource <http://purl.org/dc/elements/1.1/format> ?image_format .
-    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
-    ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+    OPTIONAL{
+      ?resource <http://rdfs.org/sioc/services#has_service> ?image_service .
+    }
+    OPTIONAL{
+      ?resource <http://www.shared-canvas.org/ns/hasRelatedService> ?image_service .
+    }
     OPTIONAL{
       ?image_service <http://usefulinc.com/ns/doap#implements> ?image_service_profile .
     }
@@ -291,7 +360,13 @@ def create_custom_manifest(shortid)
     image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
     #temporary solution to deal with older context for gallica images
     # not a long term solution
-    context = if result[:canvas].to_s.include? "gallica.bnf.fr" then "http://iiif.io/api/image/1/context.json" else "http://iiif.io/api/image/2/context.json" end
+    context = if result[:canvas].to_s.include? "gallica.bnf.fr"
+          "http://iiif.io/api/image/1/context.json"
+        elsif result[:canvas].to_s.include? "iiif.lib.harvard.edu"
+          "http://iiif.io/api/image/1/context.json"
+        else
+          "http://iiif.io/api/image/2/context.json"
+      end
     ### end temporary measure.
 
     canvas = {
