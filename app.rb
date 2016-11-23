@@ -33,7 +33,7 @@ require_relative 'lib/collections'
 require_relative 'lib/notifications'
 
 configure do
-  set :protection, except: [:frame_options]
+  set :protection, except: [:frame_options, :json_csrf]
   set :root, File.dirname(__FILE__)
 
   # this added in attempt to "forbidden" response when clicking on links
