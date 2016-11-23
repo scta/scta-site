@@ -1,3 +1,5 @@
+
+
 def create_notification (manifestationid, type)
 
   query = "
@@ -21,7 +23,8 @@ def create_notification (manifestationid, type)
           "@id": "http://scta.info/iiif/#{manifestationid}/notification/ranges/toc",
           "@type": "Announce",
           "target": [manifest],
-          "updated": "",
+          "source": "http://scta.info",
+          "updated": Time.now.getutc,
           "object": {
               "@id": "http://scta.info/iiif/rothwellcommentary/wettf15/ranges/toc/wrapper",
               "@type": "sc:Range",
@@ -42,7 +45,8 @@ def create_notification (manifestationid, type)
       "@id": "http://scta.info/iiif/#{manifestationid}/notification/service/searchwithin",
       "@type": "Announce",
       "target": [manifest],
-      "updated": "",
+      "source": "http://scta.info",
+      "updated": Time.now.getutc,
       "object": service
     }
 
@@ -52,7 +56,8 @@ def create_notification (manifestationid, type)
       "@id": "http://scta.info/iiif/#{manifestationid}/notification/layer/transcription",
       "@type": "Announce",
       "target": [manifest],
-      "updated": "",
+      "source": "http://scta.info",
+      "updated": Time.now.getutc,
       "object": transcription_layer
     }
   end
