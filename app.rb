@@ -30,6 +30,7 @@ require_relative 'lib/custom_functions'
 require_relative 'lib/ranges'
 require_relative 'lib/manifests'
 require_relative 'lib/collections'
+require_relative 'lib/notifications'
 
 configure do
   set :protection, except: [:frame_options]
@@ -315,15 +316,32 @@ get '/iiif/:expressionpart/:manifestationpart/supplement/ranges/toc' do |express
   type = "rangelist"
   create_supplement(manifestationid, type)
 end
-
-get '/iiif/:expressionpart/:manifestationpart/service/searchwithin' do |expressionpart, manifestationpart|
+get '/iiif/:expressionpart/:manifestationpart/notification/ranges/toc' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  type = "searchwithin"
   manifestationid = "#{expressionpart}/#{manifestationpart}"
-  create_supplement(manifestationid, type)
+  type = "rangelist"
+  create_notification(manifestationid, type)
 end
-## this route should replace the above
+get '/iiif/:expressionpart/:manifestationpart/ranges/toc/wrapper' do |expressionpart, manifestationpart|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  all_ranges = create_range(manifestationid)
+  wrapper_range = {
+      "@id": "http://scta.info/iiif/#{manifestationid}/ranges/toc/wrapper",
+      "@type": "sc:Range",
+      "label": "#{manifestationid}",
+      "viewingHint": "wrapper",
+      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+      "description": "A range list for Sentences Commentary #{manifestationid}",
+      "logo": "http://scta.info/logo.png",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "ranges": all_ranges
+    }
+  JSON.pretty_generate(wrapper_range)
+end
+
 get '/iiif/:expressionpart/:manifestationpart/supplement/service/searchwithin' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
@@ -331,6 +349,14 @@ get '/iiif/:expressionpart/:manifestationpart/supplement/service/searchwithin' d
   manifestationid = "#{expressionpart}/#{manifestationpart}"
   create_supplement(manifestationid, type)
 end
+get '/iiif/:expressionpart/:manifestationpart/notification/service/searchwithin' do |expressionpart, manifestationpart|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "searchwithin"
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_notification(manifestationid, type)
+end
+
 
 get '/iiif/:expressionpart/:manifestationpart/supplement/layer/transcription' do |expressionpart, manifestationpart|
 headers( "Access-Control-Allow-Origin" => "*")
@@ -338,6 +364,13 @@ headers( "Access-Control-Allow-Origin" => "*")
   type = "layerTranscription"
   manifestationid = "#{expressionpart}/#{manifestationpart}"
   create_supplement(manifestationid, type)
+end
+get '/iiif/:expressionpart/:manifestationpart/notification/layer/transcription' do |expressionpart, manifestationpart|
+headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  type = "layerTranscription"
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  create_notification(manifestationid, type)
 end
 
 #hard coding this for testing
