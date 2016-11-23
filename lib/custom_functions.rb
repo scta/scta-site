@@ -357,7 +357,7 @@ def create_searchwithin (manifestationid)
   service = {
           "@context": "http://iiif.io/api/search/0/context.json",
           "@id": "http://exist.scta.info/exist/apps/scta-app/iiif/#{manifestationid}/search",
-          "@type": "Service"
+          "@type": "Service",
           "profile": "http://iiif.io/api/search/0/search",
           "label": "Search within this manifest"
           }
