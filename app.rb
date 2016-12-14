@@ -31,6 +31,8 @@ require_relative 'lib/ranges'
 require_relative 'lib/manifests'
 require_relative 'lib/collections'
 require_relative 'lib/notifications'
+require_relative 'lib/dts'
+
 
 configure do
   set :protection, except: [:frame_options, :json_csrf]
@@ -199,6 +201,17 @@ post '/sparqlquery' do
 
   query = "#{params[:query]}"
   query_display_simple(query)
+end
+
+## DTS ROUTES ###
+
+get '/dts' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+
+  url = params[:resourceid]
+  resource = Lbp::Resource.find(url)
+  dts_output(resource)
 end
 
 get '/iiif/collection/scta' do
