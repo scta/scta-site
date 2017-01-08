@@ -61,56 +61,60 @@ def create_manifest(shortid)
   else
 
   canvases = []
+  previous_canvas = ""
   number = 1
   results.each do |result|
+    #this conditional is meant to deal with face-pages canvas, in other words cases where two surfaces have the save canvas
+    unless result[:canvas].to_s == previous_canvas
+      image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
+      #temporary solution to deal with older context for gallica images
+      # not a long term solution
+      context = if result[:canvas].to_s.include? "gallica.bnf.fr"
+            "http://iiif.io/api/image/1/context.json"
+          elsif result[:canvas].to_s.include? "iiif.lib.harvard.edu"
+            "http://iiif.io/api/image/1/context.json"
+          else
+            "http://iiif.io/api/image/2/context.json"
+        end
+      ### end temporary measure.
 
-    image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
-    #temporary solution to deal with older context for gallica images
-    # not a long term solution
-    context = if result[:canvas].to_s.include? "gallica.bnf.fr"
-          "http://iiif.io/api/image/1/context.json"
-        elsif result[:canvas].to_s.include? "iiif.lib.harvard.edu"
-          "http://iiif.io/api/image/1/context.json"
-        else
-          "http://iiif.io/api/image/2/context.json"
-      end
-    ### end temporary measure.
-
-    canvas = {
-      "@id": result[:canvas],
-      "@type": "sc:Canvas",
-      "label": result[:surface_title],
-      "height": result[:canvas_height],
-      "width": result[:canvas_width],
-      "images": [
-        {"@id": result[:anno],
-          "@type": "oa:Annotation",
-          "motivation": "sc:painting",
-          "on": result[:canvas],
-          "resource": {
-            "@id": result[:resource],
-            "@type": result[:image_type],
-            "format": result[:image_format],
-            "height": result[:image_height],
-            "width": result[:image_height],
-            "service": {
-              "@context": context,
-              "@id": result[:image_service],
-              "profile": image_profile
+      canvas = {
+        "@id": result[:canvas],
+        "@type": "sc:Canvas",
+        "label": result[:surface_title],
+        "height": result[:canvas_height],
+        "width": result[:canvas_width],
+        "images": [
+          {"@id": result[:anno],
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "on": result[:canvas],
+            "resource": {
+              "@id": result[:resource],
+              "@type": result[:image_type],
+              "format": result[:image_format],
+              "height": result[:image_height],
+              "width": result[:image_height],
+              "service": {
+                "@context": context,
+                "@id": result[:image_service],
+                "profile": image_profile
+              }
             }
           }
-        }
-      ],
-      "otherContent": [
-        {
-          "@id": "http://scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
-          "@type": "sc:AnnotationList"
-        }
-      ]
-    }
+        ],
+        "otherContent": [
+          {
+            "@id": "http://scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
+            "@type": "sc:AnnotationList"
+          }
+        ]
+      }
 
 
-    canvases << canvas
+      canvases << canvas
+    end
+    previous_canvas = result[:canvas]
     number = number + 1
   end
 
@@ -220,55 +224,61 @@ query =
   results = query_obj.query(query)
 
   canvases = []
-  results.uniq!
-  results.each do |result|
-    image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
-    #temporary solution to deal with older context for gallica images
-    # not a long term solution
-    context = if result[:canvas].to_s.include? "gallica.bnf.fr"
-          "http://iiif.io/api/image/1/context.json"
-        elsif result[:canvas].to_s.include? "iiif.lib.harvard.edu"
-          "http://iiif.io/api/image/1/context.json"
-        else
-          "http://iiif.io/api/image/2/context.json"
-      end
-    ### end temporary measure.
 
-    canvas = {
-      "@id": "#{result[:canvas]}",
-      "@type": "sc:Canvas",
-      "label": result[:canvas_label],
-      "height": result[:canvas_height],
-      "width": result[:canvas_width],
-      "images": [
-        {"@id": result[:anno],
-          "@type": "oa:Annotation",
-          "motivation": "sc:painting",
-          "on": "#{result[:canvas]}",
-          "resource": {
-            "@id": result[:resource],
-            "@type": result[:image_type],
-            "format": result[:image_format],
-            "height": result[:image_height],
-            "width": result[:image_width],
-            "service": {
-              "@context": context,
-              "@id": result[:image_service],
-              "profile": image_profile
+  results.uniq!
+  previous_canvas = ""
+  results.each do |result|
+    #this conditional is meant to deal with face-pages canvas, in other words cases where two surfaces have the save canvas
+    unless result[:canvas].to_s == previous_canvas
+      image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
+      #temporary solution to deal with older context for gallica images
+      # not a long term solution
+      context = if result[:canvas].to_s.include? "gallica.bnf.fr"
+            "http://iiif.io/api/image/1/context.json"
+          elsif result[:canvas].to_s.include? "iiif.lib.harvard.edu"
+            "http://iiif.io/api/image/1/context.json"
+          else
+            "http://iiif.io/api/image/2/context.json"
+        end
+      ### end temporary measure.
+
+      canvas = {
+        "@id": "#{result[:canvas]}",
+        "@type": "sc:Canvas",
+        "label": result[:surface_title],
+        "height": result[:canvas_height],
+        "width": result[:canvas_width],
+        "images": [
+          {"@id": result[:anno],
+            "@type": "oa:Annotation",
+            "motivation": "sc:painting",
+            "on": "#{result[:canvas]}",
+            "resource": {
+              "@id": result[:resource],
+              "@type": result[:image_type],
+              "format": result[:image_format],
+              "height": result[:image_height],
+              "width": result[:image_width],
+              "service": {
+                "@context": context,
+                "@id": result[:image_service],
+                "profile": image_profile
+              }
             }
           }
-        }
-      ],
-      "otherContent": [
-        {
-          #"@id": "http://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
-          "@id": "http://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}",
-          "@type": "sc:AnnotationList"
-        }
-      ]
-    }
+        ],
+        "otherContent": [
+          {
+            #"@id": "http://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
+            "@id": "http://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}",
+            "@type": "sc:AnnotationList"
+          }
+        ]
+      }
 
-    canvases << canvas
+      canvases << canvas
+    end
+    previous_canvas = result[:canvas]
 
   end
 
