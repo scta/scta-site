@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/lombardpress/lbp.rb.git
-  revision: be2dd9dca77abe894fe361e198a0ee9611b40f60
+  revision: a1800df445c9a128967379b1521a305c11984816
   branch: develop
   specs:
     lbp (0.1.3)
@@ -18,7 +18,7 @@ GEM
     builder (3.2.2)
     coderay (1.1.0)
     daemons (1.2.3)
-    domain_name (0.5.20160826)
+    domain_name (0.5.20161129)
       unf (>= 0.0.5, < 1.0.0)
     ebnf (1.0.0)
       rdf (~> 1.1)
@@ -29,7 +29,7 @@ GEM
     haml (4.0.7)
       tilt
     htmlentities (4.3.4)
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
     httparty (0.13.7)
       json (~> 1.8)
@@ -148,7 +148,7 @@ GEM
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
       rack (~> 1.0)
-    thor (0.19.1)
+    thor (0.19.4)
     tilt (1.4.1)
     tins (1.6.0)
     unf (0.1.4)
@@ -179,4 +179,4 @@ RUBY VERSION
    ruby 2.2.2p95
 
 BUNDLED WITH
-   1.12.5
+   1.14.3

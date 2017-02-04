@@ -619,7 +619,7 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
   else
     RDF::Graph.new do |graph|
       @result.each do |solution|
-        s = RDF::URI(@subjectid)
+        s = RDF::URI(@subjectid.gsub(/[<>]/, ""))
         p = solution[:p]
         o = solution[:o]
         graph << [s, p, o]
