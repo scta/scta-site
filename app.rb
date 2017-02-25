@@ -619,6 +619,8 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
 
   else
     headers( "Access-Control-Allow-Origin" => "*")
+    headers("Access-Control-Allow-Headers" => "content-type, Origin")
+    headers("Access-Control-Allow-Methods" => "GET")
 
       RDF::Graph.new do |graph|
         @result.each do |solution|
