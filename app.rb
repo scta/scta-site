@@ -12,6 +12,7 @@ require 'sinatra/sparql'
 require 'uri'
 require 'sparql/client'
 require 'rdf/ntriples'
+require 'rdf/json'
 require 'cgi'
 require 'equivalent-xml'
 require 'open-uri'
@@ -618,15 +619,26 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
 
   else
     headers( "Access-Control-Allow-Origin" => "*")
-    
-    RDF::Graph.new do |graph|
-      @result.each do |solution|
-        s = RDF::URI(@subjectid.gsub(/[<>]/, ""))
-        p = solution[:p]
-        o = solution[:o]
-        graph << [s, p, o]
+
+      RDF::Graph.new do |graph|
+        @result.each do |solution|
+          s = RDF::URI(@subjectid.gsub(/[<>]/, ""))
+          p = solution[:p]
+          o = solution[:o]
+          graph << [s, p, o]
+        end
+        #this conditional was added because returning graph alone
+        # wasn't rending json, even though it will return turtle or XML
+        #it's unclear why it can't negotiate json on its own
+        if accept_type.include? "application/json"
+          content_type :json
+          return JSON.pretty_generate(graph.to_rdf_json)
+        else
+          return graph
+        end
+
 
       end
-    end
+
   end
 end
