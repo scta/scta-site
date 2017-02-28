@@ -7,13 +7,36 @@ def get_official_manifest(shortid)
     ?icodex <http://scta.info/property/hasOfficialManifest> ?manifest .
   }
   "
+
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
-  manifest = open(results[0][:manifest].to_s).read
+  manifest = open(get_official_manifest_url(shortid)).read
   return manifest
 
 end
+
+def get_official_manifest_url(shortid)
+  query = "
+  SELECT ?manifest
+  {
+    <http://scta.info/resource/#{shortid}> <http://scta.info/property/hasCodexItem> ?icodex .
+    ?icodex <http://scta.info/property/hasOfficialManifest> ?manifest .
+  }
+  "
+
+  #@results = rdf_query(query)
+  query_obj = Lbp::Query.new()
+  results = query_obj.query(query)
+  if results.count > 0
+    manifest = results[0][:manifest].to_s
+  else
+    manifest = ""
+  end
+  return manifest
+
+end
+
 def create_manifest(shortid)
   query = "
   SELECT ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
