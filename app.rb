@@ -216,9 +216,10 @@ get '/dts' do
 end
 
 get '/iiif/collection/scta' do
-  headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json
-  send_file "public/scta-collection.jsonld"
+  redirect to('/iiif/scta/collection')
+  #headers( "Access-Control-Allow-Origin" => "*")
+  #content_type :json
+  #send_file "public/scta-collection.jsonld"
 end
 ## Depreciated; should be replaced by collection route
 get '/iiif/:commentaryid/collection_old' do
@@ -241,6 +242,8 @@ get '/iiif/:expressionid/collection' do |expressionid|
 
   if Lbp::Resource.find(expressionid).type.short_id == "person"
     create_person_collection(expressionid)
+  elsif Lbp::Resource.find(expressionid).type.short_id == "workGroup"
+      create_wg_collection(expressionid)
   else
     create_collection(expressionid)
   end

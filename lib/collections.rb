@@ -1,5 +1,40 @@
 require_relative "manifests"
 
+def create_wg_collection(wg_shortid)
+  query = "
+  SELECT ?expression ?expression_shortid ?expression_label ?wg_label
+  {
+    <http://scta.info/resource/#{wg_shortid}> <http://scta.info/property/hasExpression> ?expression .
+    <http://scta.info/resource/#{wg_shortid}> <http://purl.org/dc/elements/1.1/title> ?wg_label .
+    ?expression <http://purl.org/dc/elements/1.1/title> ?expression_label .
+    ?expression <http://scta.info/property/shortId> ?expression_shortid .
+  }
+  "
+
+  #@results = rdf_query(query)
+  query_obj = Lbp::Query.new()
+  results = query_obj.query(query)
+
+  expressions = []
+  results.each do |result|
+    expression = {
+        "@id": "http://scta.info/iiif/#{result[:expression_shortid]}/collection",
+        "@type": "sc:Collection",
+        "label": result[:expression_label]
+      }
+    expressions << expression
+  end
+
+
+  collection = {
+    "@id": "http://scta.info/iiif/#{wg_shortid}/collection",
+    "@type": "sc:Collection",
+    "label": results[0][:wg_label],
+    "collections": expressions
+  }
+  JSON.pretty_generate(collection)
+end
+
 def create_collection(expressionid)
   query = "
   SELECT ?m ?m_shortid ?m_label (COUNT(?surface) AS ?count)
