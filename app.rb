@@ -36,6 +36,8 @@ require_relative 'lib/dts'
 
 
 configure do
+  set :server, :puma
+  set :bind, "0.0.0.0"
   set :protection, except: [:frame_options, :json_csrf]
   set :root, File.dirname(__FILE__)
 
@@ -138,6 +140,7 @@ get '/' do
   @namecount = rdf_query.query(namequery).first[:".1"]
   @workcount = rdf_query.query(workquery).first[:".1"]
   @totalcount = rdf_query.query(totalquery).first[:count].to_i
+
   erb :index
 end
 
@@ -583,17 +586,18 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
     query_obj = Lbp::Query.new()
     @result = query_obj.query(query)
 
-  if params[:p1] == 'resource'
-    @resourcetype = @result.dup.filter(:p => RDF::URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).first[:o].to_s.split("/").last
-  end
-
   accept_type = request.env['HTTP_ACCEPT']
-
   if accept_type.include? "text/html"
 
     @count = @result.count
-    @title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
+    #@title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
+    @title = @result.dup.filter(:p => RDF::Vocab::DC11.title).first[:o]
 
+    if params[:p1] == 'resource'
+      @resourcetype = @result.dup.filter(:p => RDF::URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).first[:o].to_s.split("/").last
+      #@resourcetype = @result.dup.filter(:p => RDF::URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).first()[:o].to_s.split("/").last
+
+    end
 
 
     @pubinfo = @result.dup.filter(:ptype => RDF::URI("http://scta.info/property/pubInfo"))
