@@ -1,0 +1,9 @@
+version: '2'
+services:
+  web:
+    build: .
+    image: jeffreycwitt/scta-site
+    volumes:
+      - .:/scta-site
+    ports:
+      - "3000:3000"
