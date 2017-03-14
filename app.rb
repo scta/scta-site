@@ -591,7 +591,7 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
 
     @count = @result.count
     #@title = @result.first[:o] # this works for now but doesn't seem like a great method since if the title ever ceased to the first triple in the query output this wouldn't work.
-    @title = @result.dup.filter(:p => RDF::Vocab::DC11.title).first[:o]
+    @title = if @result.dup.filter(:p => RDF::Vocab::DC11.title).count != 0  then @result.dup.filter(:p => RDF::Vocab::DC11.title).first[:o] else "resource" end
 
     if params[:p1] == 'resource'
       @resourcetype = @result.dup.filter(:p => RDF::URI("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")).first[:o].to_s.split("/").last
