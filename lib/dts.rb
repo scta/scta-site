@@ -1,3 +1,4 @@
+
 def dts_output(resource)
   output = {
     "@context": {
@@ -11,7 +12,7 @@ def dts_output(resource)
       "sctar": "http://scta.info/resource/",
       },
     "@id": resource.url,
-    "dts:id": "http://scta.info/dts?resourceid=#{resource.url}",
+    "dts:id": "http://scta.info/dts/collection/#{CGI.escape(resource.url)}",
     "@graph": {
       "dts:metadata": {
           "rdf:type": resource.type,
@@ -21,7 +22,7 @@ def dts_output(resource)
         },
       "dts:parents": [
           {
-            "@id": "http://scta.info/dts?resourceid=#{resource.is_part_of.to_s}",
+            "@id": "http://scta.info/dts/collection/#{CGI.escape(resource.url)}",
             "rdf:type": "[to be added]",
             "dts:model": "http://w3id.org/dts-ontology/collection"
           }
@@ -78,7 +79,7 @@ def dts_parts(resource, type)
     parents = if part.is_part_of
       {
         "@id": part.is_part_of.to_s,
-        "dts:url": "http://scta.info/dts?resourceid=#{part.is_part_of.url}",
+        "dts:url": "http://scta.info/dts/collection/#{CGI.escape(part.is_part_of.url)}",
         "rdf:type": "[to be added]",
         "dts:model": "http://w3id.org/dts-ontology/collection"
       }
@@ -88,7 +89,7 @@ def dts_parts(resource, type)
 
     part_member = {
       "@id": part.url,
-      "dts:url": "http://scta.info/dts?resourceid=#{part.url}",
+      "dts:url": "http://scta.info/dts/collection/#{CGI.escape(part.url)}",
       "dts:role": type,
       "dts:metadata": {
           "rdf:type": part.type,

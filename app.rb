@@ -20,10 +20,13 @@ require 'httparty'
 require 'json'
 require 'lbp'
 
+require "cgi"
+#require "erb"
+#include ERB::Util
 
-if ENV['development']
+#if ENV['development']
   require 'pry'
-end
+#end
 
 
 require_relative 'lib/queries'
@@ -209,14 +212,30 @@ end
 
 ## DTS ROUTES ###
 
+
 get '/dts' do
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-
-  url = params[:resourceid]
+  if params[:resourceid] != nil
+    url = params[:resourceid]
+  else
+    url = "http://scta.info/resource/scta"
+  end
   resource = Lbp::Resource.find(url)
   dts_output(resource)
 end
+
+get '/dts/collection/*' do |resourceid|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  # something in the encoding / deencoding is removing a slash
+  # i'm adding back in this step
+  resourceid.gsub!("http:/scta.info", "http://scta.info")
+  resource = Lbp::Resource.find(resourceid)
+  dts_output(resource)
+end
+
+
 
 get '/iiif/collection/scta' do
   redirect to('/iiif/scta/collection')
