@@ -24,9 +24,9 @@ require "cgi"
 #require "erb"
 #include ERB::Util
 
-#if ENV['development']
+if ENV['development']
   require 'pry'
-#end
+end
 
 
 require_relative 'lib/queries'
