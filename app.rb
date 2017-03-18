@@ -395,6 +395,14 @@ get '/iiif/:expressionpart/:manifestationpart/notification/service/searchwithin'
   manifestationid = "#{expressionpart}/#{manifestationpart}"
   create_notification(manifestationid, type)
 end
+get '/iiif/:expressionpart/:manifestationpart/service/searchwithin' do |expressionpart, manifestationpart|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  manifestationid = "#{expressionpart}/#{manifestationpart}"
+  searchblock = create_searchwithin (manifestationid)
+
+  return JSON.pretty_generate(searchblock)
+end
 
 
 get '/iiif/:expressionpart/:manifestationpart/supplement/layer/transcription' do |expressionpart, manifestationpart|
