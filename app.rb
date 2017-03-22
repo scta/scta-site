@@ -212,6 +212,11 @@ end
 
 ## DTS ROUTES ###
 
+get '/dts/apidoc' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  send_file "public/swagger.json"
+end
 
 get '/dts' do
   headers( "Access-Control-Allow-Origin" => "*")
