@@ -1,9 +1,13 @@
- body {margin: 0; background-color: rgb(236, 223, 198);}
+body {
 
+}
+
+
+/*
  div#header {width: 100%;
-	background-color: black; 
-	color: white; 
-	padding: 5px; 
+	background-color: black;
+	color: white;
+	padding: 5px;
 	padding-left:20px;
 	padding-top:5px;
 	margin: 0;
@@ -13,14 +17,17 @@
     box-shadow: 0px 0px 20px 3px gray;
 
 	}
-	div#header p {padding-left: 15px; }
-	div#header h1 {margin: 5px;}
-	
+
+   div#header p {padding-left: 15px; }
+	 div#header h1 {margin: 5px;}
+
 
 	div#header a {color: white; padding: 5px;}
 	div#header a:hover {background-color: gray;}
 
-	div#body {padding-left: 20px; margin: 0;}
+
+*/
+	div#body {padding-top: 20px; width: 80%; margin: auto; min-height: 90%;}
     div#titleheader {max-width: 900px;}
 
     .url_label {color: black; padding: 3px; font-size: 14px;}
@@ -40,3 +47,12 @@ td {padding: 5px;
     width: 300px;
 }
 **/
+.footer{
+  // position: absolute;
+  // bottom: 0;
+  margin-top: 75px;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  // background-color: #f5f5f5;
+}

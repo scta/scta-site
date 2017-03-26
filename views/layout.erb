@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SCTA</title>
+
+    <!-- <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/global.css">
+
+
+    <style type="text/css">
+      table.datastream {display: none;}
+      h3.dstitle {cursor: pointer}
+      h3.dstitle:hover {text-decoration: underline;}
+    </style>
+
+
+  </head>
+  <body>
+  <%= erb :header %>
+  <%= yield %>
+  <%= erb :footer %>
+
+  <!-- <script src="/bootstrap/js/bootstrap.min.js"/>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+     $("h3.dstitle").click(function(){
+         $(this).next().toggle("slow")
+         });
+  });
+  </script>
+
+
+
+</body>
+</html>

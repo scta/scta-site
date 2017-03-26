@@ -1,0 +1,71 @@
+
+<div id="body">
+  <h1>Technical Details</h1>
+  <div>
+  <h2>Contents</h2>
+    <p>1. <a href="#data-model">The SCTA Data Model</a></p>
+    <p>2. <a href="#apis">APIs</a></p>
+    <p>3. <a href="#specifications">Specifications</a></p>
+    <p>4. <a href="#implementations">Implementations</a></p>
+  </div>
+  <div id="data-model">
+    <h2>1. The SCTA Data Model</h2>
+    <p>Coming soon</p>
+  </div>
+  <div id="apis">
+    <h2>2. APIs</h2>
+    <div>
+      <h4>SCTA Core</h4>
+      <p><a href="http://scta.info/resource/scta">http://scta.info/resource/scta</a></p>
+      <p>Description: Designed for basic navigation and exploration of the SCTA catalogue</p>
+      <p>Machine accessible via content negotiation</p>
+      <pre>
+  	    <code>
+$ curl -iH "Accept: text/plain" http://scta.info/resource/lectio1
+$ curl -iH "Accept: text/turtle" http://scta.info/resource/lectio1
+$ curl -iH "Accept: application/rdf+xml" http://scta.info/resource/lectio1
+$ curl -iH "Accept: application/json" http://scta.info/resource/lectio1
+$ curl -iH "Accept: application/trix" http://scta.info/resource/lectio1
+$ curl -iH "Accept: */*" http://scta.info/resource/lectio1
+        </code>
+  		</pre>
+    </div>
+    <div>
+      <h4>SCTA Sparql Endpoint</h4>
+      <p><a href="http://sparql.scta.info">http://sparql.scta.info</a></p>
+    <div>
+      <h4>SCTA Presentation (In development)</h4>
+      <p>http://scta.info/api/presentation/1.0/scta</p>
+      <p>Description: designed to facilitate easy representation of the SCTA catologue and texts in a client viewer</p>
+    </div>
+    <div>
+      <h4>IIIF</h4>
+      <p><a href="http://scta.info/iiif/scta/collection">http://scta.info/iiif/scta/collection</a></p>
+      <p>Description: A <a href="http://iiif.io">IIIF</a> representation of the SCTA catalogue
+        designed to faciliate use of SCTA texts and image connections within IIIF compatible viewers</p>
+    </div>
+    <div>
+      <h4>Distributed Text Services (In development)</h4>
+      <p>http://scta.info/dts/collections</p>
+      <p>Descriptin: A representation of the SCTA catalogue conforming the emerging specifications of
+        the Distributed Text Services working group, designed to make the SCTA catalogue accessible via
+        any DTS compliant client.</p>
+    </div>
+  </div>
+  <div id="specifications">
+    <h2>3. Specifications</h2>
+    <p>Coming soon</p>
+  </div>
+  <div id="Implementations">
+    <h2>4.Implementations</h2>
+    <h3>Libraries</h3>
+    <p><a href="http://github.com/lombardpress.org/Lbp.rb">Lbp.rby (http://github.com/lombardpress.org/Lbp.rb)</a>: A ruby library for a exploring the SCTA Core API</p>
+    <p><a href="http://github.com/lombardpress.org/lbppy">Lbppy http://github.com/lombardpress.org/Lbp.rb</a>: A python library for exploring the SCTA Core API</p>
+    <h3>Utility Programss</h3>
+    <p><a href="http://stats.scta.info">Scta Stats (http://stats.scta.info)</a></p>
+    <p>Collation Programs</p>
+    <h3>Viewers</h3>
+    <p><a href="http://github.com/lombardpress.org/lombardpress-web">Lombardpress-Web (http://github.com/lombardpress.org/lombardpress-web)</a>: A client for viewing texts and images indexed in the SCTA. For a live instance, see <a href="http://scta.lombardpress.org">http://scta.lombardpress.org</a></p>
+    <p>SCTA Mirador Instance: An instance of the IIIF viewer, Mirador, customized to faciliate the exploration of the the SCTA catlogue through images and accompanying metadata</p>
+    <p><a href="http://github.com/lombardpress.org/lombardpress-print">Lombardpress-Print (http://github.com/lombardpress.org/lombardpress-web)</a>: A command line utility script for producing camera-ready print renderings of texts in the SCTA.</p>
+  </div>

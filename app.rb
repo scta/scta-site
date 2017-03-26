@@ -49,6 +49,8 @@ configure do
   #set :protection, :except => :json
 end
 
+
+
 prefixes = "
           PREFIX owl: <http://www.w3.org/2002/07/owl#>
           PREFIX dbpedia: <http://dbpedia.org/ontology/>
@@ -157,12 +159,22 @@ get '/logo.png' do
 end
 
 # documentation route
-get '/api' do
-  erb :api
+get '/technical-details' do
+  erb :technical_details
 end
 # search route
 get '/search' do
   erb :search
+end
+
+#community routeget '/technical-details' do
+get '/community' do
+  erb :community
+end
+
+#community routeget '/technical-details' do
+get '/about' do
+  erb :about
 end
 
 # search results route

@@ -1,33 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SCTA Display</title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/global.css">
-    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){
-
-       $("h3.dstitle").click(function(){
-
-           $(this).next().toggle("slow")
-           });
-    });
-
-
-  </script>
-    <style type="text/css">
-      table.datastream {display: none;}
-      h3.dstitle {cursor: pointer}
-      h3.dstitle:hover {text-decoration: underline;}
-    </style>
-</head>
-
-<body>
-	<%= erb :_header %>
-	<div id="body">
+<div id="body">
 <div id="titleheader">
 <h2>Information for: <%= "#{@title}" %></h2>
 <p>(select links below for more information)<p>
@@ -133,5 +104,3 @@
       </table>
 
 </div>
-</body>
-</html>
