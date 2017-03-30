@@ -337,12 +337,19 @@ query =
 
 end
 def create_custom_manifest(shortid)
+  if shortid == "marginalNote"
+    line = "?quote <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://scta.info/resource/marginalNote> .
+           ?quote <http://scta.info/property/isPartOfStructureBlock> ?paragraph_manifestation .
+           ?paragraph_manifestation <http://scta.info/property/isManifestationOf> ?paragraph ."
+  else
+    line = "?quote <http://scta.info/property/isInstanceOf> <http://scta.info/resource/#{shortid}> .
+            ?quote <http://scta.info/property/isPartOfStructureBlock> ?paragraph ."
+  end
   query = "
   SELECT ?top_level ?top_level_title ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
   {
     ?quote <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
-  	?quote <http://scta.info/property/isInstanceOf> <http://scta.info/resource/#{shortid}> .
-  	?quote <http://scta.info/property/isPartOfStructureBlock> ?paragraph .
+  	#{line}
     ?paragraph <http://scta.info/property/isPartOfTopLevelExpression> ?top_level .
     ?top_level <http://purl.org/dc/elements/1.1/title> ?top_level_title .
   	?paragraph <http://scta.info/property/hasManifestation> ?manifestation .
