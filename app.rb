@@ -141,13 +141,22 @@ get '/' do
                        ?s ?p ?o .
                      }"
   rdf_query = Lbp::Query.new()
-  @quotationcount = rdf_query.query(quotationquery).first[:".1"]
-  #@quotescount = rdf_query.query(quotesquery).first[:".1"]
-  @itemcount = rdf_query.query(itemquery).first[:".1"]
-  @commentarycount = rdf_query.query(commentaryquery).first[:".1"]
-  @namecount = rdf_query.query(namequery).first[:".1"]
-  @workcount = rdf_query.query(workquery).first[:".1"]
-  @totalcount = rdf_query.query(totalquery).first[:count].to_i
+  #these queries slow load time way to much
+  #uncomment to get updated numbers
+    # @quotationcount = rdf_query.query(quotationquery).first[:".1"]
+    # #@quotescount = rdf_query.query(quotesquery).first[:".1"]
+    # @itemcount = rdf_query.query(itemquery).first[:".1"]
+    # @commentarycount = rdf_query.query(commentaryquery).first[:".1"]
+    # @namecount = rdf_query.query(namequery).first[:".1"]
+    # @workcount = rdf_query.query(workquery).first[:".1"]
+    # @totalcount = rdf_query.query(totalquery).first[:count].to_i
+    @quotationcount = "13,254"
+    @itemcount = "13,960"
+    @commentarycount = "74"
+    @namecount = "9,132"
+    @workcount = "9,132"
+    @totalcount = "2,487,202"
+
 
   erb :index
 end
