@@ -100,16 +100,17 @@ end
 get '/' do
   quotationquery = "#{prefixes}
 
-          SELECT count(?s) {
-            ?s a <http://scta.info/resource/quotation> .
+          SELECT count(distinct ?quotation) {
+            ?quotation <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
+            ?quotaiton <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementQuote> .
           }
           "
-  quotesquery = "#{prefixes}
-
-          SELECT count(distinct ?quotes) {
-            ?s sctap:quotes ?quotes .
-          }
-          "
+  # quotesquery = "#{prefixes}
+  #
+  #         SELECT count(distinct ?quotes) {
+  #           ?s sctap:quotes ?quotes .
+  #         }
+  #         "
   itemquery = "#{prefixes}
 
           SELECT count(distinct ?item) {
@@ -125,13 +126,15 @@ get '/' do
   namequery = "#{prefixes}
 
           SELECT count(distinct ?name) {
-            ?name a <http://scta.info/resource/person> .
+            ?name <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
+            ?name <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementName> .
           }
           "
   workquery = "#{prefixes}
 
-          SELECT count(distinct ?work) {
-            ?work a <http://scta.info/resource/work> .
+          SELECT count(distinct ?title) {
+            ?title <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
+            ?title <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementTitle> .
           }
           "
   totalquery = "SELECT (count(*) as ?count) WHERE {
@@ -139,7 +142,7 @@ get '/' do
                      }"
   rdf_query = Lbp::Query.new()
   @quotationcount = rdf_query.query(quotationquery).first[:".1"]
-  @quotescount = rdf_query.query(quotesquery).first[:".1"]
+  #@quotescount = rdf_query.query(quotesquery).first[:".1"]
   @itemcount = rdf_query.query(itemquery).first[:".1"]
   @commentarycount = rdf_query.query(commentaryquery).first[:".1"]
   @namecount = rdf_query.query(namequery).first[:".1"]
