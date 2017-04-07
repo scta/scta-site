@@ -2,7 +2,7 @@ version: '2'
 services:
   web:
     build: .
-    image: jeffreycwitt/scta-site
+    image: scta-site
     volumes:
       - .:/scta-site
     ports:

@@ -24,9 +24,7 @@ require "cgi"
 #require "erb"
 #include ERB::Util
 
-if ENV['development']
-  require 'pry'
-end
+
 
 
 require_relative 'lib/queries'
@@ -49,6 +47,9 @@ configure do
   #set :protection, :except => :json
 end
 
+if settings.development?
+  require 'pry'
+end
 
 
 prefixes = "
@@ -94,6 +95,11 @@ def URLConvert (url)
     url_hash[:url_link] = url.to_s
   end
   return url_hash
+end
+
+# error routes
+error 400..510 do
+  erb :error
 end
 
 # root route

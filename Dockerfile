@@ -15,6 +15,9 @@ RUN bundle install
 # Now add the rest of the files
 ADD . /scta-site
 
+#Set Environemnet Variable
+ENV RACK_ENV=production
+
 # Start server
 ENV PORT 3000
 EXPOSE 3000
