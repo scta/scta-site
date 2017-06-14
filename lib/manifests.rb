@@ -105,8 +105,8 @@ def create_manifest(shortid)
         "@id": result[:canvas],
         "@type": "sc:Canvas",
         "label": result[:surface_title],
-        "height": result[:canvas_height],
-        "width": result[:canvas_width],
+        "height": result[:canvas_height].to_i,
+        "width": result[:canvas_width].to_i,
         "images": [
           {"@id": result[:anno],
             "@type": "oa:Annotation",
@@ -114,10 +114,10 @@ def create_manifest(shortid)
             "on": result[:canvas],
             "resource": {
               "@id": result[:resource],
-              "@type": result[:image_type],
+              "@type": "dctypes:Image",
               "format": result[:image_format],
-              "height": result[:image_height],
-              "width": result[:image_height],
+              "height": result[:image_height].to_i,
+              "width": result[:image_height].to_i,
               "service": {
                 "@context": context,
                 "@id": result[:image_service],
@@ -269,8 +269,8 @@ query =
         "@id": "#{result[:canvas]}",
         "@type": "sc:Canvas",
         "label": result[:surface_title],
-        "height": result[:canvas_height],
-        "width": result[:canvas_width],
+        "height": result[:canvas_height].to_i,
+        "width": result[:canvas_width].to_i,
         "images": [
           {"@id": result[:anno],
             "@type": "oa:Annotation",
@@ -278,10 +278,10 @@ query =
             "on": "#{result[:canvas]}",
             "resource": {
               "@id": result[:resource],
-              "@type": result[:image_type],
+              "@type": "dctypes:Image",
               "format": result[:image_format],
-              "height": result[:image_height],
-              "width": result[:image_width],
+              "height": result[:image_height].to_i,
+              "width": result[:image_width].to_i,
               "service": {
                 "@context": context,
                 "@id": result[:image_service],
@@ -422,10 +422,10 @@ def create_custom_manifest(shortid)
           "on": "#{result[:canvas]}",
           "resource": {
             "@id": result[:resource],
-            "@type": result[:image_type],
+            "@type": "dctypes:Image",
             "format": result[:image_format],
-            "height": result[:image_height],
-            "width": result[:image_width],
+            "height": result[:image_height].to_i,
+            "width": result[:image_width].to_i,
             "service": {
               "@context": context,
               "@id": result[:image_service],
