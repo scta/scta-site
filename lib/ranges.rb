@@ -164,7 +164,12 @@ def create_range(manifestationid)
 
 
     end
+  else
+    ## if items are toplevel division, use create_range 2
+    ## create_range2 is the better function, but the ranges created are often to complex and heavy for web and mirador
+    all_structures = create_range2(manifestationid)
   end
+
   return all_structures
 end
 def create_range2(manifestationid)
