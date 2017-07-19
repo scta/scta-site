@@ -18,7 +18,7 @@ def create_wg_collection(wg_shortid)
   expressions = []
   results.each do |result|
     expression = {
-        "@id": "http://scta.info/iiif/#{result[:expression_shortid]}/collection",
+        "@id": "https://scta.info/iiif/#{result[:expression_shortid]}/collection",
         "@type": "sc:Collection",
         "label": result[:expression_label]
       }
@@ -27,7 +27,7 @@ def create_wg_collection(wg_shortid)
 
 
   collection = {
-    "@id": "http://scta.info/iiif/#{wg_shortid}/collection",
+    "@id": "https://scta.info/iiif/#{wg_shortid}/collection",
     "@type": "sc:Collection",
     "label": results[0][:wg_label],
     "collections": expressions
@@ -55,7 +55,7 @@ def create_collection(expressionid)
   results = query_obj.query(query)
 
   manifests = []
-  idbase = "http://scta.info"
+  idbase = "https://scta.info"
   results.each do |result|
     #temporary conditional to weed out, born-digital manifestations; should be using a manifestationType property
     unless result[:m_shortid].to_s.include? "critical"
@@ -111,7 +111,7 @@ def create_person_collection(personid)
   results = query_obj.query(query)
 
   manifests = []
-  idbase = "http://scta.info"
+  idbase = "https://scta.info"
 
 
   results.each do |result|

@@ -68,13 +68,13 @@ def create_range(manifestationid)
 
     topdivisions.each do |topdivisionid, topdivision_title|
 
-      topdivision_ranges << "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
+      topdivision_ranges << "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
 
       next_r = 1
       result_sets.each do |result, title, item_topdivisionid, topdivision_title|
         if item_topdivisionid == topdivisionid
-          item_ranges << {topdivision_rangeid: "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
-                          item_rangeid: "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}-#{next_r}",
+          item_ranges << {topdivision_rangeid: "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
+                          item_rangeid: "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}-#{next_r}",
                           set: result,
                           title: title.to_s,
                           topdivision_title: topdivision_title
@@ -87,14 +87,14 @@ def create_range(manifestationid)
 
 
 
-    first_structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/r1",
+    first_structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/r1",
                       "@type" => "sc:Range",
                       "label" => @results[0][:wrapper_title].to_s,
                       "viewingHint" => "top",
                       "ranges" => topdivision_ranges,
                       "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{manifestationid}",
-                      "logo": "http://scta.info/logo.png",
+                      "logo": "https://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                     }
 
@@ -108,14 +108,14 @@ def create_range(manifestationid)
 
         ranges2 = item_ranges.map do |object|
 
-          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
+          if object[:topdivision_rangeid] == "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
              object[:item_rangeid]
           end
         end
 
         division_canvases =[]
         item_ranges.each do |object|
-          if object[:topdivision_rangeid] == "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
+          if object[:topdivision_rangeid] == "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
             object[:set].each do |item_set|
               division_canvases << item_set[:canvas].to_s
             end
@@ -123,8 +123,8 @@ def create_range(manifestationid)
         end
         division_canvases.uniq!
         ranges2.compact!
-        structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
-                      "within" => "http://scta.info/iiif/#{manifestationid}/range/r1",
+        structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
+                      "within" => "https://scta.info/iiif/#{manifestationid}/range/r1",
                       "@type" => "sc:Range",
                       "label" => title,
                       "ranges" => ranges2,
@@ -132,7 +132,7 @@ def create_range(manifestationid)
                       #"canvases" => division_canvases,
                       "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{manifestationid}",
-                      "logo": "http://scta.info/logo.png",
+                      "logo": "https://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                     }
         all_structures << structure
@@ -156,7 +156,7 @@ def create_range(manifestationid)
                       "canvases" => structure_canvases,
                       "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{msname}",
-                      "logo": "http://scta.info/logo.png",
+                      "logo": "https://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                       }
 
@@ -259,32 +259,32 @@ def create_range2(manifestationid)
         group[:children].sort! { |a,b| a[:part_child_order] <=> b[:part_child_order]}
         children_ranges = group[:children].map do |child|
           child_short_id = child[:part_child].to_s.split('/').last
-          "http://scta.info/iiif/#{manifestationid}/range/#{child_short_id}"
+          "https://scta.info/iiif/#{manifestationid}/range/#{child_short_id}"
         end
 
 
-        structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
-                    "within" => "http://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
+        structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
+                    "within" => "https://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
                     "@type" => "sc:Range",
                     "label" => group[:part_title],
                     "ranges" => children_ranges,
                     "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                     "description": "A range for Sentences Commentary #{manifestationid}",
-                    "logo": "http://scta.info/logo.png",
+                    "logo": "https://scta.info/logo.png",
                     "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                   }
                   structures << structure
       else
         rangeid = group[:partid].split('/').last
         parent_rangeid = group[:parent].split('/').last
-        structure = {"@id" => "http://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
-                    "within" => "http://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
+        structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
+                    "within" => "https://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
                     "@type" => "sc:Range",
                     "label" => group[:part_title],
                     "canvases" => group[:canvases],
                     "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                     "description": "A range for Sentences Commentary #{manifestationid}",
-                    "logo": "http://scta.info/logo.png",
+                    "logo": "https://scta.info/logo.png",
                     "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                   }
                   structures << structure
@@ -297,18 +297,18 @@ def create_range2(manifestationid)
 topdivision_ranges = []
    groups.map do |group|
     if group[:level] == "2"
-      topdivision_ranges << "http://scta.info/iiif/#{manifestationid}/range/#{group[:partid].to_s.split('/').last}"
+      topdivision_ranges << "https://scta.info/iiif/#{manifestationid}/range/#{group[:partid].to_s.split('/').last}"
     end
   end
   top_structure =
-   {"@id" => "http://scta.info/iiif/#{manifestationid}/range/#{@results[0][:expression].to_s.split('/').last}",
+   {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{@results[0][:expression].to_s.split('/').last}",
                     "@type" => "sc:Range",
                     "label" => @results[0][:expression_title],
                     "viewingHint" => "top",
                     "ranges" => topdivision_ranges,
                     "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                     "description": "A range for Sentences Commentary #{manifestationid}",
-                    "logo": "http://scta.info/logo.png",
+                    "logo": "https://scta.info/logo.png",
                     "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                   }
   structures << top_structure

@@ -293,14 +293,14 @@ def create_supplement (manifestationid, type)
   if results[0] != nil
     manifest = results[0][:manifestOfficial].to_s
   else
-    manifest = "http://scta.info/iiif/#{manifestationid}/manifest"
+    manifest = "https://scta.info/iiif/#{manifestationid}/manifest"
   end
 
   if type == "rangelist"
     all_ranges = create_range(manifestationid)
     final_object =
         {
-          "@id": "http://scta.info/iiif/#{manifestationid}/supplement/ranges/toc",
+          "@id": "https://scta.info/iiif/#{manifestationid}/supplement/ranges/toc",
           "@type": "sc:supplement",
           "profile": "http://iiif.io/api/0.1/supplement/ranges",
           "within": [manifest],
@@ -308,7 +308,7 @@ def create_supplement (manifestationid, type)
 
           "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
           "description": "A range list for Sentences Commentary #{manifestationid}",
-          "logo": "http://scta.info/logo.png",
+          "logo": "https://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           # should structures be changed to "ranges"
           "ranges": all_ranges
@@ -318,22 +318,22 @@ def create_supplement (manifestationid, type)
   elsif type == "searchwithin"
     service = create_searchwithin(manifestationid)
     final_object = {
-          "@id": "http://scta.info/iiif/#{manifestationid}/supplement/search/searchwithin",
+          "@id": "https://scta.info/iiif/#{manifestationid}/supplement/search/searchwithin",
           "@type": "sc:supplement",
           "profile": "http://iiif.io/api/0.1/supplement/service",
           "within": [manifest],
           "viewingHint": "http://iiif.io/api/services/webmention/discard",
           "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
           "description": "A search within service for Sentences Commentary #{manifestationid}",
-          "logo": "http://scta.info/logo.png",
+          "logo": "https://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "service": service
         }
 
   elsif type == "layerTranscription"
-    transcription_layer = "http://scta.info/iiif/#{manifestationid}/layer/transcription"
+    transcription_layer = "https://scta.info/iiif/#{manifestationid}/layer/transcription"
     final_object = {
-          "@id": "http://scta.info/iiif/#{manifestationid}/supplement/layer/transcription",
+          "@id": "https://scta.info/iiif/#{manifestationid}/supplement/layer/transcription",
           "@type": "sc:supplement",
           "profile": "http://iiif.io/api/0.1/supplement/layer",
           "within": [manifest],
@@ -341,7 +341,7 @@ def create_supplement (manifestationid, type)
 
           "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
           "description": "Layers published by the Sentences Commentary #{manifestationid}",
-          "logo": "http://scta.info/logo.png",
+          "logo": "https://scta.info/logo.png",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           "layer": transcription_layer
           }
@@ -387,16 +387,16 @@ def create_transcriptionlayer (manifestationid)
         results = query_obj.query(query)
         #consturcting annotation list id like this is precarious
         annotationlistid =
-        lists = results.map {|result| {"@id": "http://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}", "sc:forCanvas": result[:canvas].to_s} }
+        lists = results.map {|result| {"@id": "https://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}", "sc:forCanvas": result[:canvas].to_s} }
         lists.uniq!
 
   layer = {"@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/#{manifestationid}/layer/transcription",
+    "@id": "https://scta.info/iiif/#{manifestationid}/layer/transcription",
     "@type": "sc:Layer",
     "label": "Diplomatic Transcription",
     "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
     "description": "Transcription layer published by the Sentences Commentary #{manifestationid}",
-    "logo": "http://scta.info/logo.png",
+    "logo": "https://scta.info/logo.png",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "otherContent": lists
 

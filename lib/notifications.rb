@@ -13,14 +13,14 @@ def create_notification (manifestationid, type)
   if results[0] != nil
     manifest = results[0][:manifestOfficial].to_s
   else
-    manifest = "http://scta.info/iiif/#{manifestationid}/manifest"
+    manifest = "https://scta.info/iiif/#{manifestationid}/manifest"
   end
 
   if type == "rangelist"
     all_ranges = create_range(manifestationid)
     final_object =
         {
-          "@id": "http://scta.info/iiif/#{manifestationid}/notification/ranges/toc",
+          "@id": "https://scta.info/iiif/#{manifestationid}/notification/ranges/toc",
           "@type": "Announce",
           "target": [manifest],
           "source": "http://scta.info",
@@ -36,26 +36,26 @@ def create_notification (manifestationid, type)
           #     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
           #     "ranges": all_ranges
           #   }
-          "object": "http://scta.info/iiif/#{manifestationid}/ranges/toc/wrapper"
+          "object": "https://scta.info/iiif/#{manifestationid}/ranges/toc/wrapper"
         }
 
 
   elsif type == "searchwithin"
     service = create_searchwithin(manifestationid)
     final_object = {
-      "@id": "http://scta.info/iiif/#{manifestationid}/notification/service/searchwithin",
+      "@id": "https://scta.info/iiif/#{manifestationid}/notification/service/searchwithin",
       "@type": "Announce",
       "target": [manifest],
       "source": "http://scta.info",
       "updated": Time.now.getutc,
       #"object": service
-      "object": "http://scta.info/iiif/#{manifestationid}/service/searchwithin"
+      "object": "https://scta.info/iiif/#{manifestationid}/service/searchwithin"
     }
 
   elsif type == "layerTranscription"
-    transcription_layer = "http://scta.info/iiif/#{manifestationid}/layer/transcription"
+    transcription_layer = "https://scta.info/iiif/#{manifestationid}/layer/transcription"
     final_object = {
-      "@id": "http://scta.info/iiif/#{manifestationid}/notification/layer/transcription",
+      "@id": "https://scta.info/iiif/#{manifestationid}/notification/layer/transcription",
       "@type": "Announce",
       "target": [manifest],
       "source": "http://scta.info",

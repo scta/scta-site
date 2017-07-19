@@ -128,7 +128,7 @@ def create_manifest(shortid)
         ],
         "otherContent": [
           {
-            "@id": "http://scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
+            "@id": "https://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
             "@type": "sc:AnnotationList"
           }
         ]
@@ -143,21 +143,21 @@ def create_manifest(shortid)
 
   manifest = {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/codex/#{shortid}/manifest",
+    "@id": "https://scta.info/iiif/codex/#{shortid}/manifest",
     "@type": "sc:Manifest",
     "label": "#{shortid}",
     "description": "Manifest Description",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "service": {
       "@context": "http://iiif.io/api/search/1/context.json",
-      "@id": "http://exist.scta.info/exist/apps/scta-app/iiif/#{shortid}/search",
+      "@id": "https://exist.scta.info/exist/apps/scta-app/iiif/#{shortid}/search",
       "profile": "http://iiif.io/api/search/1/search",
       "label": "Search within this manifest"
     },
     "sequences": [
       {
         "@context": "http://iiif.io/api/presentation/2/context.json",
-        "@id": "http://scta.info/iiif/codex/#{shortid}/sequence/normal",
+        "@id": "https://scta.info/iiif/codex/#{shortid}/sequence/normal",
         "@type": "sc:Sequence",
         "label": "Current page order",
         "viewingDirection": "left-to-right",
@@ -265,6 +265,13 @@ query =
         end
       ### end temporary measure.
 
+      ## BEGIN temporary annotation list switch ###
+      annotation_list_url = if manifestationid.include? "plaoulcommentary"
+        "https://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}"
+      else
+        "https://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}"
+      end
+      ## END temporary annotation list switch ###
       canvas = {
         "@id": "#{result[:canvas]}",
         "@type": "sc:Canvas",
@@ -292,8 +299,7 @@ query =
         ],
         "otherContent": [
           {
-            #"@id": "http://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}",
-            "@id": "http://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}",
+            "@id": annotation_list_url,
             "@type": "sc:AnnotationList"
           }
         ]
@@ -307,7 +313,7 @@ query =
 
   manifest = {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/#{manifestationid}/manifest",
+    "@id": "https://scta.info/iiif/#{manifestationid}/manifest",
     "@type": "sc:Manifest",
     "label": manifestationid,
 
@@ -315,14 +321,14 @@ query =
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "service": {
       "@context": "http://iiif.io/api/search/1/context.json",
-      "@id": "http://exist.scta.info/exist/apps/scta-app/iiif/#{manifestationid}/search",
+      "@id": "https://exist.scta.info/exist/apps/scta-app/iiif/#{manifestationid}/search",
       "profile": "http://iiif.io/api/search/1/search",
       "label": "Search within this manifest"
     },
     "sequences": [
       {
         "@context": "http://iiif.io/api/presentation/2/context.json",
-        "@id": "http://scta.info/iiif/#{manifestationid}/sequence/normal",
+        "@id": "https://scta.info/iiif/#{manifestationid}/sequence/normal",
         "@type": "sc:Sequence",
         "label": "Current page order",
         "viewingDirection": "left-to-right",
@@ -442,7 +448,7 @@ def create_custom_manifest(shortid)
 
   manifest = {
     "@context": "http://iiif.io/api/presentation/2/context.json",
-    "@id": "http://scta.info/iiif/custom/manifest",
+    "@id": "https://scta.info/iiif/custom/manifest",
     "@type": "sc:Manifest",
     "label": "custom query generated manifest for #{shortid}",
 
@@ -451,7 +457,7 @@ def create_custom_manifest(shortid)
     "sequences": [
       {
         "@context": "http://iiif.io/api/presentation/2/context.json",
-        "@id": "http://scta.info/iiif/custom/sequence/normal",
+        "@id": "https://scta.info/iiif/custom/sequence/normal",
         "@type": "sc:Sequence",
         "label": "Current page order",
         "viewingDirection": "left-to-right",

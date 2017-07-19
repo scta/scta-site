@@ -288,7 +288,7 @@ get '/iiif/:commentaryid/collection_old' do
   # collection can then be built from manifesetations
   file = File.read("public/scta-collection.jsonld")
   json = JSON.parse(file)
-  newcollection = json["collections"].find {|collection| collection["@id"]=="http://scta.info/iiif/collection/#{params[:commentaryid]}"}
+  newcollection = json["collections"].find {|collection| collection["@id"]=="https://scta.info/iiif/collection/#{params[:commentaryid]}"}
   JSON.pretty_generate(newcollection)
 
 end
@@ -403,13 +403,13 @@ get '/iiif/:expressionpart/:manifestationpart/ranges/toc/wrapper' do |expression
   manifestationid = "#{expressionpart}/#{manifestationpart}"
   all_ranges = create_range(manifestationid)
   wrapper_range = {
-      "@id": "http://scta.info/iiif/#{manifestationid}/ranges/toc/wrapper",
+      "@id": "https://scta.info/iiif/#{manifestationid}/ranges/toc/wrapper",
       "@type": "sc:Range",
       "label": "#{manifestationid}",
       "viewingHint": "wrapper",
       "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
       "description": "A range list for Sentences Commentary #{manifestationid}",
-      "logo": "http://scta.info/logo.png",
+      "logo": "https://scta.info/logo.png",
       "license": "https://creativecommons.org/publicdomain/zero/1.0/",
       "ranges": all_ranges
     }
@@ -552,7 +552,7 @@ get '/iiif/:expressionpart/:manifestationpart/list/transcription/:folioid' do |e
         paragraph = result['paragraph'].to_s
         paragraphtext = HTTParty.get(result['plaintext'].to_s)
         entryhash = {"@type" => "oa:Annotation",
-        "@id" => "http://scta.info/iiif/#{manifestationid}/annotation/#{pid}/#{position}",
+        "@id" => "https://scta.info/iiif/#{manifestationid}/annotation/#{pid}/#{position}",
         "motivation" => "sc:painting",
         "resource" => {
             "@id" => "#{result[:plaintext]}",
@@ -567,10 +567,10 @@ get '/iiif/:expressionpart/:manifestationpart/list/transcription/:folioid' do |e
        end
 
        annotationlistcontent = {"@context" => "http://iiif.io/api/presentation/2/context.jsonld",
-        "@id" => "http://scta.info/iiif/#{manifestationid}/list/#{folioid}",
+        "@id" => "https://scta.info/iiif/#{manifestationid}/list/#{folioid}",
         "@type" => "sc:AnnotationList",
         "within" => {
-          "@id" => "http://scta.info/iiif/#{manifestationid}/layer/transcription",
+          "@id" => "https://scta.info/iiif/#{manifestationid}/layer/transcription",
           "@type" => "sc:Layer",
           "label" => "Diplomatic Transcription"
         },
