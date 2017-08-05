@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  /*font: 400 15px/1.8 "Lato", sans-serif; */
+  color: #777;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4{
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("img_parallax.jpg");
+  min-height: 100%;
+}
+
+.bgimg-2 {
+  background-image: url("img_parallax2.jpg");
+  min-height: 400px;
+}
+
+.bgimg-3 {
+  background-image: url("img_parallax3.jpg");
+  min-height: 400px;
+}
+.bgimg-4 {
+  background-image: url("example_ms.jpg");
+  min-height: 60%;
+}
+
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  letter-spacing: 10px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  /*font: 20px "Lato", sans-serif; */
+  color: #111;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+    }
+}
+</style>
+</head>
+<body>
+
+  <div style="min-height: 100%; width: 70%; margin: auto; color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+    <h3 style="text-align:center;">Welcome to the Scholastic Commentaries and Texts Archive</h3>
+    <br/>
+    <h4 style="text-align:center;">The SCTA is a community and webservice.</h4>
+    <br/>
+    <h4 style="text-align:center;">Our aim is to connect and freely distribute the intelletual history of the medieval past.</h4>
+    <br/>
+    <h4 style="text-align:center;">We exist to resist the fragmenting tendencies of the traditional publication workflow
+      and show scholars that there is another way possible: a way that makes textual data
+      freely avaiable for use and re-use, that encourages collaboration instead of competition,
+      and fights redundancy at all costs.</h4>
+      <br/>
+    <h4 style="text-align:center;">Are you editing or translating a medieval text related to the scholastic tradition broadly conceived?
+      Whether you're working on a critical edition, diplomatic edition, or translation, your work has a place in the SCTA.
+      Resist the defunct workflow of for-profit proprietary publishers.
+      Work with the SCTA community to get your text peer reviewed, published, disseminated to the world.</h4>
+      <br/>
+    <h4 style="text-align:center;">Are you a digital humanists? Are you working on corpus analysis, natural language processing?
+      Don't recreate data. Use our SPARQL endpoint and APIs
+      to access SCTA data to build amazing applications
+      and to analyze one of the largest digital
+      archives of medieval Latin in the world.</h4>
+      <br/>
+      <h4 style="text-align:center;">Want to learn more? Scroll Down</h4><br/>
+  </div>
+
+<div class="bgimg-1">
+  <div class="caption">
+    <span class="border">The Silo Problem</span>
+  </div>
+</div>
+
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+  <p>Today, the traditional mechanisms of publishing scholarly editions of medieval scholastic texts are no longer helping to advance scientific research.
+    Instead, considered in light of what is now possible, traditional publishing workflows are preventing progress.
+    These workflows are preventing collaborative aggregation, computer assisted analysis and discovery, open access, and data re-use.
+    The fragmentation of these editions with different publishers, who prepare data according to proprietary and incompatible data standards
+    means (1) that the creation of an edition requires wasteful redundancy and (2) the aggregation and analysis of connected content is impossible.
+    This is the essence of a data silo.
+</p>
+</div>
+
+<div class="bgimg-2">
+  <div class="caption">
+    <span class="border" style="font-size:25px;">How do we break down these silos?</span>
+  </div>
+</div>
+
+<div style="position:relative;">
+  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+    <p>
+      The SCTA community adopts, develops, and publishes standards
+      for semantically encoding texts related to the scholastic tradition.
+      When we, as a community, adopt and adhere to these guidelines, our data becomes interoperable.
+      For example, the SCTA supports specialized encoding schemas specifically tailored to scholastic texts.
+      One example is the <a href="http://lombardpress.org/schema/docs">LombardPress Schema</a>
+      which is a customization of the more general <a href="http://tei-c.org">TEI Guidelines</a>.
+      If you're preparing a text, all you need to do is follow the LombardPress Schema
+      and your text can be crawled and connected to the larger global network.
+    </p>
+    <p>
+      The SCTA build script crawls this interoperable data and builds a network graph.
+      This graph documents connections within and between texts being
+      edited by different people all over the world.
+      It also makes connections to other data sets around the world, helping
+      to create a global graph of information.
+      These connections enable us to discover new information about the corpus.
+      The connections allows us to query for related texts at granular levels
+      and even request to the image of manuscript facsimiles of these text
+      published by libraries all over the world.
+  </div>
+</div>
+
+<div class="bgimg-3">
+  <div class="caption">
+    <span class="border" style="background-color: transparent; color: black; font-weight: bold; font-size:25px;">Making the network availabe for use and reuse through field vetted and well documented APIs</span>
+  </div>
+</div>
+<div style="position:relative;">
+  <div style="text-align:center;padding:50px 80px;text-align: justify;">
+    <p>
+      Once the graph is made, the SCTA makes this data available for use and re-use by other applications in a variety
+      of different ways.
+    </p>
+    <p>
+      The SCTA maintains a public SPARQL endpoint,
+      which means anyone can query the graph directly for the information they need.
+      But we also publish the graph according to both custom in-house APIs and external APIs.
+      For example, the SCTA publishes data within network related to manuscript images available
+      via the IIIF presentation API. See <a href="http://scta.info/iiif/scta/collection">http://scta.info/iiif/scta/collection</a>.
+      Using this API, any IIIF compliant viewer can display transcriptions, tables of contents, and other kinds of information alongside
+      manuscript images.
+    </p>
+  </div>
+</div>
+
+<div style="position:relative;">
+  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+    <p>With these APIs in place, we can re-use our connected to build a plurality of applications to suit different research purposes.</p>
+    <p>Here are just a couple of independent applications out in the world using data provided by the SCTA.</p>
+    <div class="row">
+      <div class="col-sm-4">
+        <p><a href="http://scta.lombardpress.org">The "SCTA Reading Room" -- SCTA Data published by the LombardPress Web Application.</a></p>
+        <img width="300px"; src="lbpWebImage.png"/>
+      </div>
+      <div class="col-sm-4">
+        <p><a href="http://print.lombardpress.org">LombardPress Print -- Instantly generate a typeset print layout of any part of any text within the SCTA catalogue.</a></p>
+        <img width="300px"; src="lbpPrintImage.jpg"/>
+      </div>
+      <div class="col-sm-4">
+        <p><a href="http://mirador.scta.info">The SCTA Mirador Viewer -- View and compare manuscript images containing scholastic texts from libraries all over the world.</a></p>
+        <img width="300px"; src="MiradorImage.png"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="bgimg-4">
+  <div class="caption">
+    <span class="border" style="font-size:25px;">Why is this problem so important to solve?</span>
+  </div>
+</div>
+
+<div style="position:relative;">
+  <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+    <p>
+      The medieval scholastic corpus —
+      that is,
+      the rich tradition of philosophy and theology spanning nearly 500 years from the 12th to the 16th century —
+      understood in terms of its full depth and breadth is too big for any one scholar to ever read or absorb.
+    </p>
+    <p>Nevertheless, it is highly interconnected and interdependent.</p>
+    <p>
+      Thus, despite the fact that none of us can read the whole, the meaning of each argument is some sense dependent on the whole.
+      And our lack of access to the whole, means our understanding of the parts will always in some way be impoverished.
+    </p>
+    <p>
+      Nearly every text is in some way dependent on a previous text or text tradition,
+      whether as a commentary or revision or expansion or abbreviation.
+      And nearly every text is itself a composition of an elaborate set of references
+      and citations linking the corpus together.
+    </p>
+    <p>
+      The result of these various intertextual dependencies
+      compounded over centuries is an amazing tapestry that,
+      taken together, could show us the migration, mutation,
+      and development of ideas leading directly to the events of the Reformation,
+      the Renaissance, and the Scientific Revolution.
+    </p>
+    <p>
+      The problem, again, is that the current publication paradigm makes it impossible for us to see this tapestry.
+      No individual reader will ever be able to read the entire corpus or discover all the connections within it.
+    </p>
+    <p>
+      If we are ever to achieve the goal of seeing the entire tapestry,
+      we must find a collaborative solution that allows the small contributions
+      of individuals and editors to be aggregated over time into an organized and navigable network.
+    </p>
+    <p>This is the aim of the Scholastic Commentaries and Texts Archive.</p>
+    <p>First: to form a community of people who have agree upon editorial guidelines and best practices that in turn lay the foundation for the aggregation and organization of the collaboratively constructed network of scholastics texts.</p>
+    <p>Second: to actualize that aggregation and organization and offer that aggregated data as service to the community for both the most traditional and untraditional re-uses of that textual data.</p>
+  </div>
+</div>
+
+<div class="bgimg-1">
+  <div class="caption">
+    <span class="border">Join us and let's break these silos down!</span>
+  </div>
+</div>
+<div style="position:relative;">
+  <div style="text-align:center;padding:50px 80px;text-align: justify;">
+    <h3>Want to Go Deeper?</h3>
+    <p>Here's are some places to get started:</p>
+    <p>
+      We have a community page at <a href="http://community.scta.info">http://community.scta.info</a>.
+      Here we post articles on how to get started, how to contribute, and general responses
+      to frequently asked questions.</p>
+    <p>Jeffrey Witt maintains several articles about the SCTA on his project blog
+      at <a href="http://lombardpress.org">http://lombardpress.org</a>.
+      This articles are usually speculative and experimental in nature,
+      but they offer deep dives into the SCTA data structure and how it can be used by client applications
+      like the LombardPress applications.
+    </p>
+    <p>
+      You can also <a href="https://scta-team.signup.team/">join our slack channel</a>.
+      Join the slack channel and aske the community questions.
+    </p>
+  </div>
+</div>
+
+
+
+<div class="bgimg-2">
+</div>
+</body>
+</html>

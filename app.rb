@@ -164,7 +164,7 @@ get '/' do
     @totalcount = "2,755,088"
 
 
-  erb :index
+  erb :index2
 end
 
 
