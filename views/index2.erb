@@ -9,7 +9,7 @@ body, html {
   color: #777;
 }
 
-.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4{
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5{
   position: relative;
   opacity: 0.65;
   background-attachment: fixed;
@@ -36,6 +36,11 @@ body, html {
   background-image: url("example_ms.jpg");
   min-height: 60%;
 }
+.bgimg-5 {
+  background-image: url("example_ms.jpg");
+  min-height: 30%;
+}
+
 
 
 .caption {
@@ -64,39 +69,43 @@ h3 {
 
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
+    .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bg-img-5 {
         background-attachment: scroll;
     }
 }
 </style>
 </head>
 <body>
+  <div class="bgimg-5">
+    <div class="caption">
+    <span class="border">Welcome to the Scholastic Commentaries and Texts Archive</span>
+  </div>
+  </div>
 
-  <div style="min-height: 100%; color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-    <h3 style="text-align:center;">Welcome to the Scholastic Commentaries and Texts Archive</h3>
-    <br/>
+  <div style="min-height: 100%; color: black;text-align:center;padding:50px 80px;text-align: justify;">
     <h4 style="text-align:center;">The SCTA is a community and webservice.</h4>
     <br/>
     <h4 style="text-align:center;">Our aim is to connect and freely distribute the intelletual history of the medieval past.</h4>
     <br/>
-    <h4 style="text-align:center;">We exist to resist the fragmenting tendencies of the traditional publication workflow
+    <p style="text-align:center;">We exist to resist the fragmenting tendencies of the traditional publication workflow
       and show scholars that there is another way possible: a way that makes textual data
       freely avaiable for use and re-use, that encourages collaboration instead of competition,
-      and fights redundancy at all costs.</h4>
-      <br/>
-    <h4 style="text-align:center;">Are you editing or translating a medieval text related to the scholastic tradition broadly conceived?
+      and fights redundancy at all costs.</p>
+
+    <p style="text-align:center;">Are you editing or translating a medieval text related to the scholastic tradition broadly conceived?
       Whether you're working on a critical edition, diplomatic edition, or translation, your work has a place in the SCTA.
       Resist the defunct workflow of for-profit proprietary publishers.
-      Work with the SCTA community to get your text peer reviewed, published, disseminated to the world.</h4>
-      <br/>
-    <h4 style="text-align:center;">Are you a digital humanists? Are you working on corpus analysis, natural language processing?
+      Work with the SCTA community to get your text peer reviewed, published, disseminated to the world.</p>
+
+    <p style="text-align:center;">Are you a digital humanists? Are you working on corpus analysis, natural language processing?
       Don't recreate data. Use our SPARQL endpoint and APIs
       to access SCTA data to build amazing applications
       and to analyze one of the largest digital
-      archives of medieval Latin in the world.</h4>
-      <br/>
+      archives of medieval Latin in the world.</p>
+
       <h4 style="text-align:center;">Want to learn more? Scroll Down</h4><br/>
   </div>
+
 
 <div class="bgimg-1">
   <div class="caption">
