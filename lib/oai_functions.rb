@@ -36,8 +36,9 @@ def get_record
   content = "<GetRecord>
     <record>
       <header>
-        <identifier>oai:arXiv.org:cs/0112017</identifier>
+        <identifier>http://scta.info/resource/plaoulcommentary</identifier>
         <datestamp>2001-12-14</datestamp>
+        <setSpec>sententia</setSpec>
       </header>
       <metadata>
         <oai_dc:dc
@@ -48,9 +49,7 @@ def get_record
           http://www.openarchives.org/OAI/2.0/oai_dc.xsd'>
           <dc:title>Plaoul Commentary</dc:title>
           <dc:creator>Peter Plaoul</dc:creator>
-          <dc:subject>Digital Libraries</dc:subject>
-          <dc:description>Dublin core description
-          </dc:description>
+          <dc:description>Dublin core description</dc:description>
           <dc:date>2001-12-14</dc:date>
         </oai_dc:dc>
       </metadata>
@@ -74,6 +73,8 @@ def list_identifiers
   content = "<ListIdentifiers>
     <header>
       <identifier>http://scta.info/resource/plaoulcommentary</identifier>
+      <datestamp>1999-03-20</datestamp>
+      <setSpec>sententia</setSpec>
     </header>
     <!--
     <header>
@@ -116,8 +117,9 @@ def list_records
   content = "<ListRecords>
     <record>
       <header>
-        <identifier>oai:arXiv.org:cs/0112017</identifier>
+        <identifier>http://scta.info/resource/plaoulcommentary</identifier>
         <datestamp>2001-12-14</datestamp>
+        <setSpec>sententia</setSpec>
       </header>
       <metadata>
         <oai_dc:dc
@@ -136,39 +138,24 @@ def list_records
       </metadata>
     </record>
     <!-- more records can be added here -->
-  </listRecords>"
+  </ListRecords>"
 end
 def list_sets
   content = "<ListSets>
-  <!-- set sepcs defined below; i think this is away of defining sub collections
     <set>
-      <setSpec>music</setSpec>
-      <setName>Music collection</setName>
-    </set>
-    <set>
-      <setSpec>music:(muzak)</setSpec>
-      <setName>Muzak collection</setName>
-    </set>
-    <set>
-      <setSpec>music:(elec)</setSpec>
-      <setName>Electronic Music Collection</setName>
+      <setSpec>sententia</setSpec>
+      <setName>Sentences Commentaries</setName>
       <setDescription>
-        <oai_dc:dc
-          xmlns:oai_dc='http://www.openarchives.org/OAI/2.0/oai_dc/'
+      <oai_dc:dc
+          xmlns:oai_dc='http://www.openarchives.org/OAI/2.0/oai_dc/''
           xmlns:dc='http://purl.org/dc/elements/1.1/'
           xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
           xsi:schemaLocation='http://www.openarchives.org/OAI/2.0/oai_dc/
           http://www.openarchives.org/OAI/2.0/oai_dc.xsd'>
-          <dc:description>This set contains metadata describing
-            electronic music recordings made during the 1950ies
-          </dc:description>
-        </oai_dc:dc>
-      </setDescription>
+          <dc:description>A work group for the Sentences Commentary Tradition</dc:description>
+       </oai_dc:dc>
+    </setDescription>
     </set>
-    <set>
-      <setSpec>video</setSpec>
-      <setName>Video Collection</setName>
-    </set> -->
   </ListSets>"
 
 end
