@@ -73,13 +73,11 @@ def list_identifiers
   records = getExpressions("scta")
   combined_records = ""
   records.each do |record|
-    record = "<record>
-      <header>
+    record = "<header>
         <identifier>#{record[:expression]}</identifier>
         <datestamp>2001-12-14</datestamp>
         <setSpec>scta</setSpec>
-      </header>
-    </record>"
+      </header>"
     combined_records = combined_records + record
   end
 
