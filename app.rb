@@ -34,6 +34,7 @@ require_relative 'lib/manifests'
 require_relative 'lib/collections'
 require_relative 'lib/notifications'
 require_relative 'lib/dts'
+require_relative 'lib/oai_functions'
 
 
 configure do
@@ -194,6 +195,25 @@ end
 get '/about' do
   erb :about
 end
+
+# oai routes
+get '/oai' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :xml
+  response = oai_response(params)
+  return response
+end
+post '/oai' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :xml
+  response = oai_response(params)
+  return response
+end
+put '/oai' do
+  response = oai_response(params)
+  return response
+end
+# End OAI routes
 
 # search results route
 get '/searchresults' do
