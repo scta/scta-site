@@ -9,7 +9,8 @@ def oai_response(params)
   end
 
   content = if verb == "GetRecord"
-    get_record
+    puts identifier
+    get_record(identifier)
   elsif verb === "ListIdentifiers"
     list_identifiers
   elsif verb === "ListMetadataFormats"
@@ -32,13 +33,15 @@ def oai_response(params)
   #{content}
 </OAI-PMH> "
 end
-def get_record
+def get_record(url)
+  record = getExpression(url)[0]
+  
   content = "<GetRecord>
-    <record>
+      <record>
       <header>
-        <identifier>http://scta.info/resource/plaoulcommentary</identifier>
+        <identifier>#{url}</identifier>
         <datestamp>2001-12-14</datestamp>
-        <setSpec>sententia</setSpec>
+        <setSpec>scta</setSpec>
       </header>
       <metadata>
         <oai_dc:dc
@@ -47,9 +50,9 @@ def get_record
           xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
           xsi:schemaLocation='http://www.openarchives.org/OAI/2.0/oai_dc/
           http://www.openarchives.org/OAI/2.0/oai_dc.xsd'>
-          <dc:title>Plaoul Commentary</dc:title>
-          <dc:creator>Peter Plaoul</dc:creator>
-          <dc:description>Dublin core description</dc:description>
+          <dc:title>#{record[:expression_label]}</dc:title>
+          <dc:creator>#{record[:author_title]}</dc:creator>
+          <dc:description>#{record[:expression_description]}</dc:description>
           <dc:date>2001-12-14</dc:date>
         </oai_dc:dc>
       </metadata>
@@ -135,15 +138,15 @@ def list_sets
     <setSpec>SCTA</setSpec>
     <setName>Scholastic Commentaries and Texts Archive</setName>
     <setDescription>
-    <oai_dc:dc
+      <oai_dc:dc
         xmlns:oai_dc='http://www.openarchives.org/OAI/2.0/oai_dc/'
         xmlns:dc='http://purl.org/dc/elements/1.1/'
         xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
         xsi:schemaLocation='http://www.openarchives.org/OAI/2.0/oai_dc/
         http://www.openarchives.org/OAI/2.0/oai_dc.xsd'>
         <dc:description>Top Level Collection for the Scholastic Commentaries and Texts Archive</dc:description>
-     </oai_dc:dc>
-  </setDescription>
+      </oai_dc:dc>
+    </setDescription>
   </set>
     <set>
       <setSpec>SCTA: (sententia)</setSpec>
@@ -174,6 +177,24 @@ def getExpressions(wg_shortid)
     ?expression_author <http://purl.org/dc/elements/1.1/title> ?author_title .
     ?expression <http://purl.org/dc/elements/1.1/description> ?expression_description .
     ?expression <http://scta.info/property/shortId> ?expression_shortid .
+  }
+  "
+
+  #@results = rdf_query(query)
+  query_obj = Lbp::Query.new()
+  results = query_obj.query(query)
+  return results
+end
+def getExpression(expression_url)
+  query = "
+  SELECT ?expression_shortid ?expression_label ?author_title ?expression_description
+  {
+
+    <#{expression_url}> <http://purl.org/dc/elements/1.1/title> ?expression_label .
+    <#{expression_url}> <http://www.loc.gov/loc.terms/relators/AUT> ?expression_author .
+    ?expression_author <http://purl.org/dc/elements/1.1/title> ?author_title .
+    <#{expression_url}> <http://purl.org/dc/elements/1.1/description> ?expression_description .
+    <#{expression_url}> <http://scta.info/property/shortId> ?expression_shortid .
   }
   "
 
