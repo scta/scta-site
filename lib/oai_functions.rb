@@ -35,7 +35,7 @@ def oai_response(params)
 end
 def get_record(url)
   record = getExpression(url)[0]
-  
+
   content = "<GetRecord>
       <record>
       <header>
@@ -93,10 +93,8 @@ def list_metadata_formats
   content = "<ListMetadataFormats>
     <metadataFormat>
       <metadataPrefix>oai_dc</metadataPrefix>
-      <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd
-      </schema>
-      <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/
-      </metadataNamespace>
+      <schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</schema>
+      <metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</metadataNamespace>
     </metadataFormat>
   </ListMetadataFormats>"
   return content
@@ -149,7 +147,7 @@ def list_sets
     </setDescription>
   </set>
     <set>
-      <setSpec>SCTA: (sententia)</setSpec>
+      <setSpec>SCTA:sententia</setSpec>
       <setName>Sentences Commentaries</setName>
       <setDescription>
       <oai_dc:dc

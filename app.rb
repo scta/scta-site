@@ -210,6 +210,8 @@ post '/oai' do
   return response
 end
 put '/oai' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :xml
   response = oai_response(params)
   return response
 end
