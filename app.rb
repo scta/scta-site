@@ -109,7 +109,7 @@ get '/' do
 
           SELECT count(distinct ?quotation) {
             ?quotation <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
-            ?quotaiton <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementQuote> .
+            ?quotation <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementQuote> .
           }
           "
   # quotesquery = "#{prefixes}
@@ -157,12 +157,13 @@ get '/' do
     # @namecount = rdf_query.query(namequery).first[:".1"]
     # @workcount = rdf_query.query(workquery).first[:".1"]
     # @totalcount = rdf_query.query(totalquery).first[:count].to_i
-    @quotationcount = "14,300"
-    @itemcount = "15,763"
-    @commentarycount = "78"
-    @namecount = "10,136"
-    @workcount = "2,599"
-    @totalcount = "2,755,088"
+    @quotationcount = "39,563"
+    @itemcount = "22,283"
+    @questionTitles = "16,632"
+    @commentarycount = "95"
+    @namecount = "17,013"
+    @workcount = "8,763"
+    @totalcount = "6,206,750"
 
 
   erb :index2
