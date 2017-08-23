@@ -635,7 +635,8 @@ get '/list/:type' do |type|
   end
 end
 
-get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
+# This route is depreciated by the route that follows
+get '/old/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
 
   if params[:p7] != nil
     @subjectid = "<http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}/#{params[:p5]}/#{params[:p6]}/#{params[:p7]}>"
@@ -713,6 +714,60 @@ get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do ||
     headers( "Access-Control-Allow-Origin" => "*")
     headers("Access-Control-Allow-Headers" => "content-type, Origin")
     headers("Access-Control-Allow-Methods" => "GET")
+
+      RDF::Graph.new do |graph|
+        @result.each do |solution|
+          s = RDF::URI(@subjectid.gsub(/[<>]/, ""))
+          p = solution[:p]
+          o = solution[:o]
+          graph << [s, p, o]
+        end
+        #this conditional was added because returning graph alone
+        # wasn't rending json, even though it will return turtle or XML
+        #it's unclear why it can't negotiate json on its own
+        if accept_type.include? "application/json"
+          content_type :json
+          return JSON.pretty_generate(graph.to_rdf_json)
+        else
+          return graph
+        end
+
+
+      end
+
+  end
+end
+get '/?:p1?/?:p2?/?:p3?/?:p4?/?:p5?/?:p6?/?:p7?' do
+
+  if params[:p7] != nil
+    @subjectid = "http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}/#{params[:p5]}/#{params[:p6]}/#{params[:p7]}"
+  elsif params[:p6] != nil
+    @subjectid = "http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}/#{params[:p5]}/#{params[:p6]}"
+  elsif params[:p5] != nil
+    @subjectid = "http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}/#{params[:p5]}"
+  elsif params[:p4] != nil
+    @subjectid = "http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}/#{params[:p4]}"
+  elsif params[:p3] != nil
+    @subjectid = "http://scta.info/#{params[:p1]}/#{params[:p2]}/#{params[:p3]}"
+  elsif params[:p2] != nil
+    @subjectid = "http://scta.info/#{params[:p1]}/#{params[:p2]}"
+  elsif params[:p1] != nil
+    @subjectid = "http://scta.info/#{params[:p1]}"
+  end
+
+  @resource = Lbp::Resource.find(@subjectid)
+  @result = @resource.results
+
+  accept_type = request.env['HTTP_ACCEPT']
+  if accept_type.include? "text/html"
+
+  erb :obj_pred_display2
+
+  else
+    headers( "Access-Control-Allow-Origin" => "*")
+    headers("Access-Control-Allow-Headers" => "content-type, Origin")
+    headers("Access-Control-Allow-Methods" => "GET")
+
 
       RDF::Graph.new do |graph|
         @result.each do |solution|

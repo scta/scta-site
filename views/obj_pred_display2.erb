@@ -1,0 +1,57 @@
+<div id="body">
+  <div id="titleheader">
+    <h2><%= "#{@resource.title}" %></h2>
+    <p><%= @resource.description %> </p>
+
+    <% if @resource.value("http://scta.info/property/structureType").to_s == "http://scta.info/resource/structureCollection" %>
+      <p>Author: <a href="<%=(@resource.value("http://www.loc.gov/loc.terms/relators/AUT"))%>"><%= @resource.value("http://www.loc.gov/loc.terms/relators/AUT") %> </a></p>
+      <p>View text in SCTA Reading Room: <a href="http://scta.lombardpress.org/text/questions/<%= @resource.short_id %>">http://scta.lombardpress.org/text/questions/<%= @resource.short_id %></a></p>
+    <% elsif @resource.value("http://scta.info/property/structureType").to_s == "http://scta.info/resource/structureItem" %>
+      <p>Author: <a href="<%=(@resource.value("http://www.loc.gov/loc.terms/relators/AUT"))%>"><%= @resource.value("http://www.loc.gov/loc.terms/relators/AUT") %> </a> </p>
+      <p>View text in SCTA Reading Room: <a href="http://scta.lombardpress.org/text/<%= @resource.short_id %>">http://scta.lombardpress.org/text/<%= @resource.short_id %></a></p>
+    <% elsif @resource.type.short_id == "person" %>
+      <p>View entry in SCTA Reading Room: <a href="http://scta.lombardpress.org/text/questions/<%= @resource.short_id %>">http://scta.lombardpress.org/text/questions/<%= @resource.short_id %></a></p>
+    <% elsif @resource.type.short_id == "workGroup" %>
+      <p>View collection in SCTA Reading Room: <a href="http://scta.lombardpress.org/text/questions/<%= @resource.short_id %>">http://scta.lombardpress.org/text/questions/<%= @resource.short_id %></a></p>
+    <% end %>
+
+
+  </div>
+
+
+
+<% def tableprint(predicate, object)
+    predicate_hash = URLConvert(predicate)
+    if !object.literal?
+     object_hash = URLConvert(object)
+    end
+%>
+    <tr>
+      <td class="predicateterm">
+        <a href="<%= predicate_hash[:url_link] %>"><span class="url_label"><%= predicate_hash[:url_label] %></span><span class="url_base"><%= predicate_hash[:url_base] %></span></a>
+      </td>
+      <td class="objectterm">
+        <% if object.literal? %>
+            <%= object %>
+        <% else
+             object_str = object.to_s %>
+            <a href='<%= object_hash[:url_link] %>'><span class="url_label"><%= object_hash[:url_label] %></span><span class="url_base"><%= object_hash[:url_base] %></span></a>
+        <% end %>
+      </td>
+    </tr>
+
+<% end %>
+
+  <div style="border-top: 1px dotted black; margin-top: 15px; padding-top: 15px">
+    <h3 class="dstitle"><small>Linked Data Metadata</small></h3>
+      <table class="datastream table table-striped" style="display: block;">
+      <%
+          @resource.results.each_solution do |solution|
+          predicate = solution[:p]
+          object = solution[:o]
+          tableprint(predicate, object)
+          end
+      %>
+      </table>
+  </div>
+</div>
