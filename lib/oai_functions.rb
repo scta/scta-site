@@ -54,6 +54,7 @@ def get_record(url)
           <dc:creator>#{record[:author_title]}</dc:creator>
           <dc:description>#{record[:expression_description]}</dc:description>
           <dc:date>2001-12-14</dc:date>
+          <dc:identifier>#{url}</dc:identifier>
         </oai_dc:dc>
       </metadata>
     </record>
@@ -120,6 +121,7 @@ def list_records()
           <dc:creator>#{record[:author_title]}</dc:creator>
           <dc:description>#{record[:expression_description]}</dc:description>
           <dc:date>2001-12-14</dc:date>
+          <dc:identifier>#{record[:expression]}</dc:identifier>
         </oai_dc:dc>
       </metadata>
     </record>"
