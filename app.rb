@@ -105,71 +105,78 @@ end
 
 # root route
 get '/' do
-  quotationquery = "#{prefixes}
-
-          SELECT count(distinct ?quotation) {
-            ?quotation <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
-            ?quotation <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementQuote> .
-          }
-          "
-  # quotesquery = "#{prefixes}
-  #
-  #         SELECT count(distinct ?quotes) {
-  #           ?s sctap:quotes ?quotes .
-  #         }
-  #         "
-  itemquery = "#{prefixes}
-
-          SELECT count(distinct ?item) {
-            ?item <http://scta.info/property/structureType> <http://scta.info/resource/structureItem> .
-          }
-          "
-  commentaryquery = "#{prefixes}
-
-          SELECT count(distinct ?com) {
-            ?com <http://scta.info/property/expressionType> <http://scta.info/resource/commentary> .
-          }
-          "
-  namequery = "#{prefixes}
-
-          SELECT count(distinct ?name) {
-            ?name <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
-            ?name <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementName> .
-          }
-          "
-  workquery = "#{prefixes}
-
-          SELECT count(distinct ?title) {
-            ?title <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
-            ?title <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementTitle> .
-          }
-          "
-  totalquery = "SELECT (count(*) as ?count) WHERE {
-                       ?s ?p ?o .
-                     }"
-  rdf_query = Lbp::Query.new()
-  #these queries slow load time way to much
-  #uncomment to get updated numbers
-    # @quotationcount = rdf_query.query(quotationquery).first[:".1"]
-    # ##@quotescount = rdf_query.query(quotesquery).first[:".1"]
-    # @itemcount = rdf_query.query(itemquery).first[:".1"]
-    # @commentarycount = rdf_query.query(commentaryquery).first[:".1"]
-    # @namecount = rdf_query.query(namequery).first[:".1"]
-    # @workcount = rdf_query.query(workquery).first[:".1"]
-    # @totalcount = rdf_query.query(totalquery).first[:count].to_i
-    @quotationcount = "39,563"
-    @itemcount = "22,283"
-    @questionTitles = "16,632"
-    @commentarycount = "95"
-    @namecount = "17,013"
-    @workcount = "8,763"
-    @totalcount = "6,206,750"
-
-
   erb :index2
 end
+get '/stats' do
+quotationquery = "#{prefixes}
 
+        SELECT count(distinct ?quotation) {
+          ?quotation <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
+          ?quotation <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementQuote> .
+        }
+        "
+# quotesquery = "#{prefixes}
+#
+#         SELECT count(distinct ?quotes) {
+#           ?s sctap:quotes ?quotes .
+#         }
+#         "
+itemquery = "#{prefixes}
 
+        SELECT count(distinct ?item) {
+          ?item <http://scta.info/property/structureType> <http://scta.info/resource/structureItem> .
+        }
+        "
+commentaryquery = "#{prefixes}
+
+        SELECT count(distinct ?com) {
+          ?com <http://scta.info/property/expressionType> <http://scta.info/resource/commentary> .
+        }
+        "
+namequery = "#{prefixes}
+
+        SELECT count(distinct ?name) {
+          ?name <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
+          ?name <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementName> .
+        }
+        "
+workquery = "#{prefixes}
+
+        SELECT count(distinct ?title) {
+          ?title <http://scta.info/property/structureType> <http://scta.info/resource/structureElement> .
+          ?title <http://scta.info/property/structureElementType>	<http://scta.info/resource/structureElementTitle> .
+        }
+        "
+totalquery = "SELECT (count(*) as ?count) WHERE {
+                     ?s ?p ?o .
+                   }"
+rdf_query = Lbp::Query.new()
+#these queries slow load time way to much
+#uncomment to get updated numbers
+  @quotationcount = rdf_query.query(quotationquery).first[:".1"]
+  ##@quotescount = rdf_query.query(quotesquery).first[:".1"]
+  @itemcount = rdf_query.query(itemquery).first[:".1"]
+  @commentarycount = rdf_query.query(commentaryquery).first[:".1"]
+  @namecount = rdf_query.query(namequery).first[:".1"]
+  @workcount = rdf_query.query(workquery).first[:".1"]
+  @totalcount = rdf_query.query(totalquery).first[:count].to_i
+  # @quotationcount = "39,563"
+  # @itemcount = "22,283"
+  # @questionTitles = "16,632"
+  # @commentarycount = "95"
+  # @namecount = "17,013"
+  # @workcount = "8,763"
+  # @totalcount = "6,206,750"
+  erb :stats
+end
+get '/iiif/iiif-presentation-context.jsonld' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  send_file "public/iiif-presentation-context.jsonld"
+end
+get '/iiif/iiif-image-context.jsonld' do
+  headers( "Access-Control-Allow-Origin" => "*")
+  send_file "public/iiif-image-context.jsonld"
+end
 get '/images/:filename' do |filename|
   headers( "Access-Control-Allow-Origin" => "*")
   send_file "public/#{filename}"
