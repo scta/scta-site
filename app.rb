@@ -107,6 +107,9 @@ end
 get '/' do
   erb :index2
 end
+get '/donate' do
+  erb :donate
+end
 get '/stats' do
 quotationquery = "#{prefixes}
 
@@ -184,6 +187,7 @@ end
 get '/logo.png' do
   send_file "public/sctalogo.png"
 end
+
 
 # documentation route
 get '/technical-details' do
