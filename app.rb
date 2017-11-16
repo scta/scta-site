@@ -32,6 +32,7 @@ require_relative 'lib/custom_functions'
 require_relative 'lib/ranges'
 require_relative 'lib/manifests'
 require_relative 'lib/collections'
+require_relative 'lib/csv'
 require_relative 'lib/notifications'
 require_relative 'lib/dts'
 require_relative 'lib/oai_functions'
@@ -304,6 +305,12 @@ get '/dts/collection/*' do |resourceid|
   dts_output(resource)
 end
 
+get '/csv/:id' do |resourceid|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  resource = Lbp::Resource.find(resourceid)
+  create_csv(resource)
+end
 
 
 get '/iiif/collection/scta' do
