@@ -241,7 +241,6 @@ query =
  }
  ORDER BY ?order"
 
-
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)

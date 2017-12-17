@@ -165,13 +165,14 @@ def create_range(manifestationid)
 
     end
   else
-    ## if items are toplevel division, use create_range 2
-    ## create_range2 is the better function, but the ranges created are often to complex and heavy for web and mirador
-    all_structures = create_range2(manifestationid)
+    # create_range3 generator is targeted at ranges below the top level expression level, e.g. pp-deFide, etc
+    # TODO there is a lot of repetition; range creation needs massive refactoring
+    all_structures = create_range3(manifestationid)
   end
 
   return all_structures
 end
+## create_range2 is the better function, but the ranges created are often to complex and heavy for web and mirador
 def create_range2(manifestationid)
   query = "
   SELECT ?expression ?expression_title ?level ?part ?part_title ?part_order ?part_level ?canvas ?part_child ?part_child_order ?part_parent ?part_order
@@ -314,4 +315,180 @@ topdivision_ranges = []
   structures << top_structure
   #JSON.pretty_generate(structures)
 
+end
+
+# This range generator is targeted for ranges below the top level expression level
+# TODO there is a lot of repetition; range creation needs massive refactoring
+def create_range3(manifestationid)
+
+  msname = manifestationid.split("/").last
+  query = "
+  SELECT ?wrapper_title ?topdivision ?topdivision_title ?item ?item_expression ?order ?title ?witness ?canvas
+  {
+    <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isPartOfTopLevelManifestation> ?topLevelManifestation .
+    ?topLevelManifestation <http://purl.org/dc/terms/hasPart> ?topdivision .
+    ?topdivision <http://scta.info/property/shortId> '#{manifestationid}' .
+    ?topdivision <http://scta.info/property/isManifestationOf> ?wrapper_expression .
+    ?wrapper_expression <http://purl.org/dc/elements/1.1/title> ?wrapper_title .
+    ?topdivision <http://scta.info/property/isManifestationOf> ?topdivision_expression .
+    ?topdivision_expression <http://purl.org/dc/elements/1.1/title> ?topdivision_title .
+    ?topdivision <http://scta.info/property/hasStructureItem> ?item .
+    ?item <http://scta.info/property/isManifestationOf> ?item_expression .
+    ?item_expression <http://scta.info/property/totalOrderNumber> ?order .
+    ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
+    ?item <http://scta.info/property/hasSurface> ?surface .
+    ?surface <http://scta.info/property/hasISurface> ?isurface .
+    ?isurface <http://scta.info/property/hasCanvas> ?canvas
+  }
+  ORDER BY ?order
+  "
+
+  #@results = rdf_query(query)
+  query_obj = Lbp::Query.new()
+  @results = query_obj.query(query)
+  all_structures = []
+
+  if @results.count > 0
+
+    # top divisions creates an array for all top level divisions in commentary
+    # usually these divisions are book 1, book 2, book3, book 4
+    topdivisions = []
+    # the results of the query are parsed creating a new array called top divisions
+    # that contains a a list of divisions that include the division id and the division title
+    @results.each do |result|
+      topdivisions << [result[:topdivision].to_s, result[:topdivision_title]]
+    end
+
+    #the resulting array is then reduced to unique values only.
+    topdivisions.uniq!
+
+    # an array is made for all the items that will display
+    items = []
+
+    # the items array is a list of item resources, each entry in the list
+    # includes the item id, the item title and the top division to which it belongs
+    @results.each do |result|
+      items << [result[:item], result[:title], result[:topdivision], result[:topdivision_title]]
+    end
+
+    ## a new array called result sets is built to get
+    # the full set of information for each item (including associated canvases)
+    # associated with topdivision id and top division title
+    result_sets = []
+    items.uniq!
+
+    items.each do |item, title, topdivision, topdivision_title|
+      filtered_results = @results.dup.filter(:item => item.to_s)
+      result_sets << [filtered_results, title, topdivision.to_s, topdivision_title]
+    end
+
+    #create ranges array for each topdivision and item ranges associated within each topdivision
+    topdivision_ranges = []
+    item_ranges = []
+
+    r = 1
+
+    topdivisions.each do |topdivisionid, topdivision_title|
+
+      topdivision_ranges << "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
+
+      next_r = 1
+      result_sets.each do |result, title, item_topdivisionid, topdivision_title|
+        if item_topdivisionid == topdivisionid
+          item_ranges << {topdivision_rangeid: "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
+                          item_rangeid: "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}-#{next_r}",
+                          set: result,
+                          title: title.to_s,
+                          topdivision_title: topdivision_title
+                          }
+          end
+          next_r = next_r + 1
+        end
+        r = r + 1
+      end
+
+
+
+    first_structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/r1",
+                      "@type" => "sc:Range",
+                      "label" => @results[0][:wrapper_title].to_s,
+                      "viewingHint" => "top",
+                      "ranges" => topdivision_ranges,
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                      "description": "A range for Sentences Commentary #{manifestationid}",
+                      "logo": "https://scta.info/logo.png",
+                      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+
+    #add wrapper structure to total range array
+    all_structures << first_structure
+
+    # begin loop to create topdivision structures
+    r = 1
+
+    topdivisions.each do |id, title|
+
+        ranges2 = item_ranges.map do |object|
+
+          if object[:topdivision_rangeid] == "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
+             object[:item_rangeid]
+          end
+        end
+
+        division_canvases =[]
+        item_ranges.each do |object|
+          if object[:topdivision_rangeid] == "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
+            object[:set].each do |item_set|
+              division_canvases << item_set[:canvas].to_s
+            end
+          end
+        end
+        division_canvases.uniq!
+        ranges2.compact!
+        structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
+                      "within" => "https://scta.info/iiif/#{manifestationid}/range/r1",
+                      "@type" => "sc:Range",
+                      "label" => title,
+                      "ranges" => ranges2,
+                      # mirador has bug if this canvases are also listed
+                      #"canvases" => division_canvases,
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                      "description": "A range for Sentences Commentary #{manifestationid}",
+                      "logo": "https://scta.info/logo.png",
+                      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+        all_structures << structure
+        r = r + 1
+      end
+
+      ## begin loop to create all item level structures
+      item_ranges.each do |object|
+
+        structure_canvases = []
+
+        object[:set].each do |item_set|
+          structure_canvases << item_set[:canvas].to_s
+        end
+
+        title = object[:title].to_s.split("#{object[:topdivision_title]}, ").last
+        structure = {"@id" => object[:item_rangeid],
+                      "within" => object[:topdivision_rangeid],
+                      "@type" => "sc:Range",
+                      "label" => title,
+                      "canvases" => structure_canvases,
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                      "description": "A range for Sentences Commentary #{msname}",
+                      "logo": "https://scta.info/logo.png",
+                      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                      }
+
+        all_structures << structure
+
+
+    end
+  else
+    all_structures = []
+  end
+
+  return all_structures
 end
