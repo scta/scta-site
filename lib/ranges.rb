@@ -165,9 +165,9 @@ def create_range(manifestationid)
 
     end
   else
-    # create_range3 generator is targeted at ranges below the top level expression level, e.g. pp-deFide, etc
+    # create_range2 generator is targeted at top level expression without any further collection divisions
     # TODO there is a lot of repetition; range creation needs massive refactoring
-    all_structures = create_range3(manifestationid)
+    all_structures = create_range2(manifestationid)
   end
 
   return all_structures
@@ -206,115 +206,119 @@ def create_range2(manifestationid)
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   @results = query_obj.query(query)
+  if @results.count > 0
 
-  levels = @results.map do |result|
-    result[:part_level].to_s
-  end
-  levels.uniq!
-  structures = []
-
-  parts = @results.map do |result|
-    result[:part].to_s
-
-  end
-  parts.uniq!
-
-  groups = []
-  parts.each do |part|
-    part_children = []
-    canvases = []
-    part_parent = ""
-    part_level = ""
-    part_title = ""
-    part_order = ""
-    @results.each do |result|
-      if result[:part].to_s == part
-        part_children << {part_child: result[:part_child].to_s, part_child_order: result[:part_child_order]}
-        canvases << result[:canvas].to_s
-        part_parent = result[:part_parent].to_s
-        part_level = result[:part_level].to_s
-        part_title = result[:part_title].to_s
-        part_order = result[:part_order].to_s
-      end
+    levels = @results.map do |result|
+      result[:part_level].to_s
     end
+    levels.uniq!
+    structures = []
 
-    group = {partid: part,
-            children: part_children,
-            canvases: canvases.uniq,
-            parent: part_parent,
-            level: part_level,
-            part_title: part_title,
-            part_order: part_order
-          }
-  groups << group
+    parts = @results.map do |result|
+      result[:part].to_s
 
-  end
+    end
+    parts.uniq!
 
-  structures = []
-
-  groups.each do |group|
-
-      if group[:children][0][:part_child] != ""
-        rangeid = group[:partid].split('/').last
-        parent_rangeid = group[:parent].split('/').last
-        group[:children].sort! { |a,b| a[:part_child_order] <=> b[:part_child_order]}
-        children_ranges = group[:children].map do |child|
-          child_short_id = child[:part_child].to_s.split('/').last
-          "https://scta.info/iiif/#{manifestationid}/range/#{child_short_id}"
+    groups = []
+    parts.each do |part|
+      part_children = []
+      canvases = []
+      part_parent = ""
+      part_level = ""
+      part_title = ""
+      part_order = ""
+      @results.each do |result|
+        if result[:part].to_s == part
+          part_children << {part_child: result[:part_child].to_s, part_child_order: result[:part_child_order]}
+          canvases << result[:canvas].to_s
+          part_parent = result[:part_parent].to_s
+          part_level = result[:part_level].to_s
+          part_title = result[:part_title].to_s
+          part_order = result[:part_order].to_s
         end
-
-
-        structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
-                    "within" => "https://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
-                    "@type" => "sc:Range",
-                    "label" => group[:part_title],
-                    "ranges" => children_ranges,
-                    "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-                    "description": "A range for Sentences Commentary #{manifestationid}",
-                    "logo": "https://scta.info/logo.png",
-                    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
-                  }
-                  structures << structure
-      else
-        rangeid = group[:partid].split('/').last
-        parent_rangeid = group[:parent].split('/').last
-        structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
-                    "within" => "https://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
-                    "@type" => "sc:Range",
-                    "label" => group[:part_title],
-                    "canvases" => group[:canvases],
-                    "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-                    "description": "A range for Sentences Commentary #{manifestationid}",
-                    "logo": "https://scta.info/logo.png",
-                    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
-                  }
-                  structures << structure
-
       end
 
+      group = {partid: part,
+              children: part_children,
+              canvases: canvases.uniq,
+              parent: part_parent,
+              level: part_level,
+              part_title: part_title,
+              part_order: part_order
+            }
+    groups << group
 
-
-  end
-topdivision_ranges = []
-   groups.map do |group|
-    if group[:level] == "2"
-      topdivision_ranges << "https://scta.info/iiif/#{manifestationid}/range/#{group[:partid].to_s.split('/').last}"
     end
-  end
-  top_structure =
-   {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{@results[0][:expression].to_s.split('/').last}",
-                    "@type" => "sc:Range",
-                    "label" => @results[0][:expression_title],
-                    "viewingHint" => "top",
-                    "ranges" => topdivision_ranges,
-                    "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
-                    "description": "A range for Sentences Commentary #{manifestationid}",
-                    "logo": "https://scta.info/logo.png",
-                    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
-                  }
-  structures << top_structure
-  #JSON.pretty_generate(structures)
 
+    structures = []
+
+    groups.each do |group|
+
+        if group[:children][0][:part_child] != ""
+          rangeid = group[:partid].split('/').last
+          parent_rangeid = group[:parent].split('/').last
+          group[:children].sort! { |a,b| a[:part_child_order] <=> b[:part_child_order]}
+          children_ranges = group[:children].map do |child|
+            child_short_id = child[:part_child].to_s.split('/').last
+            "https://scta.info/iiif/#{manifestationid}/range/#{child_short_id}"
+          end
+
+
+          structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
+                      "within" => "https://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
+                      "@type" => "sc:Range",
+                      "label" => group[:part_title],
+                      "ranges" => children_ranges,
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                      "description": "A range for Sentences Commentary #{manifestationid}",
+                      "logo": "https://scta.info/logo.png",
+                      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                    structures << structure
+        else
+          rangeid = group[:partid].split('/').last
+          parent_rangeid = group[:parent].split('/').last
+          structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
+                      "within" => "https://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
+                      "@type" => "sc:Range",
+                      "label" => group[:part_title],
+                      "canvases" => group[:canvases],
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                      "description": "A range for Sentences Commentary #{manifestationid}",
+                      "logo": "https://scta.info/logo.png",
+                      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+                    structures << structure
+
+        end
+    end
+  topdivision_ranges = []
+     groups.map do |group|
+      if group[:level] == "2"
+        topdivision_ranges << "https://scta.info/iiif/#{manifestationid}/range/#{group[:partid].to_s.split('/').last}"
+      end
+    end
+    top_structure =
+     {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{@results[0][:expression].to_s.split('/').last}",
+                      "@type" => "sc:Range",
+                      "label" => @results[0][:expression_title],
+                      "viewingHint" => "top",
+                      "ranges" => topdivision_ranges,
+                      "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
+                      "description": "A range for Sentences Commentary #{manifestationid}",
+                      "logo": "https://scta.info/logo.png",
+                      "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+                    }
+    structures << top_structure
+    #JSON.pretty_generate(structures)
+  else
+    # create_range3 generator is targeted at non top level expressions
+    # TODO there is a lot of repetition; range creation needs massive refactoring
+    # this is a TERRIBLE way to do this. it takes 3 queries to get to create_range3
+    # thiis a temporary hack fix
+    create_range3(manifestationid)
+  end
 end
 
 # This range generator is targeted for ranges below the top level expression level
