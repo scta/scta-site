@@ -368,7 +368,7 @@ def create_transcriptionlayer (manifestationid)
 
   lists = []
   query = "
-          SELECT ?canvas ?surface_title ?order
+          SELECT ?canvas ?surface_title ?order ?surface
           {
           <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
           ?item <http://scta.info/property/isManifestationOf> ?item_expression .
@@ -387,7 +387,7 @@ def create_transcriptionlayer (manifestationid)
         results = query_obj.query(query)
         #consturcting annotation list id like this is precarious
         annotationlistid =
-        lists = results.map {|result| {"@id": "https://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}", "sc:forCanvas": result[:canvas].to_s} }
+        lists = results.map {|result| {"@id": "https://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface]}", "sc:forCanvas": result[:canvas].to_s} }
         lists.uniq!
 
   layer = {"@context": "http://iiif.io/api/presentation/2/context.json",
