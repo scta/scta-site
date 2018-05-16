@@ -283,27 +283,28 @@ get '/dts/apidoc' do
   send_file "public/swagger.json"
 end
 
-get '/dts' do
+get '/dts/collections' do
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
+  baseurl = request.base_url
   if params[:resourceid] != nil
     url = params[:resourceid]
   else
     url = "http://scta.info/resource/scta"
   end
   resource = Lbp::Resource.find(url)
-  dts_output(resource)
+  dts_output(resource, baseurl)
 end
 
-get '/dts/collection/*' do |resourceid|
-  headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json
-  # something in the encoding / deencoding is removing a slash
-  # i'm adding back in this step
-  resourceid.gsub!("http:/scta.info", "http://scta.info")
-  resource = Lbp::Resource.find(resourceid)
-  dts_output(resource)
-end
+# get '/dts/collection/*' do |resourceid|
+#   headers( "Access-Control-Allow-Origin" => "*")
+#   content_type :json
+#   # something in the encoding / deencoding is removing a slash
+#   # i'm adding back in this step
+#   resourceid.gsub!("http:/scta.info", "http://scta.info")
+#   resource = Lbp::Resource.find(resourceid)
+#   dts_output(resource)
+# end
 
 get '/csv/:id' do |resourceid|
   headers( "Access-Control-Allow-Origin" => "*")
