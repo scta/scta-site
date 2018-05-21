@@ -337,8 +337,13 @@ end
 get '/iiif/:expressionid/collection' do |expressionid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-
-  if Lbp::Resource.find(expressionid).type.short_id == "person"
+  if expressionid == "authors"
+    create_all_person_collection()
+  elsif expressionid == "codices"
+    create_all_codices_collection()
+  elsif expressionid == "scta"
+    create_all_person_collection()
+  elsif Lbp::Resource.find(expressionid).type.short_id == "person"
     create_person_collection(expressionid)
   elsif Lbp::Resource.find(expressionid).type.short_id == "workGroup"
       create_wg_collection(expressionid)
