@@ -1,66 +1,50 @@
 
-def dts_output(resource)
+def dts_output(resource, baseurl)
   output = {
     "@context": {
-      "": "http://chs.harvard.edu/xmlns/cts/",
-      "dts": "http://w3id.org/dts-ontology/",
-      "ns1": "http://purl.org/dc/elements/1.1/",
-      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "@vocab": "https://www.w3.org/ns/hydra/core#",
+      "dc": "http://purl.org/dc/terms/",
+      "dts": "https://w3id.org/dts/api#",
+      "tei": "http://www.tei-c.org/ns/1.0",
       "sctap": "http://scta.info/property/",
       "sctar": "http://scta.info/resource/",
       },
+    "@type": "collection",
     "@id": resource.url,
-    "dts:id": "http://scta.info/dts/collection/#{CGI.escape(resource.url)}",
-    "@graph": {
-      "dts:metadata": {
-          "rdf:type": resource.type,
-          "dc:license": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "dc:title": resource.title,
-          "dc:description": resource.description
-        },
-      "dts:parents": [
-          {
-            "@id": "http://scta.info/dts/collection/#{CGI.escape(resource.url)}",
-            "rdf:type": "[to be added]",
-            "dts:model": "http://w3id.org/dts-ontology/collection"
-          }
-        ]
-      },
-      #{}"dts:siblings": {},
-      "dts:members": add_members(resource),
+    "dtsuri": "#{baseurl}/dts/collections?resourceid=" + resource.url,
+    "totalItems": resource.has_parts.count,
+    "member": add_members(resource, baseurl),
     }
 
   JSON.pretty_generate(output)
 end
 
-def add_members(resource)
+def add_members(resource, baseurl)
   members = []
   if resource.respond_to? :has_parts
     if resource.has_parts.count > 0
-      members << dts_parts(resource, "part")
+      members << dts_parts(resource, "part", baseurl)
     end
   end
   if resource.respond_to? :expressions
     if resource.has_parts.count > 0
-      members << dts_parts(resource, "expression")
+      members << dts_parts(resource, "expression", baseurl)
     end
   end
   if resource.respond_to? :manifestations
     if resource.has_parts.count > 0
-      members << dts_parts(resource, "manifestation")
+      members << dts_parts(resource, "manifestation", baseurl)
     end
   end
   if resource.respond_to? :transcriptions
     if resource.has_parts.count > 0
-      members << dts_parts(resource, "transcription")
+      members << dts_parts(resource, "transcription", baseurl)
     end
   end
   return members
 end
 
-def dts_parts(resource, type)
+def dts_parts(resource, type, baseurl)
   @type = type
   if type == "part"
     resources = resource.has_parts
@@ -76,35 +60,64 @@ def dts_parts(resource, type)
   resources.each do |part|
 
     part = part.resource
-    parents = if part.is_part_of
-      {
-        "@id": part.is_part_of.to_s,
-        "dts:url": "http://scta.info/dts/collection/#{CGI.escape(part.is_part_of.url)}",
-        "rdf:type": "[to be added]",
-        "dts:model": "http://w3id.org/dts-ontology/collection"
-      }
+    if part.value("http://scta.info/property/structureType").to_s == "http://scta.info/resource/structureItem"
+      part_member = part_item(part, baseurl)
     else
-      nil
+      part_member = part_collection(part, baseurl)
     end
-
-    part_member = {
-      "@id": part.url,
-      "dts:url": "http://scta.info/dts/collection/#{CGI.escape(part.url)}",
-      "dts:role": type,
-      "dts:metadata": {
-          "rdf:type": part.type,
-          "dc:license": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "dc:title": part.title,
-          "dc:description": part.description
-        },
-      "dts:parents": [parents]
-      #"dts:siblings": {}
-
-      #{}"dts:members": parts
-    }
     parts << part_member
   end
   return parts
+end
+
+def part_item (part, baseurl)
+  part_member = {
+    "@id": part.url,
+    "@type": "resource",
+    "dtsuri": "#{baseurl}/dts/collections?resourceid=" + part.url,
+    "title": part.title,
+    "dts:dublincore":{
+        "dc:license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "dc:title": part.title,
+        "dc:description": part.description
+      },
+    "dts:passage": "/api/dts/documents?id=#{part.url}",
+    "dts:references": "/api/dts/navigation?id=#{part.url}",
+    "dts:download": get_xml_address(part),
+    "tei:refsDecl": [
+        {
+            "tei:matchPattern":  "(\\w+)",
+            "tei:replacementPattern": "#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])",
+            "@type": "paragraph"
+        },
+    ]
+  }
+end
+def part_collection(part, baseurl)
+  part_member = {
+    "@id": part.url,
+    "@type": "collection",
+    "dtsuri": "#{baseurl}/dts/collections?resourceid=" + part.url,
+    "title": part.title,
+    "dts:dublincore":{
+        "dc:license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "dc:title": part.title,
+        "dc:description": part.description
+      },
+      "totalItems": part.has_parts.count
+    }
+end
+
+def get_xml_address (resource)
+  if resource.type.short_id == "expression" || resource.type.short_id == "manifestation"
+    transcription = resource.canonical_transcription.resource
+  elsif resource.type.short_id == "transcription"
+    transcription = resource
+  end
+
+  xmldoc = transcription.value("http://scta.info/property/hasXML")
+  return xmldoc
+
 end
 #
 # def dts_manifestations(resource)
