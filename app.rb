@@ -338,18 +338,19 @@ end
 get '/iiif/:expressionid/collection' do |expressionid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
+  baseurl = request.base_url
   if expressionid == "authors"
-    create_all_person_collection()
+    create_all_person_collection(baseurl)
   elsif expressionid == "codices"
-    create_all_codices_collection()
+    create_all_codices_collection(baseurl)
   elsif expressionid == "scta"
-    create_all_person_collection()
+    create_all_person_collection(baseurl)
   elsif Lbp::Resource.find(expressionid).type.short_id == "person"
-    create_person_collection(expressionid)
+    create_person_collection(expressionid, baseurl)
   elsif Lbp::Resource.find(expressionid).type.short_id == "workGroup"
-      create_wg_collection(expressionid)
+      create_wg_collection(expressionid, baseurl)
   else
-    create_collection(expressionid)
+    create_collection(expressionid, baseurl)
   end
 end
 get '/iiif/codex/:codex/manifest' do |codex|

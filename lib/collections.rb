@@ -1,6 +1,6 @@
 require_relative "manifests"
 
-def create_wg_collection(wg_shortid)
+def create_wg_collection(wg_shortid, baseurl)
   query = "
   SELECT ?expression ?expression_shortid ?expression_label ?wg_label
   {
@@ -18,7 +18,7 @@ def create_wg_collection(wg_shortid)
   expressions = []
   results.each do |result|
     expression = {
-        "@id": "https://scta.info/iiif/#{result[:expression_shortid]}/collection",
+        "@id": "#{baseurl}/iiif/#{result[:expression_shortid]}/collection",
         "@type": "sc:Collection",
         "label": result[:expression_label]
       }
@@ -27,7 +27,7 @@ def create_wg_collection(wg_shortid)
 
 
   collection = {
-    "@id": "https://scta.info/iiif/#{wg_shortid}/collection",
+    "@id": "#{baseurl}/iiif/#{wg_shortid}/collection",
     "@type": "sc:Collection",
     "label": results[0][:wg_label],
     "collections": expressions
@@ -35,7 +35,7 @@ def create_wg_collection(wg_shortid)
   JSON.pretty_generate(collection)
 end
 
-def create_collection(expressionid)
+def create_collection(expressionid, baseurl)
   query = "
   SELECT ?m ?m_shortid ?m_label (COUNT(?surface) AS ?count)
   {
@@ -55,7 +55,6 @@ def create_collection(expressionid)
   results = query_obj.query(query)
 
   manifests = []
-  idbase = "https://scta.info"
   results.each do |result|
     #temporary conditional to weed out, born-digital manifestations; should be using a manifestationType property
     unless result[:m_shortid].to_s.include? "critical"
@@ -70,7 +69,7 @@ def create_collection(expressionid)
         }
       else
         manifest = {
-        "@id": "#{idbase}/iiif/#{result[:m_shortid]}/manifest",
+        "@id": "#{baseurl}/iiif/#{result[:m_shortid]}/manifest",
         "@type": "sc:Manifest",
         "label": result[:m_label]
         }
@@ -80,7 +79,7 @@ def create_collection(expressionid)
   end
 
   collection = {
-    "@id": "#{idbase}/iiif/#{expressionid}/collection",
+    "@id": "#{baseurl}/iiif/#{expressionid}/collection",
     "@type": "sc:Collection",
     "label": expressionid,
     "manifests": manifests
@@ -88,7 +87,7 @@ def create_collection(expressionid)
   JSON.pretty_generate(collection)
 end
 
-def create_person_collection(personid)
+def create_person_collection(personid, baseurl)
 
   # query = "
   # SELECT ?expression ?m ?m_shortid ?m_label (COUNT(?surface) AS ?count)
@@ -108,12 +107,13 @@ def create_person_collection(personid)
   # "
   #@results = rdf_query(query)
   query = "
-  SELECT ?expression ?expression_title
+  SELECT ?expression ?expression_title ?expression_short_id
   {
     ?expression a <http://scta.info/resource/expression> .
     ?expression <http://scta.info/property/level> '1' .
     ?expression <http://www.loc.gov/loc.terms/relators/AUT> <http://scta.info/resource/#{personid}> .
-    ?expression <http://purl.org/dc/elements/1.1/title> ?expression_title
+    ?expression <http://purl.org/dc/elements/1.1/title> ?expression_title .
+    ?expression <http://scta.info/property/shortId> ?expression_short_id
   }
   "
 
@@ -121,7 +121,7 @@ def create_person_collection(personid)
   results = query_obj.query(query)
 
   # manifests = []
-  idbase = "https://scta.info"
+
   #
   #
   # results.each do |result|
@@ -150,8 +150,9 @@ def create_person_collection(personid)
 
   expressions = []
   results.each do |result|
+
     collection = {
-      "@id": result[:expression].to_s,
+      "@id": "#{baseurl}/iiif/#{result[:expression_short_id]}/collection",
       "@type": "sc:Collection",
       "label": result[:expression_title].to_s
     }
@@ -159,23 +160,24 @@ def create_person_collection(personid)
   end
 
   collection = {
-    "@id": "#{idbase}/iiif/#{personid}/collection",
+    "@id": "#{baseurl}/iiif/#{personid}/collection",
     "@type": "sc:Collection",
     "label": personid,
     "collections": expressions,
   }
   JSON.pretty_generate(collection)
 end
-def create_all_person_collection()
+def create_all_person_collection(baseurl)
 
   query = "
-  SELECT ?author ?author_short_id ?author_title
+  SELECT DISTINCT ?author ?author_short_id ?author_title
   {
     ?expression <http://scta.info/property/level> '1' .
     ?expression <http://www.loc.gov/loc.terms/relators/AUT> ?author .
     ?author <http://scta.info/property/shortId> ?author_short_id .
     ?author <http://purl.org/dc/elements/1.1/title> ?author_title .
   }
+  ORDER BY ?author_title
   "
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
@@ -184,16 +186,15 @@ def create_all_person_collection()
   author_collections = []
   results.each do |result|
       author_collection = {
-        "@id": "https://scta.info/iiif/#{result[:author_short_id]}/collection",
+        "@id": "#{baseurl}/iiif/#{result[:author_short_id]}/collection",
         "@type": "sc:Collection",
         "label": result[:author_title]
       }
     author_collections << author_collection
   end
 
-
   collection = {
-    "@id": "https://scta.info/iiif/authors/collection",
+    "@id": "#{baseurl}/iiif/authors/collection",
     "@type": "sc:Collection",
     "label": "SCTA Authors",
     "collections": author_collections
@@ -201,7 +202,7 @@ def create_all_person_collection()
   JSON.pretty_generate(collection)
 
 end
-def create_all_codices_collection()
+def create_all_codices_collection(baseurl)
 
   query = "
   SELECT ?codex ?codexTitle ?codexItem ?manifest
@@ -229,7 +230,7 @@ def create_all_codices_collection()
 
 
   collection = {
-    "@id": "https://scta.info/iiif/codices/collection",
+    "@id": "#{baseurl}/iiif/codices/collection",
     "@type": "sc:Collection",
     "label": "SCTA Codices",
     "manifests": manifests
