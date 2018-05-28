@@ -8,7 +8,7 @@ def create_notification (manifestationid, type)
           SELECT ?manifestOfficial
           {
           <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
-          ?item <http://scta.info/property/hasSurface> ?surface .
+          ?item <http://scta.info/property/isOnSurface> ?surface .
           ?codex <http://scta.info/property/hasSurface> ?surface .
           ?codex <http://scta.info/property/hasCodexItem> ?codexItem .
           ?codexItem <http://scta.info/property/hasOfficialManifest> ?manifestOfficial .

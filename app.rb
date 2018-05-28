@@ -569,7 +569,7 @@ get '/iiif/:expressionpart/:manifestationpart/list/transcription/:folioid' do |e
 #Surface was changed from hasFolioSide
   query = "SELECT ?x ?y ?w ?h ?position ?paragraph ?plaintext ?canvasid ?pnumber
           {
-          ?zone <http://scta.info/property/hasSurface> #{foliordfid} .
+          ?zone <http://scta.info/property/isPartOfSurface> #{foliordfid} .
           #{foliordfid} <http://scta.info/property/hasISurface> ?isurface .
           ?isurface <http://scta.info/property/hasCanvas> ?canvasid .
           ?zone <http://scta.info/property/ulx> ?x .

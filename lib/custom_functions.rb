@@ -373,7 +373,7 @@ def create_transcriptionlayer (manifestationid)
           <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
           ?item <http://scta.info/property/isManifestationOf> ?item_expression .
           ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
-          ?item <http://scta.info/property/hasSurface> ?surface .
+          ?item <http://scta.info/property/isOnSurface> ?surface .
           ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
           ?surface <http://scta.info/property/order> ?order .
           ?surface <http://scta.info/property/hasISurface> ?isurface .

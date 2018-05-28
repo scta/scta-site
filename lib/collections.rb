@@ -45,7 +45,7 @@ def create_collection(expressionid, baseurl)
     OPTIONAL
     {
       ?m <http://scta.info/property/hasStructureItem> ?item .
-      ?item <http://scta.info/property/hasSurface> ?surface .
+      ?item <http://scta.info/property/isOnSurface> ?surface .
     }
   }
   GROUP BY ?m_shortid ?m ?m_label

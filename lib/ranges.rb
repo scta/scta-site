@@ -13,7 +13,7 @@ def create_range(manifestationid)
     ?item <http://scta.info/property/isManifestationOf> ?item_expression .
     ?item_expression <http://scta.info/property/totalOrderNumber> ?order .
     ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
-    ?item <http://scta.info/property/hasSurface> ?surface .
+    ?item <http://scta.info/property/isOnSurface> ?surface .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas
   }
@@ -196,7 +196,7 @@ def create_range2(manifestationid)
     OPTIONAL{
       ?part <http://scta.info/property/hasManifestation> ?part_manifestation .
       ?part_manifestation <http://scta.info/property/isPartOfTopLevelManifestation> <http://scta.info/resource/#{manifestationid}> .
-      ?part_manifestation <http://scta.info/property/hasSurface> ?surface .
+      ?part_manifestation <http://scta.info/property/isOnSurface> ?surface .
       ?surface <http://scta.info/property/hasISurface> ?isurface .
       ?isurface <http://scta.info/property/hasCanvas> ?canvas
     }
@@ -340,7 +340,7 @@ def create_range3(manifestationid)
     ?item <http://scta.info/property/isManifestationOf> ?item_expression .
     ?item_expression <http://scta.info/property/totalOrderNumber> ?order .
     ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
-    ?item <http://scta.info/property/hasSurface> ?surface .
+    ?item <http://scta.info/property/isOnSurface> ?surface .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas
   }

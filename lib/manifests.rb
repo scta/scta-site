@@ -41,7 +41,7 @@ def create_manifest(shortid)
   query = "
   SELECT ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
   {
-    <http://scta.info/resource/#{shortid}> <http://scta.info/property/hasSurface> ?surface .
+    <http://scta.info/resource/#{shortid}> <http://scta.info/property/isOnSurface> ?surface .
     ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?surface <http://scta.info/property/order> ?order .
@@ -206,7 +206,7 @@ query =
 "SELECT ?surface ?surface_title ?isurface ?canvas ?canvas_label ?canvas_width ?canvas_height ?image_height ?image_width ?image_type ?image_format ?image_service ?image_service_profile ?anno ?resource
  {
    <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/hasStructureItem> ?item .
-   ?item <http://scta.info/property/hasSurface> ?surface .
+   ?item <http://scta.info/property/isOnSurface> ?surface .
    ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
    ?surface <http://scta.info/property/hasISurface> ?isurface .
    ?surface <http://scta.info/property/order> ?order .
@@ -358,7 +358,7 @@ def create_custom_manifest(shortid)
     ?paragraph <http://scta.info/property/isPartOfTopLevelExpression> ?top_level .
     ?top_level <http://purl.org/dc/elements/1.1/title> ?top_level_title .
   	?paragraph <http://scta.info/property/hasManifestation> ?manifestation .
-    ?manifestation <http://scta.info/property/hasSurface> ?surface .
+    ?manifestation <http://scta.info/property/isOnSurface> ?surface .
     ?surface <http://purl.org/dc/elements/1.1/title> ?surface_title .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?surface <http://scta.info/property/order> ?order .
