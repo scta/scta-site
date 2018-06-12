@@ -577,9 +577,9 @@ get '/iiif/:expressionpart/:manifestationpart/list/transcription/:folioid' do |e
           ?zone <http://scta.info/property/width> ?w .
           ?zone <http://scta.info/property/height> ?h .
           ?zone <http://scta.info/property/position> ?position .
-          ?zone <http://scta.info/property/isZoneOf> ?paragraph .
-          ?paragraph <http://scta.info/property/isTranscriptionOf> ?paragraphManifestation .
+          ?paragraphManifestation <http://scta.info/property/isOnZone> ?zone  .
           ?paragraphManifestation <http://scta.info/property/isManifestationOf> ?paragraphExpression .
+          ?paragraphManifestation <http://scta.info/property/hasCanonicalTranscription> ?paragraph.
           ?paragraphExpression <http://scta.info/property/paragraphNumber> ?pnumber .
           ?paragraph <http://scta.info/property/plaintext> ?plaintext .
           }
