@@ -36,6 +36,7 @@ require_relative 'lib/csv'
 require_relative 'lib/notifications'
 require_relative 'lib/dts'
 require_relative 'lib/oai_functions'
+require_relative 'lib/presentation'
 
 
 configure do
@@ -311,6 +312,13 @@ get '/csv/:id' do |resourceid|
   content_type :json
   resource = Lbp::Resource.find(resourceid)
   create_csv(resource)
+end
+
+get '/api/presentation/1.0/:id' do |resourceid|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+
+  create_presentation_api_1(resourceid)
 end
 
 
