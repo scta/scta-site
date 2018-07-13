@@ -17,7 +17,7 @@ def create_presentation_api_1(resource)
     ?canonicalTranscription <http://scta.info/property/hasXML> ?file_path .
     ?canonicalTranscription <http://scta.info/property/shortId> ?ct_shortId .
   }"
-  
+
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
 
@@ -37,7 +37,7 @@ def create_presentation_api_1(resource)
           "@id": "http://scta.info/api/presentation/1.0/#{item.ct_shortId}",
           "canonicalId": item.canonicalTranscription,
           "service": {
-            "@id": item.file_path,
+            "@id": item.file_path.to_s.gsub("http", "https"),
             "format": "appplication/xml"
           }
         }
