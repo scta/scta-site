@@ -1,22 +1,70 @@
 
 <div id="body">
   <h1>Technical Details</h1>
+  <br/>
+  <br/>
   <div>
   <h2>Contents</h2>
-    <p>1. <a href="#data-model">The SCTA Data Model</a></p>
-    <p>2. <a href="#apis">APIs</a></p>
-    <p>3. <a href="#specifications">Specifications</a></p>
-    <p>4. <a href="#implementations">Implementations</a></p>
+    <br/>
+    <p>1. <a href="#technical-overview">Technical Overview</a></p>
+    <p>2. <a href="#data-creation-specifications">Raw Data Creation Specifications</a></p>
+    <p>3. <a href="#scta-rdf">The SCTA RDF Schema and RDF Aggregation</a></p>
+    <p>4. <a href="#apis">APIs</a></p>
+    <p>5. <a href="#implementations">Implementations</a></p>
   </div>
-  <div id="data-model">
-    <h2>1. The SCTA Data Model</h2>
-    <p>Coming soon</p>
+  <div id="technical-overview">
+    <h2>1. Technical Overview</h2>
+    <p>
+      The SCTA system (or better SCTA ecosystem) is designed to break apart and modularize the independent
+      and re-usable features of a traditional webstack. By separating the monolithic stack into independent pieces,
+      we can reduce the need to needless recreate data, code libraries, or front-end clients.
+      These pieces can be re-used, mixed, combined, and separated. This means by creating data and allowing it to
+      be aggregated by the SCTA you are never siloing your data into one system, and you always remain free to
+      continue doing whatever you like with that data.
+      But it also means if data has already been created you don't need to re-create it.
+      More importantly, because data is separated from any one particular technology stack,
+      it can combined with other pieces of distributed data,
+      allowing us to create a network of information that spans the entire corpus,
+      again, all while refusing to silo any piece of data in any particular system.
+    </p>
+    <p>
+      This separation of concerns also helps to reduce the load of a traditional software stack.
+      Instead of everyone having to create a new web stack
+      to create a basic website to display data of interest,
+      they can leverage professional grade code and software that have already been built and are maintained by the community.
+      Likewise, code contributions or improvements
+      that any one project makes to this open source software becomes
+      an improvement that every project can make use of it.
+    </p>
+    <p>The central separation of concerns that lies at the heart of the SCTA is visualized below:</p>
+    <img src="/scta-technical-overview.jpg" style="width: 100%"/>
+    <p>The various pieces of this visualization
+      and the technical specifications that govern them are defined more precisely below:
+    </p>
+  </div>
+  <div id="data-creation-specifications">
+    <h2>2. Raw Data Creation Specifications</h2>
+    <p>Data aggregation into a connected graph requires structured data.</p>
+    <p>Below are the data specification created by or adopted by the SCTA community</p>
+    <p><a ref="https://scta.github.io/edf-schema/" target="_blank">Expression Description Files (EDFs)</a> | <a href="https://github.com/scta/edf-schema">https://github.com/scta/edf-schema</a></p>
+    <p><a ref="http://lombardpress.org/schema/docs/" target="_blank">Text Edition Schema: LombardPress-Schema</a> | <a href="https://github.com/lombardpress/lombardpress-schema">https://github.com/lombardpress/lombardpress-schema</a></p>
+    <p><a ref="https://github.com/scta/tdf-schema" target="_blank">Transcriptions Description File (TDFs)</a> | <a href="https://github.com/scta/tdf-schema">https://github.com/scta/tdf-schema</a></p>
+    <p>People Description Files | In Development</p>
+    <p>Codex Description Files | In Development</p>
+  </div>
+  <div id="scta-rdf">
+    <h2>3. The SCTA RDF Schema and RDF Aggregation</h2>
+    <p>Aggregation of raw data requires a output specification for the resulting graph.<p>
+    <p>This specification is the <a href="http://scta.github.io/scta-rdf-schema/">SCTA RDF Schema</a> | <a href="https://github.com/scta/scta-rdf-schema/">https://github.com/scta/scta-rdf-schema/</a></p>
+    <p>Using the raw data structured according to the above specifications an aggregator can combine that information to build a connected graph structure according to the SCTA-RDF Schema</p>
+    <p>The <a href="https://github.com/scta/scta-rdf">SCTA-RDF Aggregation Application</a> | <a href="https://github.com/scta/scta-rdf">https://github.com/scta/scta-rdf</a> is one such application.</p>
   </div>
   <div id="apis">
-    <h2>2. APIs</h2>
+    <h2>4. APIs</h2>
+    <p>Using the connected graph built by the SCTA Aggregation Application, API's can be built to facilitate the access and use of the SCTA graph</p>
     <div>
       <h4>SCTA Core</h4>
-      <p><a href="http://scta.info/resource/scta">http://scta.info/resource/scta</a></p>
+      <p><a href="http://scta.info/resource/scta" target="_blank">http://scta.info/resource/scta</a></p>
       <p>Description: Designed for basic navigation and exploration of the SCTA catalogue</p>
       <p>Machine accessible via content negotiation</p>
       <pre>
@@ -32,40 +80,55 @@ $ curl -iH "Accept: */*" http://scta.info/resource/lectio1
     </div>
     <div>
       <h4>SCTA Sparql Endpoint</h4>
-      <p><a href="http://sparql.scta.info">http://sparql.scta.info</a></p>
+      <p><a href="http://sparql.scta.info/ds/query" target="_blank">http://sparql.scta.info/ds/query</a></p>
+      <p>Description: A public sparql endpoint to which SPARQL queries can be sent via POST or GET using the ?query parameter.</p>
     <div>
       <h4>SCTA Presentation (In development)</h4>
-      <p>http://scta.info/api/presentation/1.0/scta</p>
-      <p>Description: designed to facilitate easy representation of the SCTA catologue and texts in a client viewer</p>
+      <p>http://scta.info/api/presentation/1.0/[top-level-expression-short-id], e.g. <a href="https://scta.info/api/presentation/1.0/plaoulcommentary" target="_blank">https://scta.info/api/presentation/1.0/plaoulcommentary</a></p>
+      <p>Description: designed to facilitate easy representation of the SCTA catologue and texts in a client viewer. For a use case example, see the "Pellego" Application below.</p>
     </div>
     <div>
       <h4>IIIF</h4>
-      <p><a href="http://scta.info/iiif/scta/collection">http://scta.info/iiif/scta/collection</a></p>
+      <p><a href="https://scta.info/iiif/scta/collection" target="_blank">https://scta.info/iiif/scta/collection</a></p>
+      <p><a href="https://scta.info/iiif/codices/collection" target="_blank">https://scta.info/iiif/codices/collection</a></p>
       <p>Description: A <a href="http://iiif.io">IIIF</a> representation of the SCTA catalogue
-        designed to faciliate use of SCTA texts and image connections within IIIF compatible viewers</p>
+        designed to faciliate use of SCTA texts and image connections within IIIF compatible viewers.</p>
     </div>
     <div>
+      <h4>OAI-PMH</h4>
+      <p><a href="https://scta.info/oai" target="_blank">https://scta.info/oai</a></p>
+      <p>The OAI-PMH endpoint follows the <a href="https://www.openarchives.org/pmh/" target="_blank">OAI-PMH</a>
+        specification and allows for metadata harvestion of the SCTA catalogue by groups like Worldcat, et alia.
+      </p>
+    <div>
       <h4>Distributed Text Services (In development)</h4>
-      <p>http://scta.info/dts/collections</p>
+      <p><a href="https://scta.info/dts/collections" target="_blank">https://scta.info/dts/collections</a></p>
       <p>Description: A representation of the SCTA catalogue conforming the emerging specifications of
         the Distributed Text Services working group, designed to make the SCTA catalogue accessible via
         any DTS compliant client.</p>
     </div>
-  </div>
-  <div id="specifications">
-    <h2>3. Specifications</h2>
-    <p>Coming soon</p>
-  </div>
-  <div id="Implementations">
-    <h2>4.Implementations</h2>
+    <div>
+      <h4>CSV API</h4>
+      <p><a href="https://scta.info/csv/scta" target="_blank">https://scta.info/csv/scta</a></p>
+      <p>Description: A API designed to facilitate text analysis. The API returns plain text results at the paragraph level alongside comma separated identifiers.</p>
+    </div>
+    <div>
+      <h4>GraphQl (In development)</h4>
+      <p><a href="https://graphql.scta.info/graphiql" target="_blank">https://graphql.scta.info/graphiql</a> </p>
+      <p>Description: A graphql based api, based on the idea of <a href="http://www.hypergraphql.org/" target="_blank">hypergraphql</a>.</p>
+    </div>
+    </div>
+  <div id="implementations">
+    <h2>5. Known Implementations</h2>
     <h3>Libraries</h3>
-    <p><a href="http://github.com/lombardpress.org/Lbp.rb">Lbp.rby (http://github.com/lombardpress.org/Lbp.rb)</a>: A ruby library for a exploring the SCTA Core API</p>
-    <p><a href="http://github.com/lombardpress.org/lbppy">Lbppy http://github.com/lombardpress.org/Lbp.rb</a>: A python library for exploring the SCTA Core API</p>
-    <h3>Utility Programss</h3>
-    <p><a href="http://stats.scta.info">Scta Stats (http://stats.scta.info)</a></p>
-    <p>Collation Programs</p>
+    <p><a href="http://github.com/lombardpress.org/Lbp.rb" target="_blank">Lbp.rby (http://github.com/lombardpress.org/Lbp.rb)</a>: A ruby library for a exploring the SCTA Core API</p>
+    <p><a href="http://github.com/lombardpress.org/lbppy" target="_blank">Lbppy (http://github.com/lombardpress.org/lbppy)</a>: A python library for exploring the SCTA Core API</p>
+    <p><a href="https://github.com/lombardpress/lbp.js" target="_blank">Lbp.js (https://github.com/lombardpress/lbp.js)</a>: A python library for exploring the SCTA Core API</p>
     <h3>Viewers</h3>
-    <p><a href="http://github.com/lombardpress.org/lombardpress-web">Lombardpress-Web (http://github.com/lombardpress.org/lombardpress-web)</a>: A client for viewing texts and images indexed in the SCTA. For a live instance, see <a href="http://scta.lombardpress.org">http://scta.lombardpress.org</a></p>
-    <p><a href="http://mirador.scta.info">SCTA Mirador Instance (http://mirador.scta.info)</a>: An instance of the IIIF viewer, Mirador, customized to faciliate the exploration of the the SCTA catlogue through images and accompanying metadata</p>
-    <p><a href="http://github.com/lombardpress.org/lombardpress-print">Lombardpress-Print (http://github.com/lombardpress.org/lombardpress-web)</a>: A command line utility script for producing camera-ready print renderings of texts in the SCTA.</p>
+    <p><a href="http://github.com/lombardpress.org/lombardpress-web" target="_blank">Lombardpress-Web (http://github.com/lombardpress.org/lombardpress-web)</a>: A client for viewing texts and images indexed in the SCTA. For a live instance, see <a href="http://scta.lombardpress.org" target="_blank">http://scta.lombardpress.org</a></p>
+    <p><a href="http://mirador.scta.info" target="_blank">SCTA Mirador Instance (http://mirador.scta.info)</a>: An instance of the IIIF viewer, Mirador, customized to faciliate the exploration of the the SCTA catlogue through images and accompanying metadata.</p>
+    <p><a href="http://github.com/lombardpress.org/lombardpress-print" target="_blank">Lombardpress-Print (http://github.com/lombardpress.org/lombardpress-web)</a>: A command line utility script for producing camera-ready print renderings of texts in the SCTA.</p>
+    <p><a href="https://print.lombardpress.org" target="_blank">LombardPress-Print-Web-App<a>: A website configured to use the LombardPress-Print CLI, and create typeset texts on-demand. It can also be used a service allowing other clients the ability to request typeset PDFs on demand.</p>
+    <p><a href="https://github.com/lombardpress/pellego" target="_blank">Pellego<a>: And minimalist javascript viewer, designed to use the SCTA Presentation API. Designed to be custom configured and used as a standalone web app or embedded in a website, see <a href="http://lombardpress.org/pellego/" target="_blank">http://lombardpress.org/pellego/</a>.</p>
+    <p><a href="http://lombardpress.org/adfontes/" target="_blank">Ad Fontes</a>: A Quotation Explorer App that allows users to explore the quotations and connected sources within the Scholastic Corpus.</p>
   </div>
