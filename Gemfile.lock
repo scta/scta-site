@@ -162,7 +162,7 @@ DEPENDENCIES
   rdf (~> 3.0.0)
   sass (~> 3.4.0)
   sinatra (~> 1.4.6)
-  sinatra-linkeddata
+  sinatra-linkeddata (~> 0.3.0)
   sparql (~> 3.0.0)
 
 RUBY VERSION

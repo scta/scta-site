@@ -10,7 +10,7 @@ gem 'linkeddata', "~> 0.3.0" #this precise version seems very important bundle d
 gem 'sass', "~> 3.4.0"
 #gem "tilt", '~>1.4.1'
 
-gem 'sinatra-linkeddata' #problems with this dependency but this is needed for content negotiation
+gem 'sinatra-linkeddata', "~> 0.3.0" #problems with this dependency but this is needed for content negotiation
 gem 'equivalent-xml', "~> 0.6.0"
 gem 'httparty', "~> 0.13.7"
 gem 'puma', "~> 2.15.0"
