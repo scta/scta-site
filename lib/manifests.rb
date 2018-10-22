@@ -78,7 +78,7 @@ def create_manifest(shortid)
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
-  
+
   if results.length == 0
     get_official_manifest(shortid)
   else
