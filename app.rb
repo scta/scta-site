@@ -37,6 +37,7 @@ require_relative 'lib/notifications'
 require_relative 'lib/dts'
 require_relative 'lib/oai_functions'
 require_relative 'lib/presentation'
+require_relative 'lib/timeline'
 
 
 configure do
@@ -321,6 +322,11 @@ get '/api/presentation/1.0/:id' do |resourceid|
   create_presentation_api_1(resourceid)
 end
 
+get '/api/timeline/1.0/:type' do |type|
+  headers( "Access-Control-Allow-Origin" => "*")
+  content_type :json
+  create_person_timeline()
+end
 
 get '/iiif/collection/scta' do
   redirect to('/iiif/scta/collection')
