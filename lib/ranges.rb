@@ -207,7 +207,6 @@ def create_range2(manifestationid)
   query_obj = Lbp::Query.new()
   @results = query_obj.query(query)
   if @results.count > 0
-
     levels = @results.map do |result|
       result[:part_level].to_s
     end
@@ -239,9 +238,11 @@ def create_range2(manifestationid)
         end
       end
 
+      canvases.uniq!
+      canvases.reject! { |c| c.empty? }
       group = {partid: part,
               children: part_children,
-              canvases: canvases.uniq,
+              canvases: canvases,
               parent: part_parent,
               level: part_level,
               part_title: part_title,
@@ -289,7 +290,10 @@ def create_range2(manifestationid)
                       "logo": "https://scta.info/logo.png",
                       "license": "https://creativecommons.org/publicdomain/zero/1.0/"
                     }
-                    structures << structure
+                    # condition to avoid making a structure for an item that is not in this manifestation and therefore does not have any canvases
+                    if structure["canvases"].count > 0
+                      structures << structure
+                    end
 
         end
     end
