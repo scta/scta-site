@@ -89,7 +89,7 @@ def create_manifest(shortid)
   results.each do |result|
     #this conditional is meant to deal with face-pages canvas, in other words cases where two surfaces have the save canvas
     unless result[:canvas].to_s == previous_canvas
-      image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
+      image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/2/level2.json" : result[:image_service_profile]
       #temporary solution to deal with older context for gallica images
       # not a long term solution
       context = if result[:canvas].to_s.include? "gallica.bnf.fr"
@@ -252,7 +252,7 @@ query =
   results.each do |result|
     #this conditional is meant to deal with face-pages canvas, in other words cases where two surfaces have the save canvas
     unless result[:canvas].to_s == previous_canvas
-      image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
+      image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/2/level2.json" : result[:image_service_profile]
       #temporary solution to deal with older context for gallica images
       # not a long term solution
       context = if result[:canvas].to_s.include? "gallica.bnf.fr"
@@ -265,8 +265,15 @@ query =
       ### end temporary measure.
 
       ## BEGIN temporary annotation list switch ###
-      annotation_list_url = if manifestationid.include? "plaoulcommentary"
-        "https://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}"
+      # annotation_list_url = if manifestationid.include? "plaoulcommentary"
+      #   "https://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}"
+      ### TODO: this conditions is here for testing, eventually all should be switched
+      ### but the gracilis switch should be commented out or removed before push to production
+      includes = ["graciliscommentary/lon", "nhyjhg/cod-yu78uh", "plaoulcommentary/reims", "plaoulcommentary/svict"]
+    annotation_list_url = if includes.include? manifestationid
+        "https://exist.scta.info/exist/apps/scta-app/folio-annotaiton-list-from-simpleXmlCoordinates.xq?surfaceid=#{result[:surface].to_s.split("/resource/").last()}"
+      # elsif manifestationid.include?
+      #   "http://localhost:8080/exist/apps/scta-app/folio-annotaiton-list-from-simpleXmlCoordinates.xq?surfaceid=#{result[:surface].to_s.split("/resource/").last()}"
       else
         "https://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}"
       end
@@ -320,7 +327,8 @@ query =
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "service": {
       "@context": "http://iiif.io/api/search/1/context.json",
-      "@id": "https://exist.scta.info/exist/apps/scta-app/iiif/#{manifestationid}/search",
+      #"@id": "https://exist.scta.info/exist/apps/scta-app/iiif/#{manifestationid}/search",
+      "@id": "https://exist.scta.info/exist/apps/scta-app/iiif2/#{manifestationid.split("/").last()}/search",
       "profile": "http://iiif.io/api/search/1/search",
       "label": "Search within this manifest"
     },
@@ -402,7 +410,7 @@ def create_custom_manifest(shortid)
   canvases = []
   results.uniq!
   results.each do |result|
-    image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/1/level2.json" : result[:image_service_profile]
+    image_profile = result[:image_service_profile].nil? ? "http://iiif.io/api/image/2/level2.json" : result[:image_service_profile]
     #temporary solution to deal with older context for gallica images
     # not a long term solution
     context = if result[:canvas].to_s.include? "gallica.bnf.fr"

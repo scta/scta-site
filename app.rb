@@ -325,7 +325,7 @@ end
 get '/api/timeline/1.0/:type' do |type|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
-  create_person_timeline()
+  create_person_timeline(params)
 end
 
 get '/iiif/collection/scta' do

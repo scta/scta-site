@@ -1,9 +1,14 @@
-def create_person_timeline()
+def create_person_timeline(params)
+  orderQuery = ""
+  if params[:order]
+    orderQuery =  "?person <http://scta.info/property/personType> <http://scta.info/resource/#{params[:order]}> ."
+  end
   query = "
   SELECT ?person ?personTitle ?dateOfBirth ?dateOfDeath ?description ?order
   {
     ?person a <http://scta.info/resource/person> .
     ?person <http://scta.info/property/personType> <http://scta.info/resource/scholastic> .
+    #{orderQuery}
     ?person <http://purl.org/dc/elements/1.1/title> ?personTitle .
     ?person <http://scta.info/property/dateOfBirth> ?dateOfBirth .
     ?person <http://scta.info/property/dateOfDeath> ?dateOfDeath .
