@@ -269,7 +269,7 @@ query =
       #   "https://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}"
       ### TODO: this conditions is here for testing, eventually all should be switched
       ### but the gracilis switch should be commented out or removed before push to production
-      includes = ["graciliscommentary/lon", "nhyjhg/cod-yu78uh", "plaoulcommentary/reims", "plaoulcommentary/svict"]
+      includes = ["graciliscommentary/lon", "nhyjhg/cod-yu78uh", "plaoulcommentary/reims", "plaoulcommentary/svict", "plaoulcommentary/vat", "plaoulcommentary/sorb", "Huy7yz/cod-uySe7d", "rothwellcommentary/penn", "lombardsententia/hopkinsMSB19"]
     annotation_list_url = if includes.include? manifestationid
         "https://exist.scta.info/exist/apps/scta-app/folio-annotaiton-list-from-simpleXmlCoordinates.xq?surfaceid=#{result[:surface].to_s.split("/resource/").last()}"
       # elsif manifestationid.include?

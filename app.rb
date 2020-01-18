@@ -328,6 +328,14 @@ get '/api/timeline/1.0/:type' do |type|
   create_person_timeline(params)
 end
 
+# get '/api/outline/1.0/:resourceid' do |resourceid|
+#   headers( "Access-Control-Allow-Origin" => "*")
+#   content_type :html
+#
+#   #create_outline(resourceid)
+#   send_file "public/outlines/#{resourceid}.xml"
+# end
+
 get '/iiif/collection/scta' do
   redirect to('/iiif/scta/collection')
   #headers( "Access-Control-Allow-Origin" => "*")
