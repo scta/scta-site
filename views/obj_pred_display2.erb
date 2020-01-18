@@ -2,21 +2,9 @@
   <div id="titleheader">
     <h2><%= "#{@resource.title}" %></h2>
     <p><%= @resource.description %> </p>
-
-    <% if @resource.value("http://scta.info/property/structureType").to_s == "http://scta.info/resource/structureCollection" %>
-      <p>Author: <a href="<%=(@resource.value("http://www.loc.gov/loc.terms/relators/AUT"))%>"><%= @resource.value("http://www.loc.gov/loc.terms/relators/AUT") %> </a></p>
-      <p>View text in SCTA Reading Room: <a href="http://scta.lombardpress.org/text/questions/<%= @resource.short_id %>">http://scta.lombardpress.org/text/questions/<%= @resource.short_id %></a></p>
-    <% elsif @resource.value("http://scta.info/property/structureType").to_s == "http://scta.info/resource/structureItem" %>
-      <p>Author: <a href="<%=(@resource.value("http://www.loc.gov/loc.terms/relators/AUT"))%>"><%= @resource.value("http://www.loc.gov/loc.terms/relators/AUT") %> </a> </p>
-      <p>View text in SCTA Reading Room: <a href="http://scta.lombardpress.org/text/<%= @resource.short_id %>">http://scta.lombardpress.org/text/<%= @resource.short_id %></a></p>
-    <% elsif @resource.type.short_id == "person" %>
-      <p>View entry in SCTA Reading Room: <a href="http://scta.lombardpress.org/text/questions/<%= @resource.short_id %>">http://scta.lombardpress.org/text/questions/<%= @resource.short_id %></a></p>
-    <% elsif @resource.type.short_id == "workGroup" %>
-      <p>View collection in SCTA Reading Room: <a href="http://scta.lombardpress.org/text/questions/<%= @resource.short_id %>">http://scta.lombardpress.org/text/questions/<%= @resource.short_id %></a></p>
-    <% end %>
-
-
+    <p>View Resource in SCTA Reading Room: <a href="http://scta.lombardpress.org/#/res?resourceid=<%= @resource.to_s %>">http://scta.lombardpress.org/#/res?resourceid=<%= @resource.to_s %></a></p>
   </div>
+  <div><iframe src="http://scta.lombardpress.org/#/res?resourceid=<%= @resource.to_s %>" width="100%" height="400px"></iframe></div>
 
 
 

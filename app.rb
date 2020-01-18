@@ -208,7 +208,7 @@ end
 
 #community routeget '/technical-details' do
 get '/about' do
-  erb :about
+  erb :community
 end
 
 # oai routes
