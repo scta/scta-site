@@ -360,7 +360,14 @@ end
 get '/iiif/:expressionid/collection' do |expressionid|
   headers( "Access-Control-Allow-Origin" => "*")
   content_type :json
+  ## TODO base url doesn't seem to be capturing https
+  ## this could be fixed when updating rack (as lastest versions seems to do this)
+  # https://github.com/rack/rack/blob/145a0c5f41ce1fef18edc9807701655ddd717c06/lib/rack/request.rb#L210
+  # https://github.com/rack/rack/blob/145a0c5f41ce1fef18edc9807701655ddd717c06/lib/rack/request.rb#L502
+  # rack update should happen along update of sinatra and puma 
+  # for now, i'm just going to override
   baseurl = request.base_url
+  baseurl = baseurl.gsub("http://scta.info/iiif/", "https://scta.info/iiif/")
   if expressionid == "authors"
     create_all_person_collection(baseurl)
   elsif expressionid == "codices"
