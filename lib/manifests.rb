@@ -324,12 +324,13 @@ query =
             "@id": annotation_list_url_lines,
             "@type": "sc:AnnotationList",
             "label": "by line"
-          },
-          {
-            "@id": annotation_list_url_page,
-            "@type": "sc:AnnotationList",
-            "label": "by page"
           }
+          # {
+          #   "@id": annotation_list_url_page,
+          #   "@type": "sc:AnnotationList",
+          #   "label": "by page"
+          # }
+          
         ]
       }
 
