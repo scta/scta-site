@@ -264,20 +264,36 @@ query =
         end
       ### end temporary measure.
 
-      ## BEGIN temporary annotation list switch ###
-      # annotation_list_url = if manifestationid.include? "plaoulcommentary"
-      #   "https://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}"
-      ### TODO: this conditions is here for testing, eventually all should be switched
-      ### but the gracilis switch should be commented out or removed before push to production
-      includes = ["graciliscommentary/lon", "nhyjhg/cod-yu78uh", "plaoulcommentary/reims", "plaoulcommentary/svict", "plaoulcommentary/vat", "plaoulcommentary/sorb", "Huy7yz/cod-uySe7d", "rothwellcommentary/penn", "lombardsententia/hopkinsMSB19"]
-    annotation_list_url = if includes.include? manifestationid
-        "https://exist.scta.info/exist/apps/scta-app/folio-annotaiton-list-from-simpleXmlCoordinates.xq?surfaceid=#{result[:surface].to_s.split("/resource/").last()}"
-      # elsif manifestationid.include?
-      #   "http://localhost:8080/exist/apps/scta-app/folio-annotaiton-list-from-simpleXmlCoordinates.xq?surfaceid=#{result[:surface].to_s.split("/resource/").last()}"
-      else
-        "https://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}"
-      end
-      ## END temporary annotation list switch ###
+      # ## BEGIN temporary annotation list switch ###
+      # # annotation_list_url = if manifestationid.include? "plaoulcommentary"
+      # #   "https://scta.info/iiif/#{manifestationid}/list/transcription/#{result[:surface_title]}"
+      # ### TODO: this conditions is here for testing, eventually all should be switched
+      # ### but the gracilis switch should be commented out or removed before push to production
+      # includes = ["graciliscommentary/lon", 
+      # "nhyjhg/cod-yu78uh", 
+      # "plaoulcommentary/reims", 
+      # "plaoulcommentary/svict", 
+      # "plaoulcommentary/vat", 
+      # "plaoulcommentary/sorb", 
+      # "Huy7yz/cod-uySe7d", 
+      # "rothwellcommentary/penn", 
+      # "lombardsententia/hopkinsMSB19", 
+      # "vn58an/Badius1520a",
+      # "vn58an/Badius1520b",
+      # "vn58an/Badius1518", 
+      # "clm26711",
+      # "erlang",
+      # "pal"]
+      # annotation_list_url = if includes.include? manifestationid
+      #   "https://exist.scta.info/exist/apps/scta-app/folio-annotaiton-list-from-simpleXmlCoordinates.xq?surfaceid=#{result[:surface].to_s.split("/resource/").last()}"
+      # # elsif manifestationid.include?
+      # #   "http://localhost:8080/exist/apps/scta-app/folio-annotaiton-list-from-simpleXmlCoordinates.xq?surfaceid=#{result[:surface].to_s.split("/resource/").last()}"
+      # else
+      #   "https://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}"
+      # end
+      # ## END temporary annotation list switch ###
+      annotation_list_url_lines = "https://exist.scta.info/exist/apps/scta-app/folio-annotaiton-list-from-simpleXmlCoordinates.xq?surfaceid=#{result[:surface].to_s.split("/resource/").last()}"
+      annotation_list_url_page = "https://exist.scta.info/exist/apps/scta-app/folio-annotation-list.xq?surface_id=#{result[:surface].to_s}"
       canvas = {
         "@id": "#{result[:canvas]}",
         "@type": "sc:Canvas",
@@ -305,9 +321,16 @@ query =
         ],
         "otherContent": [
           {
-            "@id": annotation_list_url,
-            "@type": "sc:AnnotationList"
+            "@id": annotation_list_url_lines,
+            "@type": "sc:AnnotationList",
+            "label": "by line"
           }
+          # {
+          #   "@id": annotation_list_url_page,
+          #   "@type": "sc:AnnotationList",
+          #   "label": "by page"
+          # }
+          
         ]
       }
 
