@@ -369,6 +369,7 @@ get '/iiif/:expressionid/collection' do |expressionid|
   baseurlRaw = request.base_url
   scheme = request.scheme
   host = request.host_with_port
+  # NOTE: this substituion will prevent links from working on dev when using http://localhost:4567
   baseurl = baseurlRaw.gsub("http", "https")
   if expressionid == "authors"
     create_all_person_collection(baseurl)
