@@ -106,6 +106,10 @@ error 400..510 do
   erb :error
 end
 
+before do
+  response.headers['X-Robots-Tag'] = 'noindex'
+end
+
 # root route
 get '/' do
   erb :index2

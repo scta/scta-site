@@ -1,5 +1,5 @@
 
-def get_official_manifest(shortid)
+def get_official_manifest(shortid, attempt=0)
   query = "
   SELECT ?manifest
   {
@@ -12,8 +12,17 @@ def get_official_manifest(shortid)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
   begin
-    manifest = open(get_official_manifest_url(shortid)).read
-    return manifest
+    # attempt parameters is used to stop a loop that occurs when the official_manifest_url is also an scta.info url
+    # loop occurs because the process starts with an scta.info url and when not found looks for an official manifest url 
+    # but when the official manifest url is a scta url, the process begins
+    # the attempt stops this from making second and third attempts
+    attempt = attempt + 1
+    if (attempt == 1)
+      manifest = open(get_official_manifest_url(shortid), attempt).read
+      return manifest
+    else
+      return status 404
+    end
   rescue
     return status 404
   end
