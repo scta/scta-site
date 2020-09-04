@@ -11,8 +11,12 @@ def get_official_manifest(shortid)
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   results = query_obj.query(query)
-  manifest = open(get_official_manifest_url(shortid)).read
-  return manifest
+  begin
+    manifest = open(get_official_manifest_url(shortid)).read
+    return manifest
+  rescue
+    return status 404
+  end
 
 end
 
