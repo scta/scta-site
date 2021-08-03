@@ -2,9 +2,9 @@
   <div id="titleheader">
     <h2><%= "#{@resource.title}" %></h2>
     <p><%= @resource.description %> </p>
-    <p>View Resource in SCTA Reading Room: <a href="https://scta.lombardpress.org/#/res?resourceid=<%= @resource.to_s %>">http://scta.lombardpress.org/#/res?resourceid=<%= @resource.to_s %></a></p>
+    <p>View Resource in SCTA Reading Room: <a href="https://scta.lombardpress.org/res?resourceid=<%= @resource.to_s %>">http://scta.lombardpress.org/res?resourceid=<%= @resource.to_s %></a></p>
   </div>
-  <div><iframe src="https://scta.lombardpress.org/#/res?resourceid=<%= @resource.to_s %>" width="100%" height="400px"></iframe></div>
+  <div><iframe src="https://scta.lombardpress.org/res?resourceid=<%= @resource.to_s %>" width="100%" height="400px"></iframe></div>
 
 
 
