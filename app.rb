@@ -567,14 +567,14 @@ get '/iiif/:expressionpart/:manifestationpart/layer/translation' do |expressionp
   create_supplement(manifestationid, type)
 end
 
-#hard coding this for testing
-get '/iiif/::expressionpart/:manifestationpart/layer/comments' do |expressionpart, manifestationpart|
-  headers( "Access-Control-Allow-Origin" => "*")
-  content_type :json
-  type = "layerComments"
-  manifestationid = "#{expressionpart}/#{manifestationpart}"
-  create_supplement(manifestationid, type)
-end
+# #hard coding this for testing
+# get '/iiif/::expressionpart/:manifestationpart/layer/comments' do |expressionpart, manifestationpart|
+#   headers( "Access-Control-Allow-Origin" => "*")
+#   content_type :json
+#   type = "layerComments"
+#   manifestationid = "#{expressionpart}/#{manifestationpart}"
+#   create_supplement(manifestationid, type)
+# end
 
 get '/iiif/:expressionpart/:manifestationpart/layer/transcription' do |expressionpart, manifestationpart|
   headers( "Access-Control-Allow-Origin" => "*")
