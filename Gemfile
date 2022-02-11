@@ -13,7 +13,7 @@ gem 'sass', "~> 3.4.0"
 gem 'sinatra-linkeddata', "~> 0.3.0" #problems with this dependency but this is needed for content negotiation
 gem 'equivalent-xml', "~> 0.6.0"
 gem 'httparty', "~> 0.13.7"
-gem 'puma', "~> 2.15.0"
+gem 'puma', "~> 4.3.11"
 
 gem 'lbp', :git => "https://github.com/lombardpress/lbp.rb.git", :branch => "develop"
 
