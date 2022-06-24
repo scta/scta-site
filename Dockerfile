@@ -17,6 +17,7 @@ ADD . /scta-site
 
 #Set Environemnet Variable
 ENV RACK_ENV=production
+ENV SPARQL="docker"
 
 # Start server
 ENV PORT 3000
