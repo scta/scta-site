@@ -115,7 +115,8 @@ get '/' do
   erb :index2
 end
 get '/donate' do
-  erb :donate
+  redirect to('https://community.scta.info/donate')
+  #erb :donate
 end
 get '/stats' do
 quotationquery = "#{prefixes}
