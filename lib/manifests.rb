@@ -18,7 +18,7 @@ def get_official_manifest(shortid, attempt=0)
     # the attempt stops this from making second and third attempts
     attempt = attempt + 1
     if (attempt == 1)
-      manifest = open(get_official_manifest_url(shortid), attempt).read
+      manifest = URI.open(get_official_manifest_url(shortid), attempt).read
       return manifest
     else
       return status 404
