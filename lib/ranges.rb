@@ -2,7 +2,7 @@ def create_range(manifestationid)
 
   msname = manifestationid.split("/").last
   query = "
-  SELECT ?wrapper_title ?topdivision ?topdivision_title ?item ?item_expression ?order ?title ?witness ?canvas
+  SELECT ?wrapper_title ?topdivision ?topdivision_title ?item ?item_expression ?order ?title ?longTitle ?witness ?canvas
   {
     <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isManifestationOf> ?wrapper_expression.
     ?wrapper_expression <http://purl.org/dc/elements/1.1/title> ?wrapper_title .
@@ -13,13 +13,14 @@ def create_range(manifestationid)
     ?item <http://scta.info/property/isManifestationOf> ?item_expression .
     ?item_expression <http://scta.info/property/totalOrderNumber> ?order .
     ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
+    ?item_expression <http://scta.info/property/longTitle> ?longTitle .
     ?item <http://scta.info/property/isOnSurface> ?surface .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas
   }
   ORDER BY ?order
   "
-
+  
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
   @results = query_obj.query(query)
@@ -46,24 +47,24 @@ def create_range(manifestationid)
     # the items array is a list of item resources, each entry in the list
     # includes the item id, the item title and the top division to which it belongs
     @results.each do |result|
-      items << [result[:item], result[:title], result[:topdivision], result[:topdivision_title]]
+      items << [result[:item], result[:title], result[:longTitle], result[:topdivision], result[:topdivision_title]]
+      
     end
-
+    
     ## a new array called result sets is built to get
     # the full set of information for each item (including associated canvases)
     # associated with topdivision id and top division title
     result_sets = []
     items.uniq!
 
-    items.each do |item, title, topdivision, topdivision_title|
+    items.each do |item, title, longTitle, topdivision, topdivision_title|
       filtered_results = @results.dup.filter(:item => item.to_s)
-      result_sets << [filtered_results, title, topdivision.to_s, topdivision_title]
+      result_sets << [filtered_results, title, longTitle, topdivision.to_s, topdivision_title]
     end
-
+    
     #create ranges array for each topdivision and item ranges associated within each topdivision
     topdivision_ranges = []
     item_ranges = []
-
     r = 1
 
     topdivisions.each do |topdivisionid, topdivision_title|
@@ -71,12 +72,13 @@ def create_range(manifestationid)
       topdivision_ranges << "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}"
 
       next_r = 1
-      result_sets.each do |result, title, item_topdivisionid, topdivision_title|
+      result_sets.each do |result, title, longTitle, item_topdivisionid, topdivision_title|
         if item_topdivisionid == topdivisionid
           item_ranges << {topdivision_rangeid: "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}",
                           item_rangeid: "https://scta.info/iiif/#{manifestationid}/range/r1-#{r}-#{next_r}",
                           set: result,
                           title: title.to_s,
+                          longTitle: longTitle.to_s,
                           topdivision_title: topdivision_title
                           }
           end
@@ -148,7 +150,8 @@ def create_range(manifestationid)
           structure_canvases << item_set[:canvas].to_s
         end
 
-        title = object[:title].to_s.split("#{object[:topdivision_title]}, ").last
+        title = object[:longTitle].to_s.split("#{object[:topdivision_title]}, ").last
+
         structure = {"@id" => object[:item_rangeid],
                       "within" => object[:topdivision_rangeid],
                       "@type" => "sc:Range",
@@ -175,7 +178,7 @@ end
 ## create_range2 is the better function, but the ranges created are often to complex and heavy for web and mirador
 def create_range2(manifestationid)
   query = "
-  SELECT ?expression ?expression_title ?level ?part ?part_title ?part_order ?part_level ?canvas ?part_child ?part_child_order ?part_parent ?part_order
+  SELECT ?expression ?expression_title ?level ?part ?part_title ?part_longTitle ?part_order ?part_level ?canvas ?part_child ?part_child_order ?part_parent ?part_order ?part_child_longTitle 
   {
     <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isManifestationOf> ?expression .
     ?expression <http://purl.org/dc/elements/1.1/title> ?expression_title .
@@ -184,6 +187,7 @@ def create_range2(manifestationid)
     ?part <http://scta.info/property/totalOrderNumber> ?part_order .
     ?part <http://scta.info/property/structureType> ?structureType .
     ?part <http://purl.org/dc/elements/1.1/title> ?part_title .
+    ?part <http://scta.info/property/longTitle> ?part_longTitle .
     FILTER (?structureType = <http://scta.info/resource/structureCollection> || ?structureType =  <http://scta.info/resource/structureItem>)
       ?part <http://scta.info/property/level> ?part_level .
     OPTIONAL{
@@ -191,6 +195,9 @@ def create_range2(manifestationid)
 	    }
     OPTIONAL{
       ?part <http://purl.org/dc/terms/hasPart> ?part_child .
+      # FILTER added here to restrict to collection and item levels only 
+      FILTER (?structureType = <http://scta.info/resource/structureCollection> || ?structureType =  <http://scta.info/resource/structureItem>)
+      ?part_child <http://scta.info/property/longTitle> ?part_child_longTitle .
       ?part_child <http://scta.info/property/totalOrderNumber> ?part_child_order .
     }
     OPTIONAL{
@@ -226,18 +233,19 @@ def create_range2(manifestationid)
       part_parent = ""
       part_level = ""
       part_title = ""
+      part_longTitle = ""
       part_order = ""
       @results.each do |result|
         if result[:part].to_s == part
-          part_children << {part_child: result[:part_child].to_s, part_child_order: result[:part_child_order]}
+          part_children << {part_child: result[:part_child].to_s, part_child_order: result[:part_child_order], part_child_longTitle: result[:part_child_longTitle].to_s}
           canvases << result[:canvas].to_s
           part_parent = result[:part_parent].to_s
           part_level = result[:part_level].to_s
           part_title = result[:part_title].to_s
+          part_longTitle = result[:part_longTitle].to_s
           part_order = result[:part_order].to_s
         end
       end
-
       canvases.uniq!
       canvases.reject! { |c| c.empty? }
       group = {partid: part,
@@ -246,6 +254,7 @@ def create_range2(manifestationid)
               parent: part_parent,
               level: part_level,
               part_title: part_title,
+              part_longTitle: part_longTitle,
               part_order: part_order
             }
     groups << group
@@ -269,7 +278,7 @@ def create_range2(manifestationid)
           structure = {"@id" => "https://scta.info/iiif/#{manifestationid}/range/#{rangeid}",
                       "within" => "https://scta.info/iiif/#{manifestationid}/range/#{parent_rangeid}",
                       "@type" => "sc:Range",
-                      "label" => group[:part_title],
+                      "label" => group[:part_itle],
                       "ranges" => children_ranges,
                       "attribution": "Data provided by the Scholastic Commentaries and Texts Archive",
                       "description": "A range for Sentences Commentary #{manifestationid}",
