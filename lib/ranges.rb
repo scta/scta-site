@@ -2,7 +2,7 @@ def create_range(manifestationid)
 
   msname = manifestationid.split("/").last
   query = "
-  SELECT ?wrapper_title ?topdivision ?topdivision_title ?item ?item_expression ?order ?title ?longTitle ?witness ?canvas
+  SELECT ?wrapper_title ?topdivision ?topdivision_title ?item ?item_expression ?order ?title ?longTitle ?witness ?canvas ?surface_order
   {
     <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isManifestationOf> ?wrapper_expression.
     ?wrapper_expression <http://purl.org/dc/elements/1.1/title> ?wrapper_title .
@@ -15,10 +15,11 @@ def create_range(manifestationid)
     ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
     ?item_expression <http://scta.info/property/longTitle> ?longTitle .
     ?item <http://scta.info/property/isOnSurface> ?surface .
+    ?surface <http://scta.info/property/order> ?surface_order .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas
   }
-  ORDER BY ?order
+  ORDER BY ?order ?surface_order
   "
   
   #@results = rdf_query(query)
@@ -178,7 +179,7 @@ end
 ## create_range2 is the better function, but the ranges created are often to complex and heavy for web and mirador
 def create_range2(manifestationid)
   query = "
-  SELECT ?expression ?expression_title ?level ?part ?part_title ?part_longTitle ?part_order ?part_level ?canvas ?part_child ?part_child_order ?part_parent ?part_order ?part_child_longTitle 
+  SELECT ?expression ?expression_title ?level ?part ?part_title ?part_longTitle ?part_order ?part_level ?canvas ?part_child ?part_child_order ?part_parent ?part_order ?part_child_longTitle ?surface_order
   {
     <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isManifestationOf> ?expression .
     ?expression <http://purl.org/dc/elements/1.1/title> ?expression_title .
@@ -204,11 +205,12 @@ def create_range2(manifestationid)
       ?part <http://scta.info/property/hasManifestation> ?part_manifestation .
       ?part_manifestation <http://scta.info/property/isPartOfTopLevelManifestation> <http://scta.info/resource/#{manifestationid}> .
       ?part_manifestation <http://scta.info/property/isOnSurface> ?surface .
+      ?surface <http://scta.info/property/order> ?surface_order .
       ?surface <http://scta.info/property/hasISurface> ?isurface .
       ?isurface <http://scta.info/property/hasCanvas> ?canvas
     }
   }
- ORDER BY ?part_order ?part_child_order"
+ ORDER BY ?part_order ?part_child_order ?surface_order"
 
   #@results = rdf_query(query)
   query_obj = Lbp::Query.new()
@@ -340,7 +342,7 @@ def create_range3(manifestationid)
 
   msname = manifestationid.split("/").last
   query = "
-  SELECT ?wrapper_title ?topdivision ?topdivision_title ?item ?item_expression ?order ?title ?witness ?canvas
+  SELECT ?wrapper_title ?topdivision ?topdivision_title ?item ?item_expression ?order ?title ?witness ?canvas ?surface_order
   {
     <http://scta.info/resource/#{manifestationid}> <http://scta.info/property/isPartOfTopLevelManifestation> ?topLevelManifestation .
     ?topLevelManifestation <http://purl.org/dc/terms/hasPart> ?topdivision .
@@ -354,10 +356,11 @@ def create_range3(manifestationid)
     ?item_expression <http://scta.info/property/totalOrderNumber> ?order .
     ?item_expression <http://purl.org/dc/elements/1.1/title> ?title .
     ?item <http://scta.info/property/isOnSurface> ?surface .
+    ?surface <http://scta.info/property/order> ?surface_order .
     ?surface <http://scta.info/property/hasISurface> ?isurface .
     ?isurface <http://scta.info/property/hasCanvas> ?canvas
   }
-  ORDER BY ?order
+  ORDER BY ?order ?surface_order
   "
 
   #@results = rdf_query(query)
